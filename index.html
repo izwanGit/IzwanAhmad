@@ -4,215 +4,256 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Izwan Ahmad — Software Engineer & Web Developer</title>
+  <title>Muhammad Izwan Ahmad | Freelance Software Engineer</title>
   <meta name="description"
-    content="Muhammad Izwan Ahmad — Software Engineer based in Malaysia. I build modern websites, web applications, and AI-powered software for businesses that want to grow.">
-
+    content="Portfolio of Muhammad Izwan Ahmad — Freelance Software Engineer, Ex-PETRONAS, specializing in AI, Business Automation, and Full-Stack Web & Mobile Engineering.">
+  
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/IzwanAhmad Logo.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       DESIGN TOKENS
+       DESIGN SYSTEM & TOKENS (Strict Palette Compliance)
        ========================================================================== */
     :root {
-      /* Colors */
-      --bg:            #F7FAFB;
-      --bg-alt:        #FFFFFF;
-      --primary:       #0E7490;
-      --primary-dark:  #0A5568;
-      --accent:        #06B6D4;
-      --text:          #0C1A20;
-      --muted:         #64748B;
-      --subtle:        #94A3B8;
-      --border:        #E2EEF1;
-      --tint:          #EBF6F8;
-
-      /* Typography */
-      --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-
-      /* Shadows */
-      --shadow-xs: 0 1px 4px rgba(14, 116, 144, 0.06);
-      --shadow-sm: 0 2px 8px rgba(14, 116, 144, 0.08);
-      --shadow-md: 0 4px 20px rgba(14, 116, 144, 0.10);
-      --shadow-lg: 0 12px 40px rgba(14, 116, 144, 0.14);
-
-      /* Radii */
-      --r-sm: 8px;
-      --r-md: 12px;
-      --r-lg: 20px;
-      --r-xl: 28px;
-
-      /* Transitions */
-      --t: all 0.22s ease;
+      --bg-main: #F5F9FA;
+      --color-primary: #0E7490;
+      --color-accent: #06B6D4;
+      --color-text: #0C1A20;
+      --color-card: #FFFFFF;
+      --color-muted: #64748B;
+      --color-tint: #EBF6F8;
+      --color-border: #E2EEF1;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --shadow-sm: 0 2px 8px rgba(14, 116, 144, 0.04);
+      --shadow-card: 0 2px 16px rgba(14, 116, 144, 0.07);
+      --shadow-hover: 0 12px 32px rgba(14, 116, 144, 0.14);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: all 0.2s ease;
     }
 
-    /* ==========================================================================
-       RESET & BASE
-       ========================================================================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
       scroll-behavior: smooth;
+      font-family: var(--font-main);
+      background-color: var(--bg-main);
+      color: var(--color-text);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
-      font-family: var(--font);
-      background-color: var(--bg);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.7;
       overflow-x: hidden;
+      line-height: 1.75;
+      font-size: 17px;
+      color: var(--color-muted);
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--text);
-      line-height: 1.2;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--color-text);
       font-weight: 700;
+      line-height: 1.25;
     }
 
-    a { color: inherit; text-decoration: none; transition: var(--t); }
-    img { display: block; max-width: 100%; }
-    button { font-family: var(--font); cursor: pointer; }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
 
-    /* ==========================================================================
-       LAYOUT
-       ========================================================================== */
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 24px;
     }
 
-    section { overflow: hidden; }
-
-    /* ==========================================================================
-       TYPOGRAPHY UTILITIES
-       ========================================================================== */
-    .eyebrow {
-      display: inline-block;
-      font-size: 11.5px;
+    /* Section Typography */
+    .section-label {
+      font-size: 13px;
       font-weight: 800;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+      display: block;
     }
 
-    .section-title {
-      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+    .section-heading {
+      font-size: clamp(2rem, 3.5vw, 2.5rem);
+      /* 40px base */
+      font-weight: 700;
+      color: var(--color-text);
       margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
-    .section-body {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 560px;
-      line-height: 1.75;
-    }
-
-    /* ==========================================================================
-       SCROLL ANIMATIONS
-       ========================================================================== */
-    .reveal {
+    /* Scroll Animation Utility */
+    .animate-on-scroll {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      will-change: opacity, transform;
     }
 
-    .reveal.visible {
+    .animate-on-scroll.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .reveal.d1 { transition-delay: 0.08s; }
-    .reveal.d2 { transition-delay: 0.16s; }
-    .reveal.d3 { transition-delay: 0.24s; }
-    .reveal.d4 { transition-delay: 0.32s; }
+    .delay-100 {
+      transition-delay: 100ms;
+    }
 
-    /* ==========================================================================
-       BUTTONS
-       ========================================================================== */
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms;
+    }
+
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 13px 26px;
-      border-radius: var(--r-md);
-      font-size: 15px;
-      font-weight: 700;
-      transition: var(--t);
-      border: none;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 2px solid transparent;
       white-space: nowrap;
     }
 
     .btn-primary {
-      background-color: var(--text);
-      color: #fff;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
     }
 
     .btn-primary:hover {
-      background-color: var(--primary);
+      background-color: #0c637b;
       transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 8px 20px rgba(14, 116, 144, 0.25);
     }
 
     .btn-outline {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
       background-color: transparent;
-      color: var(--text);
-      border: 1.5px solid var(--border);
     }
 
     .btn-outline:hover {
-      border-color: var(--primary);
-      color: var(--primary);
+      background-color: var(--color-tint);
       transform: translateY(-2px);
     }
 
+    .btn-white {
+      background-color: #FFFFFF;
+      color: var(--color-primary);
+    }
+
+    .btn-white:hover {
+      background-color: #F8FAFC;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-white-outline {
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      color: #FFFFFF;
+      background-color: transparent;
+    }
+
+    .btn-white-outline:hover {
+      border-color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Badges */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      background-color: var(--color-tint);
+      color: var(--color-primary);
+      border: 1px solid rgba(14, 116, 144, 0.15);
+    }
+
+    .badge-award {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      background-color: #FFFBEB;
+      color: #B45309;
+      border: 1px solid #FCD34D;
+    }
+
     /* ==========================================================================
-       HEADER / NAV
+       SECTION 1: NAVIGATION
        ========================================================================== */
-    .header {
-      position: fixed;
+    .navbar {
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      height: 68px;
+      z-index: 1000;
+      width: 100%;
+      height: 80px;
       display: flex;
       align-items: center;
-      background-color: rgba(247, 250, 251, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      background-color: transparent;
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease, background-color 0.3s ease;
     }
 
-    .header.scrolled {
-      border-color: var(--border);
-      background-color: rgba(247, 250, 251, 0.96);
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(12, 26, 32, 0.06);
+      border-bottom-color: var(--color-border);
     }
 
-    .header .container {
+    .navbar .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .nav-logo img {
-      height: 44px;
+    .logo-img {
+      height: 48px;
       display: block;
     }
 
@@ -224,782 +265,528 @@
     }
 
     .nav-links a {
-      font-size: 14.5px;
+      font-size: 15px;
       font-weight: 600;
-      color: var(--muted);
+      color: var(--color-text);
+      opacity: 0.8;
     }
 
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .nav-links a:hover {
+      color: var(--color-primary);
+      opacity: 1;
     }
 
-    .nav-cta .btn {
-      padding: 9px 20px;
-      font-size: 14px;
-    }
-
-    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
+      cursor: pointer;
       background: none;
       border: none;
-      padding: 6px;
+      padding: 8px;
     }
 
     .hamburger span {
-      width: 22px;
+      width: 24px;
       height: 2px;
-      background-color: var(--text);
-      border-radius: 2px;
-      transition: var(--t);
-      display: block;
+      background-color: var(--color-text);
+      transition: var(--transition);
     }
 
-    /* Mobile menu */
-    .mobile-nav {
-      display: none;
+    /* Mobile Drawer */
+    .mobile-menu {
       position: fixed;
-      inset: 0;
-      background-color: var(--bg-alt);
-      z-index: 200;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: #FFFFFF;
+      z-index: 1001;
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+      padding: 80px 32px 32px 32px;
+      transition: right 0.3s ease;
+      display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      padding: 28px;
-      gap: 8px;
+      gap: 24px;
     }
 
-    .mobile-nav.open { display: flex; }
+    .mobile-menu.active {
+      right: 0;
+    }
 
-    .mobile-nav-close {
-      align-self: flex-end;
+    .mobile-menu a {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
       background: none;
       border: none;
       font-size: 28px;
-      color: var(--text);
-      margin-bottom: 16px;
+      cursor: pointer;
+      color: var(--color-text);
     }
 
-    .mobile-nav a {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      width: 100%;
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(12, 26, 32, 0.4);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     /* ==========================================================================
-       HERO
+       SECTION 2: HERO
        ========================================================================== */
     .hero {
-      padding: 160px 0 100px;
-      background-color: var(--bg);
+      position: relative;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      padding: 40px 0 80px 0;
+      background-color: var(--bg-main);
+      background-image: radial-gradient(rgba(14, 116, 144, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
       align-items: center;
     }
 
-    /* Left column */
-    .hero-label {
+    @keyframes pulse-green {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background-color: var(--tint);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 5px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--primary);
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
       margin-bottom: 24px;
     }
 
-    .hero-label-dot {
-      width: 7px;
-      height: 7px;
-      background-color: var(--accent);
+    .pulsing-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22C55E;
       border-radius: 50%;
-      animation: pulse 2.2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
+      animation: pulse-green 2s infinite;
     }
 
     .hero-heading {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-size: clamp(2.5rem, 5vw + 1rem, 4.25rem);
+      /* 68px base */
       font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.08;
-      color: var(--text);
+      line-height: 1.1;
+      color: var(--color-text);
       margin-bottom: 24px;
+      letter-spacing: -1px;
     }
 
-    .hero-heading .line2 {
-      color: var(--primary);
+    .hero-heading span.highlight {
+      color: var(--color-primary);
+      position: relative;
+      display: inline-block;
     }
 
     .hero-subtext {
       font-size: 18px;
-      color: var(--muted);
       line-height: 1.75;
-      max-width: 480px;
+      color: var(--color-muted);
       margin-bottom: 36px;
+      max-width: 620px;
     }
 
     .hero-ctas {
       display: flex;
-      align-items: center;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 16px;
       margin-bottom: 48px;
     }
 
-    .hero-pills {
+    .hero-stats-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 100px;
-      border: 1px solid var(--border);
-      background-color: var(--bg-alt);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    .pill svg { flex-shrink: 0; }
-
-    /* Right column — Browser Mockup */
-    @keyframes floatMockup {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .browser-mockup {
-      background-color: var(--bg-alt);
-      border-radius: var(--r-lg);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      animation: floatMockup 5s ease-in-out infinite;
-    }
-
-    .browser-bar {
-      background-color: #F1F5F9;
-      border-bottom: 1px solid var(--border);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
       gap: 12px;
     }
 
-    .browser-dots {
+    .stat-pill {
       display: flex;
-      gap: 6px;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
     }
 
-    .browser-dots span {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
+    /* Floating Code Card */
+    @keyframes floatCard {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
-    .browser-dots .d-r { background-color: #FC605B; }
-    .browser-dots .d-y { background-color: #FDBC40; }
-    .browser-dots .d-g { background-color: #34C749; }
-
-    .browser-url-bar {
-      flex: 1;
-      background-color: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 5px 12px;
-      font-size: 12px;
-      color: var(--muted);
-      font-family: monospace;
+    .hero-code-card {
+      background-color: #0F172A;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 40px rgba(12, 26, 32, 0.2);
+      border: 1px solid #1E293B;
       overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      animation: floatCard 3s ease-in-out infinite;
     }
 
-    /* Tab bar for projects */
-    .browser-tabs {
-      display: flex;
-      gap: 4px;
-      padding: 10px 16px 0;
-      background-color: #F8FAFC;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .browser-tab {
-      padding: 7px 16px 8px;
-      font-size: 12px;
-      font-weight: 600;
-      border: none;
-      background-color: transparent;
-      color: var(--subtle);
-      border-radius: 6px 6px 0 0;
-      cursor: pointer;
-      transition: var(--t);
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
-    }
-
-    .browser-tab.active {
-      background-color: var(--bg-alt);
-      color: var(--text);
-      border-bottom-color: var(--primary);
-    }
-
-    .browser-content {
-      position: relative;
-      height: 280px;
-      overflow: hidden;
-      background-color: #F1F5F9;
-    }
-
-    .browser-content img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      transition: opacity 0.4s ease;
-      position: absolute;
-      top: 0; left: 0;
-    }
-
-    .browser-content img.hidden { opacity: 0; }
-    .browser-content img.visible { opacity: 1; }
-
-    .browser-footer {
+    .code-card-header {
+      background-color: #1E293B;
       padding: 12px 16px;
-      background-color: var(--bg-alt);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid var(--border);
     }
 
-    .browser-footer-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text);
+    .window-dots {
+      display: flex;
+      gap: 8px;
     }
 
-    .browser-footer-tag {
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red {
+      background-color: #EF4444;
+    }
+
+    .dot-yellow {
+      background-color: #F59E0B;
+    }
+
+    .dot-green {
+      background-color: #10B981;
+    }
+
+    .code-title {
       font-size: 12px;
-      font-weight: 700;
-      color: var(--accent);
-      background-color: var(--tint);
-      padding: 3px 10px;
-      border-radius: 100px;
+      font-family: monospace;
+      color: #94A3B8;
+    }
+
+    .code-body {
+      padding: 24px;
+      font-family: 'Fira Code', Consolas, Monaco, monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      color: #E2E8F0;
+      overflow-x: auto;
+    }
+
+    .code-kw {
+      color: #38BDF8;
+      font-weight: 600;
+    }
+
+    .code-func {
+      color: #818CF8;
+    }
+
+    .code-str {
+      color: #34D399;
+    }
+
+    .code-comment {
+      color: #64748B;
+      font-style: italic;
+    }
+
+    .code-num {
+      color: #F472B6;
     }
 
     /* ==========================================================================
-       METRICS STRIP
+       SECTION 3: METRICS STRIP
        ========================================================================== */
     .metrics-strip {
-      background-color: var(--bg-alt);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background-color: var(--color-primary);
+      color: #FFFFFF;
       padding: 48px 0;
+      width: 100%;
     }
 
-    .metrics-strip .container {
+    .metrics-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-
-    .metric-cell {
-      padding: 8px 32px;
+      gap: 32px;
       text-align: center;
-      border-right: 1px solid var(--border);
     }
 
-    .metric-cell:last-child { border-right: none; }
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-    .metric-num {
-      font-size: 2.2rem;
+    .metric-number {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      /* 48px base */
       font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 6px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      color: #FFFFFF;
+      letter-spacing: -0.5px;
     }
 
-    .metric-desc {
-      font-size: 13.5px;
+    .metric-label {
+      font-size: 13px;
       font-weight: 600;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.75);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     /* ==========================================================================
-       SERVICES
+       SECTION 4: SERVICES
        ========================================================================== */
-    .services {
-      padding: 120px 0;
-      background-color: var(--bg);
-    }
-
-    .services-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: end;
-      margin-bottom: 64px;
+    .services-section {
+      padding: 100px 0;
+      background-color: var(--bg-main);
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      margin-top: 48px;
     }
 
     .service-card {
-      background-color: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 36px 32px;
-      transition: var(--t);
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background-color: transparent;
-      transition: var(--t);
+      justify-content: space-between;
     }
 
     .service-card:hover {
+      background-color: var(--color-tint);
       transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--tint);
-    }
-
-    .service-card:hover::before {
-      background-color: var(--accent);
-    }
-
-    .service-card.featured::before {
-      background-color: var(--primary);
+      box-shadow: var(--shadow-hover);
     }
 
     .service-icon {
       width: 48px;
       height: 48px;
-      border-radius: var(--r-sm);
-      background-color: var(--tint);
-      color: var(--primary);
+      border-radius: 10px;
+      background-color: var(--color-tint);
+      color: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 20px;
+      transition: var(--transition);
     }
 
-    .service-card.featured .service-icon {
-      background-color: var(--primary);
-      color: #fff;
+    .service-card:hover .service-icon {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
     }
 
-    .service-card h3 {
-      font-size: 19px;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.02em;
+    .service-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 12px;
     }
 
-    .service-card p {
+    .service-desc {
       font-size: 15px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .service-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: auto;
-    }
-
-    .service-items li {
-      font-size: 13.5px;
-      color: var(--muted);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .service-items li::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background-color: var(--accent);
-      flex-shrink: 0;
+      color: var(--color-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
     }
 
     .service-price {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 800;
-      color: var(--primary);
-      padding-top: 20px;
-      border-top: 1px dashed var(--border);
-      margin-top: auto;
+      color: var(--color-primary);
+      padding-top: 16px;
+      border-top: 1px dashed var(--color-border);
     }
 
     /* ==========================================================================
-       BERUANG FEATURED CASE STUDY
+       SECTION 5: PROJECTS
        ========================================================================== */
-    .featured-case {
-      padding: 120px 0;
-      background-color: var(--bg-alt);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .projects-section {
+      padding: 100px 0;
+      background-color: #FFFFFF;
     }
 
-    .featured-case-grid {
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 32px 0 48px 0;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: var(--bg-main);
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Featured Beruang Card */
+    .featured-project-card {
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 48px;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 80px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
       align-items: center;
+      transition: var(--transition);
     }
 
-    /* Image side */
-    .case-image-wrap {
-      border-radius: var(--r-xl);
+    .featured-project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-image-wrapper {
+      width: 100%;
+      border-radius: var(--radius-md);
       overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-lg);
+      background-color: var(--color-tint);
+      border: 1px solid var(--color-border);
       position: relative;
     }
 
-    .case-image-wrap img {
+    .project-image-wrapper img {
       width: 100%;
+      height: 100%;
+      max-height: 360px;
       object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .project-image-wrapper:hover img {
+      transform: scale(1.02);
+    }
+
+    .featured-details h3 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .project-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+
+    .project-desc {
+      font-size: 15px;
+      color: var(--color-muted);
+      margin-bottom: 20px;
+      line-height: 1.65;
+    }
+
+    .stat-highlight {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 20px;
       display: block;
     }
 
-    .case-image-badge {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background-color: var(--text);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 6px 14px;
-      border-radius: 100px;
-      letter-spacing: 0.04em;
-    }
-
-    /* Text side */
-    .case-meta {
+    .tech-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 24px;
     }
 
-    .case-tag {
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 100px;
-      background-color: var(--tint);
-      color: var(--primary);
-      border: 1px solid var(--border);
-    }
-
-    .case-title {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-
-    .case-subtitle {
-      font-size: 15.5px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 32px;
-    }
-
-    .case-facts {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .case-fact {
-      background-color: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      padding: 16px 18px;
-    }
-
-    .case-fact-num {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .case-fact-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    .case-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 32px;
-    }
-
-    .tech-chip {
+    .tech-pill {
       font-size: 12px;
       font-weight: 600;
-      padding: 4px 11px;
-      border-radius: var(--r-sm);
-      background-color: var(--bg);
-      color: var(--muted);
-      border: 1px solid var(--border);
-    }
-
-    .case-screens {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 48px;
-    }
-
-    .case-screen {
-      border-radius: var(--r-md);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      aspect-ratio: 4 / 3;
-    }
-
-    .case-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
-
-    /* ==========================================================================
-       PETRONAS SECTION — One dedicated, contained section
-       ========================================================================== */
-    .enterprise {
-      padding: 120px 0;
-      background-color: var(--text);
-    }
-
-    .enterprise .container > .eyebrow {
-      color: var(--accent);
-    }
-
-    .enterprise .section-title {
-      color: #ffffff;
-      max-width: 640px;
-    }
-
-    .enterprise-intro {
-      font-size: 17px;
-      color: rgba(255,255,255,0.65);
-      max-width: 600px;
-      line-height: 1.75;
-      margin-bottom: 56px;
-    }
-
-    /* Top row — context bar */
-    .enterprise-context {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-    }
-
-    .enterprise-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: rgba(6, 182, 212, 0.15);
-      border: 1px solid rgba(6, 182, 212, 0.3);
-      color: var(--accent);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .enterprise-divider {
-      width: 1px;
-      height: 20px;
-      background-color: rgba(255,255,255,0.15);
-    }
-
-    .enterprise-context-text {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      font-weight: 500;
-    }
-
-    /* Cards */
-    .enterprise-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .enterprise-card {
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--r-lg);
-      padding: 32px;
-      transition: var(--t);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .enterprise-card:hover {
-      background-color: rgba(255, 255, 255, 0.08);
-      border-color: rgba(6, 182, 212, 0.3);
-    }
-
-    .enterprise-card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--r-sm);
-      background-color: rgba(6, 182, 212, 0.12);
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .enterprise-card h4 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .enterprise-card p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.7;
-    }
-
-    .enterprise-card-stat {
-      margin-top: auto;
-      display: inline-block;
-      font-size: 12.5px;
-      font-weight: 800;
-      color: var(--accent);
-      background-color: rgba(6, 182, 212, 0.12);
-      padding: 5px 12px;
-      border-radius: 100px;
-    }
-
-    .enterprise-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-
-    .enterprise-chip {
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 6px;
-      background-color: rgba(255,255,255,0.07);
-      color: rgba(255,255,255,0.45);
-      border: 1px solid rgba(255,255,255,0.1);
+      background-color: var(--bg-main);
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
     }
 
-    /* ==========================================================================
-       PROJECTS — CLIENT WORK
-       ========================================================================== */
-    .projects {
-      padding: 120px 0;
-      background-color: var(--bg);
-    }
-
-    .projects-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 48px;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    /* Filter tabs */
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      padding: 8px 18px;
-      border-radius: 100px;
-      border: 1.5px solid var(--border);
-      background-color: var(--bg-alt);
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
-      transition: var(--t);
-    }
-
-    .filter-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    .filter-btn.active {
-      background-color: var(--text);
-      border-color: var(--text);
-      color: #fff;
-    }
-
-    /* Projects grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1007,398 +794,414 @@
     }
 
     .project-card {
-      background-color: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
       overflow: hidden;
-      transition: var(--t);
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
       display: flex;
       flex-direction: column;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--tint);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
     }
 
-    /* Project image */
-    .project-img {
-      height: 200px;
-      overflow: hidden;
-      background-color: var(--tint);
-      position: relative;
-    }
-
-    .project-img img {
-      width: 100%;
-      height: 100%;
+    .project-card .project-image-wrapper img {
+      height: 220px;
       object-fit: cover;
-      object-position: top;
-      transition: transform 0.4s ease;
     }
 
-    .project-card:hover .project-img img { transform: scale(1.04); }
-
-    /* Visual banner for projects without images */
-    .project-banner {
-      height: 200px;
+    /* Custom Enterprise UI Card Banners (for PETRONAS & background tools) */
+    .enterprise-ui-banner {
+      height: 180px;
+      background: linear-gradient(135deg, #0C1A20 0%, #0E7490 100%);
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px;
+      justify-content: space-between;
+      color: #FFFFFF;
       position: relative;
       overflow: hidden;
     }
 
-    .project-banner::before {
+    .enterprise-ui-banner::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 75% 25%, rgba(6,182,212,0.18) 0%, transparent 60%);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.2), transparent 70%);
+      pointer-events: none;
     }
 
-    .project-banner-tag {
+    .banner-tag {
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 8px;
-      position: relative;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      align-self: flex-start;
     }
 
-    .project-banner-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -0.02em;
-      position: relative;
+    .banner-title-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    /* Project body */
-    .project-body {
+    .banner-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: rgba(6, 182, 212, 0.2);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #06B6D4;
+    }
+
+    .banner-title-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .project-card-body {
       padding: 28px;
       display: flex;
       flex-direction: column;
       flex: 1;
+      justify-content: space-between;
     }
 
-    .project-group {
-      font-size: 11.5px;
+    .group-label {
+      font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+      margin-bottom: 6px;
     }
 
-    .project-body h4 {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
+    .project-card h4 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
     }
 
-    .project-kind {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--subtle);
-      margin-bottom: 14px;
+    .card-footer-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
     }
 
-    .project-desc {
-      font-size: 14.5px;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-
-    .project-highlight {
+    .link-btn {
       font-size: 13px;
       font-weight: 700;
-      color: var(--primary);
-      background-color: var(--tint);
-      border: 1px solid var(--border);
-      border-radius: var(--r-sm);
-      padding: 8px 14px;
-      margin-bottom: 20px;
-      display: block;
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    .chip {
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 4px 11px;
-      border-radius: var(--r-sm);
-      background-color: var(--bg);
-      color: var(--muted);
-      border: 1px solid var(--border);
-    }
-
-    .project-links {
-      display: flex;
-      gap: 10px;
-      margin-top: auto;
-    }
-
-    .project-link {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--primary);
-      padding: 7px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--r-sm);
-      transition: var(--t);
-    }
-
-    .project-link:hover {
-      border-color: var(--primary);
-      background-color: var(--tint);
+    .link-btn:hover {
+      color: var(--color-accent);
     }
 
     /* ==========================================================================
-       ABOUT
+       SECTION 6: ABOUT
        ========================================================================== */
-    .about {
-      padding: 120px 0;
-      background-color: var(--bg-alt);
-      border-top: 1px solid var(--border);
+    .about-section {
+      padding: 100px 0;
+      background-color: var(--bg-main);
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 80px;
+      grid-template-columns: 360px 1fr;
+      gap: 56px;
       align-items: start;
     }
 
-    /* Left — photo + credentials */
-    .about-photo-wrap {
-      position: relative;
-    }
-
-    .about-photo {
-      border-radius: var(--r-xl);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-    }
-
-    .about-photo img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-    }
-
-    .about-credentials {
-      background-color: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 24px;
-      margin-top: 20px;
+    .about-sidebar {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-    }
-
-    .cred-item {
-      display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .cred-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--r-sm);
-      background-color: var(--tint);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    /* Right — story */
-    .about-story p {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .story-pull {
-      border-left: 3px solid var(--accent);
-      padding: 20px 24px;
-      margin: 28px 0;
-      background-color: var(--tint);
-      border-radius: 0 var(--r-md) var(--r-md) 0;
-      font-size: 16px;
-      font-style: italic;
-      color: var(--text);
-      font-weight: 600;
-      line-height: 1.6;
-    }
-
-    .about-story .bold-line {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 32px;
-      display: block;
-    }
-
-    /* Award photos */
-    .award-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 40px;
-    }
-
-    .award-photo {
-      border-radius: var(--r-md);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      transition: var(--t);
-    }
-
-    .award-photo:hover {
-      transform: scale(1.02);
-      box-shadow: var(--shadow-md);
-    }
-
-    .award-photo img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-    }
-
-    .award-photo-cap {
-      padding: 10px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--muted);
-      background-color: var(--bg);
-      border-top: 1px solid var(--border);
-    }
-
-    /* Awards list */
-    .awards-list {
-      margin-top: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .award-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 18px;
-      background-color: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      font-size: 14px;
-    }
-
-    .award-item-icon {
-      font-size: 18px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .award-item-text { line-height: 1.5; }
-
-    .award-item-title {
-      font-weight: 700;
-      color: var(--text);
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .award-item-detail {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* ==========================================================================
-       CONTACT
-       ========================================================================== */
-    .contact {
-      padding: 120px 0;
-      background-color: var(--bg);
-      border-top: 1px solid var(--border);
-    }
-
-    .contact-inner {
-      max-width: 720px;
-      margin: 0 auto;
       text-align: center;
     }
 
-    .contact-inner .section-title { margin-bottom: 16px; }
+    /* REAL PROFILE PHOTO CONTAINER */
+    .profile-photo-container {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      box-shadow: 0 16px 36px rgba(14, 116, 144, 0.2);
+      margin-bottom: 28px;
+    }
+
+    .profile-photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #FFFFFF;
+      display: block;
+    }
+
+    .credentials-stack {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .credential-item {
+      padding: 12px 16px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .credential-item svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .about-story {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+
+    .story-highlight {
+      padding: 24px 28px;
+      background-color: var(--color-tint);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* REAL AWARDS & HONOURS GALLERY */
+    .awards-container {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .awards-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 24px;
+    }
+
+    /* Featured Real Award Photos Row */
+    .award-photos-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .award-photo-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .award-photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .award-photo-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .award-photo-caption {
+      padding: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text);
+      text-align: center;
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .award-card {
+      padding: 16px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .award-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background-color: var(--color-tint);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .award-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    .award-detail {
+      font-size: 12px;
+      color: var(--color-muted);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       SECTION 7: SOCIAL PROOF
+       ========================================================================== */
+    .social-proof-section {
+      padding: 80px 0;
+      background-color: #FFFFFF;
+    }
+
+    .social-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .proof-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-accent);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .proof-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .proof-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .proof-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-muted);
+    }
+
+    /* ==========================================================================
+       SECTION 8: CONTACT
+       ========================================================================== */
+    .contact-section {
+      padding: 100px 0;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: #FFFFFF;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
 
     .contact-sub {
       font-size: 18px;
-      color: var(--muted);
-      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
       margin-bottom: 48px;
     }
 
-    .contact-actions {
+    .social-links {
       display: flex;
       justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
+      gap: 32px;
     }
 
-    .contact-actions .btn {
-      padding: 15px 32px;
-      font-size: 16px;
-    }
-
-    .contact-social {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .contact-social a {
-      font-size: 14px;
+    .social-links a {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 15px;
       font-weight: 600;
-      color: var(--muted);
       display: flex;
       align-items: center;
-      gap: 6px;
-      transition: var(--t);
+      gap: 8px;
     }
 
-    .contact-social a:hover { color: var(--primary); }
+    .social-links a:hover {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
 
     /* ==========================================================================
-       FOOTER
+       SECTION 9: FOOTER
        ========================================================================== */
     .footer {
-      background-color: var(--text);
-      padding: 28px 0;
+      background-color: #0C1A20;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 36px 0;
+      font-size: 14px;
     }
 
     .footer .container {
@@ -1409,15 +1212,9 @@
       gap: 20px;
     }
 
-    .footer-logo img {
-      height: 36px;
+    .footer-logo-img {
+      height: 38px;
       display: block;
-    }
-
-    .footer-copy {
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.45);
-      font-weight: 500;
     }
 
     .footer-links {
@@ -1426,70 +1223,104 @@
     }
 
     .footer-links a {
-      font-size: 14px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.5);
-      transition: var(--t);
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    .footer-links a:hover { color: var(--accent); }
+    .footer-links a:hover {
+      color: var(--color-accent);
+    }
 
     /* ==========================================================================
-       RESPONSIVE
+       RESPONSIVE BREAKPOINTS
        ========================================================================== */
     @media (max-width: 1024px) {
-      .hero-grid         { grid-template-columns: 1fr; gap: 52px; }
-      .services-header   { grid-template-columns: 1fr; gap: 20px; }
-      .services-grid     { grid-template-columns: repeat(2, 1fr); }
-      .featured-case-grid{ grid-template-columns: 1fr; }
-      .case-image-wrap   { max-width: 560px; }
-      .enterprise-grid   { grid-template-columns: repeat(2, 1fr); }
-      .about-grid        { grid-template-columns: 1fr; }
-      .about-photo       { max-width: 400px; }
-      .metrics-strip .container { grid-template-columns: repeat(2, 1fr); }
-      .metric-cell:nth-child(2) { border-right: none; }
-      .metric-cell:nth-child(3) { border-right: 1px solid var(--border); }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .award-photos-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
-      .hero             { padding: 120px 0 80px; }
-      .services-grid    { grid-template-columns: 1fr; }
-      .enterprise-grid  { grid-template-columns: 1fr; }
-      .projects-grid    { grid-template-columns: 1fr; }
-      .case-facts       { grid-template-columns: 1fr; }
-      .case-screens     { grid-template-columns: repeat(2, 1fr); }
-      .award-row        { grid-template-columns: 1fr; }
-      .contact-actions  { flex-direction: column; align-items: center; }
-      .nav-links        { display: none; }
-      .nav-cta          { display: none; }
-      .hamburger        { display: flex; }
-      .footer .container { flex-direction: column; align-items: flex-start; }
-      .metrics-strip .container { grid-template-columns: repeat(2, 1fr); }
-      .metric-cell:nth-child(2) { border-right: none; }
-      .metric-cell:nth-child(3) { border-right: 1px solid var(--border); }
-      .projects-header { flex-direction: column; align-items: flex-start; }
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .awards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social-proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 20px 0 60px 0;
+      }
+
+      .featured-project-card {
+        padding: 24px;
+      }
     }
 
     @media (max-width: 480px) {
-      .hero-heading { font-size: 2.1rem; }
-      .hero-ctas { flex-direction: column; align-items: flex-start; }
-      .metrics-strip .container { grid-template-columns: 1fr 1fr; }
-      .metric-cell { padding: 8px 16px; }
-      .metric-num { font-size: 1.8rem; }
-      .case-screens { grid-template-columns: 1fr; }
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-ctas .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ============================================================
-       HEADER
-       ============================================================ -->
-  <header class="header" id="header">
+  <!-- ==========================================================================
+       1. NAVIGATION
+       ========================================================================== -->
+  <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#" class="nav-logo" aria-label="Home">
-        <img src="images/IzwanAhmad_Full_Logo.png" alt="Muhammad Izwan Ahmad">
+      <a href="#" class="logo">
+        <img src="images/IzwanAhmad_Full_Logo_Inverse.png" alt="Izwan Ahmad Logo" class="logo-img">
       </a>
 
       <ul class="nav-links">
@@ -1499,107 +1330,118 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <div class="nav-cta">
-        <a href="https://github.com/izwanGit" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
-        <a href="#contact" class="btn btn-primary">Let's talk</a>
-      </div>
-
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
-  </header>
+  </nav>
 
-  <!-- Mobile nav -->
-  <nav class="mobile-nav" id="mobile-nav">
-    <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">&times;</button>
+  <!-- Mobile Drawer Menu -->
+  <div class="overlay" id="menu-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" id="menu-close-btn">&times;</button>
     <a href="#services" class="mobile-link">Services</a>
     <a href="#projects" class="mobile-link">Projects</a>
     <a href="#about" class="mobile-link">About</a>
     <a href="#contact" class="mobile-link">Contact</a>
-  </nav>
+  </div>
 
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
+  <!-- ==========================================================================
+       2. HERO SECTION
+       ========================================================================== -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
 
-        <!-- Left: Text -->
-        <div>
-          <div class="hero-label reveal">
-            <span class="hero-label-dot"></span>
-            Available for projects · Malaysia
+        <!-- Hero Left Column -->
+        <div class="hero-content animate-on-scroll">
+          <div class="status-badge">
+            <span class="pulsing-dot"></span>
+            Available for freelance projects
           </div>
 
-          <h1 class="hero-heading reveal d1">
-            Software Engineer<br>
-            <span class="line2">& Web Developer.</span>
+          <h1 class="hero-heading">
+            I build things <br>
+            <span class="highlight">that actually work.</span>
           </h1>
 
-          <p class="hero-subtext reveal d2">
-            I design and build modern websites and software that help businesses move faster. From landing pages to intelligent systems.
+          <p class="hero-subtext">
+            Ex-PETRONAS engineer who shipped 10 production systems in 3 months. I build web apps, AI systems, and
+            automation that save Malaysian businesses real time and real money.
           </p>
 
-          <div class="hero-ctas reveal d3">
+          <div class="hero-ctas">
             <a href="#projects" class="btn btn-primary">
-              View my work
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              See my work
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
             </a>
             <a href="#contact" class="btn btn-outline">
-              Start a project
+              Let's talk
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </a>
           </div>
 
-          <div class="hero-pills reveal d4">
-            <span class="pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              Web & Mobile
-            </span>
-            <span class="pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-              AI Systems
-            </span>
-            <span class="pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="6"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-              11 Awards
-            </span>
-            <span class="pill">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              JPA Scholar
-            </span>
+          <div class="hero-stats-pills">
+            <div class="stat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              10+ PETRONAS systems
+            </div>
+            <div class="stat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+              99.61% AI accuracy
+            </div>
+            <div class="stat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+              </svg>
+              11 competition & academic awards
+            </div>
           </div>
         </div>
 
-        <!-- Right: Browser mockup -->
-        <div class="reveal d2">
-          <div class="browser-mockup">
-            <div class="browser-bar">
-              <div class="browser-dots">
-                <span class="d-r"></span>
-                <span class="d-y"></span>
-                <span class="d-g"></span>
-              </div>
-              <div class="browser-url-bar" id="browser-url">beruang.ai</div>
+        <!-- Hero Right Column: Floating Dark Code Editor Card -->
+        <div class="hero-code-card animate-on-scroll delay-200">
+          <div class="code-card-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
             </div>
-
-            <div class="browser-tabs">
-              <button class="browser-tab active" data-img="images/beruang-landing.png" data-url="beruang.ai" data-label="Beruang AI" data-tag="99.61% AI Accuracy">Beruang AI</button>
-              <button class="browser-tab" data-img="images/o-iqra-home.png" data-url="o-iqra.com.my" data-label="O-Iqra Platform" data-tag="Live Production">O-Iqra</button>
-              <button class="browser-tab" data-img="images/yulaoshi-main.jpeg" data-url="izwan.pythonanywhere.com" data-label="YuLaoshi Tutor" data-tag="GPT-4o · Live">YuLaoshi</button>
-            </div>
-
-            <div class="browser-content">
-              <img id="b-img-0" src="images/beruang-landing.png" alt="Beruang AI App" class="visible">
-              <img id="b-img-1" src="images/o-iqra-home.png" alt="O-Iqra Platform" class="hidden">
-              <img id="b-img-2" src="images/yulaoshi-main.jpeg" alt="YuLaoshi AI Tutor" class="hidden">
-            </div>
-
-            <div class="browser-footer">
-              <span class="browser-footer-label" id="browser-label">Beruang AI</span>
-              <span class="browser-footer-tag" id="browser-tag">99.61% AI Accuracy</span>
-            </div>
+            <span class="code-title">hcsm_ops_hub.py</span>
+          </div>
+          <div class="code-body">
+            <pre><code><span class="code-comment"># HCSM Operations Hub — PETRONAS Digital</span>
+<span class="code-kw">@automation.task</span>(schedule=<span class="code-str">"0 7 * * MON"</span>)
+<span class="code-kw">def</span> <span class="code-func">run_weekly_report</span>():
+    tickets = oracle_hcm.get_ageing_tickets(
+        total_employees=<span class="code-num">50000</span>
+    )
+    metrics = process_metrics(tickets, accuracy=<span class="code-num">0.9961</span>)
+    pptx = generate_executive_deck(metrics)
+    send_teams_alert(recipients=leadership, attachment=pptx)
+    
+    <span class="code-kw">return</span> <span class="code-str">"Saved 4 hours. Delivered in 2 mins."</span></code></pre>
           </div>
         </div>
 
@@ -1607,507 +1449,852 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       METRICS STRIP
-       ============================================================ -->
-  <div class="metrics-strip">
+  <!-- ==========================================================================
+       3. METRICS STRIP
+       ========================================================================== -->
+  <section class="metrics-strip">
     <div class="container">
-      <div class="metric-cell reveal">
-        <div class="metric-num">19+</div>
-        <div class="metric-desc">Projects shipped</div>
-      </div>
-      <div class="metric-cell reveal d1">
-        <div class="metric-num">4+</div>
-        <div class="metric-desc">Years building software</div>
-      </div>
-      <div class="metric-cell reveal d2">
-        <div class="metric-num">11</div>
-        <div class="metric-desc">Awards & recognitions</div>
-      </div>
-      <div class="metric-cell reveal d3">
-        <div class="metric-num">3.9+</div>
-        <div class="metric-desc">CGPA · Dean's List every semester</div>
+      <div class="metrics-grid">
+
+        <div class="metric-item animate-on-scroll">
+          <span class="metric-number">10+</span>
+          <span class="metric-label">Production systems shipped</span>
+        </div>
+
+        <div class="metric-item animate-on-scroll delay-100">
+          <span class="metric-number">50,000+</span>
+          <span class="metric-label">PETRONAS employees served</span>
+        </div>
+
+        <div class="metric-item animate-on-scroll delay-200">
+          <span class="metric-number">3-4 hrs → 2 min</span>
+          <span class="metric-label">Time saved weekly</span>
+        </div>
+
+        <div class="metric-item animate-on-scroll delay-300">
+          <span class="metric-number">11</span>
+          <span class="metric-label">Awards & Recognitions</span>
+        </div>
+
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ============================================================
-       SERVICES — 3 only
-       ============================================================ -->
-  <section class="services" id="services">
+  <!-- ==========================================================================
+       4. SERVICES SECTION
+       ========================================================================== -->
+  <section class="services-section" id="services">
     <div class="container">
-      <div class="services-header">
-        <div>
-          <span class="eyebrow reveal">What I build</span>
-          <h2 class="section-title reveal d1">Services I offer</h2>
-        </div>
-        <p class="section-body reveal d2">
-          Focused on quality over quantity. I take on a small number of projects at a time to make sure every one is done properly.
-        </p>
-      </div>
+      <span class="section-label animate-on-scroll">WHAT I BUILD</span>
+      <h2 class="section-heading animate-on-scroll">Services I offer</h2>
 
       <div class="services-grid">
 
-        <!-- 1. Website Development (Primary) -->
-        <div class="service-card featured reveal">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-          </div>
+        <!-- Card 1 -->
+        <div class="service-card animate-on-scroll">
           <div>
-            <h3>Website Development</h3>
-            <p>Landing pages, business websites, and e-commerce platforms built for real results — fast, clean, and conversion-focused.</p>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Website Development</h3>
+            <p class="service-desc">Custom landing pages, high-converting business sites, and performant e-commerce
+              platforms engineered for sales.</p>
           </div>
-          <ul class="service-items">
-            <li>Landing pages & portfolios</li>
-            <li>Business & corporate websites</li>
-            <li>E-commerce stores</li>
-            <li>SEO-optimised builds</li>
-          </ul>
-          <div class="service-price">From RM 800</div>
+          <div class="service-price">RM800 – RM8,000</div>
         </div>
 
-        <!-- 2. Web Applications -->
-        <div class="service-card reveal d1">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          </div>
+        <!-- Card 2 -->
+        <div class="service-card animate-on-scroll delay-100">
           <div>
-            <h3>Web Applications</h3>
-            <p>Full-stack web and mobile apps with backends, user authentication, and real-time features. Booking systems, dashboards, portals.</p>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Mobile Apps</h3>
+            <p class="service-desc">Cross-platform iOS and Android apps built with React Native or Native Java. Slick
+              UI, smooth performance, and real-time backend sync.</p>
           </div>
-          <ul class="service-items">
-            <li>Customer portals & dashboards</li>
-            <li>Booking & management systems</li>
-            <li>React Native mobile apps</li>
-            <li>API integration & backends</li>
-          </ul>
-          <div class="service-price">From RM 5,000</div>
+          <div class="service-price">RM5,000 – RM15,000</div>
         </div>
 
-        <!-- 3. Business Automation -->
-        <div class="service-card reveal d2">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
+        <!-- Card 3 -->
+        <div class="service-card animate-on-scroll delay-200">
           <div>
-            <h3>Business Automation</h3>
-            <p>Eliminate manual, repetitive work. Automated report generators, notification pipelines, data extraction, and AI-powered tools.</p>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Business Automation</h3>
+            <p class="service-desc">Eliminate repetitive tasks. Automated report generators, WhatsApp bots, email
+              parsing, and zero-touch enterprise workflows.</p>
           </div>
-          <ul class="service-items">
-            <li>Report & email automation</li>
-            <li>AI chatbots & assistants</li>
-            <li>WhatsApp & Teams bots</li>
-            <li>Data pipelines & workflows</li>
-          </ul>
-          <div class="service-price">From RM 1,500</div>
+          <div class="service-price">RM1,500 – RM5,000</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card animate-on-scroll">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">AI Integration</h3>
+            <p class="service-desc">Custom AI chatbots, RAG knowledge advisors, OCR receipt scanning, and computer
+              vision classification systems built into your web or mobile app.</p>
+          </div>
+          <div class="service-price">RM2,000 – RM10,000</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card animate-on-scroll delay-100">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Data Dashboards</h3>
+            <p class="service-desc">Interactive executive dashboards using Power BI, Tableau, or custom web interfaces.
+              Transform raw data into clear actionable insights.</p>
+          </div>
+          <div class="service-price">RM1,500 – RM6,000</div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card animate-on-scroll delay-200">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Monthly Retainer</h3>
+            <p class="service-desc">Peace of mind for your digital infrastructure. Dedicated hosting management, routine
+              maintenance, security updates, and priority bug fixes.</p>
+          </div>
+          <div class="service-price">From RM150 / month</div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       BERUANG — FEATURED CASE STUDY
-       ============================================================ -->
-  <section class="featured-case">
+  <!-- ==========================================================================
+       5. PROJECTS SECTION
+       ========================================================================== -->
+  <section class="projects-section" id="projects">
     <div class="container">
+      <span class="section-label animate-on-scroll">THINGS I'VE SHIPPED</span>
+      <h2 class="section-heading animate-on-scroll">Selected projects</h2>
 
-      <div class="featured-case-grid">
+      <!-- Filter Tab Bar -->
+      <div class="filter-tabs animate-on-scroll">
+        <button class="filter-btn active" data-filter="all">All (19)</button>
+        <button class="filter-btn" data-filter="petronas">Enterprise · PETRONAS</button>
+        <button class="filter-btn" data-filter="ai">AI & ML</button>
+        <button class="filter-btn" data-filter="web">Web & Mobile</button>
+        <button class="filter-btn" data-filter="data">Data & Analysis</button>
+      </div>
 
-        <!-- Left: Image -->
-        <div class="reveal">
-          <div class="case-image-wrap">
-            <img src="images/beruang-landing.png" alt="Beruang AI Personal Finance App">
-            <span class="case-image-badge">Final Year Project</span>
-          </div>
-          <!-- Screenshot row below -->
-          <div class="case-screens">
-            <div class="case-screen">
-              <img src="images/beruang-dashboard.jpg" alt="Beruang Dashboard">
-            </div>
-            <div class="case-screen">
-              <img src="images/beruang-chatbot.jpg" alt="Beruang AI Chatbot">
-            </div>
-            <div class="case-screen">
-              <img src="images/beruang-receipt.jpeg" alt="Beruang Receipt Scanner">
-            </div>
-          </div>
+      <!-- FEATURED PROJECT (Beruang AI App) with Real Screenshots -->
+      <div class="featured-project-card project-item animate-on-scroll" data-category="ai web">
+        <div class="project-image-wrapper">
+          <img src="images/beruang-landing.png" alt="Beruang AI Personal Finance App">
         </div>
 
-        <!-- Right: Case study text -->
-        <div>
-          <div class="case-meta reveal">
-            <span class="case-tag">Final Year Project</span>
-            <span class="case-tag">AI & ML</span>
-            <span class="case-tag">React Native</span>
-          </div>
-
-          <h2 class="case-title reveal d1">Beruang — AI Personal Finance App</h2>
-
-          <p class="case-subtitle reveal d2">
-            Young Malaysians struggle with money. Not because they don't earn enough — but because nobody taught them how to manage it. I built Beruang to fix that.
+        <div class="featured-details">
+          <span class="badge-award">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+              <path d="M4 22h16"></path>
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+            </svg>
+            Best System Architecture Award — FYP
+          </span>
+          <h3 style="margin-top: 12px;">Beruang — AI Personal Finance App</h3>
+          <div class="project-subtitle">Final Year Project · AI Financial Advisory System</div>
+          <p class="project-desc">
+            AI-powered money management app created to solve financial illiteracy among young Malaysians. Trained a
+            custom Bi-LSTM model on 220,000+ local transaction records with 99.61% classification accuracy. Integrates
+            RAG financial advising via Grok API, receipt scanning with Gemini 2.5 Flash, and a gamified Bear Evolution
+            XP system in a 13-screen React Native app.
           </p>
-
-          <div class="case-facts reveal d2">
-            <div class="case-fact">
-              <div class="case-fact-num">99.61%</div>
-              <div class="case-fact-label">AI classification accuracy</div>
-            </div>
-            <div class="case-fact">
-              <div class="case-fact-num">220K+</div>
-              <div class="case-fact-label">Local transactions trained on</div>
-            </div>
-            <div class="case-fact">
-              <div class="case-fact-num">86.77</div>
-              <div class="case-fact-label">SUS usability score</div>
-            </div>
-            <div class="case-fact">
-              <div class="case-fact-num">98.2%</div>
-              <div class="case-fact-label">Users felt more financially confident</div>
-            </div>
+          <span class="stat-highlight">99.61% AI accuracy · 86.77 SUS Score · 98.2% users more confident</span>
+          <div class="tech-pills">
+            <span class="tech-pill">React Native</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">TensorFlow.js</span>
+            <span class="tech-pill">Firebase</span>
+            <span class="tech-pill">RAG</span>
+            <span class="tech-pill">Grok API</span>
+            <span class="tech-pill">Gemini API</span>
           </div>
-
-          <p class="case-subtitle reveal d3" style="margin-bottom: 20px;">
-            Trained a custom Bi-LSTM model on 220,000+ Malaysian transaction records. Integrated RAG financial advising via Grok API, receipt scanning with Gemini 2.5 Flash, and a gamified Bear Evolution XP system across 13 screens.
-          </p>
-
-          <div class="case-tech reveal d3">
-            <span class="tech-chip">React Native</span>
-            <span class="tech-chip">Python</span>
-            <span class="tech-chip">Bi-LSTM</span>
-            <span class="tech-chip">Grok API</span>
-            <span class="tech-chip">Gemini 2.5</span>
-            <span class="tech-chip">FastAPI</span>
-            <span class="tech-chip">Firebase</span>
-          </div>
-
-          <div class="reveal d4">
-            <a href="https://github.com/izwanGit/beruang-ai" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <div class="card-footer-links">
+            <a href="https://github.com/izwanGit/Beruang" target="_blank" rel="noopener" class="link-btn">
+              View on GitHub ↗
             </a>
           </div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PETRONAS — DEDICATED ENTERPRISE SECTION
-       ============================================================ -->
-  <section class="enterprise">
-    <div class="container">
-
-      <span class="eyebrow reveal">Enterprise Experience</span>
-      <h2 class="section-title reveal d1" style="color: #fff; margin-bottom: 16px;">PETRONAS Digital</h2>
-
-      <div class="enterprise-context reveal d2">
-        <span class="enterprise-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          PETRONAS Digital Sdn Bhd
-        </span>
-        <div class="enterprise-divider"></div>
-        <span class="enterprise-context-text">Oracle HCM Cloud (myCareerX) · 50,000+ employees · 3 months internship</span>
       </div>
 
-      <p class="enterprise-intro reveal d2">
-        I didn't wait to be assigned work. I looked around, spotted the friction in the team's ITSM workflows, and built solutions. 10 automation systems, all still running in production today.
-      </p>
-
-      <div class="enterprise-grid">
-
-        <div class="enterprise-card reveal">
-          <div class="enterprise-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <h4>HCSM Operations Hub</h4>
-          <p>Unified Streamlit platform automating 3 major ITSM workflows — ticket reporting, document generation, and pre-deployment handoffs for BMC Helix & Oracle HCM.</p>
-          <div class="enterprise-chips">
-            <span class="enterprise-chip">Python</span>
-            <span class="enterprise-chip">Streamlit</span>
-            <span class="enterprise-chip">Playwright</span>
-            <span class="enterprise-chip">Jinja2</span>
-          </div>
-          <span class="enterprise-card-stat">5+ hours saved per week · zero human input</span>
-        </div>
-
-        <div class="enterprise-card reveal d1">
-          <div class="enterprise-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h4>Weekly & Monthly Report Pipelines</h4>
-          <p>Power Automate pipelines that fully replaced manual reporting. Weekly ageing ticket reports, monthly Power BI → PowerPoint executive decks — all delivered automatically.</p>
-          <div class="enterprise-chips">
-            <span class="enterprise-chip">Power Automate</span>
-            <span class="enterprise-chip">TypeScript</span>
-            <span class="enterprise-chip">Power BI</span>
-            <span class="enterprise-chip">DAX</span>
-          </div>
-          <span class="enterprise-card-stat">3-4 hours → under 2 minutes</span>
-        </div>
-
-        <div class="enterprise-card reveal d2">
-          <div class="enterprise-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          </div>
-          <h4>SLA Monitoring & Pre-Deploy Automation</h4>
-          <p>24/7 automated Teams monitoring for urgent tickets, SLA alerts with @mentions, plus a one-click UAT endorsement system that generates OAT documents and BMC Helix handoffs in under a minute.</p>
-          <div class="enterprise-chips">
-            <span class="enterprise-chip">Power Automate</span>
-            <span class="enterprise-chip">SharePoint</span>
-            <span class="enterprise-chip">Teams Cards</span>
-            <span class="enterprise-chip">BMC Helix</span>
-          </div>
-          <span class="enterprise-card-stat">30 minutes → under 1 minute</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PROJECTS — CLIENT & ACADEMIC WORK
-       ============================================================ -->
-  <section class="projects" id="projects">
-    <div class="container">
-
-      <div class="projects-header">
-        <div>
-          <span class="eyebrow reveal">Selected work</span>
-          <h2 class="section-title reveal d1">Projects</h2>
-        </div>
-
-        <div class="filter-bar reveal d2">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="web">Web & Mobile</button>
-          <button class="filter-btn" data-filter="ai">AI & ML</button>
-          <button class="filter-btn" data-filter="data">Data</button>
-        </div>
-      </div>
-
+      <!-- 2-COLUMN GRID FOR ALL REMAINING PROJECTS -->
       <div class="projects-grid">
 
-        <!-- O-Iqra -->
-        <div class="project-card project-item reveal" data-category="web">
-          <div class="project-img">
-            <img src="images/o-iqra-home.png" alt="O-Iqra Islamic Learning Platform">
-          </div>
-          <div class="project-body">
-            <span class="project-group">Web · Full-Stack</span>
-            <h4>O-Iqra — Islamic Learning Platform</h4>
-            <div class="project-kind">Live Client Web Application</div>
-            <p class="project-desc">Full-stack Islamic learning web platform designed and built for a real corporate client. Currently live and actively serving students and tutors.</p>
-            <span class="project-highlight">Live in production · active users</span>
-            <div class="chips">
-              <span class="chip">Laravel</span>
-              <span class="chip">PHP</span>
-              <span class="chip">MySQL</span>
-              <span class="chip">Bootstrap</span>
-            </div>
-            <div class="project-links">
-              <a href="https://www.o-iqra.com.my/" target="_blank" rel="noopener" class="project-link">Live Site ↗</a>
+        <!-- PROJECT 1: HCSM Operations Hub -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">Enterprise · PETRONAS</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <span class="banner-title-text">HCSM Operations Hub</span>
             </div>
           </div>
-        </div>
-
-        <!-- YuLaoshi -->
-        <div class="project-card project-item reveal d1" data-category="web ai">
-          <div class="project-img">
-            <img src="images/yulaoshi-main.jpeg" alt="YuLaoshi AI Mandarin Tutor">
-          </div>
-          <div class="project-body">
-            <span class="project-group">Web · AI</span>
-            <h4>YuLaoshi — AI Mandarin Tutor</h4>
-            <div class="project-kind">Live Product · Built for UiTM Students</div>
-            <p class="project-desc">Full-stack AI chatbot for Mandarin listening practice. GPT-4o-mini tutor, dynamic quiz generator with Google TTS audio, gamified badge system, and progress tracking.</p>
-            <span class="project-highlight">GPT-4o-mini + gTTS · live at pythonanywhere</span>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Flask</span>
-              <span class="chip">GPT-4o-mini</span>
-              <span class="chip">SQLite</span>
-              <span class="chip">gTTS</span>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>HCSM Operations Hub</h4>
+              <div class="project-subtitle">Enterprise ITSM Reporting & RPA Platform</div>
+              <p class="project-desc">A unified Streamlit platform designed and built solo, automating 3 of PETRONAS's
+                most time-consuming ITSM workflows for myCareerX (Oracle HCM Cloud, serving 50,000+ employees).</p>
             </div>
-            <div class="project-links">
-              <a href="https://izwan.pythonanywhere.com/" target="_blank" rel="noopener" class="project-link">Live App ↗</a>
-              <a href="https://github.com/izwanGit/LaoshiYu-Chatbot" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+            <div>
+              <span class="stat-highlight">3 workflows · 5+ hours saved per week · runs autonomously</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Streamlit</span>
+                <span class="tech-pill">Playwright</span>
+                <span class="tech-pill">PyMuPDF</span>
+                <span class="tech-pill">Jinja2</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Batik Recognition -->
-        <div class="project-card project-item reveal" data-category="ai">
-          <div class="project-img">
-            <img src="images/batik-main.jpeg" alt="Batik Recognition System">
+        <!-- PROJECT 2: Full Weekly Report Automation -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">Automation Pipeline</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <span class="banner-title-text">Weekly Report Pipeline</span>
+            </div>
           </div>
-          <div class="project-body">
-            <span class="project-group">AI · Computer Vision</span>
-            <h4>Batik Recognition & Classification</h4>
-            <div class="project-kind">Vision Transformer (ViT) System</div>
-            <p class="project-desc">Real-time computer vision system classifying Malaysian vs Indonesian batik. Vision Transformer (ViT) with live webcam demo powered by OpenCV, Flask, and Roboflow API.</p>
-            <span class="project-highlight">94.2% classification accuracy</span>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">ViT</span>
-              <span class="chip">OpenCV</span>
-              <span class="chip">Flask</span>
-              <span class="chip">Roboflow</span>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>Full Weekly Report Automation</h4>
+              <div class="project-subtitle">Zero-Touch Pipeline, Every Monday 7AM</div>
+              <p class="project-desc">Power Automate pipeline that fully automates the team's weekly ageing ticket
+                report. Ingests 4 Excel files, processes thousands of rows via 6 custom TypeScript Office Scripts, sends
+                HTML emails & Teams reminders with @mentions.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">3-4 hours → under 2 minutes (Zero human touch)</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power Automate</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Office Scripts</span>
+                <span class="tech-pill">SharePoint</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- RentVerse -->
-        <div class="project-card project-item reveal d1" data-category="web">
-          <div class="project-img">
-            <img src="images/rentverse.jpeg" alt="RentVerse DevSecOps Platform">
-          </div>
-          <div class="project-body">
-            <span class="project-group">Web · DevSecOps · Champion</span>
-            <h4>RentVerse — Secure Rental Platform</h4>
-            <div class="project-kind">DevSecOps Challenge Champion</div>
-            <p class="project-desc">Enterprise property rental app built in 21 days with a 14-stage CI/CD pipeline, Zero Trust authentication (TOTP + RBAC), impossible travel anomaly detection, and Random Forest fraud detection.</p>
-            <span class="project-highlight">🏆 Champion · 14-stage CI/CD · Zero Trust security</span>
-            <div class="chips">
-              <span class="chip">Laravel</span>
-              <span class="chip">MySQL</span>
-              <span class="chip">Docker</span>
-              <span class="chip">Random Forest</span>
-              <span class="chip">TOTP</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+        <!-- PROJECT 3: Full Monthly Report Automation -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">Cloud Native BI</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">Monthly Power BI Deck</span>
             </div>
           </div>
-        </div>
-
-        <!-- Play2Grow -->
-        <div class="project-card project-item reveal" data-category="web">
-          <div class="project-banner" style="background: linear-gradient(135deg, #1E1B4B 0%, #0A5568 100%);">
-            <div class="project-banner-tag">Mobile · Android</div>
-            <div class="project-banner-title">Play2Grow</div>
-          </div>
-          <div class="project-body">
-            <span class="project-group">Web · Mobile</span>
-            <h4>Play2Grow — Edutainment Android App</h4>
-            <div class="project-kind">Learning App for Malaysian Kids (Ages 4–6)</div>
-            <p class="project-desc">Dual-mode Android app (Parent Mode + Kid Mode) aligned to Malaysia's national curriculum. Interactive quiz games, star reward system, and Firebase real-time sync.</p>
-            <span class="project-highlight">National curriculum · dual-mode interactive app</span>
-            <div class="chips">
-              <span class="chip">Java</span>
-              <span class="chip">Android</span>
-              <span class="chip">Firebase</span>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>Full Monthly Report Automation</h4>
+              <div class="project-subtitle">Cloud-Native Power BI → PowerPoint Pipeline</div>
+              <p class="project-desc">Automated monthly reporting pipeline replacing manual Power BI exports. DAX
+                measures generate executive summary bullets inside the report. Power Automate exports to PPTX and emails
+                management on the 1st of every month.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">1-2 hours → under 3 minutes</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power BI</span>
+                <span class="tech-pill">DAX</span>
+                <span class="tech-pill">Power Automate</span>
+                <span class="tech-pill">SharePoint</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- UEMS -->
-        <div class="project-card project-item reveal d1" data-category="web">
-          <div class="project-banner" style="background: linear-gradient(135deg, #1F2937 0%, #0A5568 100%);">
-            <div class="project-banner-tag">University Platform</div>
-            <div class="project-banner-title">UEMS</div>
-          </div>
-          <div class="project-body">
-            <span class="project-group">Web · Full-Stack</span>
-            <h4>UiTM Event Management System</h4>
-            <div class="project-kind">Solved Campus Event Chaos</div>
-            <p class="project-desc">Java web application for campus event registration and student merit coupon tracking. Automated registration confirmations via SendGrid to eliminate missed coupons.</p>
-            <span class="project-highlight">Automated registrations & email alerts</span>
-            <div class="chips">
-              <span class="chip">Java</span>
-              <span class="chip">JSP</span>
-              <span class="chip">MySQL</span>
-              <span class="chip">SendGrid</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/izwanGit/UiTM-Event-Management-System" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+        <!-- PROJECT 4: Pre-Deployment Automation -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">DevOps Automation</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <span class="banner-title-text">Pre-Deployment Handoff</span>
             </div>
           </div>
-        </div>
-
-        <!-- Hawker Food Recognition -->
-        <div class="project-card project-item reveal" data-category="ai">
-          <div class="project-banner" style="background: linear-gradient(135deg, #064E3B 0%, #0A5568 100%);">
-            <div class="project-banner-tag">Computer Vision</div>
-            <div class="project-banner-title">Hawker Food AI</div>
-          </div>
-          <div class="project-body">
-            <span class="project-group">AI · Computer Vision</span>
-            <h4>Malaysian Hawker Food Recognition</h4>
-            <div class="project-kind">Calorie & Macro Estimation from Photos</div>
-            <p class="project-desc">Recognises 7 Malaysian hawker foods and estimates nutrition using SqueezeNet CNN vs SVM baseline. Integrated Malaysian Food Composition Database for accurate macro analysis.</p>
-            <span class="project-highlight">83% SqueezeNet CNN accuracy · macro calculator</span>
-            <div class="chips">
-              <span class="chip">MATLAB</span>
-              <span class="chip">SqueezeNet</span>
-              <span class="chip">SVM</span>
-              <span class="chip">App Designer</span>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>Pre-Deployment Automation</h4>
+              <div class="project-subtitle">UAT Endorsement to OAT Document & Teams Handoff</div>
+              <p class="project-desc">Flow that triggers on UAT endorsement emails, extracts ticket data from
+                SharePoint, generates branded OAT documents, and posts Teams adaptive cards with 1-click Ops Hub launch
+                for RFC/RDM creation in BMC Helix ITSM.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">30 minutes → under 1 minute</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power Automate</span>
+                <span class="tech-pill">BMC Helix</span>
+                <span class="tech-pill">SharePoint</span>
+                <span class="tech-pill">Teams Cards</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Economic Disparities -->
-        <div class="project-card project-item reveal d1" data-category="data">
-          <div class="project-banner" style="background: linear-gradient(135deg, #1E293B 0%, #0A5568 100%);">
-            <div class="project-banner-tag">Data Science</div>
-            <div class="project-banner-title">Economic Disparities & Crime</div>
-          </div>
-          <div class="project-body">
-            <span class="project-group">Data · Analysis</span>
-            <h4>Economic Disparities & Crime in Malaysia</h4>
-            <div class="project-kind">Macroeconomic Analysis · Tableau Dashboard</div>
-            <p class="project-desc">Analysed the relationship between household income, Gini coefficient, poverty, and crime across all Malaysian states using 2022 data. Led data science and interactive Tableau dashboard design.</p>
-            <span class="project-highlight">Multi-variable correlation across all 16 states</span>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Tableau</span>
-              <span class="chip">Scikit-learn</span>
-              <span class="chip">Pandas</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/izwanGit/EconomicPressureAndSocialPatterns" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+        <!-- PROJECT 5: Priority Ticket Automation System -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">SLA Monitoring</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+              </div>
+              <span class="banner-title-text">Priority Ticket Alerting</span>
             </div>
           </div>
-        </div>
-
-        <!-- Kuehlicious -->
-        <div class="project-card project-item reveal" data-category="web">
-          <div class="project-banner" style="background: linear-gradient(135deg, #7C2D12 0%, #0A5568 100%);">
-            <div class="project-banner-tag">E-Commerce</div>
-            <div class="project-banner-title">Kuehlicious</div>
-          </div>
-          <div class="project-body">
-            <span class="project-group">Web · Mobile · E-Commerce</span>
-            <h4>Kuehlicious — Kuih Ordering System</h4>
-            <div class="project-kind">Digitised Traditional Kuih Business</div>
-            <p class="project-desc">Full-stack web ordering system digitising a traditional Kuih Batang Buruk business. Admin dashboard, customer portal, and companion mobile app built alongside.</p>
-            <span class="project-highlight">Full digital portal + companion mobile app</span>
-            <div class="chips">
-              <span class="chip">PHP</span>
-              <span class="chip">MySQL</span>
-              <span class="chip">MIT App Inventor</span>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>Priority Ticket Automation System</h4>
+              <div class="project-subtitle">Real-Time Teams Logger, Enricher & Reminder</div>
+              <p class="project-desc">3 Power Automate flows + 2 TypeScript Office Scripts monitoring PETRONAS Teams
+                chat 24/7. Auto-logs urgent tickets, prevents duplicates, sends weekly @mention reminders, and
+                auto-creates Friday review meetings.</p>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/izwanGit/KuihBatangBurukOrderingSystem" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+            <div>
+              <span class="stat-highlight">24/7 Real-Time Teams SLA Monitoring & Alerting</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power Automate</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">SharePoint</span>
+                <span class="tech-pill">Teams</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Corporate Website -->
-        <div class="project-card project-item reveal d1" data-category="web">
-          <div class="project-banner" style="background: linear-gradient(135deg, #0F172A 0%, #0A5568 100%);">
-            <div class="project-banner-tag">Corporate Website</div>
-            <div class="project-banner-title">montswitzerland.com</div>
+        <!-- PROJECT 6: HCSM Ticket Monitoring Dashboard -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas data">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">Analytics Dashboard</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">Ticket Operations Analytics</span>
+            </div>
           </div>
-          <div class="project-body">
-            <span class="project-group">Web · Client Work</span>
-            <h4>Corporate Website — montswitzerland.com</h4>
-            <div class="project-kind">Live in Production</div>
-            <p class="project-desc">Designed and deployed a full corporate website on my very first day as an intern. 24 hours from initial brief to live production with GoDaddy DNS configuration.</p>
-            <span class="project-highlight">24 hours from brief to live production</span>
-            <div class="chips">
-              <span class="chip">HTML/CSS</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">GoDaddy DNS</span>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>HCSM Ticket Monitoring Dashboard</h4>
+              <div class="project-subtitle">Power BI Dashboard for Oracle HCM Operations</div>
+              <p class="project-desc">Maintained and enhanced the team's Power BI dashboard for monitoring ticket
+                volumes, ageing, and SLA trends across Service Requests and Incidents for myCareerX.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Analytics for 50,000+ PETRONAS employee tickets</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power BI</span>
+                <span class="tech-pill">DAX</span>
+                <span class="tech-pill">SharePoint</span>
+                <span class="tech-pill">BMC Helix</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 8: Batik Recognition & Classification System (Real Image) -->
+        <div class="project-card project-item animate-on-scroll" data-category="ai">
+          <div class="project-image-wrapper">
+            <img src="images/batik-main.jpeg" alt="Batik Recognition System Interface">
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">AI · Machine Learning</span>
+              <span class="badge-award" style="margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                </svg>
+                Best AI Booth Award — AI Seminar 2025
+              </span>
+              <h4>Batik Recognition & Classification System</h4>
+              <div class="project-subtitle">Vision Transformer (ViT) Computer Vision System</div>
+              <p class="project-desc">Real-time computer vision system classifying Malaysian vs Indonesian batik using
+                Vision Transformer (ViT). Featured live webcam demo with OpenCV, Flask, and Roboflow API.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">94.2% classification accuracy</span>
+              <div class="tech-pills">
+                <span class="tech-pill">ViT</span>
+                <span class="tech-pill">OpenCV</span>
+                <span class="tech-pill">Flask</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Roboflow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 9: Malaysian Hawker Food Recognition -->
+        <div class="project-card project-item animate-on-scroll" data-category="ai">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #064E3B 0%, #0E7490 100%);">
+            <span class="banner-tag">Computer Vision</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box" style="background-color: rgba(52, 211, 153, 0.2); color: #34D399;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+              <span class="banner-title-text">Hawker Food Calorie AI</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">AI · Machine Learning</span>
+              <h4>Malaysian Hawker Food Recognition</h4>
+              <div class="project-subtitle">Calorie & Macro Estimation from Photos</div>
+              <p class="project-desc">Built in MATLAB, recognizes 7 Malaysian hawker foods and estimates nutrition using
+                SqueezeNet CNN (83% accuracy) vs SVM baseline. Integrated Malaysian Food Composition Database for macro
+                analysis.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">83% SqueezeNet CNN accuracy + Macro Calculator</span>
+              <div class="tech-pills">
+                <span class="tech-pill">MATLAB</span>
+                <span class="tech-pill">SqueezeNet</span>
+                <span class="tech-pill">SVM</span>
+                <span class="tech-pill">App Designer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 10: O-Iqra Islamic Learning Platform (Real Image) -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="project-image-wrapper">
+            <img src="images/o-iqra-home.png" alt="O-Iqra Islamic Learning Platform Homepage">
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <h4>O-Iqra — Islamic Learning Platform</h4>
+              <div class="project-subtitle">Live Client Web Application</div>
+              <p class="project-desc">Full-stack Islamic learning web platform designed and built for a real corporate
+                client. Currently live and actively serving students and tutors.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Live in production with active users</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Web Full-Stack</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">Client Project</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://www.o-iqra.com" target="_blank" rel="noopener" class="link-btn">Live Site ↗</a>
+                <a href="https://github.com/oiqra-kl/OIqra" target="_blank" rel="noopener" class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 11: YuLaoshi AI Mandarin Tutor (Real Image) -->
+        <div class="project-card project-item animate-on-scroll" data-category="web ai">
+          <div class="project-image-wrapper">
+            <img src="images/yulaoshi-main.jpeg" alt="YuLaoshi AI Mandarin Tutor Main Interface">
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <h4>YuLaoshi — AI Mandarin Tutor</h4>
+              <div class="project-subtitle">Live Product · Built for UiTM Students</div>
+              <p class="project-desc">Full-stack AI chatbot for Mandarin listening practice. Integrates GPT-4o-mini
+                tutor, dynamic quiz generator with Google TTS audio, gamified badge system, and SQLite progress
+                tracking.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">GPT-4o-mini + gTTS + Dynamic Quiz Engine</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Flask</span>
+                <span class="tech-pill">GPT-4o-mini</span>
+                <span class="tech-pill">gTTS</span>
+                <span class="tech-pill">SQLite</span>
+                <span class="tech-pill">Bootstrap</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://izwan.pythonanywhere.com/" target="_blank" rel="noopener" class="link-btn">Live App
+                  ↗</a>
+                <a href="https://github.com/izwanGit/LaoshiYu-Chatbot" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 12: RentVerse Secure Rental Platform (Real Image) -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="project-image-wrapper">
+            <img src="images/rentverse.jpeg" alt="RentVerse DevSecOps Security Award">
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <span class="badge-award" style="margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                </svg>
+                Champion + 4 Awards — UiTM Mobile SecOps
+              </span>
+              <h4>RentVerse — Secure Rental Platform</h4>
+              <div class="project-subtitle">DevSecOps Challenge Champion Platform</div>
+              <p class="project-desc">Enterprise property rental app built in 21 days with 14-stage CI/CD pipeline, Zero
+                Trust authentication (TOTP + RBAC), 800 km/h impossible travel anomaly blocking, SHA-256 lease hashing,
+                and Random Forest fraud detection.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">14-stage CI/CD pipeline & Zero Trust security</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Next.js</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">GitHub Actions</span>
+                <span class="tech-pill">CodeQL</span>
+                <span class="tech-pill">Docker</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 13: Play2Grow Edutainment App -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E1B4B 0%, #0E7490 100%);">
+            <span class="banner-tag">Mobile Application</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box" style="background-color: rgba(129, 140, 248, 0.2); color: #818CF8;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">Play2Grow Edutainment</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <h4>Play2Grow — Edutainment Android App</h4>
+              <div class="project-subtitle">Learning App for Malaysian Kids (Ages 4-6)</div>
+              <p class="project-desc">Dual-mode Android app (Parent Mode + Kid Mode) aligned to Malaysia's national
+                curriculum. Features interactive quiz games, star reward system, and Firebase real-time sync.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Dual-mode interactive national curriculum app</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Java</span>
+                <span class="tech-pill">Android Studio</span>
+                <span class="tech-pill">Firebase</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 14: UiTM Event Management System -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1F2937 0%, #0E7490 100%);">
+            <span class="banner-tag">University Platform</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">UiTM Event Portal</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <h4>UiTM Event Management System (UEMS)</h4>
+              <div class="project-subtitle">Solved Campus Event Chaos for UiTM</div>
+              <p class="project-desc">Java web application for campus event registration and student merit coupon
+                tracking. Solved the problem of students missing merit coupons using SendGrid automated email alerts and
+                MySQL backend.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Automated registrations & SendGrid alerts</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Java Servlets</span>
+                <span class="tech-pill">JSP</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">SendGrid</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://github.com/izwanGit/UiTM-Event-Management-System" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 15: Kuehlicious Ordering System -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #7C2D12 0%, #0E7490 100%);">
+            <span class="banner-tag">E-Commerce Platform</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box" style="background-color: rgba(251, 146, 60, 0.2); color: #FB923C;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </div>
+              <span class="banner-title-text">Kuih Batang Buruk Portal</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <span class="badge-award" style="margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                </svg>
+                Best Website GUI Award — UiTM
+              </span>
+              <h4>Kuehlicious — Kuih Ordering System</h4>
+              <div class="project-subtitle">Digitised Traditional Kuih Business</div>
+              <p class="project-desc">Full-stack web ordering system digitising a traditional Kuih Batang Buruk
+                business. Includes admin dashboard, customer portal, and companion mobile app.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Full digital order portal + companion mobile app</span>
+              <div class="tech-pills">
+                <span class="tech-pill">PHP</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">MIT App Inventor</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://github.com/izwanGit/KuihBatangBurukOrderingSystem" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 16: Economic Disparities & Crime -->
+        <div class="project-card project-item animate-on-scroll" data-category="data">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E293B 0%, #0E7490 100%);">
+            <span class="banner-tag">Data Science</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                  <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                </svg>
+              </div>
+              <span class="banner-title-text">Economic & Crime Data Study</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Data · Analysis</span>
+              <h4>Economic Disparities & Crime in Malaysia</h4>
+              <div class="project-subtitle">Macroeconomic Data Analysis & Tableau Visuals</div>
+              <p class="project-desc">Analyzed the relationship between household income, Gini coefficient, poverty, and
+                crime rates across all Malaysian states using 2022 dataset. Led data science and interactive Tableau
+                dashboard design.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Multi-variable correlation analysis across all states</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Pandas</span>
+                <span class="tech-pill">Tableau</span>
+                <span class="tech-pill">Scikit-learn</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://github.com/izwanGit/EconomicPressureAndSocialPatterns" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 17: Corporate Website (montswitzerland.com) -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #0F172A 0%, #0E7490 100%);">
+            <span class="banner-tag">Web Deployment</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+              </div>
+              <span class="banner-title-text">montswitzerland.com</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Early Career · 2023</span>
+              <h4>Corporate Website (montswitzerland.com)</h4>
+              <div class="project-subtitle">Built in 24 Hours on Day 1 of Internship</div>
+              <p class="project-desc">Designed and deployed a full corporate website on my very first day as an intern.
+                24 hours from initial brief to live production server with GoDaddy DNS configuration.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">24 hours from brief to live production</span>
+              <div class="tech-pills">
+                <span class="tech-pill">HTML/CSS</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">GoDaddy DNS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 18: Java Sales Calculator -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E1B4B 0%, #0E7490 100%);">
+            <span class="banner-tag">Desktop Tool</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                  <line x1="8" y1="6" x2="16" y2="6"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">Java Sales Calculator</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Early Career · 2023</span>
+              <h4>Java Sales Calculator</h4>
+              <div class="project-subtitle">30 Minutes → 30 Seconds Automation</div>
+              <p class="project-desc">Spotted a manual inefficiency during sampling events. Built a Java Swing desktop
+                app to automate complex sales calculations, cutting processing time by 98%.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">30 minutes → 30 seconds (98% time reduction)</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Java</span>
+                <span class="tech-pill">Swing GUI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 19: E-Commerce Growth -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #831843 0%, #0E7490 100%);">
+            <span class="banner-tag">Growth Engineering</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box" style="background-color: rgba(244, 114, 182, 0.2); color: #F472B6;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+              <span class="banner-title-text">RM100 → RM100,000/mo Scale</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Early Career · 2023</span>
+              <h4>E-Commerce Growth (RM100 → RM100,000/mo)</h4>
+              <div class="project-subtitle">7-Month Digital Revenue Transformation</div>
+              <p class="project-desc">Managed TikTok Shop and Shopee, produced 59 video ads, ran affiliate campaigns,
+                executed product photography with Canon EOS R10, and scaled revenue 1,000x in 7 months.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">RM100/day → RM100,000/month in 7 months</span>
+              <div class="tech-pills">
+                <span class="tech-pill">TikTok Shop</span>
+                <span class="tech-pill">Shopee</span>
+                <span class="tech-pill">Final Cut Pro</span>
+                <span class="tech-pill">Canon EOS R10</span>
+              </div>
             </div>
           </div>
         </div>
@@ -2116,291 +2303,474 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       ABOUT
-       ============================================================ -->
-  <section class="about" id="about">
+  <!-- ==========================================================================
+       6. ABOUT SECTION (Featuring Real Photos)
+       ========================================================================== -->
+  <section class="about-section" id="about">
     <div class="container">
+      <span class="section-label animate-on-scroll">THE PERSON BEHIND THE CODE</span>
+      <h2 class="section-heading animate-on-scroll">Who I am</h2>
+
       <div class="about-grid">
 
-        <!-- Left: Photo + Credentials -->
-        <div>
-          <div class="about-photo-wrap reveal">
-            <div class="about-photo">
-              <img src="images/izwan.jpg" alt="Muhammad Izwan Ahmad">
-            </div>
+        <!-- About Left Sidebar with Real Profile Photo -->
+        <div class="about-sidebar animate-on-scroll">
+          <div class="profile-photo-container">
+            <img src="images/izwan.jpg" alt="Muhammad Izwan Ahmad portrait photo">
           </div>
 
-          <div class="about-credentials reveal d1">
-            <div class="cred-item">
-              <div class="cred-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              </div>
-              B.Sc Computer Science · UiTM · 3.9+ CGPA
-            </div>
-            <div class="cred-item">
-              <div class="cred-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg>
-              </div>
+          <div class="credentials-stack">
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                <path d="M9 22v-4h6v4"></path>
+                <path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"></path>
+              </svg>
               Ex-PETRONAS Digital Sdn Bhd
             </div>
-            <div class="cred-item">
-              <div class="cred-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-              </div>
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              JPA Scholar · 3.9+ CGPA
+            </div>
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+              </svg>
+              Vice Chancellor's Award (UiTM)
+            </div>
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
               11 Awards & Recognitions
             </div>
-            <div class="cred-item">
-              <div class="cred-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
-              </div>
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
               Gemini Certified · Google (Dec 2025)
             </div>
-            <div class="cred-item">
-              <div class="cred-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
-              </div>
-              JPA National Scholar
-            </div>
           </div>
         </div>
 
-        <!-- Right: Story -->
-        <div>
-          <span class="eyebrow reveal">About me</span>
-          <h2 class="section-title reveal d1">Muhammad Izwan Ahmad</h2>
-
-          <div class="about-story reveal d2">
+        <!-- About Right Content (Story Text + Real Achievement Photos) -->
+        <div class="about-content animate-on-scroll delay-100">
+          <div class="about-story">
             <p>
-              I started from a low-ranked school. Straight A's in SPM. Best Student Award. Vice Chancellor's Award in diploma. 3.9+ CGPA in degree. Dean's List every semester — diploma and degree combined.
+              I started from a low-ranked school. Straight A's in SPM. Best Student Award. Vice Chancellor's Award in
+              diploma. 3.9+ CGPA in degree. Dean's List every single semester, diploma and degree combined.
             </p>
 
-            <div class="story-pull">
-              "I don't wait to be told what to build. I spot the problem, then I build the solution."
+            <div class="story-highlight">
+              "At PETRONAS Digital, I didn't wait to be assigned work. I looked around, spotted 10 problems, and built
+              10 solutions in 3 months — all still running autonomously in production today, serving the team managing
+              Oracle HCM Cloud (myCareerX) for 50,000+ PETRONAS employees."
             </div>
 
             <p>
-              Before my degree, I designed and deployed a full corporate website on my very first day as an intern. Then I scaled an e-commerce business from RM100/day to RM100,000/month in 7 months. Then during my PETRONAS internship, I didn't wait to be assigned work — I built 10 production automation systems in 3 months.
+              Before that, I built a corporate website in 24 hours on my first day as an intern. Then I scaled an
+              e-commerce business from RM100/day to RM100,000/month in 7 months.
             </p>
 
             <p>
-              My final year project became <strong>Beruang</strong> — an AI finance app trained on 220,000+ Malaysian transactions with 99.61% classification accuracy, because I saw young Malaysians struggling with money and decided to fix it.
+              My final year project became <strong>Beruang</strong> — an AI finance app trained on 220,000+ Malaysian
+              transactions with 99.61% classification accuracy, because I saw young Malaysians struggling with money and
+              decided to fix it.
             </p>
 
-            <span class="bold-line">
-              Whether building websites for clients, training machine learning models, or automating enterprise operations — I take full ownership from brief to deployment.
-            </span>
+            <p style="font-weight: 700; color: var(--color-primary);">
+              I don't wait to be told what to build. I spot the problem, then I build the solution.
+            </p>
           </div>
 
-          <!-- Award photos -->
-          <div class="award-row reveal d3">
-            <div class="award-photo">
-              <img src="images/award-secops.jpeg" alt="Champion National Cybersecurity Competition">
-              <div class="award-photo-cap">Champion — Mobile SecOps Challenge</div>
-            </div>
-            <div class="award-photo">
-              <img src="images/award-vc.jpeg" alt="Vice Chancellor's Award UiTM">
-              <div class="award-photo-cap">Vice Chancellor's Award — UiTM</div>
-            </div>
-            <div class="award-photo">
-              <img src="images/award-ai-booth.jpeg" alt="Best AI Booth Award 2025">
-              <div class="award-photo-cap">Best AI Booth — 2025</div>
-            </div>
-          </div>
+          <!-- Real Honours & Awards Gallery -->
+          <div class="awards-container">
+            <h3 class="awards-title">Honours & Awards</h3>
 
-          <!-- Awards list -->
-          <div class="awards-list reveal d4">
-            <div class="award-item">
-              <div class="award-item-icon">🏆</div>
-              <div class="award-item-text">
-                <span class="award-item-title">Champion — UiTM Mobile SecOps DevSecOps Challenge</span>
-                <span class="award-item-detail">National cybersecurity competition · 2024</span>
+            <!-- Real Achievement Photos Grid -->
+            <div class="award-photos-row">
+              <div class="award-photo-card">
+                <img src="images/award-secops.jpeg" alt="Champion National Cybersecurity Competition">
+                <div class="award-photo-caption">Champion — Mobile SecOps Challenge</div>
+              </div>
+              <div class="award-photo-card">
+                <img src="images/award-vc.jpeg" alt="Vice Chancellor Award Diploma UiTM">
+                <div class="award-photo-caption">Vice Chancellor's Award — UiTM</div>
+              </div>
+              <div class="award-photo-card">
+                <img src="images/award-ai-booth.jpeg" alt="Best AI Booth Award 2025">
+                <div class="award-photo-caption">Best AI Booth Award — 2025</div>
               </div>
             </div>
-            <div class="award-item">
-              <div class="award-item-icon">🥇</div>
-              <div class="award-item-text">
-                <span class="award-item-title">Best AI Booth Award — AI Showcase Seminar 2025</span>
-                <span class="award-item-detail">Beruang selected as top project · UiTM 2025</span>
+
+            <!-- Complete 11 Awards List -->
+            <div class="awards-grid">
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16"></path>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Champion + 4 Awards</div>
+                  <div class="award-detail">UiTM Mobile SecOps Challenge (won 4 out of 5 categories)</div>
+                </div>
               </div>
-            </div>
-            <div class="award-item">
-              <div class="award-item-icon">🎓</div>
-              <div class="award-item-text">
-                <span class="award-item-title">Vice Chancellor's Award — UiTM Diploma</span>
-                <span class="award-item-detail">Top graduating student · 2022</span>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Best System Architecture Award</div>
+                  <div class="award-detail">Final Year Project — Beruang AI App</div>
+                </div>
               </div>
-            </div>
-            <div class="award-item">
-              <div class="award-item-icon">📚</div>
-              <div class="award-item-text">
-                <span class="award-item-title">Dean's List — Every Semester</span>
-                <span class="award-item-detail">Diploma (2020–2022) & Degree (2022–2025) · UiTM</span>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Best AI Booth Award</div>
+                  <div class="award-detail">AI Seminar 2025 (Batik Recognition ViT, 94.2% accuracy)</div>
+                </div>
               </div>
-            </div>
-            <div class="award-item">
-              <div class="award-item-icon">🌟</div>
-              <div class="award-item-text">
-                <span class="award-item-title">JPA National Scholarship Recipient</span>
-                <span class="award-item-detail">Jabatan Perkhidmatan Awam Malaysia</span>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Best Website GUI Award</div>
+                  <div class="award-detail">UiTM Website Competition (Kuehlicious)</div>
+                </div>
               </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Vice Chancellor's Award</div>
+                  <div class="award-detail">Diploma in Computer Science, UiTM (highest diploma honour)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Outstanding Performance Recognition</div>
+                  <div class="award-detail">West Malayan Group + Allowance Increment</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Dean's List (Every Semester)</div>
+                  <div class="award-detail">100% record across all diploma & degree semesters</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v4l3 3"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Best Student Award</div>
+                  <div class="award-detail">SPM 2020 (Straight A's)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Gemini Certified</div>
+                  <div class="award-detail">Google (Dec 2025)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">3.9+ CGPA</div>
+                  <div class="award-detail">Bachelor of Computer Science, UiTM</div>
+                </div>
+              </div>
+
+              <div class="award-card" style="grid-column: span 2;">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">JPA Scholar</div>
+                  <div class="award-detail">Public Service Department of Malaysia Scholarship</div>
+                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       CONTACT
-       ============================================================ -->
-  <section class="contact" id="contact">
+  <!-- ==========================================================================
+       7. SOCIAL PROOF
+       ========================================================================== -->
+  <section class="social-proof-section">
     <div class="container">
-      <div class="contact-inner">
-        <span class="eyebrow reveal">Let's work together</span>
-        <h2 class="section-title reveal d1">Ready to build something?</h2>
-        <p class="contact-sub reveal d2">
-          Tell me about your project. I reply within 24 hours.
-        </p>
+      <div style="text-align: center;">
+        <span class="section-label animate-on-scroll">PROVEN RESULTS</span>
+        <h2 class="section-heading animate-on-scroll">The work speaks for itself</h2>
+      </div>
 
-        <div class="contact-actions reveal d3">
-          <a href="https://wa.me/601161323879" target="_blank" rel="noopener" class="btn btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            WhatsApp me
-          </a>
-          <a href="mailto:works.izwan@gmail.com" class="btn btn-outline">
-            Send an email
-          </a>
+      <div class="social-proof-grid">
+
+        <div class="proof-card animate-on-scroll">
+          <div class="proof-number">596</div>
+          <div class="proof-label">LinkedIn reactions on PETRONAS announcement</div>
         </div>
 
-        <div class="contact-social reveal d4">
-          <a href="https://www.linkedin.com/in/izwanworks/" target="_blank" rel="noopener">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://github.com/izwanGit" target="_blank" rel="noopener">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
+        <div class="proof-card animate-on-scroll delay-100">
+          <div class="proof-number">849</div>
+          <div class="proof-label">LinkedIn reactions on Beruang launch</div>
         </div>
+
+        <div class="proof-card animate-on-scroll delay-200">
+          <div class="proof-number">19,923</div>
+          <div class="proof-label">Impressions on a single post</div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
+  <!-- ==========================================================================
+       8. CONTACT SECTION
+       ========================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container animate-on-scroll">
+      <h2>Ready to build something?</h2>
+      <p class="contact-sub">Tell me about your project. I reply within 24 hours.</p>
+
+      <div class="contact-buttons">
+        <a href="https://wa.me/60100000000" target="_blank" rel="noopener" class="btn btn-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
+          WhatsApp me
+        </a>
+
+        <a href="mailto:works.izwan@gmail.com" class="btn btn-white-outline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Send an email
+        </a>
+      </div>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/izwanworks/" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/izwanGit" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. FOOTER
+       ========================================================================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-logo">
-        <img src="images/IzwanAhmad_Full_Logo_Inverse.png" alt="Muhammad Izwan Ahmad">
+        <img src="images/IzwanAhmad_Full_Logo.png" alt="Izwan Ahmad Logo" class="footer-logo-img">
       </div>
-
-      <span class="footer-copy">Built with intention. © 2026 Muhammad Izwan Ahmad.</span>
-
+      <div>Built with intention. © 2026 Muhammad Izwan Ahmad.</div>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/izwanworks/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/izwanGit" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://wa.me/601161323879" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://wa.me/60100000000" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </footer>
 
-  <!-- ============================================================
-       JAVASCRIPT
-       ============================================================ -->
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT
+       ========================================================================== -->
   <script>
-    'use strict';
+    document.addEventListener('DOMContentLoaded', () => {
 
-    /* ------------------------------------------------------------------
-       1. Header scroll state
-    ------------------------------------------------------------------ */
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 20);
-    }, { passive: true });
+      /* ------------------------------------------------------------------------
+         1. Sticky Navbar Detection
+         ------------------------------------------------------------------------ */
+      const navbar = document.getElementById('navbar');
 
-    /* ------------------------------------------------------------------
-       2. Mobile navigation
-    ------------------------------------------------------------------ */
-    const hamburger  = document.getElementById('hamburger');
-    const mobileNav  = document.getElementById('mobile-nav');
-    const mobileClose = document.getElementById('mobile-close');
-    const mobileLinks = mobileNav.querySelectorAll('a');
+      const handleScroll = () => {
+        if (window.scrollY > 60) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      };
 
-    const openMenu  = () => { mobileNav.classList.add('open'); document.body.style.overflow = 'hidden'; };
-    const closeMenu = () => { mobileNav.classList.remove('open'); document.body.style.overflow = ''; };
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
 
-    hamburger.addEventListener('click', openMenu);
-    mobileClose.addEventListener('click', closeMenu);
-    mobileLinks.forEach(l => l.addEventListener('click', closeMenu));
+      /* ------------------------------------------------------------------------
+         2. Mobile Drawer Navigation Toggle
+         ------------------------------------------------------------------------ */
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const menuCloseBtn = document.getElementById('menu-close-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    /* ------------------------------------------------------------------
-       3. Browser mockup tab switcher
-    ------------------------------------------------------------------ */
-    const tabs     = document.querySelectorAll('.browser-tab');
-    const urlBar   = document.getElementById('browser-url');
-    const bLabel   = document.getElementById('browser-label');
-    const bTag     = document.getElementById('browser-tag');
-    const bImages  = [
-      document.getElementById('b-img-0'),
-      document.getElementById('b-img-1'),
-      document.getElementById('b-img-2')
-    ];
+      const openMenu = () => {
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
 
-    function switchTab(tab, idx) {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+      const closeMenu = () => {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      };
 
-      bImages.forEach(img => img.classList.replace('visible', 'hidden'));
-      bImages[idx].classList.replace('hidden', 'visible');
+      hamburgerBtn.addEventListener('click', openMenu);
+      menuCloseBtn.addEventListener('click', closeMenu);
+      menuOverlay.addEventListener('click', closeMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-      urlBar.textContent = tab.dataset.url;
-      bLabel.textContent = tab.dataset.label;
-      bTag.textContent   = tab.dataset.tag;
-    }
+      /* ------------------------------------------------------------------------
+         3. Project Category Filter
+         ------------------------------------------------------------------------ */
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectItems = document.querySelectorAll('.project-item');
 
-    tabs.forEach((tab, i) => {
-      tab.addEventListener('click', () => switchTab(tab, i));
-    });
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
 
-    /* ------------------------------------------------------------------
-       4. Project filter
-    ------------------------------------------------------------------ */
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
+          const filter = btn.getAttribute('data-filter');
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.dataset.filter;
-        projectItems.forEach(item => {
-          const cats = item.dataset.category || '';
-          const show = filter === 'all' || cats.split(' ').includes(filter);
-          item.style.display = show ? '' : 'none';
+          projectItems.forEach(item => {
+            const categories = item.getAttribute('data-category').split(' ');
+            if (filter === 'all' || categories.includes(filter)) {
+              item.style.display = '';
+              item.style.animation = 'none';
+              item.offsetHeight; // Reflow
+              item.style.animation = '';
+            } else {
+              item.style.display = 'none';
+            }
+          });
         });
       });
+
+      /* ------------------------------------------------------------------------
+         4. IntersectionObserver Fade-In Animations
+         ------------------------------------------------------------------------ */
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      animatedElements.forEach(el => observer.observe(el));
+
     });
-
-    /* ------------------------------------------------------------------
-       5. Scroll reveal animations
-    ------------------------------------------------------------------ */
-    const revealEls = document.querySelectorAll('.reveal');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach(el => observer.observe(el));
   </script>
-
 </body>
+
 </html>
