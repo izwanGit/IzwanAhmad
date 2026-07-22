@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammad Izwan Ahmad | Freelance Software Engineer</title>
   <meta name="description"
-    content="Portfolio of Muhammad Izwan Ahmad — Freelance Software Engineer, Ex-PETRONAS, specializing in AI, Business Automation, and Full-Stack Web & Mobile Engineering.">
-  
+    content="Portfolio of Muhammad Izwan Ahmad — Freelance Software Engineer specializing in Web Development, AI Systems, and Full-Stack Engineering.">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/IzwanAhmad Logo.png">
 
@@ -103,6 +103,14 @@
       color: var(--color-text);
       margin-bottom: 16px;
       letter-spacing: -0.5px;
+    }
+
+    .section-subheading {
+      font-size: 17px;
+      color: var(--color-muted);
+      max-width: 680px;
+      margin-bottom: 40px;
+      line-height: 1.6;
     }
 
     /* Scroll Animation Utility */
@@ -365,7 +373,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 48px;
       align-items: center;
     }
@@ -461,7 +469,7 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Floating Code Card */
+    /* Floating Hero Showcase Card */
     @keyframes floatCard {
 
       0%,
@@ -474,81 +482,92 @@
       }
     }
 
-    .hero-code-card {
-      background-color: #0F172A;
-      border-radius: var(--radius-md);
-      box-shadow: 0 20px 40px rgba(12, 26, 32, 0.2);
-      border: 1px solid #1E293B;
+    .hero-showcase-card {
+      background-color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px rgba(14, 116, 144, 0.12);
+      border: 1px solid var(--color-border);
       overflow: hidden;
-      animation: floatCard 3s ease-in-out infinite;
+      animation: floatCard 3.5s ease-in-out infinite;
     }
 
-    .code-card-header {
-      background-color: #1E293B;
-      padding: 12px 16px;
+    .showcase-header {
+      background-color: var(--bg-main);
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--color-border);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .window-dots {
+    .showcase-tabs {
       display: flex;
       gap: 8px;
     }
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .dot-red {
-      background-color: #EF4444;
-    }
-
-    .dot-yellow {
-      background-color: #F59E0B;
-    }
-
-    .dot-green {
-      background-color: #10B981;
-    }
-
-    .code-title {
+    .showcase-tab {
+      padding: 6px 14px;
+      border-radius: 6px;
       font-size: 12px;
-      font-family: monospace;
-      color: #94A3B8;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: var(--color-muted);
+      transition: var(--transition);
     }
 
-    .code-body {
-      padding: 24px;
-      font-family: 'Fira Code', Consolas, Monaco, monospace;
+    .showcase-tab.active {
+      background-color: #FFFFFF;
+      color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .showcase-body {
+      padding: 20px;
+      position: relative;
+    }
+
+    .showcase-img-container {
+      width: 100%;
+      height: 280px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background-color: var(--color-tint);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .showcase-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .showcase-img-container:hover img {
+      transform: scale(1.03);
+    }
+
+    .showcase-info {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .showcase-info-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .showcase-info-meta {
       font-size: 13px;
-      line-height: 1.65;
-      color: #E2E8F0;
-      overflow-x: auto;
-    }
-
-    .code-kw {
-      color: #38BDF8;
-      font-weight: 600;
-    }
-
-    .code-func {
-      color: #818CF8;
-    }
-
-    .code-str {
-      color: #34D399;
-    }
-
-    .code-comment {
-      color: #64748B;
-      font-style: italic;
-    }
-
-    .code-num {
-      color: #F472B6;
+      font-weight: 700;
+      color: var(--color-accent);
     }
 
     /* ==========================================================================
@@ -593,7 +612,7 @@
     }
 
     /* ==========================================================================
-       SECTION 4: SERVICES
+       SECTION 4: SERVICES (3 Focused Offerings)
        ========================================================================== */
     .services-section {
       padding: 100px 0;
@@ -603,38 +622,57 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
+      gap: 28px;
+      margin-top: 40px;
     }
 
     .service-card {
       background-color: var(--color-card);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
-      padding: 32px;
+      padding: 36px 32px;
       box-shadow: var(--shadow-card);
       transition: var(--transition);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
+    }
+
+    .service-card.featured-service {
+      border: 2px solid var(--color-primary);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 20px;
     }
 
     .service-card:hover {
-      background-color: var(--color-tint);
+      background-color: #FFFFFF;
       transform: translateY(-6px);
       box-shadow: var(--shadow-hover);
     }
 
     .service-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
       background-color: var(--color-tint);
       color: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       transition: var(--transition);
     }
 
@@ -644,33 +682,106 @@
     }
 
     .service-title {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
       color: var(--color-text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .service-desc {
       font-size: 15px;
       color: var(--color-muted);
-      margin-bottom: 24px;
-      line-height: 1.6;
+      margin-bottom: 28px;
+      line-height: 1.65;
     }
 
     .service-price {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 800;
       color: var(--color-primary);
-      padding-top: 16px;
+      padding-top: 18px;
       border-top: 1px dashed var(--color-border);
     }
 
     /* ==========================================================================
-       SECTION 5: PROJECTS
+       SECTION 5: DEDICATED ENTERPRISE SPOTLIGHT (PETRONAS Case Study)
+       ========================================================================== */
+    .enterprise-section {
+      padding: 100px 0;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .enterprise-card {
+      background-color: var(--bg-main);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: var(--shadow-card);
+      margin-top: 36px;
+    }
+
+    .enterprise-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .enterprise-logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background-color: #00A39E;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .enterprise-description {
+      font-size: 17px;
+      color: var(--color-text);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .enterprise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .enterprise-subcard {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .enterprise-subcard h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .enterprise-subcard p {
+      font-size: 14px;
+      color: var(--color-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* ==========================================================================
+       SECTION 6: PROJECTS PORTFOLIO (Filterable + Lightbox Trigger)
        ========================================================================== */
     .projects-section {
       padding: 100px 0;
-      background-color: #FFFFFF;
+      background-color: var(--bg-main);
     }
 
     .filter-tabs {
@@ -685,7 +796,7 @@
       border-radius: 30px;
       font-size: 14px;
       font-weight: 600;
-      background-color: var(--bg-main);
+      background-color: #FFFFFF;
       color: var(--color-muted);
       border: 1px solid var(--color-border);
       cursor: pointer;
@@ -700,16 +811,15 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Featured Beruang Card */
     .featured-project-card {
-      background-color: var(--color-card);
+      background-color: #FFFFFF;
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       padding: 40px;
       box-shadow: var(--shadow-card);
       margin-bottom: 48px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 40px;
       align-items: center;
       transition: var(--transition);
@@ -727,6 +837,7 @@
       background-color: var(--color-tint);
       border: 1px solid var(--color-border);
       position: relative;
+      cursor: pointer;
     }
 
     .project-image-wrapper img {
@@ -814,8 +925,8 @@
       object-fit: cover;
     }
 
-    /* Custom Enterprise UI Card Banners (for PETRONAS & background tools) */
-    .enterprise-ui-banner {
+    /* Structured Visual Canvas Placeholder for non-image projects */
+    .project-canvas-banner {
       height: 180px;
       background: linear-gradient(135deg, #0C1A20 0%, #0E7490 100%);
       padding: 24px;
@@ -825,17 +936,6 @@
       color: #FFFFFF;
       position: relative;
       overflow: hidden;
-    }
-
-    .enterprise-ui-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.2), transparent 70%);
-      pointer-events: none;
     }
 
     .banner-tag {
@@ -919,11 +1019,75 @@
     }
 
     /* ==========================================================================
-       SECTION 6: ABOUT
+       LIGHTBOX MODAL (Full-size Image Viewer)
+       ========================================================================== */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(12, 26, 32, 0.9);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 24px;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      margin-top: 16px;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      font-size: 36px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ==========================================================================
+       SECTION 7: ABOUT
        ========================================================================== */
     .about-section {
       padding: 100px 0;
-      background-color: var(--bg-main);
+      background-color: #FFFFFF;
     }
 
     .about-grid {
@@ -940,7 +1104,6 @@
       text-align: center;
     }
 
-    /* REAL PROFILE PHOTO CONTAINER */
     .profile-photo-container {
       width: 220px;
       height: 220px;
@@ -969,7 +1132,7 @@
 
     .credential-item {
       padding: 12px 16px;
-      background-color: #FFFFFF;
+      background-color: var(--bg-main);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
       font-size: 14px;
@@ -1004,7 +1167,6 @@
       color: var(--color-text);
     }
 
-    /* REAL AWARDS & HONOURS GALLERY */
     .awards-container {
       margin-top: 40px;
       padding-top: 40px;
@@ -1018,7 +1180,6 @@
       margin-bottom: 24px;
     }
 
-    /* Featured Real Award Photos Row */
     .award-photos-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1033,6 +1194,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
+      cursor: pointer;
     }
 
     .award-photo-card:hover {
@@ -1063,7 +1225,7 @@
 
     .award-card {
       padding: 16px;
-      background-color: #FFFFFF;
+      background-color: var(--bg-main);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
       display: flex;
@@ -1095,50 +1257,6 @@
       font-size: 12px;
       color: var(--color-muted);
       margin-top: 2px;
-    }
-
-    /* ==========================================================================
-       SECTION 7: SOCIAL PROOF
-       ========================================================================== */
-    .social-proof-section {
-      padding: 80px 0;
-      background-color: #FFFFFF;
-    }
-
-    .social-proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-top: 40px;
-    }
-
-    .proof-card {
-      background-color: #FFFFFF;
-      border: 1px solid var(--color-border);
-      border-top: 3px solid var(--color-accent);
-      border-radius: var(--radius-md);
-      padding: 32px;
-      box-shadow: var(--shadow-card);
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .proof-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .proof-number {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--color-primary);
-      margin-bottom: 8px;
-    }
-
-    .proof-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-muted);
     }
 
     /* ==========================================================================
@@ -1240,7 +1358,11 @@
       }
 
       .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+      }
+
+      .enterprise-grid {
+        grid-template-columns: 1fr;
       }
 
       .featured-project-card {
@@ -1270,19 +1392,11 @@
         gap: 24px;
       }
 
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
       .projects-grid {
         grid-template-columns: 1fr;
       }
 
       .awards-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .social-proof-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1292,6 +1406,10 @@
 
       .featured-project-card {
         padding: 24px;
+      }
+
+      .enterprise-card {
+        padding: 28px;
       }
     }
 
@@ -1325,7 +1443,8 @@
 
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#enterprise">Enterprise</a></li>
+        <li><a href="#projects">Portfolio</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1343,7 +1462,8 @@
   <div class="mobile-menu" id="mobile-menu">
     <button class="mobile-menu-close" id="menu-close-btn">&times;</button>
     <a href="#services" class="mobile-link">Services</a>
-    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#enterprise" class="mobile-link">Enterprise</a>
+    <a href="#projects" class="mobile-link">Portfolio</a>
     <a href="#about" class="mobile-link">About</a>
     <a href="#contact" class="mobile-link">Contact</a>
   </div>
@@ -1363,13 +1483,12 @@
           </div>
 
           <h1 class="hero-heading">
-            I build things <br>
+            I build web applications <br>
             <span class="highlight">that actually work.</span>
           </h1>
 
           <p class="hero-subtext">
-            Ex-PETRONAS engineer who shipped 10 production systems in 3 months. I build web apps, AI systems, and
-            automation that save Malaysian businesses real time and real money.
+            Full-stack software engineer based in Malaysia. I build high-performing web platforms, AI systems, and automated workflows that save businesses real time and money.
           </p>
 
           <div class="hero-ctas">
@@ -1382,7 +1501,7 @@
               </svg>
             </a>
             <a href="#contact" class="btn btn-outline">
-              Let's talk
+              Get in touch
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -1394,9 +1513,11 @@
           <div class="hero-stats-pills">
             <div class="stat-pill">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
               </svg>
-              10+ PETRONAS systems
+              Full-Stack Web & Mobile
             </div>
             <div class="stat-pill">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -1404,44 +1525,42 @@
                 <path d="M12 16v-4"></path>
                 <path d="M12 8h.01"></path>
               </svg>
-              99.61% AI accuracy
+              AI & Automation Systems
             </div>
             <div class="stat-pill">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
                 <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
                 <path d="M4 22h16"></path>
-                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
                 <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
               </svg>
-              11 competition & academic awards
+              Competition Champion & JPA Scholar
             </div>
           </div>
         </div>
 
-        <!-- Hero Right Column: Floating Dark Code Editor Card -->
-        <div class="hero-code-card animate-on-scroll delay-200">
-          <div class="code-card-header">
+        <!-- Hero Right Column: Interactive Work Preview Showcase -->
+        <div class="hero-showcase-card animate-on-scroll delay-200">
+          <div class="showcase-header">
             <div class="window-dots">
               <span class="dot dot-red"></span>
               <span class="dot dot-yellow"></span>
               <span class="dot dot-green"></span>
             </div>
-            <span class="code-title">hcsm_ops_hub.py</span>
+            <div class="showcase-tabs">
+              <button class="showcase-tab active" data-img="images/beruang-landing.png" data-title="Beruang AI App" data-meta="99.61% AI Accuracy">Beruang AI</button>
+              <button class="showcase-tab" data-img="images/o-iqra-home.png" data-title="O-Iqra Learning Platform" data-meta="Live Production">O-Iqra</button>
+              <button class="showcase-tab" data-img="images/batik-main.jpeg" data-title="Batik Vision System" data-meta="94.2% Accuracy">Batik AI</button>
+            </div>
           </div>
-          <div class="code-body">
-            <pre><code><span class="code-comment"># HCSM Operations Hub — PETRONAS Digital</span>
-<span class="code-kw">@automation.task</span>(schedule=<span class="code-str">"0 7 * * MON"</span>)
-<span class="code-kw">def</span> <span class="code-func">run_weekly_report</span>():
-    tickets = oracle_hcm.get_ageing_tickets(
-        total_employees=<span class="code-num">50000</span>
-    )
-    metrics = process_metrics(tickets, accuracy=<span class="code-num">0.9961</span>)
-    pptx = generate_executive_deck(metrics)
-    send_teams_alert(recipients=leadership, attachment=pptx)
-    
-    <span class="code-kw">return</span> <span class="code-str">"Saved 4 hours. Delivered in 2 mins."</span></code></pre>
+          <div class="showcase-body">
+            <div class="showcase-img-container lightbox-trigger" data-img="images/beruang-landing.png" data-caption="Beruang AI Personal Finance App — 99.61% Accuracy">
+              <img id="hero-showcase-img" src="images/beruang-landing.png" alt="Featured Work Showcase">
+            </div>
+            <div class="showcase-info">
+              <span class="showcase-info-title" id="hero-showcase-title">Beruang AI Personal Finance</span>
+              <span class="showcase-info-meta" id="hero-showcase-meta">99.61% AI Accuracy</span>
+            </div>
           </div>
         </div>
 
@@ -1457,23 +1576,23 @@
       <div class="metrics-grid">
 
         <div class="metric-item animate-on-scroll">
-          <span class="metric-number">10+</span>
-          <span class="metric-label">Production systems shipped</span>
+          <span class="metric-number">15+</span>
+          <span class="metric-label">Projects Shipped</span>
         </div>
 
         <div class="metric-item animate-on-scroll delay-100">
-          <span class="metric-number">50,000+</span>
-          <span class="metric-label">PETRONAS employees served</span>
+          <span class="metric-number">99.6%</span>
+          <span class="metric-label">AI Classification Accuracy</span>
         </div>
 
         <div class="metric-item animate-on-scroll delay-200">
-          <span class="metric-number">3-4 hrs → 2 min</span>
-          <span class="metric-label">Time saved weekly</span>
+          <span class="metric-number">11</span>
+          <span class="metric-label">Honours & Academic Awards</span>
         </div>
 
         <div class="metric-item animate-on-scroll delay-300">
-          <span class="metric-number">11</span>
-          <span class="metric-label">Awards & Recognitions</span>
+          <span class="metric-number">RM100k/mo</span>
+          <span class="metric-label">E-Commerce Growth Scaled</span>
         </div>
 
       </div>
@@ -1481,17 +1600,21 @@
   </section>
 
   <!-- ==========================================================================
-       4. SERVICES SECTION
+       4. SERVICES SECTION (3 Focused Offerings)
        ========================================================================== -->
   <section class="services-section" id="services">
     <div class="container">
-      <span class="section-label animate-on-scroll">WHAT I BUILD</span>
+      <span class="section-label animate-on-scroll">WHAT I DO</span>
       <h2 class="section-heading animate-on-scroll">Services I offer</h2>
+      <p class="section-subheading animate-on-scroll">
+        Focused web engineering and custom software built for speed, security, and real business results.
+      </p>
 
       <div class="services-grid">
 
-        <!-- Card 1 -->
-        <div class="service-card animate-on-scroll">
+        <!-- Card 1: Website Development (Primary Focus) -->
+        <div class="service-card featured-service animate-on-scroll">
+          <span class="featured-badge">Primary Focus</span>
           <div>
             <div class="service-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1501,13 +1624,12 @@
               </svg>
             </div>
             <h3 class="service-title">Website Development</h3>
-            <p class="service-desc">Custom landing pages, high-converting business sites, and performant e-commerce
-              platforms engineered for sales.</p>
+            <p class="service-desc">Custom landing pages, high-converting corporate sites, and performant e-commerce platforms engineered for speed, SEO, and sales conversion.</p>
           </div>
           <div class="service-price">RM800 – RM8,000</div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 2: Web & Mobile Applications -->
         <div class="service-card animate-on-scroll delay-100">
           <div>
             <div class="service-icon">
@@ -1516,14 +1638,13 @@
                 <line x1="12" y1="18" x2="12.01" y2="18"></line>
               </svg>
             </div>
-            <h3 class="service-title">Mobile Apps</h3>
-            <p class="service-desc">Cross-platform iOS and Android apps built with React Native or Native Java. Slick
-              UI, smooth performance, and real-time backend sync.</p>
+            <h3 class="service-title">Web & Mobile Applications</h3>
+            <p class="service-desc">Full-stack web apps and cross-platform mobile applications (React Native / Java) with real-time backends, secure authentication, and intuitive user experiences.</p>
           </div>
           <div class="service-price">RM5,000 – RM15,000</div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 3: Business Automation & AI -->
         <div class="service-card animate-on-scroll delay-200">
           <div>
             <div class="service-icon">
@@ -1531,60 +1652,10 @@
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
               </svg>
             </div>
-            <h3 class="service-title">Business Automation</h3>
-            <p class="service-desc">Eliminate repetitive tasks. Automated report generators, WhatsApp bots, email
-              parsing, and zero-touch enterprise workflows.</p>
+            <h3 class="service-title">Business Automation & AI</h3>
+            <p class="service-desc">Custom AI chatbots, RAG knowledge advisors, OCR receipt scanning, and zero-touch automated workflows that eliminate repetitive manual tasks.</p>
           </div>
-          <div class="service-price">RM1,500 – RM5,000</div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="service-card animate-on-scroll">
-          <div>
-            <div class="service-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 16v-4"></path>
-                <path d="M12 8h.01"></path>
-              </svg>
-            </div>
-            <h3 class="service-title">AI Integration</h3>
-            <p class="service-desc">Custom AI chatbots, RAG knowledge advisors, OCR receipt scanning, and computer
-              vision classification systems built into your web or mobile app.</p>
-          </div>
-          <div class="service-price">RM2,000 – RM10,000</div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="service-card animate-on-scroll delay-100">
-          <div>
-            <div class="service-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-            </div>
-            <h3 class="service-title">Data Dashboards</h3>
-            <p class="service-desc">Interactive executive dashboards using Power BI, Tableau, or custom web interfaces.
-              Transform raw data into clear actionable insights.</p>
-          </div>
-          <div class="service-price">RM1,500 – RM6,000</div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="service-card animate-on-scroll delay-200">
-          <div>
-            <div class="service-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </div>
-            <h3 class="service-title">Monthly Retainer</h3>
-            <p class="service-desc">Peace of mind for your digital infrastructure. Dedicated hosting management, routine
-              maintenance, security updates, and priority bug fixes.</p>
-          </div>
-          <div class="service-price">From RM150 / month</div>
+          <div class="service-price">RM1,500 – RM10,000</div>
         </div>
 
       </div>
@@ -1592,25 +1663,83 @@
   </section>
 
   <!-- ==========================================================================
-       5. PROJECTS SECTION
+       5. DEDICATED ENTERPRISE SPOTLIGHT (PETRONAS Operations Case Study)
+       ========================================================================== -->
+  <section class="enterprise-section" id="enterprise">
+    <div class="container">
+      <span class="section-label animate-on-scroll">ENTERPRISE EXPERIENCE</span>
+      <h2 class="section-heading animate-on-scroll">Operations Engineering at PETRONAS Digital</h2>
+
+      <div class="enterprise-card animate-on-scroll">
+        <div class="enterprise-header-row">
+          <span class="enterprise-logo-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            PETRONAS Digital Sdn Bhd
+          </span>
+          <span style="font-size:14px; font-weight:700; color:var(--color-muted);">Oracle HCM Operations (myCareerX) · 50,000+ Employees</span>
+        </div>
+
+        <p class="enterprise-description">
+          During my time at PETRONAS Digital, I identified operational friction across HCM Cloud workflows and engineered 10 autonomous production solutions for ITSM reporting, document extractions, and executive decks.
+        </p>
+
+        <div class="enterprise-grid">
+          
+          <div class="enterprise-subcard">
+            <h4>HCSM Operations Hub</h4>
+            <p>Unified Streamlit reporting platform automating ITSM workflows, document generation, and pre-deployment handoffs for BMC Helix & Oracle HCM.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Streamlit</span>
+              <span class="tech-pill">Playwright</span>
+            </div>
+          </div>
+
+          <div class="enterprise-subcard">
+            <h4>Zero-Touch Report Pipelines</h4>
+            <p>Automated weekly ageing ticket reports and monthly Power BI → PowerPoint executive summary decks delivered via Power Automate.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">Power BI</span>
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">Power Automate</span>
+            </div>
+          </div>
+
+          <div class="enterprise-subcard">
+            <h4>Teams SLA Logger & Pre-Deploy Flow</h4>
+            <p>24/7 automated Teams monitoring for urgent tickets, SLA alerts, and one-click UAT endorsement document generation.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">SharePoint</span>
+              <span class="tech-pill">Teams Cards</span>
+              <span class="tech-pill">TypeScript</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. PROJECTS PORTFOLIO (Filterable + Lightbox Clickable)
        ========================================================================== -->
   <section class="projects-section" id="projects">
     <div class="container">
-      <span class="section-label animate-on-scroll">THINGS I'VE SHIPPED</span>
+      <span class="section-label animate-on-scroll">PORTFOLIO</span>
       <h2 class="section-heading animate-on-scroll">Selected projects</h2>
 
       <!-- Filter Tab Bar -->
       <div class="filter-tabs animate-on-scroll">
-        <button class="filter-btn active" data-filter="all">All (19)</button>
-        <button class="filter-btn" data-filter="petronas">Enterprise · PETRONAS</button>
+        <button class="filter-btn active" data-filter="all">All Projects</button>
         <button class="filter-btn" data-filter="ai">AI & ML</button>
         <button class="filter-btn" data-filter="web">Web & Mobile</button>
-        <button class="filter-btn" data-filter="data">Data & Analysis</button>
+        <button class="filter-btn" data-filter="data">Data & Other</button>
       </div>
 
-      <!-- FEATURED PROJECT (Beruang AI App) with Real Screenshots -->
+      <!-- FEATURED PROJECT (Beruang AI App) -->
       <div class="featured-project-card project-item animate-on-scroll" data-category="ai web">
-        <div class="project-image-wrapper">
+        <div class="project-image-wrapper lightbox-trigger" data-img="images/beruang-landing.png" data-caption="Beruang — AI Personal Finance App (99.61% Classification Accuracy)">
           <img src="images/beruang-landing.png" alt="Beruang AI Personal Finance App">
         </div>
 
@@ -1629,10 +1758,7 @@
           <h3 style="margin-top: 12px;">Beruang — AI Personal Finance App</h3>
           <div class="project-subtitle">Final Year Project · AI Financial Advisory System</div>
           <p class="project-desc">
-            AI-powered money management app created to solve financial illiteracy among young Malaysians. Trained a
-            custom Bi-LSTM model on 220,000+ local transaction records with 99.61% classification accuracy. Integrates
-            RAG financial advising via Grok API, receipt scanning with Gemini 2.5 Flash, and a gamified Bear Evolution
-            XP system in a 13-screen React Native app.
+            AI-powered money management app created to solve financial illiteracy among young Malaysians. Trained a custom Bi-LSTM model on 220,000+ local transaction records with 99.61% classification accuracy. Integrates RAG financial advising via Grok API, receipt scanning with Gemini 2.5 Flash, and a gamified Bear Evolution XP system in a 13-screen React Native app.
           </p>
           <span class="stat-highlight">99.61% AI accuracy · 86.77 SUS Score · 98.2% users more confident</span>
           <div class="tech-pills">
@@ -1655,220 +1781,9 @@
       <!-- 2-COLUMN GRID FOR ALL REMAINING PROJECTS -->
       <div class="projects-grid">
 
-        <!-- PROJECT 1: HCSM Operations Hub -->
-        <div class="project-card project-item animate-on-scroll" data-category="petronas">
-          <div class="enterprise-ui-banner">
-            <span class="banner-tag">Enterprise · PETRONAS</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-              </div>
-              <span class="banner-title-text">HCSM Operations Hub</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Enterprise · PETRONAS Digital</span>
-              <h4>HCSM Operations Hub</h4>
-              <div class="project-subtitle">Enterprise ITSM Reporting & RPA Platform</div>
-              <p class="project-desc">A unified Streamlit platform designed and built solo, automating 3 of PETRONAS's
-                most time-consuming ITSM workflows for myCareerX (Oracle HCM Cloud, serving 50,000+ employees).</p>
-            </div>
-            <div>
-              <span class="stat-highlight">3 workflows · 5+ hours saved per week · runs autonomously</span>
-              <div class="tech-pills">
-                <span class="tech-pill">Python</span>
-                <span class="tech-pill">Streamlit</span>
-                <span class="tech-pill">Playwright</span>
-                <span class="tech-pill">PyMuPDF</span>
-                <span class="tech-pill">Jinja2</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 2: Full Weekly Report Automation -->
-        <div class="project-card project-item animate-on-scroll" data-category="petronas">
-          <div class="enterprise-ui-banner">
-            <span class="banner-tag">Automation Pipeline</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-              </div>
-              <span class="banner-title-text">Weekly Report Pipeline</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Enterprise · PETRONAS Digital</span>
-              <h4>Full Weekly Report Automation</h4>
-              <div class="project-subtitle">Zero-Touch Pipeline, Every Monday 7AM</div>
-              <p class="project-desc">Power Automate pipeline that fully automates the team's weekly ageing ticket
-                report. Ingests 4 Excel files, processes thousands of rows via 6 custom TypeScript Office Scripts, sends
-                HTML emails & Teams reminders with @mentions.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">3-4 hours → under 2 minutes (Zero human touch)</span>
-              <div class="tech-pills">
-                <span class="tech-pill">Power Automate</span>
-                <span class="tech-pill">TypeScript</span>
-                <span class="tech-pill">Office Scripts</span>
-                <span class="tech-pill">SharePoint</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 3: Full Monthly Report Automation -->
-        <div class="project-card project-item animate-on-scroll" data-category="petronas">
-          <div class="enterprise-ui-banner">
-            <span class="banner-tag">Cloud Native BI</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="8" y1="21" x2="16" y2="21"></line>
-                  <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
-              </div>
-              <span class="banner-title-text">Monthly Power BI Deck</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Enterprise · PETRONAS Digital</span>
-              <h4>Full Monthly Report Automation</h4>
-              <div class="project-subtitle">Cloud-Native Power BI → PowerPoint Pipeline</div>
-              <p class="project-desc">Automated monthly reporting pipeline replacing manual Power BI exports. DAX
-                measures generate executive summary bullets inside the report. Power Automate exports to PPTX and emails
-                management on the 1st of every month.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">1-2 hours → under 3 minutes</span>
-              <div class="tech-pills">
-                <span class="tech-pill">Power BI</span>
-                <span class="tech-pill">DAX</span>
-                <span class="tech-pill">Power Automate</span>
-                <span class="tech-pill">SharePoint</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 4: Pre-Deployment Automation -->
-        <div class="project-card project-item animate-on-scroll" data-category="petronas">
-          <div class="enterprise-ui-banner">
-            <span class="banner-tag">DevOps Automation</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                  <polyline points="2 17 12 22 22 17"></polyline>
-                  <polyline points="2 12 12 17 22 12"></polyline>
-                </svg>
-              </div>
-              <span class="banner-title-text">Pre-Deployment Handoff</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Enterprise · PETRONAS Digital</span>
-              <h4>Pre-Deployment Automation</h4>
-              <div class="project-subtitle">UAT Endorsement to OAT Document & Teams Handoff</div>
-              <p class="project-desc">Flow that triggers on UAT endorsement emails, extracts ticket data from
-                SharePoint, generates branded OAT documents, and posts Teams adaptive cards with 1-click Ops Hub launch
-                for RFC/RDM creation in BMC Helix ITSM.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">30 minutes → under 1 minute</span>
-              <div class="tech-pills">
-                <span class="tech-pill">Power Automate</span>
-                <span class="tech-pill">BMC Helix</span>
-                <span class="tech-pill">SharePoint</span>
-                <span class="tech-pill">Teams Cards</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 5: Priority Ticket Automation System -->
-        <div class="project-card project-item animate-on-scroll" data-category="petronas">
-          <div class="enterprise-ui-banner">
-            <span class="banner-tag">SLA Monitoring</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                </svg>
-              </div>
-              <span class="banner-title-text">Priority Ticket Alerting</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Enterprise · PETRONAS Digital</span>
-              <h4>Priority Ticket Automation System</h4>
-              <div class="project-subtitle">Real-Time Teams Logger, Enricher & Reminder</div>
-              <p class="project-desc">3 Power Automate flows + 2 TypeScript Office Scripts monitoring PETRONAS Teams
-                chat 24/7. Auto-logs urgent tickets, prevents duplicates, sends weekly @mention reminders, and
-                auto-creates Friday review meetings.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">24/7 Real-Time Teams SLA Monitoring & Alerting</span>
-              <div class="tech-pills">
-                <span class="tech-pill">Power Automate</span>
-                <span class="tech-pill">TypeScript</span>
-                <span class="tech-pill">SharePoint</span>
-                <span class="tech-pill">Teams</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 6: HCSM Ticket Monitoring Dashboard -->
-        <div class="project-card project-item animate-on-scroll" data-category="petronas data">
-          <div class="enterprise-ui-banner">
-            <span class="banner-tag">Analytics Dashboard</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
-              </div>
-              <span class="banner-title-text">Ticket Operations Analytics</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Enterprise · PETRONAS Digital</span>
-              <h4>HCSM Ticket Monitoring Dashboard</h4>
-              <div class="project-subtitle">Power BI Dashboard for Oracle HCM Operations</div>
-              <p class="project-desc">Maintained and enhanced the team's Power BI dashboard for monitoring ticket
-                volumes, ageing, and SLA trends across Service Requests and Incidents for myCareerX.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">Analytics for 50,000+ PETRONAS employee tickets</span>
-              <div class="tech-pills">
-                <span class="tech-pill">Power BI</span>
-                <span class="tech-pill">DAX</span>
-                <span class="tech-pill">SharePoint</span>
-                <span class="tech-pill">BMC Helix</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 8: Batik Recognition & Classification System (Real Image) -->
+        <!-- PROJECT 1: Batik Recognition -->
         <div class="project-card project-item animate-on-scroll" data-category="ai">
-          <div class="project-image-wrapper">
+          <div class="project-image-wrapper lightbox-trigger" data-img="images/batik-main.jpeg" data-caption="Batik Recognition & Classification System (Vision Transformer)">
             <img src="images/batik-main.jpeg" alt="Batik Recognition System Interface">
           </div>
           <div class="project-card-body">
@@ -1885,8 +1800,7 @@
               </span>
               <h4>Batik Recognition & Classification System</h4>
               <div class="project-subtitle">Vision Transformer (ViT) Computer Vision System</div>
-              <p class="project-desc">Real-time computer vision system classifying Malaysian vs Indonesian batik using
-                Vision Transformer (ViT). Featured live webcam demo with OpenCV, Flask, and Roboflow API.</p>
+              <p class="project-desc">Real-time computer vision system classifying Malaysian vs Indonesian batik using Vision Transformer (ViT). Featured live webcam demo with OpenCV, Flask, and Roboflow API.</p>
             </div>
             <div>
               <span class="stat-highlight">94.2% classification accuracy</span>
@@ -1901,44 +1815,9 @@
           </div>
         </div>
 
-        <!-- PROJECT 9: Malaysian Hawker Food Recognition -->
-        <div class="project-card project-item animate-on-scroll" data-category="ai">
-          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #064E3B 0%, #0E7490 100%);">
-            <span class="banner-tag">Computer Vision</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box" style="background-color: rgba(52, 211, 153, 0.2); color: #34D399;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                  <circle cx="12" cy="13" r="4"></circle>
-                </svg>
-              </div>
-              <span class="banner-title-text">Hawker Food Calorie AI</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">AI · Machine Learning</span>
-              <h4>Malaysian Hawker Food Recognition</h4>
-              <div class="project-subtitle">Calorie & Macro Estimation from Photos</div>
-              <p class="project-desc">Built in MATLAB, recognizes 7 Malaysian hawker foods and estimates nutrition using
-                SqueezeNet CNN (83% accuracy) vs SVM baseline. Integrated Malaysian Food Composition Database for macro
-                analysis.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">83% SqueezeNet CNN accuracy + Macro Calculator</span>
-              <div class="tech-pills">
-                <span class="tech-pill">MATLAB</span>
-                <span class="tech-pill">SqueezeNet</span>
-                <span class="tech-pill">SVM</span>
-                <span class="tech-pill">App Designer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 10: O-Iqra Islamic Learning Platform (Real Image) -->
+        <!-- PROJECT 2: O-Iqra Islamic Learning Platform -->
         <div class="project-card project-item animate-on-scroll" data-category="web">
-          <div class="project-image-wrapper">
+          <div class="project-image-wrapper lightbox-trigger" data-img="images/o-iqra-home.png" data-caption="O-Iqra Islamic Learning Platform Homepage">
             <img src="images/o-iqra-home.png" alt="O-Iqra Islamic Learning Platform Homepage">
           </div>
           <div class="project-card-body">
@@ -1946,8 +1825,7 @@
               <span class="group-label">Web · Mobile · Full-Stack</span>
               <h4>O-Iqra — Islamic Learning Platform</h4>
               <div class="project-subtitle">Live Client Web Application</div>
-              <p class="project-desc">Full-stack Islamic learning web platform designed and built for a real corporate
-                client. Currently live and actively serving students and tutors.</p>
+              <p class="project-desc">Full-stack Islamic learning web platform designed and built for a real corporate client. Currently live and actively serving students and tutors.</p>
             </div>
             <div>
               <span class="stat-highlight">Live in production with active users</span>
@@ -1964,9 +1842,9 @@
           </div>
         </div>
 
-        <!-- PROJECT 11: YuLaoshi AI Mandarin Tutor (Real Image) -->
+        <!-- PROJECT 3: YuLaoshi AI Mandarin Tutor -->
         <div class="project-card project-item animate-on-scroll" data-category="web ai">
-          <div class="project-image-wrapper">
+          <div class="project-image-wrapper lightbox-trigger" data-img="images/yulaoshi-main.jpeg" data-caption="YuLaoshi — AI Mandarin Tutor Interface">
             <img src="images/yulaoshi-main.jpeg" alt="YuLaoshi AI Mandarin Tutor Main Interface">
           </div>
           <div class="project-card-body">
@@ -1974,9 +1852,7 @@
               <span class="group-label">Web · Mobile · Full-Stack</span>
               <h4>YuLaoshi — AI Mandarin Tutor</h4>
               <div class="project-subtitle">Live Product · Built for UiTM Students</div>
-              <p class="project-desc">Full-stack AI chatbot for Mandarin listening practice. Integrates GPT-4o-mini
-                tutor, dynamic quiz generator with Google TTS audio, gamified badge system, and SQLite progress
-                tracking.</p>
+              <p class="project-desc">Full-stack AI chatbot for Mandarin listening practice. Integrates GPT-4o-mini tutor, dynamic quiz generator with Google TTS audio, gamified badge system, and SQLite progress tracking.</p>
             </div>
             <div>
               <span class="stat-highlight">GPT-4o-mini + gTTS + Dynamic Quiz Engine</span>
@@ -1988,18 +1864,16 @@
                 <span class="tech-pill">Bootstrap</span>
               </div>
               <div class="card-footer-links">
-                <a href="https://izwan.pythonanywhere.com/" target="_blank" rel="noopener" class="link-btn">Live App
-                  ↗</a>
-                <a href="https://github.com/izwanGit/LaoshiYu-Chatbot" target="_blank" rel="noopener"
-                  class="link-btn">GitHub ↗</a>
+                <a href="https://izwan.pythonanywhere.com/" target="_blank" rel="noopener" class="link-btn">Live App ↗</a>
+                <a href="https://github.com/izwanGit/LaoshiYu-Chatbot" target="_blank" rel="noopener" class="link-btn">GitHub ↗</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- PROJECT 12: RentVerse Secure Rental Platform (Real Image) -->
+        <!-- PROJECT 4: RentVerse DevSecOps Platform -->
         <div class="project-card project-item animate-on-scroll" data-category="web">
-          <div class="project-image-wrapper">
+          <div class="project-image-wrapper lightbox-trigger" data-img="images/rentverse.jpeg" data-caption="RentVerse — Champion DevSecOps Platform">
             <img src="images/rentverse.jpeg" alt="RentVerse DevSecOps Security Award">
           </div>
           <div class="project-card-body">
@@ -2016,9 +1890,7 @@
               </span>
               <h4>RentVerse — Secure Rental Platform</h4>
               <div class="project-subtitle">DevSecOps Challenge Champion Platform</div>
-              <p class="project-desc">Enterprise property rental app built in 21 days with 14-stage CI/CD pipeline, Zero
-                Trust authentication (TOTP + RBAC), 800 km/h impossible travel anomaly blocking, SHA-256 lease hashing,
-                and Random Forest fraud detection.</p>
+              <p class="project-desc">Enterprise property rental app built in 21 days with 14-stage CI/CD pipeline, Zero Trust authentication (TOTP + RBAC), 800 km/h impossible travel anomaly blocking, SHA-256 lease hashing, and Random Forest fraud detection.</p>
             </div>
             <div>
               <span class="stat-highlight">14-stage CI/CD pipeline & Zero Trust security</span>
@@ -2030,16 +1902,15 @@
                 <span class="tech-pill">Docker</span>
               </div>
               <div class="card-footer-links">
-                <a href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne" target="_blank" rel="noopener"
-                  class="link-btn">GitHub ↗</a>
+                <a href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne" target="_blank" rel="noopener" class="link-btn">GitHub ↗</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- PROJECT 13: Play2Grow Edutainment App -->
+        <!-- PROJECT 5: Play2Grow Edutainment App -->
         <div class="project-card project-item animate-on-scroll" data-category="web">
-          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E1B4B 0%, #0E7490 100%);">
+          <div class="project-canvas-banner" style="background: linear-gradient(135deg, #1E1B4B 0%, #0E7490 100%);">
             <span class="banner-tag">Mobile Application</span>
             <div class="banner-title-area">
               <div class="banner-icon-box" style="background-color: rgba(129, 140, 248, 0.2); color: #818CF8;">
@@ -2056,8 +1927,7 @@
               <span class="group-label">Web · Mobile · Full-Stack</span>
               <h4>Play2Grow — Edutainment Android App</h4>
               <div class="project-subtitle">Learning App for Malaysian Kids (Ages 4-6)</div>
-              <p class="project-desc">Dual-mode Android app (Parent Mode + Kid Mode) aligned to Malaysia's national
-                curriculum. Features interactive quiz games, star reward system, and Firebase real-time sync.</p>
+              <p class="project-desc">Dual-mode Android app (Parent Mode + Kid Mode) aligned to Malaysia's national curriculum. Features interactive quiz games, star reward system, and Firebase real-time sync.</p>
             </div>
             <div>
               <span class="stat-highlight">Dual-mode interactive national curriculum app</span>
@@ -2070,9 +1940,9 @@
           </div>
         </div>
 
-        <!-- PROJECT 14: UiTM Event Management System -->
+        <!-- PROJECT 6: UiTM Event Management System -->
         <div class="project-card project-item animate-on-scroll" data-category="web">
-          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1F2937 0%, #0E7490 100%);">
+          <div class="project-canvas-banner" style="background: linear-gradient(135deg, #1F2937 0%, #0E7490 100%);">
             <span class="banner-tag">University Platform</span>
             <div class="banner-title-area">
               <div class="banner-icon-box">
@@ -2091,9 +1961,7 @@
               <span class="group-label">Web · Mobile · Full-Stack</span>
               <h4>UiTM Event Management System (UEMS)</h4>
               <div class="project-subtitle">Solved Campus Event Chaos for UiTM</div>
-              <p class="project-desc">Java web application for campus event registration and student merit coupon
-                tracking. Solved the problem of students missing merit coupons using SendGrid automated email alerts and
-                MySQL backend.</p>
+              <p class="project-desc">Java web application for campus event registration and student merit coupon tracking. Solved the problem of students missing merit coupons using SendGrid automated email alerts and MySQL backend.</p>
             </div>
             <div>
               <span class="stat-highlight">Automated registrations & SendGrid alerts</span>
@@ -2104,16 +1972,15 @@
                 <span class="tech-pill">SendGrid</span>
               </div>
               <div class="card-footer-links">
-                <a href="https://github.com/izwanGit/UiTM-Event-Management-System" target="_blank" rel="noopener"
-                  class="link-btn">GitHub ↗</a>
+                <a href="https://github.com/izwanGit/UiTM-Event-Management-System" target="_blank" rel="noopener" class="link-btn">GitHub ↗</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- PROJECT 15: Kuehlicious Ordering System -->
+        <!-- PROJECT 7: Kuehlicious Ordering System -->
         <div class="project-card project-item animate-on-scroll" data-category="web">
-          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #7C2D12 0%, #0E7490 100%);">
+          <div class="project-canvas-banner" style="background: linear-gradient(135deg, #7C2D12 0%, #0E7490 100%);">
             <span class="banner-tag">E-Commerce Platform</span>
             <div class="banner-title-area">
               <div class="banner-icon-box" style="background-color: rgba(251, 146, 60, 0.2); color: #FB923C;">
@@ -2123,7 +1990,7 @@
                   <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                 </svg>
               </div>
-              <span class="banner-title-text">Kuih Batang Buruk Portal</span>
+              <span class="banner-title-text">Kuih Ordering System</span>
             </div>
           </div>
           <div class="project-card-body">
@@ -2140,8 +2007,7 @@
               </span>
               <h4>Kuehlicious — Kuih Ordering System</h4>
               <div class="project-subtitle">Digitised Traditional Kuih Business</div>
-              <p class="project-desc">Full-stack web ordering system digitising a traditional Kuih Batang Buruk
-                business. Includes admin dashboard, customer portal, and companion mobile app.</p>
+              <p class="project-desc">Full-stack web ordering system digitising a traditional Kuih Batang Buruk business. Includes admin dashboard, customer portal, and companion mobile app.</p>
             </div>
             <div>
               <span class="stat-highlight">Full digital order portal + companion mobile app</span>
@@ -2152,16 +2018,15 @@
                 <span class="tech-pill">MIT App Inventor</span>
               </div>
               <div class="card-footer-links">
-                <a href="https://github.com/izwanGit/KuihBatangBurukOrderingSystem" target="_blank" rel="noopener"
-                  class="link-btn">GitHub ↗</a>
+                <a href="https://github.com/izwanGit/KuihBatangBurukOrderingSystem" target="_blank" rel="noopener" class="link-btn">GitHub ↗</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- PROJECT 16: Economic Disparities & Crime -->
+        <!-- PROJECT 8: Economic Disparities & Crime -->
         <div class="project-card project-item animate-on-scroll" data-category="data">
-          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E293B 0%, #0E7490 100%);">
+          <div class="project-canvas-banner" style="background: linear-gradient(135deg, #1E293B 0%, #0E7490 100%);">
             <span class="banner-tag">Data Science</span>
             <div class="banner-title-area">
               <div class="banner-icon-box">
@@ -2178,9 +2043,7 @@
               <span class="group-label">Data · Analysis</span>
               <h4>Economic Disparities & Crime in Malaysia</h4>
               <div class="project-subtitle">Macroeconomic Data Analysis & Tableau Visuals</div>
-              <p class="project-desc">Analyzed the relationship between household income, Gini coefficient, poverty, and
-                crime rates across all Malaysian states using 2022 dataset. Led data science and interactive Tableau
-                dashboard design.</p>
+              <p class="project-desc">Analyzed the relationship between household income, Gini coefficient, poverty, and crime rates across all Malaysian states using 2022 dataset. Led data science and interactive Tableau dashboard design.</p>
             </div>
             <div>
               <span class="stat-highlight">Multi-variable correlation analysis across all states</span>
@@ -2191,109 +2054,7 @@
                 <span class="tech-pill">Scikit-learn</span>
               </div>
               <div class="card-footer-links">
-                <a href="https://github.com/izwanGit/EconomicPressureAndSocialPatterns" target="_blank" rel="noopener"
-                  class="link-btn">GitHub ↗</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 17: Corporate Website (montswitzerland.com) -->
-        <div class="project-card project-item animate-on-scroll" data-category="web">
-          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #0F172A 0%, #0E7490 100%);">
-            <span class="banner-tag">Web Deployment</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                  </path>
-                </svg>
-              </div>
-              <span class="banner-title-text">montswitzerland.com</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Early Career · 2023</span>
-              <h4>Corporate Website (montswitzerland.com)</h4>
-              <div class="project-subtitle">Built in 24 Hours on Day 1 of Internship</div>
-              <p class="project-desc">Designed and deployed a full corporate website on my very first day as an intern.
-                24 hours from initial brief to live production server with GoDaddy DNS configuration.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">24 hours from brief to live production</span>
-              <div class="tech-pills">
-                <span class="tech-pill">HTML/CSS</span>
-                <span class="tech-pill">JavaScript</span>
-                <span class="tech-pill">GoDaddy DNS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 18: Java Sales Calculator -->
-        <div class="project-card project-item animate-on-scroll" data-category="web">
-          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E1B4B 0%, #0E7490 100%);">
-            <span class="banner-tag">Desktop Tool</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-                  <line x1="8" y1="6" x2="16" y2="6"></line>
-                </svg>
-              </div>
-              <span class="banner-title-text">Java Sales Calculator</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Early Career · 2023</span>
-              <h4>Java Sales Calculator</h4>
-              <div class="project-subtitle">30 Minutes → 30 Seconds Automation</div>
-              <p class="project-desc">Spotted a manual inefficiency during sampling events. Built a Java Swing desktop
-                app to automate complex sales calculations, cutting processing time by 98%.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">30 minutes → 30 seconds (98% time reduction)</span>
-              <div class="tech-pills">
-                <span class="tech-pill">Java</span>
-                <span class="tech-pill">Swing GUI</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROJECT 19: E-Commerce Growth -->
-        <div class="project-card project-item animate-on-scroll" data-category="web">
-          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #831843 0%, #0E7490 100%);">
-            <span class="banner-tag">Growth Engineering</span>
-            <div class="banner-title-area">
-              <div class="banner-icon-box" style="background-color: rgba(244, 114, 182, 0.2); color: #F472B6;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                  <polyline points="17 6 23 6 23 12"></polyline>
-                </svg>
-              </div>
-              <span class="banner-title-text">RM100 → RM100,000/mo Scale</span>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <div>
-              <span class="group-label">Early Career · 2023</span>
-              <h4>E-Commerce Growth (RM100 → RM100,000/mo)</h4>
-              <div class="project-subtitle">7-Month Digital Revenue Transformation</div>
-              <p class="project-desc">Managed TikTok Shop and Shopee, produced 59 video ads, ran affiliate campaigns,
-                executed product photography with Canon EOS R10, and scaled revenue 1,000x in 7 months.</p>
-            </div>
-            <div>
-              <span class="stat-highlight">RM100/day → RM100,000/month in 7 months</span>
-              <div class="tech-pills">
-                <span class="tech-pill">TikTok Shop</span>
-                <span class="tech-pill">Shopee</span>
-                <span class="tech-pill">Final Cut Pro</span>
-                <span class="tech-pill">Canon EOS R10</span>
+                <a href="https://github.com/izwanGit/EconomicPressureAndSocialPatterns" target="_blank" rel="noopener" class="link-btn">GitHub ↗</a>
               </div>
             </div>
           </div>
@@ -2304,7 +2065,7 @@
   </section>
 
   <!-- ==========================================================================
-       6. ABOUT SECTION (Featuring Real Photos)
+       7. ABOUT SECTION (Featuring Real Photos)
        ========================================================================== -->
   <section class="about-section" id="about">
     <div class="container">
@@ -2320,14 +2081,6 @@
           </div>
 
           <div class="credentials-stack">
-            <div class="credential-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-                <path d="M9 22v-4h6v4"></path>
-                <path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"></path>
-              </svg>
-              Ex-PETRONAS Digital Sdn Bhd
-            </div>
             <div class="credential-item">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
@@ -2349,7 +2102,7 @@
                 <circle cx="12" cy="8" r="7"></circle>
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
               </svg>
-              11 Awards & Recognitions
+              11 Honours & Academic Awards
             </div>
             <div class="credential-item">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2358,7 +2111,7 @@
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
                 </path>
               </svg>
-              Gemini Certified · Google (Dec 2025)
+              Google Gemini Certified (Dec 2025)
             </div>
           </div>
         </div>
@@ -2367,29 +2120,19 @@
         <div class="about-content animate-on-scroll delay-100">
           <div class="about-story">
             <p>
-              I started from a low-ranked school. Straight A's in SPM. Best Student Award. Vice Chancellor's Award in
-              diploma. 3.9+ CGPA in degree. Dean's List every single semester, diploma and degree combined.
+              I am a full-stack software engineer driven by building practical, high-impact digital products. My academic journey combines consistent excellence — from Vice Chancellor's Award in diploma to a 3.9+ CGPA in my Computer Science degree, earning Dean's List honours every semester.
             </p>
 
             <div class="story-highlight">
-              "At PETRONAS Digital, I didn't wait to be assigned work. I looked around, spotted 10 problems, and built
-              10 solutions in 3 months — all still running autonomously in production today, serving the team managing
-              Oracle HCM Cloud (myCareerX) for 50,000+ PETRONAS employees."
+              "I focus on spotting real-world problems and engineering clean, autonomous software solutions that deliver immediate value."
             </div>
 
             <p>
-              Before that, I built a corporate website in 24 hours on my first day as an intern. Then I scaled an
-              e-commerce business from RM100/day to RM100,000/month in 7 months.
-            </p>
-
-            <p>
-              My final year project became <strong>Beruang</strong> — an AI finance app trained on 220,000+ Malaysian
-              transactions with 99.61% classification accuracy, because I saw young Malaysians struggling with money and
-              decided to fix it.
+              My final year project became <strong>Beruang</strong> — an AI finance app trained on 220,000+ Malaysian transaction records with 99.61% classification accuracy, created to help young Malaysians build financial confidence.
             </p>
 
             <p style="font-weight: 700; color: var(--color-primary);">
-              I don't wait to be told what to build. I spot the problem, then I build the solution.
+              Whether building high-converting web applications for clients, training computer vision models, or automating enterprise operations, I take full ownership from initial concept to live deployment.
             </p>
           </div>
 
@@ -2399,15 +2142,15 @@
 
             <!-- Real Achievement Photos Grid -->
             <div class="award-photos-row">
-              <div class="award-photo-card">
+              <div class="award-photo-card lightbox-trigger" data-img="raw_assets/Achievement/Champion National Cybersecurity Competition.jpeg" data-caption="Champion — UiTM Mobile SecOps Challenge">
                 <img src="images/award-secops.jpeg" alt="Champion National Cybersecurity Competition">
                 <div class="award-photo-caption">Champion — Mobile SecOps Challenge</div>
               </div>
-              <div class="award-photo-card">
+              <div class="award-photo-card lightbox-trigger" data-img="raw_assets/Achievement/Vice Chancellor Award.jpeg" data-caption="Vice Chancellor's Award — UiTM">
                 <img src="images/award-vc.jpeg" alt="Vice Chancellor Award Diploma UiTM">
                 <div class="award-photo-caption">Vice Chancellor's Award — UiTM</div>
               </div>
-              <div class="award-photo-card">
+              <div class="award-photo-card lightbox-trigger" data-img="raw_assets/Achievement/Best AI Booth Award.jpeg" data-caption="Best AI Booth Award — AI Seminar 2025">
                 <img src="images/award-ai-booth.jpeg" alt="Best AI Booth Award 2025">
                 <div class="award-photo-caption">Best AI Booth Award — 2025</div>
               </div>
@@ -2580,37 +2323,6 @@
   </section>
 
   <!-- ==========================================================================
-       7. SOCIAL PROOF
-       ========================================================================== -->
-  <section class="social-proof-section">
-    <div class="container">
-      <div style="text-align: center;">
-        <span class="section-label animate-on-scroll">PROVEN RESULTS</span>
-        <h2 class="section-heading animate-on-scroll">The work speaks for itself</h2>
-      </div>
-
-      <div class="social-proof-grid">
-
-        <div class="proof-card animate-on-scroll">
-          <div class="proof-number">596</div>
-          <div class="proof-label">LinkedIn reactions on PETRONAS announcement</div>
-        </div>
-
-        <div class="proof-card animate-on-scroll delay-100">
-          <div class="proof-number">849</div>
-          <div class="proof-label">LinkedIn reactions on Beruang launch</div>
-        </div>
-
-        <div class="proof-card animate-on-scroll delay-200">
-          <div class="proof-number">19,923</div>
-          <div class="proof-label">Impressions on a single post</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
        8. CONTACT SECTION
        ========================================================================== -->
   <section class="contact-section" id="contact">
@@ -2673,6 +2385,17 @@
   </footer>
 
   <!-- ==========================================================================
+       LIGHTBOX MODAL
+       ========================================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close-btn">&times;</button>
+      <img id="lightbox-img" src="" alt="Full Resolution Preview">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
        VANILLA JAVASCRIPT
        ========================================================================== -->
   <script>
@@ -2721,7 +2444,33 @@
       mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
       /* ------------------------------------------------------------------------
-         3. Project Category Filter
+         3. Hero Work Showcase Switcher
+         ------------------------------------------------------------------------ */
+      const showcaseTabs = document.querySelectorAll('.showcase-tab');
+      const showcaseImg = document.getElementById('hero-showcase-img');
+      const showcaseTitle = document.getElementById('hero-showcase-title');
+      const showcaseMeta = document.getElementById('hero-showcase-meta');
+      const showcaseContainer = document.querySelector('.showcase-img-container');
+
+      showcaseTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          showcaseTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const imgSrc = tab.getAttribute('data-img');
+          const titleText = tab.getAttribute('data-title');
+          const metaText = tab.getAttribute('data-meta');
+
+          showcaseImg.src = imgSrc;
+          showcaseTitle.textContent = titleText;
+          showcaseMeta.textContent = metaText;
+          showcaseContainer.setAttribute('data-img', imgSrc);
+          showcaseContainer.setAttribute('data-caption', titleText + ' — ' + metaText);
+        });
+      });
+
+      /* ------------------------------------------------------------------------
+         4. Project Category Filter
          ------------------------------------------------------------------------ */
       const filterBtns = document.querySelectorAll('.filter-btn');
       const projectItems = document.querySelectorAll('.project-item');
@@ -2748,7 +2497,43 @@
       });
 
       /* ------------------------------------------------------------------------
-         4. IntersectionObserver Fade-In Animations
+         5. Lightbox Modal Image Viewer
+         ------------------------------------------------------------------------ */
+      const lightboxModal = document.getElementById('lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+
+      const openLightbox = (imgSrc, captionText) => {
+        if (!imgSrc) return;
+        lightboxImg.src = imgSrc;
+        lightboxCaption.textContent = captionText || '';
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeLightbox = () => {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+      };
+
+      document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const imgSrc = trigger.getAttribute('data-img') || trigger.querySelector('img')?.src;
+          const captionText = trigger.getAttribute('data-caption') || trigger.querySelector('img')?.alt || '';
+          openLightbox(imgSrc, captionText);
+        });
+      });
+
+      lightboxCloseBtn.addEventListener('click', closeLightbox);
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal || e.target === lightboxCloseBtn) {
+          closeLightbox();
+        }
+      });
+
+      /* ------------------------------------------------------------------------
+         6. IntersectionObserver Fade-In Animations
          ------------------------------------------------------------------------ */
       const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
