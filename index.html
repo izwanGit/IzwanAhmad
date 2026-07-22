@@ -1,0 +1,2780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Izwan Ahmad | Freelance Software Engineer</title>
+  <meta name="description"
+    content="Portfolio of Muhammad Izwan Ahmad — Freelance Software Engineer, Ex-PETRONAS, specializing in AI, Business Automation, and Full-Stack Web & Mobile Engineering.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & TOKENS (Strict Palette Compliance)
+       ========================================================================== */
+    :root {
+      --bg-main: #F5F9FA;
+      --color-primary: #0E7490;
+      --color-accent: #06B6D4;
+      --color-text: #0C1A20;
+      --color-card: #FFFFFF;
+      --color-muted: #64748B;
+      --color-tint: #EBF6F8;
+      --color-border: #E2EEF1;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --shadow-sm: 0 2px 8px rgba(14, 116, 144, 0.04);
+      --shadow-card: 0 2px 16px rgba(14, 116, 144, 0.07);
+      --shadow-hover: 0 12px 32px rgba(14, 116, 144, 0.14);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: all 0.2s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: var(--font-main);
+      background-color: var(--bg-main);
+      color: var(--color-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.75;
+      font-size: 17px;
+      color: var(--color-muted);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--color-text);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Typography */
+    .section-label {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 3.5vw, 2.5rem);
+      /* 40px base */
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    /* Scroll Animation Utility */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      will-change: opacity, transform;
+    }
+
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background-color: #0c637b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(14, 116, 144, 0.25);
+    }
+
+    .btn-outline {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background-color: transparent;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--color-tint);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background-color: #FFFFFF;
+      color: var(--color-primary);
+    }
+
+    .btn-white:hover {
+      background-color: #F8FAFC;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-white-outline {
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      color: #FFFFFF;
+      background-color: transparent;
+    }
+
+    .btn-white-outline:hover {
+      border-color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Badges */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      background-color: var(--color-tint);
+      color: var(--color-primary);
+      border: 1px solid rgba(14, 116, 144, 0.15);
+    }
+
+    .badge-award {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      background-color: #FFFBEB;
+      color: #B45309;
+      border: 1px solid #FCD34D;
+    }
+
+    /* ==========================================================================
+       SECTION 1: NAVIGATION
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(12, 26, 32, 0.06);
+      border-bottom-color: var(--color-border);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--color-primary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--color-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text);
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-primary);
+      opacity: 1;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background-color: var(--color-text);
+      transition: var(--transition);
+    }
+
+    /* Mobile Drawer */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: #FFFFFF;
+      z-index: 1001;
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+      padding: 80px 32px 32px 32px;
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu a {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--color-text);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(12, 26, 32, 0.4);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       SECTION 2: HERO
+       ========================================================================== */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      padding: 40px 0 80px 0;
+      background-color: var(--bg-main);
+      background-image: radial-gradient(rgba(14, 116, 144, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @keyframes pulse-green {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 24px;
+    }
+
+    .pulsing-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22C55E;
+      border-radius: 50%;
+      animation: pulse-green 2s infinite;
+    }
+
+    .hero-heading {
+      font-size: clamp(2.5rem, 5vw + 1rem, 4.25rem);
+      /* 68px base */
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--color-text);
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+
+    .hero-heading span.highlight {
+      color: var(--color-primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-subtext {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--color-muted);
+      margin-bottom: 36px;
+      max-width: 620px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .hero-stats-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Floating Code Card */
+    @keyframes floatCard {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .hero-code-card {
+      background-color: #0F172A;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 40px rgba(12, 26, 32, 0.2);
+      border: 1px solid #1E293B;
+      overflow: hidden;
+      animation: floatCard 3s ease-in-out infinite;
+    }
+
+    .code-card-header {
+      background-color: #1E293B;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red {
+      background-color: #EF4444;
+    }
+
+    .dot-yellow {
+      background-color: #F59E0B;
+    }
+
+    .dot-green {
+      background-color: #10B981;
+    }
+
+    .code-title {
+      font-size: 12px;
+      font-family: monospace;
+      color: #94A3B8;
+    }
+
+    .code-body {
+      padding: 24px;
+      font-family: 'Fira Code', Consolas, Monaco, monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      color: #E2E8F0;
+      overflow-x: auto;
+    }
+
+    .code-kw {
+      color: #38BDF8;
+      font-weight: 600;
+    }
+
+    .code-func {
+      color: #818CF8;
+    }
+
+    .code-str {
+      color: #34D399;
+    }
+
+    .code-comment {
+      color: #64748B;
+      font-style: italic;
+    }
+
+    .code-num {
+      color: #F472B6;
+    }
+
+    /* ==========================================================================
+       SECTION 3: METRICS STRIP
+       ========================================================================== */
+    .metrics-strip {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      padding: 48px 0;
+      width: 100%;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .metric-number {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      /* 48px base */
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      color: #FFFFFF;
+      letter-spacing: -0.5px;
+    }
+
+    .metric-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.75);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       SECTION 4: SERVICES
+       ========================================================================== */
+    .services-section {
+      padding: 100px 0;
+      background-color: var(--bg-main);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .service-card {
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card:hover {
+      background-color: var(--color-tint);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background-color: var(--color-tint);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+
+    .service-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: 15px;
+      color: var(--color-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .service-price {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--color-primary);
+      padding-top: 16px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    /* ==========================================================================
+       SECTION 5: PROJECTS
+       ========================================================================== */
+    .projects-section {
+      padding: 100px 0;
+      background-color: #FFFFFF;
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 32px 0 48px 0;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: var(--bg-main);
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Featured Beruang Card */
+    .featured-project-card {
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .featured-project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-image-wrapper {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--color-tint);
+      border: 1px solid var(--color-border);
+      position: relative;
+    }
+
+    .project-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .project-image-wrapper:hover img {
+      transform: scale(1.02);
+    }
+
+    .featured-details h3 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .project-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+
+    .project-desc {
+      font-size: 15px;
+      color: var(--color-muted);
+      margin-bottom: 20px;
+      line-height: 1.65;
+    }
+
+    .stat-highlight {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tech-pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background-color: var(--bg-main);
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .project-card {
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-card .project-image-wrapper img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Custom Enterprise UI Card Banners (for PETRONAS & background tools) */
+    .enterprise-ui-banner {
+      height: 180px;
+      background: linear-gradient(135deg, #0C1A20 0%, #0E7490 100%);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .enterprise-ui-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    .banner-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      align-self: flex-start;
+    }
+
+    .banner-title-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .banner-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: rgba(6, 182, 212, 0.2);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #06B6D4;
+    }
+
+    .banner-title-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .project-card-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .group-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+
+    .project-card h4 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .card-footer-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .link-btn {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .link-btn:hover {
+      color: var(--color-accent);
+    }
+
+    /* ==========================================================================
+       SECTION 6: ABOUT
+       ========================================================================== */
+    .about-section {
+      padding: 100px 0;
+      background-color: var(--bg-main);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* REAL PROFILE PHOTO CONTAINER */
+    .profile-photo-container {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      box-shadow: 0 16px 36px rgba(14, 116, 144, 0.2);
+      margin-bottom: 28px;
+    }
+
+    .profile-photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #FFFFFF;
+      display: block;
+    }
+
+    .credentials-stack {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .credential-item {
+      padding: 12px 16px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .credential-item svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .about-story {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+
+    .story-highlight {
+      padding: 24px 28px;
+      background-color: var(--color-tint);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* REAL AWARDS & HONOURS GALLERY */
+    .awards-container {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .awards-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 24px;
+    }
+
+    /* Featured Real Award Photos Row */
+    .award-photos-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .award-photo-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .award-photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .award-photo-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .award-photo-caption {
+      padding: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text);
+      text-align: center;
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .award-card {
+      padding: 16px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .award-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background-color: var(--color-tint);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .award-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    .award-detail {
+      font-size: 12px;
+      color: var(--color-muted);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       SECTION 7: SOCIAL PROOF
+       ========================================================================== */
+    .social-proof-section {
+      padding: 80px 0;
+      background-color: #FFFFFF;
+    }
+
+    .social-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .proof-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-accent);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .proof-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .proof-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .proof-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-muted);
+    }
+
+    /* ==========================================================================
+       SECTION 8: CONTACT
+       ========================================================================== */
+    .contact-section {
+      padding: 100px 0;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: #FFFFFF;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .contact-sub {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .social-links a {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-links a:hover {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       SECTION 9: FOOTER
+       ========================================================================== */
+    .footer {
+      background-color: #0C1A20;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 36px 0;
+      font-size: 14px;
+    }
+
+    .footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .footer-logo span {
+      color: var(--color-accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .award-photos-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .awards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social-proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 20px 0 60px 0;
+      }
+
+      .featured-project-card {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-ctas .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       1. NAVIGATION
+       ========================================================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="logo">izwan<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="overlay" id="menu-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" id="menu-close-btn">&times;</button>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- ==========================================================================
+       2. HERO SECTION
+       ========================================================================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Hero Left Column -->
+        <div class="hero-content animate-on-scroll">
+          <div class="status-badge">
+            <span class="pulsing-dot"></span>
+            Available for freelance projects
+          </div>
+
+          <h1 class="hero-heading">
+            I build things <br>
+            <span class="highlight">that actually work.</span>
+          </h1>
+
+          <p class="hero-subtext">
+            Ex-PETRONAS engineer who shipped 10 production systems in 3 months. I build web apps, AI systems, and
+            automation that save Malaysian businesses real time and real money.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary">
+              See my work
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              Let's talk
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-stats-pills">
+            <div class="stat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              10+ PETRONAS systems
+            </div>
+            <div class="stat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+              99.61% AI accuracy
+            </div>
+            <div class="stat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+              </svg>
+              11 competition & academic awards
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Floating Dark Code Editor Card -->
+        <div class="hero-code-card animate-on-scroll delay-200">
+          <div class="code-card-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="code-title">hcsm_ops_hub.py</span>
+          </div>
+          <div class="code-body">
+            <pre><code><span class="code-comment"># HCSM Operations Hub — PETRONAS Digital</span>
+<span class="code-kw">@automation.task</span>(schedule=<span class="code-str">"0 7 * * MON"</span>)
+<span class="code-kw">def</span> <span class="code-func">run_weekly_report</span>():
+    tickets = oracle_hcm.get_ageing_tickets(
+        total_employees=<span class="code-num">50000</span>
+    )
+    metrics = process_metrics(tickets, accuracy=<span class="code-num">0.9961</span>)
+    pptx = generate_executive_deck(metrics)
+    send_teams_alert(recipients=leadership, attachment=pptx)
+    
+    <span class="code-kw">return</span> <span class="code-str">"Saved 4 hours. Delivered in 2 mins."</span></code></pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. METRICS STRIP
+       ========================================================================== -->
+  <section class="metrics-strip">
+    <div class="container">
+      <div class="metrics-grid">
+
+        <div class="metric-item animate-on-scroll">
+          <span class="metric-number">10+</span>
+          <span class="metric-label">Production systems shipped</span>
+        </div>
+
+        <div class="metric-item animate-on-scroll delay-100">
+          <span class="metric-number">50,000+</span>
+          <span class="metric-label">PETRONAS employees served</span>
+        </div>
+
+        <div class="metric-item animate-on-scroll delay-200">
+          <span class="metric-number">3-4 hrs → 2 min</span>
+          <span class="metric-label">Time saved weekly</span>
+        </div>
+
+        <div class="metric-item animate-on-scroll delay-300">
+          <span class="metric-number">11</span>
+          <span class="metric-label">Awards & Recognitions</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. SERVICES SECTION
+       ========================================================================== -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <span class="section-label animate-on-scroll">WHAT I BUILD</span>
+      <h2 class="section-heading animate-on-scroll">Services I offer</h2>
+
+      <div class="services-grid">
+
+        <!-- Card 1 -->
+        <div class="service-card animate-on-scroll">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Website Development</h3>
+            <p class="service-desc">Custom landing pages, high-converting business sites, and performant e-commerce
+              platforms engineered for sales.</p>
+          </div>
+          <div class="service-price">RM800 – RM8,000</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card animate-on-scroll delay-100">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Mobile Apps</h3>
+            <p class="service-desc">Cross-platform iOS and Android apps built with React Native or Native Java. Slick
+              UI, smooth performance, and real-time backend sync.</p>
+          </div>
+          <div class="service-price">RM5,000 – RM15,000</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card animate-on-scroll delay-200">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Business Automation</h3>
+            <p class="service-desc">Eliminate repetitive tasks. Automated report generators, WhatsApp bots, email
+              parsing, and zero-touch enterprise workflows.</p>
+          </div>
+          <div class="service-price">RM1,500 – RM5,000</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card animate-on-scroll">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">AI Integration</h3>
+            <p class="service-desc">Custom AI chatbots, RAG knowledge advisors, OCR receipt scanning, and computer
+              vision classification systems built into your web or mobile app.</p>
+          </div>
+          <div class="service-price">RM2,000 – RM10,000</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card animate-on-scroll delay-100">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Data Dashboards</h3>
+            <p class="service-desc">Interactive executive dashboards using Power BI, Tableau, or custom web interfaces.
+              Transform raw data into clear actionable insights.</p>
+          </div>
+          <div class="service-price">RM1,500 – RM6,000</div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card animate-on-scroll delay-200">
+          <div>
+            <div class="service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Monthly Retainer</h3>
+            <p class="service-desc">Peace of mind for your digital infrastructure. Dedicated hosting management, routine
+              maintenance, security updates, and priority bug fixes.</p>
+          </div>
+          <div class="service-price">From RM150 / month</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. PROJECTS SECTION
+       ========================================================================== -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <span class="section-label animate-on-scroll">THINGS I'VE SHIPPED</span>
+      <h2 class="section-heading animate-on-scroll">Selected projects</h2>
+
+      <!-- Filter Tab Bar -->
+      <div class="filter-tabs animate-on-scroll">
+        <button class="filter-btn active" data-filter="all">All (19)</button>
+        <button class="filter-btn" data-filter="petronas">Enterprise · PETRONAS</button>
+        <button class="filter-btn" data-filter="ai">AI & ML</button>
+        <button class="filter-btn" data-filter="web">Web & Mobile</button>
+        <button class="filter-btn" data-filter="data">Data & Analysis</button>
+      </div>
+
+      <!-- FEATURED PROJECT (Beruang AI App) with Real Screenshots -->
+      <div class="featured-project-card project-item animate-on-scroll" data-category="ai web">
+        <div class="project-image-wrapper">
+          <img src="images/beruang-landing.png" alt="Beruang AI Personal Finance App">
+        </div>
+
+        <div class="featured-details">
+          <span class="badge-award">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+              <path d="M4 22h16"></path>
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+            </svg>
+            Best System Architecture Award — FYP
+          </span>
+          <h3 style="margin-top: 12px;">Beruang — AI Personal Finance App</h3>
+          <div class="project-subtitle">Final Year Project · AI Financial Advisory System</div>
+          <p class="project-desc">
+            AI-powered money management app created to solve financial illiteracy among young Malaysians. Trained a
+            custom Bi-LSTM model on 220,000+ local transaction records with 99.61% classification accuracy. Integrates
+            RAG financial advising via Grok API, receipt scanning with Gemini 2.5 Flash, and a gamified Bear Evolution
+            XP system in a 13-screen React Native app.
+          </p>
+          <span class="stat-highlight">99.61% AI accuracy · 86.77 SUS Score · 98.2% users more confident</span>
+          <div class="tech-pills">
+            <span class="tech-pill">React Native</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">TensorFlow.js</span>
+            <span class="tech-pill">Firebase</span>
+            <span class="tech-pill">RAG</span>
+            <span class="tech-pill">Grok API</span>
+            <span class="tech-pill">Gemini API</span>
+          </div>
+          <div class="card-footer-links">
+            <a href="https://github.com/izwanGit/Beruang" target="_blank" rel="noopener" class="link-btn">
+              View on GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-COLUMN GRID FOR ALL REMAINING PROJECTS -->
+      <div class="projects-grid">
+
+        <!-- PROJECT 1: HCSM Operations Hub -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">Enterprise · PETRONAS</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <span class="banner-title-text">HCSM Operations Hub</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>HCSM Operations Hub</h4>
+              <div class="project-subtitle">Enterprise ITSM Reporting & RPA Platform</div>
+              <p class="project-desc">A unified Streamlit platform designed and built solo, automating 3 of PETRONAS's
+                most time-consuming ITSM workflows for myCareerX (Oracle HCM Cloud, serving 50,000+ employees).</p>
+            </div>
+            <div>
+              <span class="stat-highlight">3 workflows · 5+ hours saved per week · runs autonomously</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Streamlit</span>
+                <span class="tech-pill">Playwright</span>
+                <span class="tech-pill">PyMuPDF</span>
+                <span class="tech-pill">Jinja2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: Full Weekly Report Automation -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">Automation Pipeline</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <span class="banner-title-text">Weekly Report Pipeline</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>Full Weekly Report Automation</h4>
+              <div class="project-subtitle">Zero-Touch Pipeline, Every Monday 7AM</div>
+              <p class="project-desc">Power Automate pipeline that fully automates the team's weekly ageing ticket
+                report. Ingests 4 Excel files, processes thousands of rows via 6 custom TypeScript Office Scripts, sends
+                HTML emails & Teams reminders with @mentions.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">3-4 hours → under 2 minutes (Zero human touch)</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power Automate</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Office Scripts</span>
+                <span class="tech-pill">SharePoint</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: Full Monthly Report Automation -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">Cloud Native BI</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">Monthly Power BI Deck</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>Full Monthly Report Automation</h4>
+              <div class="project-subtitle">Cloud-Native Power BI → PowerPoint Pipeline</div>
+              <p class="project-desc">Automated monthly reporting pipeline replacing manual Power BI exports. DAX
+                measures generate executive summary bullets inside the report. Power Automate exports to PPTX and emails
+                management on the 1st of every month.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">1-2 hours → under 3 minutes</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power BI</span>
+                <span class="tech-pill">DAX</span>
+                <span class="tech-pill">Power Automate</span>
+                <span class="tech-pill">SharePoint</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: Pre-Deployment Automation -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">DevOps Automation</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <span class="banner-title-text">Pre-Deployment Handoff</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>Pre-Deployment Automation</h4>
+              <div class="project-subtitle">UAT Endorsement to OAT Document & Teams Handoff</div>
+              <p class="project-desc">Flow that triggers on UAT endorsement emails, extracts ticket data from
+                SharePoint, generates branded OAT documents, and posts Teams adaptive cards with 1-click Ops Hub launch
+                for RFC/RDM creation in BMC Helix ITSM.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">30 minutes → under 1 minute</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power Automate</span>
+                <span class="tech-pill">BMC Helix</span>
+                <span class="tech-pill">SharePoint</span>
+                <span class="tech-pill">Teams Cards</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 5: Priority Ticket Automation System -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">SLA Monitoring</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+              </div>
+              <span class="banner-title-text">Priority Ticket Alerting</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>Priority Ticket Automation System</h4>
+              <div class="project-subtitle">Real-Time Teams Logger, Enricher & Reminder</div>
+              <p class="project-desc">3 Power Automate flows + 2 TypeScript Office Scripts monitoring PETRONAS Teams
+                chat 24/7. Auto-logs urgent tickets, prevents duplicates, sends weekly @mention reminders, and
+                auto-creates Friday review meetings.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">24/7 Real-Time Teams SLA Monitoring & Alerting</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power Automate</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">SharePoint</span>
+                <span class="tech-pill">Teams</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 6: HCSM Ticket Monitoring Dashboard -->
+        <div class="project-card project-item animate-on-scroll" data-category="petronas data">
+          <div class="enterprise-ui-banner">
+            <span class="banner-tag">Analytics Dashboard</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">Ticket Operations Analytics</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Enterprise · PETRONAS Digital</span>
+              <h4>HCSM Ticket Monitoring Dashboard</h4>
+              <div class="project-subtitle">Power BI Dashboard for Oracle HCM Operations</div>
+              <p class="project-desc">Maintained and enhanced the team's Power BI dashboard for monitoring ticket
+                volumes, ageing, and SLA trends across Service Requests and Incidents for myCareerX.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Analytics for 50,000+ PETRONAS employee tickets</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Power BI</span>
+                <span class="tech-pill">DAX</span>
+                <span class="tech-pill">SharePoint</span>
+                <span class="tech-pill">BMC Helix</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 8: Batik Recognition & Classification System (Real Image) -->
+        <div class="project-card project-item animate-on-scroll" data-category="ai">
+          <div class="project-image-wrapper">
+            <img src="images/batik-main.jpeg" alt="Batik Recognition System Interface">
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">AI · Machine Learning</span>
+              <span class="badge-award" style="margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                </svg>
+                Best AI Booth Award — AI Seminar 2025
+              </span>
+              <h4>Batik Recognition & Classification System</h4>
+              <div class="project-subtitle">Vision Transformer (ViT) Computer Vision System</div>
+              <p class="project-desc">Real-time computer vision system classifying Malaysian vs Indonesian batik using
+                Vision Transformer (ViT). Featured live webcam demo with OpenCV, Flask, and Roboflow API.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">94.2% classification accuracy</span>
+              <div class="tech-pills">
+                <span class="tech-pill">ViT</span>
+                <span class="tech-pill">OpenCV</span>
+                <span class="tech-pill">Flask</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Roboflow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 9: Malaysian Hawker Food Recognition -->
+        <div class="project-card project-item animate-on-scroll" data-category="ai">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #064E3B 0%, #0E7490 100%);">
+            <span class="banner-tag">Computer Vision</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box" style="background-color: rgba(52, 211, 153, 0.2); color: #34D399;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+              <span class="banner-title-text">Hawker Food Calorie AI</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">AI · Machine Learning</span>
+              <h4>Malaysian Hawker Food Recognition</h4>
+              <div class="project-subtitle">Calorie & Macro Estimation from Photos</div>
+              <p class="project-desc">Built in MATLAB, recognizes 7 Malaysian hawker foods and estimates nutrition using
+                SqueezeNet CNN (83% accuracy) vs SVM baseline. Integrated Malaysian Food Composition Database for macro
+                analysis.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">83% SqueezeNet CNN accuracy + Macro Calculator</span>
+              <div class="tech-pills">
+                <span class="tech-pill">MATLAB</span>
+                <span class="tech-pill">SqueezeNet</span>
+                <span class="tech-pill">SVM</span>
+                <span class="tech-pill">App Designer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 10: O-Iqra Islamic Learning Platform (Real Image) -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="project-image-wrapper">
+            <img src="images/o-iqra-home.png" alt="O-Iqra Islamic Learning Platform Homepage">
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <h4>O-Iqra — Islamic Learning Platform</h4>
+              <div class="project-subtitle">Live Client Web Application</div>
+              <p class="project-desc">Full-stack Islamic learning web platform designed and built for a real corporate
+                client. Currently live and actively serving students and tutors.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Live in production with active users</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Web Full-Stack</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">Client Project</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://www.o-iqra.com" target="_blank" rel="noopener" class="link-btn">Live Site ↗</a>
+                <a href="https://github.com/oiqra-kl/OIqra" target="_blank" rel="noopener" class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 11: YuLaoshi AI Mandarin Tutor (Real Image) -->
+        <div class="project-card project-item animate-on-scroll" data-category="web ai">
+          <div class="project-image-wrapper">
+            <img src="images/yulaoshi-main.jpeg" alt="YuLaoshi AI Mandarin Tutor Main Interface">
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <h4>YuLaoshi — AI Mandarin Tutor</h4>
+              <div class="project-subtitle">Live Product · Built for UiTM Students</div>
+              <p class="project-desc">Full-stack AI chatbot for Mandarin listening practice. Integrates GPT-4o-mini
+                tutor, dynamic quiz generator with Google TTS audio, gamified badge system, and SQLite progress
+                tracking.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">GPT-4o-mini + gTTS + Dynamic Quiz Engine</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Flask</span>
+                <span class="tech-pill">GPT-4o-mini</span>
+                <span class="tech-pill">gTTS</span>
+                <span class="tech-pill">SQLite</span>
+                <span class="tech-pill">Bootstrap</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://izwan.pythonanywhere.com/" target="_blank" rel="noopener" class="link-btn">Live App
+                  ↗</a>
+                <a href="https://github.com/izwanGit/LaoshiYu-Chatbot" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 12: RentVerse Secure Rental Platform (Real Image) -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="project-image-wrapper">
+            <img src="images/rentverse.jpeg" alt="RentVerse DevSecOps Security Award">
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <span class="badge-award" style="margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                </svg>
+                Champion + 4 Awards — UiTM Mobile SecOps
+              </span>
+              <h4>RentVerse — Secure Rental Platform</h4>
+              <div class="project-subtitle">DevSecOps Challenge Champion Platform</div>
+              <p class="project-desc">Enterprise property rental app built in 21 days with 14-stage CI/CD pipeline, Zero
+                Trust authentication (TOTP + RBAC), 800 km/h impossible travel anomaly blocking, SHA-256 lease hashing,
+                and Random Forest fraud detection.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">14-stage CI/CD pipeline & Zero Trust security</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Next.js</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">GitHub Actions</span>
+                <span class="tech-pill">CodeQL</span>
+                <span class="tech-pill">Docker</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 13: Play2Grow Edutainment App -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E1B4B 0%, #0E7490 100%);">
+            <span class="banner-tag">Mobile Application</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box" style="background-color: rgba(129, 140, 248, 0.2); color: #818CF8;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">Play2Grow Edutainment</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <h4>Play2Grow — Edutainment Android App</h4>
+              <div class="project-subtitle">Learning App for Malaysian Kids (Ages 4-6)</div>
+              <p class="project-desc">Dual-mode Android app (Parent Mode + Kid Mode) aligned to Malaysia's national
+                curriculum. Features interactive quiz games, star reward system, and Firebase real-time sync.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Dual-mode interactive national curriculum app</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Java</span>
+                <span class="tech-pill">Android Studio</span>
+                <span class="tech-pill">Firebase</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 14: UiTM Event Management System -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1F2937 0%, #0E7490 100%);">
+            <span class="banner-tag">University Platform</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">UiTM Event Portal</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <h4>UiTM Event Management System (UEMS)</h4>
+              <div class="project-subtitle">Solved Campus Event Chaos for UiTM</div>
+              <p class="project-desc">Java web application for campus event registration and student merit coupon
+                tracking. Solved the problem of students missing merit coupons using SendGrid automated email alerts and
+                MySQL backend.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Automated registrations & SendGrid alerts</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Java Servlets</span>
+                <span class="tech-pill">JSP</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">SendGrid</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://github.com/izwanGit/UiTM-Event-Management-System" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 15: Kuehlicious Ordering System -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #7C2D12 0%, #0E7490 100%);">
+            <span class="banner-tag">E-Commerce Platform</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box" style="background-color: rgba(251, 146, 60, 0.2); color: #FB923C;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </div>
+              <span class="banner-title-text">Kuih Batang Buruk Portal</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Web · Mobile · Full-Stack</span>
+              <span class="badge-award" style="margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                </svg>
+                Best Website GUI Award — UiTM
+              </span>
+              <h4>Kuehlicious — Kuih Ordering System</h4>
+              <div class="project-subtitle">Digitised Traditional Kuih Business</div>
+              <p class="project-desc">Full-stack web ordering system digitising a traditional Kuih Batang Buruk
+                business. Includes admin dashboard, customer portal, and companion mobile app.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Full digital order portal + companion mobile app</span>
+              <div class="tech-pills">
+                <span class="tech-pill">PHP</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">MIT App Inventor</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://github.com/izwanGit/KuihBatangBurukOrderingSystem" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 16: Economic Disparities & Crime -->
+        <div class="project-card project-item animate-on-scroll" data-category="data">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E293B 0%, #0E7490 100%);">
+            <span class="banner-tag">Data Science</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                  <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                </svg>
+              </div>
+              <span class="banner-title-text">Economic & Crime Data Study</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Data · Analysis</span>
+              <h4>Economic Disparities & Crime in Malaysia</h4>
+              <div class="project-subtitle">Macroeconomic Data Analysis & Tableau Visuals</div>
+              <p class="project-desc">Analyzed the relationship between household income, Gini coefficient, poverty, and
+                crime rates across all Malaysian states using 2022 dataset. Led data science and interactive Tableau
+                dashboard design.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">Multi-variable correlation analysis across all states</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Pandas</span>
+                <span class="tech-pill">Tableau</span>
+                <span class="tech-pill">Scikit-learn</span>
+              </div>
+              <div class="card-footer-links">
+                <a href="https://github.com/izwanGit/EconomicPressureAndSocialPatterns" target="_blank" rel="noopener"
+                  class="link-btn">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 17: Corporate Website (montswitzerland.com) -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #0F172A 0%, #0E7490 100%);">
+            <span class="banner-tag">Web Deployment</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+              </div>
+              <span class="banner-title-text">montswitzerland.com</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Early Career · 2023</span>
+              <h4>Corporate Website (montswitzerland.com)</h4>
+              <div class="project-subtitle">Built in 24 Hours on Day 1 of Internship</div>
+              <p class="project-desc">Designed and deployed a full corporate website on my very first day as an intern.
+                24 hours from initial brief to live production server with GoDaddy DNS configuration.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">24 hours from brief to live production</span>
+              <div class="tech-pills">
+                <span class="tech-pill">HTML/CSS</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">GoDaddy DNS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 18: Java Sales Calculator -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #1E1B4B 0%, #0E7490 100%);">
+            <span class="banner-tag">Desktop Tool</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                  <line x1="8" y1="6" x2="16" y2="6"></line>
+                </svg>
+              </div>
+              <span class="banner-title-text">Java Sales Calculator</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Early Career · 2023</span>
+              <h4>Java Sales Calculator</h4>
+              <div class="project-subtitle">30 Minutes → 30 Seconds Automation</div>
+              <p class="project-desc">Spotted a manual inefficiency during sampling events. Built a Java Swing desktop
+                app to automate complex sales calculations, cutting processing time by 98%.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">30 minutes → 30 seconds (98% time reduction)</span>
+              <div class="tech-pills">
+                <span class="tech-pill">Java</span>
+                <span class="tech-pill">Swing GUI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 19: E-Commerce Growth -->
+        <div class="project-card project-item animate-on-scroll" data-category="web">
+          <div class="enterprise-ui-banner" style="background: linear-gradient(135deg, #831843 0%, #0E7490 100%);">
+            <span class="banner-tag">Growth Engineering</span>
+            <div class="banner-title-area">
+              <div class="banner-icon-box" style="background-color: rgba(244, 114, 182, 0.2); color: #F472B6;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+              <span class="banner-title-text">RM100 → RM100,000/mo Scale</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <span class="group-label">Early Career · 2023</span>
+              <h4>E-Commerce Growth (RM100 → RM100,000/mo)</h4>
+              <div class="project-subtitle">7-Month Digital Revenue Transformation</div>
+              <p class="project-desc">Managed TikTok Shop and Shopee, produced 59 video ads, ran affiliate campaigns,
+                executed product photography with Canon EOS R10, and scaled revenue 1,000x in 7 months.</p>
+            </div>
+            <div>
+              <span class="stat-highlight">RM100/day → RM100,000/month in 7 months</span>
+              <div class="tech-pills">
+                <span class="tech-pill">TikTok Shop</span>
+                <span class="tech-pill">Shopee</span>
+                <span class="tech-pill">Final Cut Pro</span>
+                <span class="tech-pill">Canon EOS R10</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. ABOUT SECTION (Featuring Real Photos)
+       ========================================================================== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <span class="section-label animate-on-scroll">THE PERSON BEHIND THE CODE</span>
+      <h2 class="section-heading animate-on-scroll">Who I am</h2>
+
+      <div class="about-grid">
+
+        <!-- About Left Sidebar with Real Profile Photo -->
+        <div class="about-sidebar animate-on-scroll">
+          <div class="profile-photo-container">
+            <img src="images/izwan.jpg" alt="Muhammad Izwan Ahmad portrait photo">
+          </div>
+
+          <div class="credentials-stack">
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                <path d="M9 22v-4h6v4"></path>
+                <path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"></path>
+              </svg>
+              Ex-PETRONAS Digital Sdn Bhd
+            </div>
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              JPA Scholar · 3.93 CGPA
+            </div>
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+              </svg>
+              Vice Chancellor's Award (UiTM)
+            </div>
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+              11 Awards & Recognitions
+            </div>
+            <div class="credential-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+              Gemini Certified · Google (Dec 2025)
+            </div>
+          </div>
+        </div>
+
+        <!-- About Right Content (Story Text + Real Achievement Photos) -->
+        <div class="about-content animate-on-scroll delay-100">
+          <div class="about-story">
+            <p>
+              I started from a low-ranked school. Straight A's in SPM. Best Student Award. Vice Chancellor's Award in
+              diploma. 3.93 CGPA in degree. Dean's List every single semester, diploma and degree combined.
+            </p>
+
+            <div class="story-highlight">
+              "At PETRONAS Digital, I didn't wait to be assigned work. I looked around, spotted 10 problems, and built
+              10 solutions in 3 months — all still running autonomously in production today, serving the team managing
+              Oracle HCM Cloud (myCareerX) for 50,000+ PETRONAS employees."
+            </div>
+
+            <p>
+              Before that, I built a corporate website in 24 hours on my first day as an intern. Then I scaled an
+              e-commerce business from RM100/day to RM100,000/month in 7 months.
+            </p>
+
+            <p>
+              My final year project became <strong>Beruang</strong> — an AI finance app trained on 220,000+ Malaysian
+              transactions with 99.61% classification accuracy, because I saw young Malaysians struggling with money and
+              decided to fix it.
+            </p>
+
+            <p style="font-weight: 700; color: var(--color-primary);">
+              I don't wait to be told what to build. I spot the problem, then I build the solution.
+            </p>
+          </div>
+
+          <!-- Real Honours & Awards Gallery -->
+          <div class="awards-container">
+            <h3 class="awards-title">Honours & Awards</h3>
+
+            <!-- Real Achievement Photos Grid -->
+            <div class="award-photos-row">
+              <div class="award-photo-card">
+                <img src="images/award-secops.jpeg" alt="Champion National Cybersecurity Competition">
+                <div class="award-photo-caption">Champion — Mobile SecOps Challenge</div>
+              </div>
+              <div class="award-photo-card">
+                <img src="images/award-vc.jpeg" alt="Vice Chancellor Award Diploma UiTM">
+                <div class="award-photo-caption">Vice Chancellor's Award — UiTM</div>
+              </div>
+              <div class="award-photo-card">
+                <img src="images/award-ai-booth.jpeg" alt="Best AI Booth Award 2025">
+                <div class="award-photo-caption">Best AI Booth Award — 2025</div>
+              </div>
+            </div>
+
+            <!-- Complete 11 Awards List -->
+            <div class="awards-grid">
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16"></path>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Champion + 4 Awards</div>
+                  <div class="award-detail">UiTM Mobile SecOps Challenge (won 4 out of 5 categories)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Best System Architecture Award</div>
+                  <div class="award-detail">Final Year Project — Beruang AI App</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Best AI Booth Award</div>
+                  <div class="award-detail">AI Seminar 2025 (Batik Recognition ViT, 94.2% accuracy)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Best Website GUI Award</div>
+                  <div class="award-detail">UiTM Website Competition (Kuehlicious)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Vice Chancellor's Award</div>
+                  <div class="award-detail">Diploma in Computer Science, UiTM (highest diploma honour)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Outstanding Performance Recognition</div>
+                  <div class="award-detail">West Malayan Group + Allowance Increment</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Dean's List (Every Semester)</div>
+                  <div class="award-detail">100% record across all diploma & degree semesters</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v4l3 3"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Best Student Award</div>
+                  <div class="award-detail">SPM 2020 (Straight A's)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">Gemini Certified</div>
+                  <div class="award-detail">Google (Dec 2025)</div>
+                </div>
+              </div>
+
+              <div class="award-card">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">3.93 CGPA</div>
+                  <div class="award-detail">Bachelor of Computer Science, UiTM</div>
+                </div>
+              </div>
+
+              <div class="award-card" style="grid-column: span 2;">
+                <div class="award-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                  </svg>
+                </div>
+                <div>
+                  <div class="award-name">JPA Scholar</div>
+                  <div class="award-detail">Public Service Department of Malaysia Scholarship</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. SOCIAL PROOF
+       ========================================================================== -->
+  <section class="social-proof-section">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-label animate-on-scroll">PROVEN RESULTS</span>
+        <h2 class="section-heading animate-on-scroll">The work speaks for itself</h2>
+      </div>
+
+      <div class="social-proof-grid">
+
+        <div class="proof-card animate-on-scroll">
+          <div class="proof-number">596</div>
+          <div class="proof-label">LinkedIn reactions on PETRONAS announcement</div>
+        </div>
+
+        <div class="proof-card animate-on-scroll delay-100">
+          <div class="proof-number">849</div>
+          <div class="proof-label">LinkedIn reactions on Beruang launch</div>
+        </div>
+
+        <div class="proof-card animate-on-scroll delay-200">
+          <div class="proof-number">19,923</div>
+          <div class="proof-label">Impressions on a single post</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. CONTACT SECTION
+       ========================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container animate-on-scroll">
+      <h2>Ready to build something?</h2>
+      <p class="contact-sub">Tell me about your project. I reply within 24 hours.</p>
+
+      <div class="contact-buttons">
+        <a href="https://wa.me/60100000000" target="_blank" rel="noopener" class="btn btn-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
+          WhatsApp me
+        </a>
+
+        <a href="mailto:works.izwan@gmail.com" class="btn btn-white-outline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Send an email
+        </a>
+      </div>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/izwanworks/" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/izwanGit" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">izwan<span>.</span></div>
+      <div>Built with intention. © 2026 Muhammad Izwan Ahmad.</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/izwanworks/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/izwanGit" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/60100000000" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* ------------------------------------------------------------------------
+         1. Sticky Navbar Detection
+         ------------------------------------------------------------------------ */
+      const navbar = document.getElementById('navbar');
+
+      const handleScroll = () => {
+        if (window.scrollY > 60) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+
+      /* ------------------------------------------------------------------------
+         2. Mobile Drawer Navigation Toggle
+         ------------------------------------------------------------------------ */
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const menuCloseBtn = document.getElementById('menu-close-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      const openMenu = () => {
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      };
+
+      hamburgerBtn.addEventListener('click', openMenu);
+      menuCloseBtn.addEventListener('click', closeMenu);
+      menuOverlay.addEventListener('click', closeMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+      /* ------------------------------------------------------------------------
+         3. Project Category Filter
+         ------------------------------------------------------------------------ */
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectItems = document.querySelectorAll('.project-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.getAttribute('data-filter');
+
+          projectItems.forEach(item => {
+            const categories = item.getAttribute('data-category').split(' ');
+            if (filter === 'all' || categories.includes(filter)) {
+              item.style.display = '';
+              item.style.animation = 'none';
+              item.offsetHeight; // Reflow
+              item.style.animation = '';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      /* ------------------------------------------------------------------------
+         4. IntersectionObserver Fade-In Animations
+         ------------------------------------------------------------------------ */
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      animatedElements.forEach(el => observer.observe(el));
+
+    });
+  </script>
+</body>
+
+</html>
