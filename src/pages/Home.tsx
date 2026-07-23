@@ -6,15 +6,7 @@ import { Link } from 'react-router-dom';
 import HeroShowcase from '../components/HeroShowcase';
 import PetronasShowcase from '../components/PetronasShowcase';
 
-const awards = [
-  { img: '/images/awards/Champion National Cybersecurity Competition.jpeg', title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge', color: '#FDB924' },
-  { img: '/images/awards/Best System Architecture (FYP).jpg', title: 'Best System Architecture', sub: 'Final Year Project — UiTM', color: '#00B1A9' },
-  { img: '/images/awards/Best AI Booth Award.jpeg', title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition', color: '#BFD730' },
-  { img: '/images/awards/Vice Chancellor Award.jpeg', title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM', color: '#763F98' },
-  { img: '/images/awards/Best Website GUI Award.jpeg', title: 'Best Website GUI Award', sub: 'Web Development Showcase', color: '#E3000F' },
-  { img: '/images/awards/Dean List.jpeg', title: "Dean's List Award", sub: 'Consistent Academic Excellence', color: '#FF7F3F' },
-  { img: '/images/awards/Outstanding Performance.jpeg', title: 'Outstanding Performance', sub: 'Recognized for Excellence', color: '#005587' },
-];
+
 
 const Home = () => {
   return (
@@ -173,58 +165,39 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">Awards & Achievements</h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {awards.map((award, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white border border-border rounded-xl overflow-hidden hover:shadow-card transition-all group"
-              >
-                <div className="aspect-video overflow-hidden bg-tint">
-                  <img
-                    src={award.img}
-                    alt={award.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+          <div className="relative w-full overflow-hidden flex -mx-6 px-6 py-4">
+            {/* Left & Right gradient masks for smooth fade effect */}
+            <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+            
+            <div className="flex animate-marquee gap-6 w-max hover:pause">
+              {[
+                { title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge' },
+                { title: 'Best System Architecture', sub: 'Final Year Project (Beruang)' },
+                { title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition' },
+                { title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM' },
+                { title: 'Best Website GUI', sub: 'UiTM Website Competition' },
+                { title: "Dean's List", sub: 'Every semester — Diploma & Degree' },
+                { title: 'Outstanding Performance', sub: 'West Malayan Group (+ Increment)' },
+                // Duplicate for seamless infinite scroll
+                { title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge' },
+                { title: 'Best System Architecture', sub: 'Final Year Project (Beruang)' },
+                { title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition' },
+                { title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM' },
+                { title: 'Best Website GUI', sub: 'UiTM Website Competition' },
+                { title: "Dean's List", sub: 'Every semester — Diploma & Degree' },
+                { title: 'Outstanding Performance', sub: 'West Malayan Group (+ Increment)' },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="w-[280px] p-5 bg-white border border-border rounded-xl flex-shrink-0 shadow-sm transition-shadow hover:shadow-md cursor-default"
+                >
+                  <div className="text-xs font-bold uppercase tracking-widest text-[#FDB924] mb-2">Award</div>
+                  <div className="font-bold text-foreground mb-1 text-[15px]">{item.title}</div>
+                  <div className="text-[13px] text-muted-foreground leading-relaxed">{item.sub}</div>
                 </div>
-                <div className="p-5">
-                  <div
-                    className="inline-block text-[11px] font-black uppercase tracking-wider px-2 py-1 rounded mb-2"
-                    style={{ backgroundColor: award.color + '22', color: award.color }}
-                  >
-                    Award
-                  </div>
-                  <h3 className="font-bold text-foreground mb-1">{award.title}</h3>
-                  <p className="text-sm text-muted-foreground">{award.sub}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Text-based remaining awards */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { title: 'Best System Architecture', sub: 'Final Year Project (Beruang)' },
-              { title: 'Best Website GUI', sub: 'UiTM Website Competition' },
-              { title: "Dean's List", sub: 'Every semester — Diploma & Degree' },
-              { title: 'Outstanding Performance', sub: 'West Malayan Group (+ Increment)' },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="p-5 bg-white border border-border rounded-xl"
-              >
-                <div className="text-xs font-bold uppercase tracking-widest text-[#FDB924] mb-2">Award</div>
-                <div className="font-bold text-foreground mb-1 text-sm">{item.title}</div>
-                <div className="text-xs text-muted-foreground">{item.sub}</div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
