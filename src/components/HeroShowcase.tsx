@@ -99,9 +99,9 @@ type ShowcaseItem =
 const showcaseItems: ShowcaseItem[] = [
   {
     type: 'laptop',
-    src: '/images/petronas-hub-main.jpg',
-    title: 'HCSM Operations Hub',
-    tag: 'PETRONAS / Enterprise RPA',
+    src: '/images/rentverse-laptop.jpg',
+    title: 'RentVerse Platform',
+    tag: 'Web / DevSecOps Champion',
   },
   {
     type: 'phone',
@@ -111,21 +111,15 @@ const showcaseItems: ShowcaseItem[] = [
   },
   {
     type: 'laptop',
-    src: '/images/rentverse-laptop.jpg',
-    title: 'RentVerse Platform',
-    tag: 'Web / DevSecOps Champion',
+    src: '/images/kuehlicious-laptop.jpg',
+    title: 'Kuehlicious Web System',
+    tag: 'Web / Innovation Winner',
   },
   {
     type: 'phone',
     src: '/images/play2grow-mobile.jpg',
     title: 'Play2Grow Edutainment',
     tag: 'Android / Firebase',
-  },
-  {
-    type: 'laptop',
-    src: '/images/kuehlicious-laptop.jpg',
-    title: 'Kuehlicious Web System',
-    tag: 'Web / Innovation Winner',
   },
   {
     type: 'laptop',
