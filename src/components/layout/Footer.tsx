@@ -94,7 +94,7 @@ const Footer = () => {
       {/* ============================================================
           FOOTER
       ============================================================ */}
-      <footer className="bg-[#0C1A20] text-[#F5F9FA] py-9 text-sm">
+      <footer className="bg-[#0C1A20] py-9 text-sm" style={{ color: '#F5F9FA' }}>
         <div className="container mx-auto px-6 max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link to="/" className="flex items-center">
             <img
@@ -104,7 +104,7 @@ const Footer = () => {
             />
           </Link>
 
-          <div className="text-center font-medium opacity-80">
+          <div className="text-center font-medium" style={{ color: '#F5F9FA', opacity: 0.85 }}>
             Built with intention. © 2026 Muhammad Izwan Ahmad.
           </div>
 
@@ -113,7 +113,8 @@ const Footer = () => {
               href="https://www.linkedin.com/in/izwanworks/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#F5F9FA] hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1.5 hover:text-accent transition-colors"
+              style={{ color: '#F5F9FA' }}
             >
               <LinkedInIcon size={15} />
               LinkedIn
@@ -122,7 +123,8 @@ const Footer = () => {
               href="https://github.com/izwanGit"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#F5F9FA] hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1.5 hover:text-accent transition-colors"
+              style={{ color: '#F5F9FA' }}
             >
               <GithubIcon size={15} />
               GitHub
@@ -131,7 +133,8 @@ const Footer = () => {
               href="https://wa.me/60100000000"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#F5F9FA] hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1.5 hover:text-accent transition-colors"
+              style={{ color: '#F5F9FA' }}
             >
               <MessageCircle size={15} />
               WhatsApp
