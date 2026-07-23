@@ -9,22 +9,45 @@ const projects = [
     description: "AI-powered money management app using a Bi-LSTM model trained on 220,000+ Malaysian transactions (99.61% accuracy). Features a RAG-based financial advisor and Gemini 2.5 Flash for receipt OCR. 86.77 SUS score — 98.2% of testers reported increased financial confidence.",
     tags: ["React Native", "Node.js", "TensorFlow.js", "Firebase", "xAI Grok 4.1", "RAG"],
     images: [
-      '/images/beruang-dashboard.jpg',
+      '/images/beruang-mobile.jpg',
       '/images/beruang-chatbot.jpg',
+      '/images/beruang-dashboard.jpg',
       '/images/beruang-expenses.jpeg',
-      '/images/beruang-receipt.jpeg',
     ],
     awards: ["Best System Architecture Award", "86.77 SUS Score"],
     github: "https://github.com/izwanGit/Beruang"
   },
   {
-    title: "RentVerse",
+    title: "RentVerse Platform",
     category: "DevSecOps / Web Platform",
     description: "Enterprise-grade secure rental platform for the 21-day UiTM Mobile SecOps Challenge. Next.js frontend + hardened Node.js backend. Zero-Trust MFA, anomaly detection (impossible travel at 800km/h), 14-stage CI/CD pipeline, and tamper-evident SHA-256 digital agreements.",
     tags: ["Next.js", "Node.js", "GitHub Actions", "Puppeteer", "Trivy", "Zero-Trust"],
-    images: ['/images/rentverse.jpeg'],
+    images: ['/images/rentverse-laptop.jpg', '/images/rentverse-home.jpg', '/images/rentverse.jpeg'],
     awards: ["Champion (1st Place)", "Best Automated Security Testing", "Best Zero Trust Logic", "Best Threat Intelligence"],
     github: "https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
+  },
+  {
+    title: "Mont Switzerland Corporate & E-Commerce",
+    category: "Full-Stack Web / E-Commerce",
+    description: "Architected and deployed corporate website within a 24-hour deadline. Engineered affiliate tracking and ad performance analytical workflows, driving sales from RM100/day to RM100,000/month.",
+    tags: ["Web Architecture", "E-Commerce", "Zoho Mail", "Affiliate Tracking", "DNS / Domain"],
+    images: ['/images/montswitzerland-laptop.jpg'],
+    awards: ["Exceeded Sales Target (+ Allowance Increment)"],
+  },
+  {
+    title: "Play2Grow Edutainment App",
+    category: "Android Application",
+    description: "Edutainment Android application assisting Malaysian parents in preparing children (ages 4-6) for primary school. Dual-mode system (Parent Mode for tasks/reports + Kid Mode for interactive quizzes) powered by Firebase Firestore.",
+    tags: ["Java", "Android Studio", "Firebase Auth", "Firestore NoSQL"],
+    images: ['/images/play2grow-mobile.jpg'],
+  },
+  {
+    title: "UiTM Event Management System (UEMS)",
+    category: "Java Web Application",
+    description: "Java web application enabling admins to manage events and students to register and submit feedback. Server-side logic built using Jakarta Servlets and JSP, persisted in MySQL, deployed on Apache Tomcat.",
+    tags: ["Java", "Jakarta Servlets", "JSP", "MySQL", "Apache Tomcat"],
+    images: ['/images/uems-laptop.jpg'],
+    github: "https://github.com/izwanGit/UiTM-Event-Management-System"
   },
   {
     title: "Batik Recognition System",
@@ -45,19 +68,11 @@ const projects = [
     demo: "https://izwan.pythonanywhere.com/"
   },
   {
-    title: "Malaysian Hawker Food Recognition",
-    category: "Deep Learning / MATLAB",
-    description: "MATLAB system that recognizes Malaysian hawker food and estimates calories. Fine-tuned SqueezeNet CNN (83% accuracy) + SVM baseline (79.56%). Integrates Malaysian Food Composition Database for calorie estimation.",
-    tags: ["MATLAB", "SqueezeNet", "SVM", "Computer Vision", "Transfer Learning"],
-    images: ['/images/batik-placeholder.jpg'],
-    github: "https://github.com/izwanGit/malaysian-food-recognition"
-  },
-  {
     title: "Kuehlicious",
     category: "Full-Stack Web System",
     description: "Award-winning web-based ordering system digitizing a local Kuih Batang Buruk business. Built solo using PHP/MySQL with dual user scopes (Admin/Customer) for complete SDLC lifecycle. Winner — Youth Innovation Final Project 2023.",
     tags: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
-    images: ['/images/beruang-placeholder.jpg'],
+    images: ['/images/kuehlicious-laptop.jpg'],
     awards: ["Winner — Youth Innovation Final Project Presentation 2023"],
     github: "https://github.com/izwanGit/KuihBatangBurukOrderingSystem"
   },

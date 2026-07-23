@@ -3,89 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Building, Trophy, GraduationCap, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-/* ─── Slideshow images for the hero polaroid carousel ─── */
-const slidePhotos = [
-  { src: '/images/izwan-hero.jpg', caption: 'Internship @ PETRONAS Digital' },
-  { src: '/images/izwan-p3.jpg', caption: 'Award Night' },
-  { src: '/images/izwan-p4.jpg', caption: 'At the Lab' },
-  { src: '/images/izwan-p5.jpg', caption: 'Competition Day' },
-  { src: '/images/izwan-p6.jpg', caption: 'Presenting Beruang' },
-  { src: '/images/izwan-p7.jpg', caption: 'SecOps Challenge Win' },
-  { src: '/images/izwan-p8.jpg', caption: 'Out & About' },
-  { src: '/images/izwan-p9.jpg', caption: 'Campus Life' },
-];
+import HeroShowcase from '../components/HeroShowcase';
 
 const awards = [
   { img: '/images/award-secops.jpeg', title: 'Champion + 4 Awards', sub: 'UiTM Mobile SecOps Challenge (RentVerse)', color: '#FDB924' },
   { img: '/images/award-ai-booth.jpeg', title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition', color: '#BFD730' },
   { img: '/images/award-vc.jpeg', title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM', color: '#763F98' },
 ];
-
-const PolaroidCarousel = () => {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent(c => (c + 1) % slidePhotos.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="relative w-full flex items-center justify-center" style={{ height: 440 }}>
-      {slidePhotos.map((photo, i) => {
-        const offset = (i - current + slidePhotos.length) % slidePhotos.length;
-        const isActive = offset === 0;
-        const isNext = offset === 1;
-        const isPrev = offset === slidePhotos.length - 1;
-
-        if (!isActive && !isNext && !isPrev) return null;
-
-        const rotate = isActive ? 0 : isNext ? 4 : -4;
-        const x = isActive ? 0 : isNext ? 60 : -60;
-        const scale = isActive ? 1 : 0.88;
-        const zIndex = isActive ? 30 : isNext ? 20 : 10;
-        const opacity = isActive ? 1 : 0.6;
-
-        return (
-          <motion.div
-            key={photo.src}
-            animate={{ rotate, x, scale, opacity, zIndex }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="absolute"
-            style={{ zIndex }}
-          >
-            {/* Polaroid frame */}
-            <div className="bg-white shadow-2xl rounded-sm p-3 pb-10 w-64"
-              style={{ boxShadow: '0 8px 40px rgba(12,26,32,0.18)' }}>
-              <div className="w-full h-60 overflow-hidden rounded-sm">
-                <img
-                  src={photo.src}
-                  alt={photo.caption}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <p className="text-center text-xs font-medium text-muted-foreground mt-3 font-mono tracking-wide">
-                {photo.caption}
-              </p>
-            </div>
-          </motion.div>
-        );
-      })}
-      {/* Dot indicators */}
-      <div className="absolute -bottom-8 flex gap-2">
-        {slidePhotos.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? 'bg-primary w-4' : 'bg-border'}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const Home = () => {
   return (
@@ -151,14 +75,14 @@ const Home = () => {
               </div>
             </motion.div>
 
-            {/* Right — Polaroid Carousel */}
+            {/* Right — Interactive Device Showcase (Laptop, Phone, Polaroid) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="hidden lg:flex justify-center"
             >
-              <PolaroidCarousel />
+              <HeroShowcase />
             </motion.div>
           </div>
         </div>
