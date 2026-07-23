@@ -196,7 +196,9 @@ const Home = () => {
                     <img 
                       src={item.img} 
                       alt={item.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
+                        item.title === 'Champion + 4 Awards' ? 'object-[center_20%]' : 'object-center'
+                      }`} 
                     />
                   </div>
                   <div className="p-5">
