@@ -307,7 +307,7 @@ const Home = () => {
       ============================================================ */}
       <section
         className="py-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #00B1A9 0%, #007A74 40%, #20419A 100%)' }}
+        style={{ background: '#00B1A9' }}
       >
         {/* Decorative PETRONAS colored orbs */}
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-[150px] opacity-20"
