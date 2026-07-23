@@ -1,60 +1,123 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Mail, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-border pt-20 pb-10 relative z-10">
-      <div className="container mx-auto px-6 max-w-7xl">
-        {/* CTA Block */}
-        <div className="max-w-3xl mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+    <div className="relative z-10 w-full">
+      {/* ============================================================
+          7. SOCIAL PROOF / PROVEN RESULTS SECTION
+      ============================================================ */}
+      <section className="py-20 bg-white border-t border-border">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center mb-12">
+            <span className="text-[13px] font-extrabold uppercase tracking-widest text-accent mb-2 block">
+              PROVEN RESULTS
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              The work speaks for itself
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white border border-border border-t-4 border-t-accent rounded-xl p-8 text-center shadow-card hover:shadow-hover hover:-translate-y-1 transition-all"
+            >
+              <div className="text-4xl md:text-5xl font-black text-primary mb-2">596</div>
+              <div className="text-sm font-semibold text-muted-foreground">
+                LinkedIn reactions on PETRONAS announcement
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white border border-border border-t-4 border-t-accent rounded-xl p-8 text-center shadow-card hover:shadow-hover hover:-translate-y-1 transition-all"
+            >
+              <div className="text-4xl md:text-5xl font-black text-primary mb-2">849</div>
+              <div className="text-sm font-semibold text-muted-foreground">
+                LinkedIn reactions on Beruang launch
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white border border-border border-t-4 border-t-accent rounded-xl p-8 text-center shadow-card hover:shadow-hover hover:-translate-y-1 transition-all"
+            >
+              <div className="text-4xl md:text-5xl font-black text-primary mb-2">19,923</div>
+              <div className="text-sm font-semibold text-muted-foreground">
+                Impressions on a single post
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          8. CONTACT SECTION
+      ============================================================ */}
+      <section className="py-24 bg-primary text-white text-center" id="contact">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4"
+          >
             Ready to build something?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-white/85 max-w-md mx-auto mb-10"
+          >
             Tell me about your project. I reply within 24 hours.
-          </p>
-          <div className="flex flex-wrap gap-4">
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-5 mb-12"
+          >
             <a
               href="https://wa.me/60100000000"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white rounded-md font-semibold hover:bg-[#1fb85a] transition-all hover:-translate-y-0.5 hover:shadow-hover"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-md font-bold hover:bg-slate-50 transition-all hover:shadow-lg hover:-translate-y-0.5"
             >
-              <MessageCircle size={18} />
-              WhatsApp Me
+              <MessageCircle size={20} className="text-[#25D366]" />
+              WhatsApp me
             </a>
+
             <a
               href="mailto:works.izwan@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-borderStrong text-foreground rounded-md font-semibold hover:bg-tint transition-all hover:-translate-y-0.5 hover:shadow-card"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white/40 text-white rounded-md font-bold hover:border-white hover:bg-white/10 transition-all hover:-translate-y-0.5"
             >
-              <Mail size={18} />
+              <Mail size={20} />
               Send an email
             </a>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Bottom row */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border gap-6">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img
-              src="/images/logo-full.png"
-              alt="Izwan Ahmad"
-              className="h-10 object-contain"
-            />
-          </Link>
-
-          <p className="text-sm text-muted-foreground font-medium text-center">
-            Built with intention. © {new Date().getFullYear()} Muhammad Izwan Ahmad.
-          </p>
-
-          <div className="flex items-center gap-6 text-sm font-semibold text-muted-foreground">
+          <div className="flex justify-center items-center gap-8">
             <a
               href="https://www.linkedin.com/in/izwanworks/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-primary transition-colors"
+              className="text-white/80 font-semibold hover:text-white transition-colors"
             >
               LinkedIn
             </a>
@@ -62,7 +125,45 @@ const Footer = () => {
               href="https://github.com/izwanGit"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-primary transition-colors"
+              className="text-white/80 font-semibold hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          9. FOOTER
+      ============================================================ */}
+      <footer className="bg-[#0C1A20] text-white/60 py-9 text-sm">
+        <div className="container mx-auto px-6 max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-6">
+          <Link to="/" className="flex items-center">
+            <img
+              src="/images/logo-full.png"
+              alt="Izwan Ahmad Logo"
+              className="h-[38px] object-contain"
+            />
+          </Link>
+
+          <div className="text-center font-medium">
+            Built with intention. © 2026 Muhammad Izwan Ahmad.
+          </div>
+
+          <div className="flex items-center gap-6 font-semibold">
+            <a
+              href="https://www.linkedin.com/in/izwanworks/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white/70 hover:text-accent transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/izwanGit"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white/70 hover:text-accent transition-colors"
             >
               GitHub
             </a>
@@ -70,14 +171,14 @@ const Footer = () => {
               href="https://wa.me/60100000000"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-primary transition-colors"
+              className="text-white/70 hover:text-accent transition-colors"
             >
               WhatsApp
             </a>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 };
 
