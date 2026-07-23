@@ -204,7 +204,7 @@ const Home = () => {
                     />
                   </div>
                   <div className="p-5">
-                    <div className="text-xs font-bold uppercase tracking-widest text-[#FDB924] mb-2">{item.type}</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-accent mb-2">{item.type}</div>
                     <div className="font-bold text-foreground mb-1 text-[15px]">{item.title}</div>
                     <div className="text-[13px] text-muted-foreground leading-relaxed">{item.sub}</div>
                   </div>
