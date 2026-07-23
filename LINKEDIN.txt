@@ -1,0 +1,2057 @@
+MUHAMMAD IZWAN AHMAD  About  Tell me and I forget, teach me and I may remember, involve me and I learn.  A little story. Since I was a kid I have always been a kid that wonders about everything. This mindset has shaped me to be a person who is able to learn things quickly, adapt to anything, solve any problem and be creative.   Over the years, I have worn many hats, Waitress, Content Creator, Freelancer, Tuition Teacher, Digital Marketer, IT Specialist, E-commerce Strategist and Software Engineer. I am not just versatile, I am the person who transforms challenges into opportunities.  At PETRONAS Digital, I self-initiated and shipped 10+ production systems in 3 months that now run autonomously, serving the team that manages Oracle HCM Cloud (myCareerX) for 50,000+ employees. Python apps, Power Automate pipelines, TypeScript scripts, Power BI dashboards, browser automation, and more. All still running till today.  Before that, I engineered a Java desktop app that cut a company's sales processing from 30 minutes to 30 seconds, built a corporate website in 24 hours, and scaled their e-commerce from RM100 to RM100,000 monthly revenue.  My FYP, Beruang, is an AI-powered money management app using a Bi-LSTM model trained on 220,000+ Malaysian transactions (99.61% accuracy) with a RAG-based financial advisor. It scored 86.77 on the System Usability Scale with 98.2% of testers reporting increased financial confidence.   AWARDS & ACHIEVEMENTS I ACCOMPLISHED —————————————— > Champion + 4 Awards at UiTM Mobile SecOps Challenge (RentVerse) > Best System Architecture Award (Final Year Project) > Best AI Booth Award (AI Seminar 2025) > Best Website GUI Award (UiTM Competition) > Vice Chancellor's Award (Diploma in Computer Science, UiTM) > Dean's List: Every semester > Best Student Award (SPM)   WHAT I DO NOW  ————————— Graduating my Bachelor's in Computer Science at UiTM. Currently wrapping up my internship at PETRONAS Digital where I shipped 10+ production systems. Open to full-time opportunities in software engineering, AI, or data engineering.   A PERSONAL SIDE OF ME ——————————————- I love reading philosophical, fiction, self-development and financial literature.    WAYS YOU CAN CONTACT ME  ——————————————---- Email: works.izwan@gmail.com GitHub: https://github.com/izwanGit LinkedIn: https://www.linkedin.com/in/izwanworks/  Let’s connect and create something impactful   Experience
+
+Software Engineer Intern | Human Capital Solution Management
+PETRONAS Digital Sdn Bhd · Internship
+Mar 2026 - Present · 4 mos
+Federal Territory of Kuala Lumpur, Malaysia · On-site
+- Supported Oracle HCM Cloud (myCareerX), PETRONAS's core HR platform for 50,000+ employees. Self-initiated 10+ automation projects in 3 months, all in production, running autonomously till today. - Developed MyCareerX Report Hub (Python/Streamlit), a desktop app automating weekly and monthly reporting. Processes thousands of rows, generates branded HTML emails and executive PowerPoint decks. Packaged as .exe. Cut report prep from 3-4 hours to under 2 minutes. - Built a zero-touch weekly report pipeline (Power Automate + 6 Office Scripts in TypeScript). Runs every Monday at 7 AM: computes ageing metrics, builds HTML emails, resolves recipients, sends Excel attachments, and posts Teams reminders with @mentions. - Automated the monthly report with 2 Power Automate flows: branded email with Power BI links monthly, plus a 3-day reminder via Teams adaptive cards. Designed the Power BI monthly report dashboard with custom DAX measures, data models, and dynamic visuals. - Engineered a Priority Ticket Automation System (3 flows + 2 Office Scripts) monitoring Teams 24/7. Auto-logs and enriches urgent tickets, detects duplicates, sends weekly @mention reminders, and auto-creates review meetings. Eliminated all manual tracking for supervisors. - Enhanced the HCSM Ticket Monitoring Dashboard (Power BI) and its upstream data sourcing flow, improving data accuracy and keeping the pipeline (BMC Helix > SharePoint > Power BI) automated. - Automated end-to-end pre-deployment: OAT document generation, Teams adaptive cards, and a Streamlit + Playwright wizard that auto-fills RFC/RDM forms in myGenie+ (BMC Helix ITSM) via SSO. Cut deployment prep from ~30 min to under 1 min. - Resolved a critical Oracle HCM bug (ORA-01427) via 7-file debug analysis. Enhanced the Recruiting Fast Formula for per-company AI score weightings via multi-step SQL lookup chain. - Designed 63 slides across 2 decks (SLA Performance Overview and BD-Corp HR Domain Team Pulse Check) used in leadership meetings
+  Software Engineer
+Freelance · Freelance
+Mar 2026 - Present · 4 mos
+Malaysia · Remote
+- Building end-to-end Web, Mobile (iOS/Android), and AI applications. - Specialized in high performance, dynamic UI/UX, and conversion optimization. - Taking complex ideas from concept to final deployment across multiple tech stacks.
+  Service Crew
+Yasmeen Arau Sdn. Bhd · Part-time
+Aug 2023 - Oct 2025 · 2 yrs 3 mos
+Alor Setar & Kepala Batas, Kedah (Worked across two outlets under the same company) · On-site
+- Taking orders and serving food - Cleaning tables and maintaining the environment - Assisting customers and handling payments - Promoting Product to Customer
+ IT Specialist, Digital Marketing And E-Commerce
+WEST MALAYAN GROUP · Internship
+Sep 2023 - Mar 2024 · 7 mos
+Bukit Mertajam, Penang, Malaysia · On-site
+- Java Software Development: Engineered a desktop application using Java and Swing GUI to automate sales calculations, reducing data processing time by 98% (30 mins to 30 secs). - Web Architecture & Deployment: Architected and deployed the corporate website (montswitzerland.com) within a 24-hour deadline, managing DNS/GoDaddy integration and full-stack design. - Data-Driven Growth Engineering: Engineered the technical workflow for affiliate tracking and ad performance analysis (ROI/ROAS). These data optimizations directly supported a sales explosion from RM100/day to RM100,000/month. - IT Infrastructure Optimization: Diagnosed network bottlenecks and optimized office bandwidth by implementing mesh router upgrades. - System Administration: Configured Zoho Mail security protocols and whitelist filters to resolve critical false-positive spam classification. - Algorithmic Cost Analysis: Identified algorithmic fee discrepancies between iOS/Android platforms and devised a deployment strategy that reduced advertising costs by 30%. - Systems Integration: Mapped integration pathways between EasyStore and e-commerce APIs to consolidate inventory and order management systems. - Technical Multimedia: Leveraged Final Cut Pro, Adobe Photoshop, and Generative AI (Midjourney) for high-fidelity content production.
+ Universiti Teknologi MARA
+Bachelor's degree, Computer Science
+Mar 2024 – Aug 2026
+CGPA: 3.93 | Dean's List (All Semesters)
+  Universiti Teknologi MARA
+Diploma of Education, Computer Science
+Oct 2021 – Mar 2024
+CGPA: 3.68 | Vice Chancellor’s Award
+ Licenses & certifications
+
+Gemini Certified University Student
+Google
+Issued Dec 2025 · Expires Dec 2028
+Credential ID 170293595
+
+Projects
+Full Monthly Report Automation: Cloud-Native Power BI to PowerPoint Pipeline
+May 2026 – Jul 2026
+
+Associated with PETRONAS Digital Sdn Bhd
+Built a fully automated monthly reporting pipeline that replaces the manual process of exporting Power BI dashboards, screenshotting charts, typing summary bullets, and emailing the final deck. The flow runs on the 1st of every month with zero human intervention.  The pipeline pairs a redesigned Power BI report with a scheduled Power Automate flow. The dashboard is rebuilt as a presentation-ready template, while DAX measures generate executive summary bullets directly inside the report. Power Automate then exports it to PowerPoint, archives it to SharePoint, and emails it to management.  Key contributions and features: - Power BI Redesign: Rebuilt the HCSM monthly dashboard as a 16:9 presentation-ready template that matches PowerPoint's slide layout. Removed slicers, applied PETRONAS corporate styling, and structured visuals in card containers that mirror the corporate slide design. - DAX Executive Summary Generator: Wrote DAX measures that compare month-over-month ticket volumes and ageing backlogs, then render natural-language bullets inside card visuals. Logic handles direction, percentage change, zero-backlog cases, and dynamic month names. - Time Intelligence: Used DAX flags (EOMONTH, TODAY) and a calculated IsPreviousMonth filter to scope every visual to the previous month. Titles also self-update through bound DAX measures. - Power Automate Flow: A monthly recurrence trigger calls the Power BI REST API via the Export To File connector to generate a PPTX, archives it to a dated SharePoint folder, and emails the deck to management. - Hybrid Backup: The previous Python pipeline is retained as a fallback for service outages and as an onboarding reference for new analysts.  The final pipeline replaces 1-2 hours of monthly manual work with a zero-touch cloud-native flow, runs autonomously post-departure, and was designed and built solo from end to end.
+
+Full Weekly Report Automation: Zero-Touch Pipeline for HCSM ITSM Reporting
+May 2026 – Jul 2026
+
+Associated with PETRONAS Digital Sdn Bhd
+Built a zero-touch Power Automate pipeline that fully automates the HCSM team's weekly ageing ticket report for myCareerX (Oracle HCM Cloud). The flow runs every Monday at 7 AM with no human intervention, eliminating 3-4 hours of manual work each week.  The pipeline ingests 4 raw Excel files from SharePoint, processes thousands of rows using 6 custom Office Scripts in TypeScript, builds a fully branded HTML email, resolves recipients dynamically, and sends a follow-up Teams reminder to assignees who own ageing tickets.  Key contributions and features: - Office Scripts (TypeScript): Built 6 cloud-side scripts. Two count active open tickets, two compute ageing metrics across multiple buckets (>30d, 15-30d, 1-14d for SR; >90d, 61-90d, 31-60d, 15-30d, 8-14d, 3-7d for INC) and extract ticket details with assignee names, and two prepare branded cover sheets and a curated "Update Details" sheet. - Email Engine: Dynamically generates an Outlook-compatible HTML email with PETRONAS-branded teal tables, detailed ticket tables for >30d and 15-30d ageing tickets, and a rolling 4-week trend from a persisted history file. - Recipient Resolution: Iterates through assignees, searches Office 365 Users by display name to retrieve real emails, deduplicates, and sends with both processed Excel files attached. - Teams Reminder: Posts an interactive adaptive card to the HCSM group chat with @mentions of assignees who own >30 days tickets and a direct link to the SR attachment for one-click updates. Auto-adds missing users. - Persistence: Updates the rolling 4-week trend history and 2 SharePoint lists tracking monthly SR and INC ageing snapshots for downstream Power BI reporting.  The final pipeline replaces 3-4 hours of weekly work with zero touch, runs autonomously every Monday at 7 AM post-departure, and was designed and built solo from end to end.
+
+HCSM Ticket Monitoring Dashboard (Power BI)
+Mar 2026 – Jul 2026
+
+Associated with PETRONAS Digital Sdn Bhd
+Took over the HCSM Ticket Monitoring Dashboard (Power BI) from a previous intern and maintained it as the team's go-to view for ticket volumes, ageing, and trends across Service Requests and Incidents for myCareerX (Oracle HCM Cloud).  My role was lighter than the other projects in my portfolio. I kept the dashboard accurate, made small refinements, and added a few useful touches without overhauling the original design.  Key contributions: - Data Accuracy: Refined the underlying data models, removed non-value-adding fields, and corrected a few legacy filters that were silently misclassifying tickets. - Visual Clarity: Cleaned up cluttered visuals and improved labelling so insights are easier to act on at a glance. - Small Additions: Added a few DAX measures and supporting visuals that the team asked for over the course of the internship.  Credit for the original dashboard design belongs to the previous intern, Fariz Hazry who built it. My job was to keep it running smoothly and make small improvements where they mattered.
+
+
+PETRONAS HCSM Operations Hub: Enterprise ITSM Reporting & RPA Platform
+Apr 2026 – Jul 2026
+
+Associated with PETRONAS Digital Sdn Bhd
+During my internship at PETRONAS Digital, I designed and built the HCSM Operations Hub end-to-end, alone. A unified Streamlit platform automating three of the team's most time-consuming ITSM workflows for myCareerX operations.  1) Weekly Report Automation Auto-syncs raw Excel files from OneDrive, performs content-based sheet detection, and computes 14 ageing metrics. Renders an Outlook-compatible HTML email via Jinja2 with a 4-week rolling trend. Uses openpyxl to fast-filter source files (10–50x faster than row-by-row deletion) and rebuild branded cover sheets. Uses win32com.client to open Outlook with auto-resolved recipients, pre-filled CC, and attachments.  2) Monthly Report PPTX Automation Renders Power BI PDFs at 300 DPI using PyMuPDF, then performs spatial text extraction to reconstruct chart data from bounding-box coordinates, no OCR. Maps PDF pages onto a corporate PPTX template via three strategies: BBOX (Euclidean shape matching), CHART (native chart replacement), and BBOX_LIST (auto-cropped, width-constrained). Parses tables into native PPTX cells, updates dates via regex, and generates month-over-month summary bullets with trend, streak, and peak detection.  3) Pre-Deployment Manager (RPA) A 6-step Streamlit wizard automating RFC and RDM ticket creation in myGenie+ (BMC Helix ITSM). Spawns a detached Playwright subprocess in headed mode (ITSM compliance) with a persistent SSO profile, no re-login. Handles Angular form context (main vs iframe), auto-fills inputs, custom dropdowns (3-tier matching), and BMC autocompletes. Background HTTP API serves field data to the subprocess. Generates a Teams summary at the end.  🎯 Impact: - Weekly: 3-4 hours → under 2 min - Monthly: 1-2 hours → under 3 min - Pre-deployment: ~30 min → under 1 min - Designed and built solo, end-to-end.
+
+Pre-Deployment Automation: UAT Endorsement to OAT Document & Teams Handoff
+Jun 2026 – Jul 2026
+
+Associated with PETRONAS Digital Sdn Bhd
+Built a Power Automate flow that automates the front end of the pre-deployment process for myCareerX (Oracle HCM Cloud). When a UAT endorsement email arrives, the flow extracts the ticket number, pulls all relevant details from SharePoint, generates a branded OAT document, and posts an interactive Teams card to the team.  From there, the analyst clicks an Open in Ops Hub button on the card, which launches the local Streamlit RFC and RDM auto-fill wizard (part of the HCSM Operations Hub) to complete the deployment in myGenie+ (BMC Helix ITSM).  Key contributions and features: - Email Trigger and Ticket Extraction: Cleans the subject line of forwarding prefixes and isolates the myGenie+ ticket identifier (e.g. ICT_RFC00222811). - SharePoint Detail Retrieval: Queries the UAT_Online SharePoint list to retrieve ticket data (System ID, Division, Department, Analyst, Tester, Approver, timestamps) and downloads signed-off UAT attachments as HTML links. - OAT Document Generation: Populates an HTML template that mirrors the PETRONAS OAT layout, then renders it into a Word compatible .doc file. - Teams Adaptive Card Handoff: Posts an interactive card with ticket details, an Open OAT Document button, and an Open in Ops Hub button. The second button launches the Streamlit wizard with all ticket parameters encoded in the URL, ready for the analyst to create the RFC (Request for Change) and RDM (Release Deployment Management) tickets in myGenie+.  The flow replaces 20 minutes of manual drafting and notification per deployment with zero touch, runs autonomously post-departure, and was designed and built solo from end to end.
+
+Priority Ticket Automation System: Real-Time Teams Logger, Enricher & Reminder
+May 2026 – Jul 2026
+
+Associated with PETRONAS Digital Sdn Bhd
+Built a Priority Ticket Automation System that monitors the team's Teams support chat 24/7, intercepts urgent ticket mentions in real time, and automatically logs, enriches, and tracks them. The system replaces a manual workflow that required supervisors to monitor chats, log tickets, chase assignees, and schedule weekly reviews by hand.  The system runs as 3 Power Automate flows powered by 2 custom Office Scripts in TypeScript. It detects ticket IDs (REQ or ICT_WO), prevents duplicates, enriches each row with details, sends weekly @mention reminders, and auto-creates the Friday review meeting.  Key contributions and features: - Real-Time Auto-Logger (Flow 1): Triggers on Teams keyword mentions, extracts the 15-character ticket ID using native string functions, checks SharePoint for duplicates, creates a placeholder row, and posts a confirmation card. - Get SR Data Office Script (TypeScript): Cloud-side script that scans the daily ticket dump, matches the ticket ID, and returns structured details (Module, Description, Assignee) for instant enrichment. - Daily Backfill (Flow 2): Triggers on the daily BMC Helix data email, refreshes upstream Excel files, and backfills any rows logged before the daily dump arrived, ensuring full data completeness without manual edits. - Add Weekly Update Column Office Script (TypeScript): Inserts a new dated update column into the priority Excel each week and hides previous ones, keeping the view focused on the current cycle. - Weekly Reminder (Flow 3): Runs every Thursday. Filters active tickets, resolves assignees via Office 365 Users, posts a Teams adaptive card with real @mentions, and auto-creates the Friday review meeting with the right attendees.  The system replaced hours of weekly supervisor effort with zero manual work, runs autonomously post-departure, and was designed and built solo from end to end.
+
+Beruang: Money Management Mobile Application with Personal Financing Chatbot, Final Year Project
+Mar 2025 – Feb 2026
+
+Associated with Universiti Teknologi MARA
+Github:  1) https://github.com/izwanGit/Beruang 2) https://github.com/izwanGit/beruang-ai-backend 3) https://github.com/izwanGit/beruang-server 4) https://github.com/izwanGit/beruang-landing  I noticed that many Malaysian youths struggle with managing money, not because they lack awareness, but because tracking every transaction is tedious and hard to maintain. Spreadsheets rarely work long-term, and professional financial advisors are expensive.  So, I engineered Beruang, a money management mobile application with an AI-powered personal finance advisor that automates expense tracking and provides contextual financial guidance.  Key Technical Features: - Hybrid Multi-Model AI Architecture: I designed a privacy-first system splitting intelligence between device and cloud. I trained a Bi-LSTM model on 220,000+ Malaysian transaction records to classify real-world descriptions like “Nasi Kandar”, achieving 99.61% accuracy. A MiniLM transformer performs on-device intent routing before directing complex queries to xAI Grok 4.1. - Generative RAG Financial Advisor: I built a retrieval-augmented generation pipeline that injects user financial data and Malaysian economic context into AI prompts, enabling the system to generate personalized financial recommendations rather than generic advice. - Computer Vision Automation: I integrated Gemini 2.5 Flash for receipt analysis, extracting merchants and transaction details from receipt images in under two seconds to reduce manual logging. - Gamified Financial Behaviour System: I designed a Bear Evolution XP system encouraging consistent financial habits through gamified progress. - Technical Ecosystem: React Native mobile app (13 screens) with Node.js + Express backend, TensorFlow.js ML inference, and Firebase Firestore for real-time synchronization.  Technical Impact: User testing with 55 respondents achieved a System Usability Scale score of 86.77, with 98.2% reporting increased confidence in managing their finances.
+
+Malaysian Hawker Food Recognition & Calorie Estimation System
+Feb 2026 – Feb 2026
+
+Associated with Universiti Teknologi MARA
+GitHub: https://github.com/izwanGit/malaysian-food-recognition  For a Computer Vision group project, I led the AI architecture and deep learning implementation for a system built entirely in MATLAB that recognizes Malaysian hawker food from a photo and estimates its calorie content. The problem: Malaysia has one of Southeast Asia's highest obesity rates, and hawker food is a major contributor, yet most people have no idea how many calories are in their Nasi Lemak or Laksa.  The real challenge was not just classification, but handling the chaos of real hawker stall photography: inconsistent lighting, food blending into plates, and visually similar dishes like Satay versus Mixed Rice sharing nearly identical color profiles.  The project followed this methodology: - Preprocessing: Designed a 3-stage image pipeline using Gray World White Balance, CLAHE adaptive contrast, and median filtering to standardize the inconsistent lighting conditions of hawker stall photos. - Deep Learning (SqueezeNet): Fine-tuned a SqueezeNet CNN via transfer learning on 1,200+ custom-collected images across 7 food classes (Nasi Lemak, Roti Canai, Satay, Laksa, Popiah, Kaya Toast, Mixed Rice), achieving 83% test accuracy. - Classical ML Benchmark (SVM): Built a parallel SVM classifier using a 127-dimensional feature vector (RGB/HSV histograms + GLCM texture), reaching 79.56% accuracy as an interpretable baseline. - Context-Aware Segmentation: Developed an adaptive segmentation engine with class-specific logic, using texture filters for Roti Canai, shadow rescue for Mixed Rice, and curry shields for Laksa to isolate food from backgrounds. - Calorie Estimation: Integrated the Malaysian Food Composition Database (MyFCD) with pixel-area ratio analysis from segmentation masks to output calories, protein, carbs, and fat. - Deployment: Delivered a MATLAB App Designer GUI with real-time inference, segmentation overlays, and confidence visualizations.
+
+RentVerse Platform - UiTM Mobile SecOps Challenge (TeamONE)
+Dec 2025 – Dec 2025
+
+Associated with Universiti Teknologi MARA
+Github: https://github.com/izwanGit/uitm-devops-challenge_TeamOne  🏆 CHAMPION - First Place Winner Secured the Grand Prize in the high-intensity Mobile SecOps Challenge. Out of 5 total categories, my team dominated by winning 4 major awards:  - First Prize Champion - Best Automated Security Testing Implementation - Best Zero Trust Access Logic - Best Threat Intelligence System  Engineered a secure, enterprise-grade property rental ecosystem for the 21-day DevSecOps competition. The platform bridges a Next.js frontend with a hardened Node.js backend to deliver a "Secure-by-Design" architecture that withstands real-world attack vectors.  Key Technical Contributions: - DevSecOps Pipeline Architecture: Engineered a rigorous 14-stage CI/CD pipeline using GitHub Actions. integrated CodeQL for SAST, Gitleaks for secret scanning, and Trivy for container vulnerability scanning to enforce strict "Shift Left" security gates. - Zero Trust Security Model (Award Winning): Built a "Verify-First" authentication flow utilizing Time-based One-Time Password TOTP for MFA and Bcrypt hardening. Enforced strict Role-Based Access Control RBAC middleware to segregate privileged access. - Proactive Threat Intelligence (Award Winning): Developed a real-time Anomaly Detection Service in Node.js. Programmed heuristic analysis to block "Impossible Travel" events moving over 800 km/h and neutralize login velocity attacks instantly. - Infrastructure Hardening: Configured granular Rate Limiting (15 requests per 15 minutes) to prevent credential stuffing and deployed Helmet.js to enforce HTTP Strict Transport Security HSTS with a one-year duration. - Data Integrity & Contracts: Architected a tamper-evident digital agreement system using Puppeteer and SHA-256 cryptographic hashing for non-repudiation. Integrated an AI-driven Random Forest Regressor to automatically validate property pricing and reject fraud.
+
+Network Service Enumeration & Exploitation
+Nov 2025 – Nov 2025
+
+Associated with Universiti Teknologi MARA
+For a Computer Security group project, I took the lead on the practical penetration testing component. I performed a hands-on demonstration based on the TryHackMe 'Network Services' room, executing the full attack chain from my own terminal.   My investigation followed this methodology: - SMB & Initial Access: My investigation began with nmap scans, which revealed open SMB ports (139/445). Using enum4linux, I discovered a critical misconfiguration: an anonymous-access share. I connected with smbclient and successfully exfiltrated an SSH private key (id_rsa), which I immediately used to gain initial shell access. - Telnet & Privilege Escalation: I then pivoted to a non-standard high port (8012) and identified a hidden Telnet backdoor. To exploit this, I generated a cmd/unix/reverse_netcat payload with msfvenom, executed it via the backdoor, and successfully caught a root-level reverse shell on my netcat listener. - FTP & Post-Exploitation: Finally, I enumerated an FTP server (port 21) and found a public file that hinted at a valid username ('mike'). I launched a hydra dictionary attack against this user, successfully brute-forced the password, and gained access to capture the final flag.  This deep-dive demonstrated a practical, multi-stage attack, moving from initial reconnaissance and enumeration to lateral movement and full system compromise.
+
+
+Batik Recognition and Classification
+Jul 2025 – Jul 2025
+
+Associated with Universiti Teknologi MARA
+Github: https://github.com/izwanGit/BatikRecognitionAndClassification Roboflow: https://universe.roboflow.com/izwans-workspace/batik-recognition-and-classification-wqioe  Developed a real-time computer vision system to accurately classify traditional batik patterns as either Malaysian or Indonesian. This project addresses the common challenge of distinguishing between the two visually similar styles and mitigates dataset bias by incorporating modern Malaysian batik patterns.  Key contributions and features: - Model: Leveraged a Vision Transformer (ViT) deep learning model to capture the complex and intricate features of batik designs. - Dataset: Curated and enhanced an image dataset to improve representation, adding 228 new Malaysian and 116 new Indonesian images. - Application: Built a real-time application using Python, OpenCV, and Flask. The system uses a webcam feed and interfaces with a Roboflow-hosted inference API. - User Experience: Implemented on-screen image quality checks for brightness and focus and a prediction stability filter to prevent flickering results.  The final system achieved 94.2% classification accuracy , providing an effective tool for cultural education and heritage preservation.
+
+Play2Grow: Edutainment Android App
+Jul 2025 – Jul 2025
+
+Associated with Universiti Teknologi MARA
+Developed "Play2Grow," an educational "edutainment" Android application designed to assist Malaysian parents in preparing their children (aged 4-6) for primary school by aligning with the national curriculum.  The app operates on a dual-mode system built with Java and Firebase: - Parent Mode: Provides a secure login (Email/Password & Google Sign-In) where parents can manage their child's profile. Parents can create and assign specific tasks by selecting from core subjects (e.g., Math, Science) and predefined levels. They can also monitor progress by viewing a list of all "Pending" and "Completed" tasks and see detailed performance in a printable "Report" section, which shows stars earned for completed assignments. - Kid Mode: Offers an engaging, child-friendly interface where kids can view their "Task List". They can select any "pending" task to launch an interactive quiz game. Upon game completion, their score is calculated, a star rating is awarded, and the task status is automatically updated to "Completed" across the app.  The application is powered by Google Firebase, using Firebase Authentication for user management and Firestore as a real-time NoSQL database to manage all user, task, subject, level, and reward data.
+
+YuLaoshi: AI Mandarin Conversational Tutor
+May 2025 – May 2025
+
+Associated with Universiti Teknologi MARA
+GitHub: https://github.com/izwanGit/LaoshiYu-Chatbot Live Demo: https://izwan.pythonanywhere.com/  YuLaoshi (宇老师) is a full-stack AI chatbot application serving as a conversational Mandarin tutor for Malaysian students in the TMC501 course. The platform combines GPT-4o-mini intelligence with gamification to create an engaging language learning experience.  Core Features: - AI Conversational Practice - GPT-4o-mini powered tutor providing structured responses with Pinyin and Malay translations, real-time grammar correction, and smart contextual reply suggestions based on conversation history - Dynamic Listening Quiz - Gamified module generating 5 unique questions per session using AI, with real-time audio via Google TTS for questions and answers (fallback to browser Web Speech API) - Gamification System - Points and tiered badge system (50 points for perfect scores, 20-25 for 70%+) with persistent SQLite database storage for user progression tracking - Advanced Prompt Engineering - 15-rule persona prompt for consistent teaching behavior, specialized quiz generation prompt for structured outputs, and anti-parrot logic preventing repetition  Tech Stack: Python 3.10+, Flask 3.1, GPT-4o-mini (OpenRouter API), gTTS, SQLite/SQLAlchemy, Bootstrap 5, deployed on PythonAnywhere  Origin Story: Created as a dedication to Yu Laoshi at UiTM Tapah, inspired by his observation that "there's an AI for everything" - addressing the gap in interactive Mandarin learning tools for Malaysian students.
+
+Economic Disparities and Crime Patterns in Malaysia (2022)
+Dec 2024 – Jan 2025
+
+Associated with Universiti Teknologi MARA
+Github: https://github.com/izwanGit/EconomicPressureAndSocialPatterns_DataProcessing  This project for the Data Representation and Reporting Techniques course analyzed the relationship between economic disparities and crime patterns in Malaysia using 2022 data. We investigated how socioeconomic factors like income, poverty, and inequality correlate with crime rates, aiming to provide actionable insights for policymakers.  As the team's Head of Data Scientist, I was responsible for the project's technical execution and data storytelling: - Sourced and prepared two key datasets from Open DOSM ('Crimes by District' and 'Household Income and Expenditure'). - Performed all data pre-processing using Python, Pandas, and Scikit-learn in Google Colab for data cleaning, transformation, and normalization.  - Led the design and development of the final interactive Tableau dashboard from scratch to visually communicate our findings.  - Created specific visualizations to clearly analyze the links between income vs. expenditure, inequality (Gini) vs. poverty, and inequality vs. crime rates.
+
+UiTM Event Management System (UEMS)
+Nov 2024 – Jan 2025
+
+Associated with Universiti Teknologi MARA
+Project URL: https://github.com/izwanGit/UiTM-Event-Management-System  UiTM Event Management System is a Java web application that enables admins to create and manage events, and allows students to view events, register and submit feedback. I implemented server-side logic using Jakarta Servlets and JSP, persisted data in MySQL (imported via provided SQL), and handled file uploads for event posters. The app is deployed on Apache Tomcat and tested locally with XAMPP MySQL. Responsibilities: database design and import script, backend DAOs and servlets, file upload handling, and deployment instructions.
+
+E-commerce Live Sales Generation
+Oct 2023 – Mar 2024
+
+Associated with WEST MALAYAN GROUP
+Hosted and supervised Live e-commerce sessions to promote products. My role involved directly engaging with customers, demonstrating product usage, and answering live inquiries to drive sales. This initiative successfully converted viewers into customers and contributed to a substantial increase in platform sales.
+
+E-commerce Product & Marketing Management
+Sep 2023 – Mar 2024
+
+Associated with WEST MALAYAN GROUP
+Managed the complete product showcase for the company's e-commerce platforms like Shopee and TikTok Shop. My responsibilities included:  1. Product Photography: Personally handled product photoshoots using an EOS R10 camera to capture high-quality images for mock-ups and listings.  2. Photo Editing: Used Adobe Photoshop to meticulously edit and enhance photos, creating professional and compelling product thumbnails to attract customers.  3. E-commerce Management: Actively managed the Shopee and TikTok Shop accounts, optimizing product titles, graphics, and introducing new SKUs like bundle deals.  4. Digital Marketing: Developed and executed marketing strategies, including affiliate programs and campaign promotions, to boost product visibility and sales
+
+TikTok Content Strategy
+Sep 2023 – Mar 2024
+
+Associated with WEST MALAYAN GROUP
+Managed the complete production lifecycle for 59 TikTok videos for the company brand. This involved market research, concept creation, storyboarding, scriptwriting, and scheduling. I personally handled all filming (using Canon EOS R10) and post-production editing (using Final Cut Pro, Canva, Capcut and Photoshop), resulting in a consistent stream of content that enhanced brand awareness and drove TikTok Shop sales.
+
+Java Sales Calculator GUI
+Nov 2023 – Dec 2023
+
+Associated with WEST MALAYAN GROUP
+Identified a key inefficiency in the manual sales tracking process for sampling events. To solve this, I independently designed and developed a desktop application using Java and the Swing GUI toolkit. The tool automated the calculation, formatting, and copying of sales data, eliminating manual errors, improving accuracy, and saving time for the supervisory team.
+
+Corporate Website Development (montswitzerland.com)
+Sep 2023 – Sep 2023
+
+Associated with WEST MALAYAN GROUP
+As my first task, I was assigned to create a new corporate website (montswitzerland.com) within a one-day deadline. I managed the entire project alone, including designing the site architecture and user flow, creating visual assets, and building the complete multi-page site. I also successfully handled the technical integration of the GoDaddy domain.
+
+Kuehlicious: Kuih Batang Buruk Ordering System
+Apr 2023 – Jul 2023
+
+Associated with Universiti Teknologi MARA
+Award: Winner - Youth Innovation Final Project Presentation (2023)   Project URL: https://github.com/izwanGit/KuihBatangBurukOrderingSystem  Developed "Kuehlicious," an award-winning web-based information system designed to digitize the operations of a local Kuih Batang Buruk business. The project's primary objective was to replace the traditional, inefficient pen-and-paper ordering system, which suffered from data redundancy and prevented online sales. The new system successfully streamlined the entire ordering process, from browsing to delivery, enhancing both business efficiency and customer accessibility.  As the primary developer, I single-handedly managed the full System Development Life Cycle (SDLC) using the Waterfall methodology. This involved conducting user interviews, requirements analysis, system design, full-stack development, testing, and preparing comprehensive documentation (including ERD, DFD, and FDD). The final solution was delivered successfully, met all project requirements, and won its competition category.  Key Features & Technologies: - Technology Stack: Developed using PHP, MySQL, HTML, CSS, and JavaScript. - Dual User Scopes: Features distinct interfaces and functionalities for two user levels: Admin and Customer. - Admin Dashboard: A secure panel for administrators to manage products, approve orders and payments, arrange deliveries, and view reports. - Customer Portal: A public-facing website allowing customers to browse products, place orders, provide delivery information, make payments, and check their order status.
+
+Kuih Batang Buruk Mobile Application
+May 2023 – Jul 2023
+
+Associated with Universiti Teknologi MARA
+Project URL: https://github.com/izwanGit/KuihBatangBurukMobileApplication.git  Developed a dedicated mobile ordering application for traditional Kuih Batang Buruk, built using MIT App Inventor. This project extends the functionality of the previously created "Kuehlicious: Kuih Batang Buruk Ordering System" website, providing a native mobile experience for customers. The application interacts with a custom PHP/MySQL backend via API calls to manage user data, product information, orders, and delivery details, offering a convenient platform for users to browse and purchase products directly from their smartphones.   Key Features Implemented: - User account management including registration, login, profile viewing, updates, and account deletion capabilities. - Mobile-friendly interface for browsing Kuih Batang Buruk products and placing orders (specifying product, quantity, type, and address). - Integration with a PHP backend API handling requests for user authentication, order processing, and data retrieval. - MySQL database backend for storing and managing user credentials, product details, order history, payment records, and delivery information. - Functionality for users to view their past orders and track delivery status within the application. - Built entirely using MIT App Inventor, connecting screen components and logic blocks to interact with the web service endpoints.
+ Volunteering
+
+Head of Multimedia & Publicity - SULAM Volunteer
+Universiti Teknologi MARA
+Oct 2025 - Nov 2025 · 2 mos
+Science and Technology
+As the Head of Multimedia & Publicity for this SULAM (Service Learning Malaysia) academic initiative, I led the creation and management of all digital assets for the "Cybersecurity Awareness Seminar".  This was an international collaboration between UiTM Tapah, Malaysia and 'Aisyiyah Yogyakarta University (UNISA), Indonesia. The seminar's goal was to educate university students on crucial digital safety practices and how to defend against modern cyber threats like phishing, ransomware, and identity theft.  My key responsibilities included: - Designing all official promotional materials, including the event poster, digital banners, and social media content. - Managing the visual branding for the event. - Coordinating the technical multimedia setup for the live seminar on the Webex platform.
+ Facilitator - BizClub UiTM AGM
+Universiti Teknologi MARA
+Nov 2022 - Dec 2022 · 2 mos
+Education
+My main tasks included: • Guiding and supervising one team throughout the program • Leading team cheers and motivating participants during games • Assisting with coordination and managing team participation across activities • Collaborating with fellow facilitators to maintain smooth event flow and high spirits
+ 
+Mentor – Pre-Calculus (Mentor-Mentee Program)
+Universiti Teknologi MARA
+Jan 2022 - Feb 2022 · 2 mos
+Education
+Selected as a mentor in UiTM’s Mentor-Mentee Program after achieving an excellent mark in Pre-Calculus. Conducted weekly online mentoring sessions via Google Meet for three weeks to help fellow students strengthen their understanding of key mathematical concepts. Guided mentees in solving complex problems and improving confidence, resulting in excellent academic performance for all participants.  This experience enhanced my leadership, communication, and teaching skills while deepening my own understanding of the subject.
+
+Skills 
+	•	Office 365
+	•	Microsoft Excel
+	•	Robotic Process Automation (RPA)
+	•	BMC Helix ITSM
+	•	Microsoft Power Automate
+	•	Microsoft Power BI
+	•	DAX
+	•	Workflow Automation
+	•	MATLAB
+	•	Machine Learning
+	•	Network Protocols
+	•	PostgreSQL
+	•	Prisma ORM
+	•	Next.js
+	•	TypeScript
+	•	Node.js
+	•	React Native
+	•	Artificial Intelligence (AI)
+	•	Cybersecurity
+	•	Penetration Testing
+	•	Network Security
+	•	Vulnerability Assessment
+	•	Nmap
+	•	Metasploit
+	•	Android Development
+	•	Firebase
+	•	NoSQL
+	•	User Interface Design
+	•	User Experience (UX)
+	•	Computer Vision
+	•	Deep Learning
+	•	OpenCV
+	•	Vision Transformer (ViT)
+	•	Flask
+	•	OpenAI API
+	•	Prompt Engineering
+	•	Natural Language Processing (NLP)
+	•	Text-to-Speech
+	•	Bootstrap
+	•	SQLite
+	•	REST APIs
+	•	Data Processing
+	•	Data Visualization
+	•	Tableau
+	•	Data Analysis
+	•	Pandas
+	•	Data Cleaning
+	•	Data Storytelling
+	•	Scikit-Learn
+	•	JavaServer Pages (JSP)
+	•	Jakarta Servlet
+	•	GitHub
+	•	Sales
+	•	Communication
+	•	E-Commerce
+	•	Product Photography
+	•	Content Strategy
+	•	Social Media Marketing
+	•	Final Cut Pro
+	•	Adobe Photoshop
+	•	Canva
+	•	Graphic User Interface (GUI) Design
+	•	Problem Solving
+	•	Web Design
+	•	Time Management
+	•	Domain Management
+	•	Mobile Application Development
+	•	API Development
+	•	PHP
+	•	MySQL
+	•	Software Development Life Cycle (SDLC)
+	•	Project Management
+	•	JavaScript
+	•	HTML
+	•	Cascading Style Sheets (CSS)
+	•	Full-Stack Development
+	•	Image Editing
+	•	Team Leadership
+	•	Digital Marketing
+	•	Video Production
+	•	Video Editing
+	•	Software Design
+	•	Database Design
+	•	Object-Oriented Programming (OOP)
+	•	Databases
+	•	Data Structures
+	•	Software Development
+	•	Java
+	•	Python
+	•	Web Development
+	•	C
+	•	C++
+	•	Electron
+	•	Express.js
+	•	Oracle Database
+	•	Grok API
+	•	xAI
+	•	RAG-Powered Intelligence
+	•	Roboflow
+	•	Hydra
+	•	Enum4Linux
+	•	Git
+	•	Microsoft SharePoint
+	•	Microsoft Power Apps
+	•	Office Scripts
+	•	Streamlit
+	•	Playwright
+	•	Selenium
+	•	Docker
+	•	CI/CD
+	•	Agile Methodologies
+	•	Scrum
+	•	Linux
+	•	Bash Scripting
+	•	JSON
+	•	Web Scraping
+	•	ETL (Extract, Transform, Load)
+	•	Data Engineering
+	•	TensorFlow
+	•	PyTorch
+	•	[Add more relevant skills related to job].      
+Honors & awards
+Dean’s List Award - Semester 6
+Issued by Universiti Teknologi Mara · May 2026
+Associated with Universiti Teknologi MARA
+
+Champion & Multi-Category Winner (4 Awards) - Mobile SecOps Challenge
+Issued by Metairflow R&D Sdn Bhd · Dec 2025
+Associated with Universiti Teknologi MARA
+Swept the competition by securing the Grand Prize (1st Place) and winning 4 out of 5 total award categories in the 21-day Mobile SecOps Challenge.  Awards Won: - First Prize Champion - Best Automated Security Testing (for 14-stage DevSecOps Pipeline) - Best Zero Trust Access Logic (for Verify-First Authentication) - Best Threat Intelligence System (for 800km/h Anomaly Detection)  Recognized for engineering 'RentVerse', an enterprise-grade secure rental platform that successfully implemented Shift-Left security, AI-driven fraud detection, and robust cryptographic defenses against real-world attack vectors.
+
+Dean’s List Award - Semester 5
+Issued by Universiti Teknologi Mara · Aug 2025
+Associated with Universiti Teknologi MARA
+
+Best AI Booth Award
+Issued by AI SEMINAR 2025 : Beyond the Boundaries, The Next Era · Jul 2025
+Associated with Universiti Teknologi MARA
+Awarded for the most outstanding project presentation and technical demonstration for the "Batik Recognition and Classification" system.  This project was recognized for its effective, interactive showcase, which included: - A live, real-time demo of the Vision Transformer (ViT) model. - An interactive webcam setup allowing attendees to test the AI's classification of batik patterns instantly. - A clear presentation of the system's 94.2% accuracy and its application for cultural heritage preservation.  This award highlights the ability to translate a complex AI project into an engaging and functional demonstration.
+
+Best System Architecture in Final Year Project (FYP)
+Issued by Universiti Teknologi Mara · Jun 2025
+Associated with Universiti Teknologi MARA
+
+Vice Chancellor's Award
+Issued by Universiti Teknologi Mara · May 2025
+Associated with Universiti Teknologi MARA
+
+Dean’s List Award - Semester 4
+Issued by Universiti Teknologi Mara · Mar 2025
+Associated with Universiti Teknologi MARA
+
+Dean’s List Award - Semester 3
+Issued by Universiti Teknologi Mara · Aug 2024
+Associated with Universiti Teknologi MARA
+
+Outstanding performance Recognition & Allowance Increment
+Issued by West Malayan Group Sdn. Bhd. · Nov 2023
+Associated with WEST MALAYAN GROUP
+Received a performance-based allowance increment in recognition of "outstanding performance and dedication" and for exceeding e-commerce sales targets.
+
+Best Website Graphical User Interface (GUI) - UiTM Website Competition
+Issued by Faculty of Computer and Mathematical Sciences · Jul 2023
+Associated with Universiti Teknologi MARA
+
+Dean’s List Award - Semester 4
+Issued by Universiti Teknologi Mara · Jul 2023
+Associated with Universiti Teknologi MARA
+
+Dean’s List Award - Semester 3
+Issued by Universiti Teknologi Mara · Mar 2023
+Associated with Universiti Teknologi MARA
+
+Dean’s List Award - Semester 2
+Issued by Universiti Teknologi Mara · Jul 2022
+Associated with Universiti Teknologi MARA
+
+Dean’s List Award - Semester 1
+Issued by Universiti Teknologi Mara · Mar 2022
+Associated with Universiti Teknologi MARA
+ Languages
+Chinese
+Elementary proficiency
+
+English
+Full professional proficiency
+
+Malay
+Native or bilingual proficiency    
+
+LINKEDIN POST:  0 notifications total
+
+Skip to search
+
+Skip to main content
+
+Keyboard shortcuts
+Close jump menu
+Search
+new feed updates notifications
+Home
+1
+1 new network update notification
+My Network
+Jobs
+Messaging
+3
+3 new notifications
+Notifications
+
+More
+MUHAMMAD IZWAN AHMAD
+Me
+
+For Business
+Try Premium for RM 0
+MUHAMMAD IZWAN AHMAD
+MUHAMMAD IZWAN AHMAD
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+Followers
+1,281
+All activity
+
+Posts
+
+Comments
+
+Videos
+
+Images
+
+Reactions
+
+Filter by:
+All
+Loaded 35 Posts posts
+Feed post number 1
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+4w •  0 months ago • Visible to anyone on or off LinkedIn
+
+I'm happy to announce that I'm currently doing my internship at PETRONAS Digital Sdn Bhd.
+
+A few years ago, the idea felt almost unrealistic to me. I remember joking that one day I'd intern at PETRONAS, and some people laughed it off. Looking back, I'm glad I never let that define what I thought was possible.
+
+Over the past few months, I've learned more from this team than I expected to in such a short time. What surprised me most, though, was how much room I was given to chase my own ideas. I started noticing small things, tasks people repeated every single week without questioning them. I kept asking myself if there was a better way. So I just built one, quietly, without being asked. The first time someone on the team actually used it on their own, without me pushing it on them, I knew it was working. Some of what I built stayed within my own team, used daily by the people I work alongside. Other parts of it ended up spreading further than I expected, picked up by other departments who heard about it and started using it on their own.
+
+Grateful for the trust, the guidance, and the chance to contribute while still learning every step of the way 🙏.
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+likecelebratelove
+601
+8 comments
+2 reposts
+
+Like
+
+Comment
+
+Repost
+
+Send
+12,829 impressions
+View analytics
+Feed post number 2
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+4w •  0 months ago • Visible to anyone on or off LinkedIn
+
+🎓🥳 Mak, abah... anak mak abah dah habis degree! ❤️
+
+When I started my Computer Science degree, I never imagined that my final project would become something this personal.
+
+Throughout university, I kept noticing the same problem around me. Many young Malaysians struggle with money, not because they are careless, but because no one really teaches them how to manage it. Tracking every transaction is tiring, budgeting feels overwhelming, and most finance apps just do not fit the Malaysian context. And for many of us, a financial advisor is simply out of our budget.
+
+So I decided to build something different.
+
+What started as a Final Year Project eventually became Beruang🐻, an AI-powered personal finance app designed specifically for Malaysians. An app that understands transactions like Petronas, Shopee, Grab, and mamak spending. It tracks expenses automatically, scans receipts, provides personalised financial guidance, and turns saving money into an engaging experience.
+
+Building Beruang pushed me further than any assignment, lab, or exam ever did. I trained machine learning models on more than 220,000 Malaysian transaction records, developed a financial advisory system powered by RAG and AI, integrated receipt scanning, and built the entire mobile application from the ground up using React Native.
+
+What mattered most to me was seeing Beruang work in the real world.
+
+When tested with 54 real users, Beruang achieved a System Usability Scale of 86.81, and 92.6% of users reported feeling more confident about managing their finances after using the app. That meant more to me than any accuracy score, benchmark, or technical achievement.
+
+Along the way, the project was recognised with the Best System Architecture Award for Final Year Project. But to me, the award represents something much bigger.
+
+It represents every late night spent debugging. Every moment I questioned whether I was capable enough. Every lecture, assignment, and project that slowly built the foundation for this one idea.
+
+As this project evolved, I realised that everything I learned throughout my degree, from software engineering and object-oriented programming to machine learning, image processing, databases, cybersecurity, mobile development, and more, was put into this project to create something that genuinely helps people.
+
+To my supervisor, lecturers, friends, family, and my partner who supported me throughout this journey, thank you. Your guidance, patience, and belief in me made this possible.
+
+And to mak and abah, thank you for every sacrifice that brought me here.
+
+This degree may have my name on it, but this achievement belongs to them. ❤️
+
+Full breakdown of Beruang here 👉 https://lnkd.in/giHd5fnV
+
+View image
+
+View image
+
+View image
+
+View image
++4
+Activate to view larger image,
+likecelebratesupport
+849
+M. Isyraf Ismail and 848 others
+12 comments
+11 reposts
+
+Like
+
+Comment
+
+Repost
+
+Send
+19,952 impressions
+View analytics
+Feed post number 3
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+1mo •  1 month ago • Visible to anyone on or off LinkedIn
+
+Sapa kat sini suka makan nasi kandar? 🙋‍♂️ 
+
+Di Malaysia, kandartology dah jadi satu seni. Suntikan kuah madu, kuah ikan, kuah kambing, kuah dhal, nisbah mesti tepat. Lauk pun kena ada strategi. Ayam goreng striker, telur sotong midfielder, bendi dengan telur masin defender. Real masters tahu meta ni. 
+
+Tapi ironinya, kita tau banyak tentang makanan, tapi bila tanya berapa kalori dalam pinggan tadi, terus blank. Satu nasi kandar banjir boleh cecah 1,000+ kalori, plus sodium untuk sehari penuh, dalam SATU hidangan ja.
+
+So for a Computer Vision course at UiTM, I designed and built the AI architecture for a system that recognizes Malaysian hawker food from a photo and estimates its calories. Snap your lunch, get the kcal, protein, carbs, and fat breakdown. Trained on 7 dishes using SqueezeNet deep learning, benchmarked against classical ML for interpretability. The whole thing is actually done in MATLAB. I could've shipped this faster in Python, but I chose the harder path on purpose. In MATLAB, images are raw matrices, every filter, every convolution, every transformation is math you write yourself. Python hides all of that behind one-line functions. Going through MATLAB forced me to understand how image processing actually works under the hood, not just how to call it. Now Python feels like a sports car, and I finally understand the engine.
+
+View the project here 👉 https://lnkd.in/giHd5fnV
+
+View image
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+likeinsightfullove
+613
+22 comments
+39 reposts
+
+Like
+
+Comment
+
+Repost
+
+Send
+35,045 impressions
+View analytics
+Feed post number 4
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+1mo •  1 month ago • Visible to anyone on or off LinkedIn
+
+Alhamdulillah, we won 4 out of 5 awards at the UiTM Mobile SecOps Challenge organized by Metairflow! 🏆🏆🏆🏆🎉
+
+The crazy part? I wasn't even supposed to be in that room.
+
+The brief: take an incomplete rental website, secure it against real-world threats, and convert it into a mobile app. 21 days. Undergrads from UiTM Perak. Go.
+
+Cybersecurity isn't my favourite field. I respect it, but it's never been where I felt most at home. Other teams lived and breathed this stuff. I was the outsider.
+
+But I had one rule: if I'm in, I'm fully in.
+
+So I went beyond the brief. Way beyond.
+
+I designed an AI anomaly detection system that blocks logins moving over 800 km/h between cities. SHA-256 hashing on every digital lease so no contract could be tampered with. A 14-stage DevSecOps pipeline that refuses to deploy if a single line of code looks suspicious. A Random Forest model to detect listing fraud. Real-time Slack alerts the second a threat appears.
+
+Nobody taught me how to do any of this. I just wanted to build something I'd be proud of.
+
+Then the finalist list dropped. My team wasn't on it.
+
+I went quiet for a while. Three weeks of late nights, broken code, and rebuilding, just to not make the cut. But something didn't add up. I checked the materials and realised there had been a small mix-up. I reached out, calmly, with the facts. The organizers reviewed it, owned the error, and brought us in as a reserve finalist.
+
+I'll never forget what the organizer asked me on that call:
+
+"Izwan, are you here for the prize money, or to learn?"
+
+I said both. Yes, the money intrigued me. But the real reason I joined was to push myself against people who knew this field better than I did. To deliver something I'd be proud to put my name on, regardless of the result.
+
+Pitch day came. We were the LAST team to present. After everyone else had finished. After the judges had likely already formed their opinions.
+
+We walked in with printed system architecture diagrams, flowcharts, a full deck, and a live demo. I gave that pitch everything I had.
+
+When we walked out, I didn't know if we'd won. But I knew I'd done my best.
+
+That night, everyone gathered for the announcement. And then it happened.
+
+🏆 Champion (1st Place)
+🏆 Best Automated Security Testing
+🏆 Best Zero Trust Access Logic
+🏆 Best Threat Intelligence System
+
+4 out of 5 awards. From the team that wasn't even on the original finalist list.
+
+That night reshaped how I see effort. You don't have to start in the room. You don't have to love the subject. You don't even have to be the favourite. You just have to commit fully, advocate for yourself when something feels wrong, and walk in ready when the door finally opens.
+
+The world rarely rewards comfort. It rewards quiet, relentless effort.
+
+Huge thanks to Metairflow and Sir Hafiz for the opportunity. And to Azfar and Afiq, thanks for being on this journey with me. 🙏
+
+🚀 Explore the full award-winning project here: https://lnkd.in/giHd5fnV
+
+View image
+
+View image
+
+View image
+
+View image
++5
+Activate to view larger image,
+likecelebrate
+125
+Muhammad Aniq Idris and 124 others
+5 comments
+
+Like
+
+Comment
+
+Repost
+
+Send
+2,883 impressions
+View analytics
+Feed post number 5
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+1mo •  1 month ago • Visible to anyone on or off LinkedIn
+
+There's a 50% chance your IC is being sold as you read this.
+
+17 million MyKads. Leaked. Sold on the dark web. For pocket change.
+
+That happened to Malaysians last year. Bank Rakyat got breached. Government ministries got dumped on hacker forums for RM85,000. And in 2024 alone, Malaysians lost RM1.57 billion to cyber crime. An 84% jump from the year before.
+
+So I decided to learn how the other side thinks.
+
+For a Computer Security course at UiTM, I ran a full penetration test on a TryHackMe lab. I scanned for open ports, exploited a misconfigured file share to steal an SSH key, found a hidden backdoor on a forgotten port, and brute-forced my way into a server. One attack chain. Three services. Full system compromise.
+
+And it hit me. Hackers aren't winning because they're geniuses. They're winning because we keep leaving small doors open. A weak password. A forgotten port. An employee who clicked the wrong link.
+
+Maybe life works the same way. The big things rarely break us. It's the small ones we ignore. 🔐
+
+Full walkthrough here 👉 https://lnkd.in/giHd5fnV
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+like
+29
+1 comment
+2 reposts
+
+Like
+
+Comment
+
+Repost
+
+Send
+2,166 impressions
+View analytics
+Feed post number 6
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Alysia Dania Binti Daini Dzulkarnain’s open to work graphic link
+Alysia Dania Binti Daini DzulkarnainAlysia Dania Binti Daini Dzulkarnain
+ • 1st1st
+Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3
+5mo •  5 months ago • Visible to anyone on or off LinkedIn
+On 10 December 2025, my group members and I had the opportunity to attend the Annual General Meeting (AGM) of TWL Holdings Berhad as part of our ADM608: Corporate Secretarial Practices 1. The AGM provided valuable insights into the roles and responsibilities of corporate secretaries, particularly in ensuring regulatory compliance, facilitating effective communication between the board and shareholders, and supporting strong corporate governance practices. It was an eye-opening experience to observe how an AGM is conducted in a professional and structured manner. This experience has further enhanced my understanding of real-world corporate governance and the important role of the company secretary in supporting organizational effectiveness.
+hashtag#ADM608 hashtag#CorporateSecretarialPractice hashtag#TWLHoldingsBerhad hashtag#CorporateGovernance hashtag#AGMExperience
+…more
+
+View image
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+like
+14
+1 comment
+3 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 7
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+5mo •  5 months ago • Visible to anyone on or off LinkedIn
+
+Alhamdulillah, we won Best AI Booth at the AI SEMINAR 2025! 🏆🎉
+
+Batik is the soul of our Malaysian identity. Years ago, Tun Abdullah Ahmad Badawi worked to preserve this heritage by introducing "Batik Thursday." He wanted every Malaysian to wear our local textile as a badge of pride.
+
+But here is the catch. Despite its long history in our culture, most of us still can't differentiate between Malaysian batik and Indonesian batik. To the untrained eye, they appear the same. This means our unique local identity is quietly fading away.
+
+I decided to help us see the difference through innovation.
+
+Introducing: The Batik Recognition & Classification System. 🚀
+
+This project uses a Vision Transformer (ViT) architecture to protect our heritage. It acts as a digital expert that identifies motifs with a 94.2% accuracy rate.
+
+Seeing the crowd's reaction at the seminar as they tested the live demo was the best part. They could point a camera at the fabric and the AI would identify the origin instantly.
+
+The Tech Stack: 
+- 94.2% Precision: Capturing the subtle nuances of Malaysian motifs. 
+- Live Interactive Demo: Real-time scanning using OpenCV and Flask. 
+- Bias Mitigation: 344 new images added to prioritize Malaysian recognition.
+
+✨ See the full award-winning project here: https://lnkd.in/giHd5fnV
+
+View image
+
+View image
+
+View image
+
+View image
++4
+Activate to view larger image,
+likelovesupport
+57
+1 repost
+
+Like
+
+Comment
+
+Repost
+
+Send
+1,993 impressions
+View analytics
+Feed post number 8
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+5mo •  5 months ago • Visible to anyone on or off LinkedIn
+
+My friend showed me a video of his little cousin throwing a full-blown tantrum because his phone was taken away. Screaming. Crying. Absolute meltdown. Over a phone.
+
+I laughed at first. But then it hit me. This kid was THAT attached to screen time. And for what? Random videos? Endless scrolling?
+
+That's when the question came: what if we could make screen time actually BUILD something? What if kids got just as addicted, but to learning?
+
+That is how Play2Grow was born.
+
+An Android app that transforms how Malaysian parents prepare their 4-6 year olds for primary school. Aligned with our national curriculum. Built with Android Studio, Java, and Firebase.
+
+Here's the thing: we didn't want to create another "iPad kid" situation where parents just hand over a device and ignore their child.
+
+Parent Mode keeps you involved. Create tasks across Bahasa Melayu, Math, Sciences, and English. Track progress. See the stars your child earns. Stay engaged with their learning journey.
+
+Kid Mode makes it fun. Word puzzles. Counting games. A banana character asking "Buah apakah ini?" They play. They learn. They don't even realize they're preparing for school.
+
+The best part? Kids WANT to complete tasks because they're chasing stars. Parents stay connected to their child's growth, not just using tech as a babysitter.
+
+📱 Full project breakdown with screenshots: https://lnkd.in/giHd5fnV
+
+View image
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+likesupport
+43
+2 comments
+
+Like
+
+Comment
+
+Repost
+
+Send
+2,234 impressions
+View analytics
+Feed post number 9
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Mohammad Hafiz Yusof’s  graphic link
+Mohammad Hafiz YusofMohammad Hafiz Yusof
+   • 1stVerified • 1st
+Senior Lecturer (PhD), Department of Computer Science, Faculty of Computer and Mathematical Sciences.Senior Lecturer (PhD), Department of Computer Science, Faculty of Computer and Mathematical Sciences.
+6mo • Edited •  6 months ago • Edited • Visible to anyone on or off LinkedIn
+Yesterday marked the successful conclusion of the 21-Day Mobile SecOps Bootcamp and Challenge, organized by Universiti Teknologi MARA (UiTM) Tapah Campus and co-organized by our sponsor, Metairflow R&D Sdn Bhd. Special thanks to our judges, Dr. Noor Akma (UNITEN) and Mr. Che Akmal (UMT), for their contribution to the success of this event. As the Program Director, I am thoroughly impressed by the dedication shown by our students. They pushed their boundaries to develop innovative solutions within the Mobile SecOps domain, with many experiencing full-stack DevSecOps mobile application development for the first time. Moving forward, this first batch will serve as a baseline as we continue to refine and develop our students' technical competencies in this field.
+…more
+
+View image
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+likecelebratelove
+45
+1 comment
+7 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 10
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+6mo •  6 months ago • Visible to anyone on or off LinkedIn
+
+"I am gonna fail this class"
+
+The Mandarin audio clip played in class. None of us understood what was just said. My lecturer, Laoshi Yu, replayed it. Still nothing. He replayed it again, slower this time. A few people caught maybe two words. The rest of us? Completely lost.
+
+This was every Mandarin listening practice. Twenty minutes on one audio clip. Endless replays. And most of us would still fail the test.
+
+The listening exam was approaching. We weren't ready.
+
+My lecturer finally said it: "There has to be something to help you practice at home. Some AI tool, some platform."
+
+We looked at each other. Then back at him.
+
+"Sir, there isn't."
+
+He didn't believe us. "What? There's an AI for everything now."
+
+"Not for this."
+
+And it was true. ChatGPT can't train your ear for Mandarin. Google Translate sounds robotic. Language apps teach vocabulary but don't prepare you for actual listening tests. We needed something that could generate real practice questions with natural audio, let us learn through conversation, and actually track our progress.
+
+The tools didn't exist. So I stopped complaining and built one.
+
+YuLaoshi does what we desperately needed:
+- AI chatbot for conversation practice and grammar correction
+- Generates unlimited listening quiz questions with natural Mandarin audio
+- Tracks progress with a point system to keep you motivated
+- Smart suggestions so you never get stuck in conversations
+
+Give it a try if you need it.
+🏮 https://lnkd.in/gw2QKmau
+
+Play
+Remaining time 
+1:26
+1x
+
+Playback speed
+
+Unmute
+
+Turn fullscreen on
+Pending: Review your auto captions to make them visible to viewers
+
+There was difficulty transcribing auto captions.
+Make sure to review.
+
+
+Review
+ Learn more
+
+likecelebrateinsightful
+63
+Muhammad Aniq Idris and 62 others
+7 comments
+8 reposts
+
+Like
+
+Comment
+
+Repost
+
+Send
+4,054 impressions
+View analytics
+Feed post number 11
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Anis Amera’s  graphic link
+Anis AmeraAnis Amera
+   • 2ndVerified • 2nd
+Digital Marketing | Career Insights Creator 📌Digital Marketing | Career Insights Creator 📌
+7mo •  7 months ago • Visible to anyone on or off LinkedIn
+
+Follow
+Dear fresh grads, nobody really tells you masuk first job nanti, you’ll start questioning your whole studied. Belajar bertahun suddenly kerja terasa macam tak related langsung. 
+
+Your first job is where the real learning starts. Apa yang you belajar dekat uni jadi foundation tapi dekat kerja, you'll learn how things actually work and how fast you need to adapt.
+
+You’ll realise you’re suddenly picking up things like:
+• how the industry really operates
+• how to apply theory into real tasks
+• how to think on your feet
+
+It really feels like you’re switching from student mode to professional mode and of course career paths pun tak selalu match dengan your study. Tiba-tiba accounting masuk operations, IT masuk marketing, engineering jadi project manager.
+
+Kerja bukan straight line. Sometimes the unexpected direction jadi the best direction.
+
+At first, memang blur dengar all the new terms people use. Alignment, pipeline, Q4 targets, SOP but trust me lepas a few weeks, you’ll get it. Your learning curve is way stronger than you think. And the best part? You’ll develop skills yang you tak akan jumpa dalam textbook.
+ 
+These are the real skills that shape your career. You’re not lost but you’re evolving and that’s exactly how your career starts okay? All the best! 🫡 
+
+Kalau nak cari kerja ikut kategori, boleh tengok kat bawah:
+- Kerja yang ada WFH: https://lnkd.in/gj_7e-BZ
+- Kerja untuk fresh grads: https://lnkd.in/grZb7R2j
+- Kerja part-time: https://lnkd.in/g3xMGugK
+- Kerja dekat LRT/MRT: https://lnkd.in/gvmNkZ2q
+- Submit terus resume disini: https://lnkd.in/gnGUzNqv
+…more
+Activate to view larger image,
+View image
+Activate to view larger image,
+likelovesupport
+3,363
+15 comments
+726 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 12
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Alysia Dania Binti Daini Dzulkarnain’s open to work graphic link
+Alysia Dania Binti Daini DzulkarnainAlysia Dania Binti Daini Dzulkarnain
+ • 1st1st
+Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3
+7mo • Edited •  7 months ago • Edited • Visible to anyone on or off LinkedIn
+Grateful for the opportunity to attend the ADM653 Industrial Visit to FOMEMA new Headquarters in Phileo Damansara. This visit provided a deeper understanding of how FOMEMA operates as a key agency in Malaysia’s foreign worker medical screening system, particularly in ensuring compliance, governance, and public health standards. Throughout the session, we were exposed to insightful explanations on FOMEMA’s workflow, regulatory framework, and the challenges involved in managing large-scale screening processes nationwide. It was truly eye-opening to see how administrative policies are translated into real operational practices that impact national governance and workforce management. Thank you to FOMEMA for the warm reception and valuable knowledge shared, and to UiTM & the ADM653 team for organizing such an impactful academic exposure. Experiences like this strengthen our understanding beyond the classroom and prepare us for future roles in administration and governance.
+Looking forward to more industry-engaging learning opportunities ahead! 
+hashtag#UiTM hashtag#ADM653 hashtag#FOMEMA hashtag#IndustrialVisit hashtag#Governance hashtag#PublicAdministration hashtag#StudentExperience hashtag#LearningJourney
+…more
+
+View image
+
+View image
+
+View image
+
+View image
++1
+Activate to view larger image,
+likesupport
+14
+3 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 13
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Alysia Dania Binti Daini Dzulkarnain’s open to work graphic link
+Alysia Dania Binti Daini DzulkarnainAlysia Dania Binti Daini Dzulkarnain
+ • 1st1st
+Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3
+7mo • Edited •  7 months ago • Edited • Visible to anyone on or off LinkedIn
+Grateful for the opportunity to participate in the Visiting Professor Talk: Global Trends in Governance and Administration, delivered by Distinguished Professor Rahat Munir from Macquarie University, Australia on 11 December 2025. The session provided valuable insights into emerging trends, governance challenges, and the evolving landscape of public administration in a global context. Truly an inspiring and eye-opening experience! 🌍✨
+Thank you to the Faculty of Administrative Science & Policy Studies (FSPPP), UiTM for organizing this meaningful programme.
+hashtag#Governance hashtag#PublicAdministration hashtag#ProfessionalDevelopment hashtag#UiTM hashtag#FSPPP hashtag#LearningJourney hashtag#GlobalTrends
+…more
+Activate to view larger image,
+diagram
+Activate to view larger image,
+like
+8
+1 comment
+1 repost
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 14
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+7mo •  7 months ago • Visible to anyone on or off LinkedIn
+
+Does more money = less crime? Our data says it's complicated. 🔍
+
+I just wrapped up leading a data analysis project that challenged everything I thought I knew about wealth and crime in Malaysia.
+
+The findings? Unexpected.
+- Wilayah Persekutuan: Highest income (RM11,683) + highest crime rate (19,655 cases)
+- Perlis: Lowest income region + safest state (402 cases)
+- The twist: Income inequality matters more than income itself
+
+We analyzed 2022 data using Python, Pandas, and Tableau to map household income, Gini coefficients, poverty rates, and crime patterns across all Malaysian states.
+
+The uncomfortable truth: More money doesn't always mean more safety. Urbanization, population density, and income inequality tell a bigger story than raw wealth alone.
+
+Curious about the full insights? Check out the complete analysis in my Projects section: https://lnkd.in/giHd5fnV
+
+What patterns have you noticed between economics and social stability in your region?
+Activate to view larger image,
+chart, scatter chart
+Activate to view larger image,
+like
+16
+4 comments
+
+Like
+
+Comment
+
+Repost
+
+Send
+676 impressions
+View analytics
+Feed post number 15
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Alysia Dania Binti Daini Dzulkarnain’s open to work graphic link
+Alysia Dania Binti Daini DzulkarnainAlysia Dania Binti Daini Dzulkarnain
+ • 1st1st
+Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3
+7mo • Edited •  7 months ago • Edited • Visible to anyone on or off LinkedIn
+Proud to share that I had the opportunity to participate in the H.E.A.L Festival 2025, held on 18–19 November 2025. It was a meaningful experience that allowed me to learn, connect, and grow, both personally and professionally. Grateful for the chance to be part of an event that promotes awareness, education, and positive change.
+Thank you to the organizers, mentors, and everyone involved for making this festival impactful. Looking forward to applying the insights gained and continuing to contribute to initiatives that uplift our community. 🌿✨
+hashtag#HEALFestival2025 hashtag#ProfessionalGrowth hashtag#StudentExperience hashtag#UiTM hashtag#Grateful
+…more
+Activate to view larger image,
+text, letter
+Activate to view larger image,
+like
+6
+1 comment
+1 repost
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 16
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+7mo •  7 months ago • Visible to anyone on or off LinkedIn
+
+"Tak ada sapa bagitahu kitorang pun majlis dekan malam ni ?!"
+
+My classmate was shocked when I mentioned an upcoming event. Turns out, way too many students had no idea what was happening on campus.
+
+The real problem: UiTM has no centralized system for students to track campus events. We're all just hoping someone remembers to tell us through WhatsApp groups or random notice boards.
+
+Here's why this sucks even more. UiTM uses a coupon system where attending events earns you merits. These merits literally determine if you get college accommodation next semester. Miss the events? Miss the coupons. Miss the coupons? Good luck finding housing.
+
+So yeah, students desperately need an easier way to stay informed. That's exactly why I built UEMS (UiTM Event Management System).
+
+What I built:
+- Java backend with Jakarta Servlets (MVC structure)
+- JSP frontend for the views
+- MySQL database
+- SendGrid API for automatic email alerts
+
+UEMS gives students one place to discover events, register instantly, and never miss out on those critical coupons. No more scattered announcements. No more "wait, that was today??" moments.
+
+🔗 Full project breakdown with screenshots and database design: https://lnkd.in/giHd5fnV
+
+View image
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+likecelebratelove
+259
+7 comments
+15 reposts
+
+Like
+
+Comment
+
+Repost
+
+Send
+9,603 impressions
+View analytics
+Feed post number 17
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Syahirah Syarifuddin’s  graphic link
+Syahirah SyarifuddinSyahirah Syarifuddin
+   • 2ndVerified • 2nd
+Bachelor of Operations Management Student | Aspiring Operations & Supply Chain Professional | Internship-SeekingBachelor of Operations Management Student | Aspiring Operations & Supply Chain Professional | Internship-Seeking
+8mo •  8 months ago • Visible to anyone on or off LinkedIn
+
+Follow
+How to get ready for internship applications as a student 👩🏻‍🎓
+Ramai tengah stress cari internship, padahal benda ni sebenarnya boleh jadi smooth kalau kita prepare awal. So here are simple steps that I wish someone told me earlier.
+
+1. Update your resume
+Just make it clean and clear. Letak project, assignment, event, committee… semua tu kira experience. Tak payah tunggu “job title”.
+2. Polish your LinkedIn
+Add profile picture yang proper, update your headline, and be active sikit. Recruiter senang nak notice kalau profile you hidup.
+3. List down companies you’re interested in
+Tak perlu fancy. Just create a simple list dekat notes. At least you tahu direction and you’re not applying randomly.
+4. Prepare a basic email template
+So bila hantar email dekat HR, you tak panic nak karang ayat panjang. Edit sikit ikut company, terus send.
+5. Belajar jawab basic interview questions
+Paling penting: “Tell me about yourself.” Bila you dah ready benda ni, interview memang rasa lagi confident.
+
+Internship ni bukan pasal “nak impress orang”, tapi nak bagi peluang untuk kita grow. Step kecil pun kira progress, yang penting consistent.
+hashtag#InternshipJourney hashtag#StudentTips
+…more
+likeinsightfulsupport
+873
+8 comments
+245 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 18
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+7mo •  7 months ago • Visible to anyone on or off LinkedIn
+
+Alhamdulillah, in May 2025 I graduated with a Diploma in Computer Science (CS110) from Universiti Teknologi MARA and received the Vice Chancellor’s Award, the highest diploma honour, plus Dean’s List every semester. Those years sharpened my skills in programming, algorithms, databases, web development and creative problem-solving, with highlights like the Best Website GUI Award and building the award-winning Kuehlicious ordering system for a local kuih business, plus delivering massive business growth during my internship.
+
+None of this would have been possible without the endless support, sacrifices, and du’a from my mom and family. Now in my final year of Bachelor of Computer Science (Hons.), I’m all in on Beruang, my RAG + Grok-powered personal finance app for Malaysians. Grateful for the journey, excited for what is ahead.
+
+View image
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+like
+35
+2 comments
+
+Like
+
+Comment
+
+Repost
+
+Send
+1,248 impressions
+View analytics
+Feed post number 19
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View SHAH REZA SAMAT’s  graphic link
+SHAH REZA SAMATSHAH REZA SAMAT
+   • 1stVerified • 1st
+Senior Real Estate Negotiator | Ex-Shell Digital Procurement & Transformation expert | SAP Ariba | Docusign | Contract Lifecycle Management | Automation | 25+ Years in Global MNCs | Open to any OpportunitiesSenior Real Estate Negotiator | Ex-Shell Digital Procurement & Transformation expert | SAP Ariba | Docusign | Contract Lifecycle Management | Automation | 25+ Years in Global MNCs | Open to any Opportunities
+8mo • Edited •  8 months ago • Edited • Visible to anyone on or off LinkedIn
+A threader posted, “only students of elite universities local and overseas can enter big MNCs and earn big fat pay. Name of your university on resume is the key to your hiring”
+
+original post here: 
+https://lnkd.in/gs4sYrfb
+
+MNCs don’t hire your university, they hire your capability. MNCs look for things that matter beyond the certificate.
+
+If you come from a university with a strong portfolio, relevant experience, good English, and solid interview performance, you can absolutely compete, and many have proven it.
+
+So yes I’m from UiTM Universiti Teknologi MARA , and I’m confident I can stand toe-to-toe with anyone in an MNC because I’m building the skills that actually pay the bills.
+
+So lets stay connected. 
+
+hashtag#UiTM hashtag#ProudUiTM hashtag#MNCJourney hashtag#CareerGrowth hashtag#MalaysiaTalent hashtag#FreshGradTips hashtag#CorporateMalaysia hashtag#BelieveInYourself hashtag#SkillsOverLabels hashtag#KerjayaAnakMuda hashtag#ProfessionalGrowth hashtag#RezekiAllahLuas
+…more
+Activate to view larger image,
+text
+Activate to view larger image,
+likecelebratelove
+2,244
+105 comments
+203 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 20
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+7mo •  7 months ago • Visible to anyone on or off LinkedIn
+
+From Computer Science Student to Everything In Between: My 7-Month Internship Journey
+
+Let me tell you about an internship that changed everything I thought I knew about my capabilities. 
+
+September 2023. First day at West Malayan Group as an IT Specialist. As a computer science student, I expected maybe some onboarding, a tour, getting to know the team. Instead, I got a challenge.
+
+"Can you build a website?"
+
+"Yes."
+
+"Good. We need it live by tomorrow. Domain included."
+
+I stared at my new supervisor. It was literally my first day as an intern. I was expecting a gentle introduction to corporate life. Instead, I got 24 hours to prove myself.
+
+No team. No templates. No second chances. Just me, my laptop, and a clock that wouldn't stop ticking. I didn't sleep that night. Site architecture. Design. Multi-page development. Visual assets. GoDaddy domain integration. Everything from scratch.
+
+24 hours later, montswitzerland.com went live.
+
+Soon after, I became a supervisor for sampling events. While supervising, I noticed something frustrating: manual sales tracking was eating hours of our team's time and causing errors everywhere. Nobody asked me to fix it. But I saw the problem, so I built the solution. I independently designed and developed a Java desktop application with Swing GUI that automated the entire calculation process. Suddenly, what took supervisors 30 minutes now took 30 seconds.
+
+Then came the real curveball: "We need you to handle our e-commerce platforms too."
+
+Wait, what? I had never managed e-commerce in my life. Never touched a professional camera. Never done product photography. Never hosted live sales sessions. I was a CS student who wrote code, not someone who sold products online.
+
+But I said yes anyway.
+
+I taught myself professional photography with an EOS R10. Shot and edited product photos. Created 59 TikTok videos that reached hundreds of thousands of views. Hosted live sales sessions despite never being on camera before. Developed marketing strategies from scratch. Managed TikTok affiliate program, recruited creators and tracked performance for growth.
+
+The results? Daily sales exploded from RM100 to RM100,000 monthly.
+In November 2023, Alhamdulillah, I received Outstanding Performance Recognition letter + allowance increment for my dedication to the company.
+
+To fellow CS students: your technical foundation is more powerful than you realize. Don't just code. Solve problems nobody asked you to solve. Learn skills outside your comfort zone. Be the person who sees inefficiency and builds the fix.
+
+The market doesn't just need coders. It needs problem-solvers who can build, adapt, and deliver results across any domain.
+
+🔗 See the full journey: https://lnkd.in/giHd5fnV
+
+View image
+
+View image
+
+View image
+
+View image
++1
+Activate to view larger image,
+likecelebrate
+64
+1 repost
+
+Like
+
+Comment
+
+Repost
+
+Send
+1,735 impressions
+View analytics
+Feed post number 21
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Alysia Dania Binti Daini Dzulkarnain’s open to work graphic link
+Alysia Dania Binti Daini DzulkarnainAlysia Dania Binti Daini Dzulkarnain
+ • 1st1st
+Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3
+7mo • Edited •  7 months ago • Edited • Visible to anyone on or off LinkedIn
+Throwback to SOCSO Exhibition for our elective subject, ADM653: Social Security! 🧾✨I’m incredibly proud of what my team and I achieved, especially after seeing how everything came together so well despite the challenges we faced throughout the preparation. This wasn’t just another assignment, it was the outcome of weeks of planning, discussions, and hard work. Our focus was on a topic that is often overlooked: "Self-Employed? Stay Protected with the Lindung Kendiri Scheme by PERKESO" We wanted to educate visitors on the importance of social protection for gig workers and self-employed individuals because everyone deserves safety and security, no matter their job or income type. There were definitely challenges (including some last-minute improvements and setups under pressure 😅), but through teamwork and determination, we managed to pull through 💪 And Alhamdulillah, all our effort paid off! ✨
+🏆 Best Booth Overall
+🎤 Best Presenter Award
+We also received encouraging feedback from the judges and SOCSO representatives, especially on how we presented and engaged with visitors which truly made the moment even more meaningful. 🙏 This exhibition taught me so much beyond the topic itself. I’m extremely grateful for my wonderful teammates who gave their commitment from start to finish. Looking forward to more learning experiences and opportunities to create awareness that matters!! 
+hashtag#SOCSOExhibition hashtag#LindungKendiri hashtag#PERKESO hashtag#SocialSecurity hashtag#SelfEmployedProtection hashtag#UiTM hashtag#Teamwork hashtag#StudentAchievement hashtag#ProudMoment hashtag#ADM653
+…more
+
+View image
+
+View image
+
+View image
+
+View image
++2
+Activate to view larger image,
+likelove
+27
+5 comments
+2 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 22
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Anis Amera’s  graphic link
+Anis AmeraAnis Amera
+   • 2ndVerified • 2nd
+Digital Marketing | Career Insights Creator 📌Digital Marketing | Career Insights Creator 📌
+9mo •  9 months ago • Visible to anyone on or off LinkedIn
+
+Follow
+Kadang bukan sebab you tak qualified, tapi sebab cara kita apply kerja tu yang kurang betul.
+
+Benda simple macam ni ramai orang masih overlook padahal benda ni lah yang boleh buat HR notice your resume 👇
+
+1️⃣ Use the same file name for both your resume & cover letter.
+Contoh:
+FarahYusof_MarketingExec_Resume.pdf
+FarahYusof_MarketingExec_CL.pdf
+- Nampak lebih professional & senang HR nak cari.
+
+2️⃣ Clean up your LinkedIn URL.
+Tukar nama dari https://lnkd.in/g8an3zqp → linkedin.com/in/namakorang
+- Simple touch, but it makes your profile look neat & credible.
+
+3️⃣ Always send in PDF format, not Word.
+- PDF maintain layout bila HR buka guna device berbeza.
+
+4️⃣ Add a proper email signature.
+- Letak nama, phone number, and LinkedIn link at the end of your email. It shows effort & attention to detail.
+
+5️⃣ Don’t CC multiple HRs in one email.
+- Nampak macam blast. Apply satu-satu supaya nampak genuine.
+
+6️⃣ Never send a blank email.
+At least write 2–3 short lines like:
+“Hi, I’m interested to apply for the [position]. I’ve attached my resume for your review. Thank you!”
+
+7️⃣ Check your grammar & formatting.
+- Pastikan semua font & title format consistent because it reflects your professionalism.
+
+8️⃣ Include a realistic expected salary (if required).
+- Do some market research dulu supaya tak underpaid or overvalue yourself.
+
+9️⃣ Write a strong email subject.
+Contoh:
+“Experienced Admin with Excel & Data Entry Skills – Application for Admin Role” terus nampak “this person adds value”.
+
+
+Small details like these show your professionalism and yes, recruiters notice them 😉
+
+Nak apply kerja dengan cara yang betul? Submit resume terus di Maukerja disini: https://lnkd.in/gQgt2xUX dan biar HR nampak versi terbaik diri korang!
+…more
+likeinsightfulsupport
+957
+2 comments
+344 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 23
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+7mo •  7 months ago • Visible to anyone on or off LinkedIn
+
+Throwback 2023. 
+
+Alhamdulillah, grateful to share that my project Kuehlicious: Kuih Batang Buruk Ordering System won 🏅 Best Website Graphical User Interface at the Youth Innovation Final Project Presentation.
+
+I developed this project from start to finish including requirement gathering, system design, full stack development, database setup, testing, documentation and final presentation. The system digitized a traditional Kuih Batang Buruk business and enabled online ordering for customers while giving admins full control over products, payments, delivery and reports.
+
+Tech used: PHP, MySQL, HTML, CSS, JavaScript
+I also created a mobile application version with API integration.
+
+More details and media here: https://lnkd.in/giHd5fnV
+…more
+
+View image
+
+View image
+
+View image
+
+View image
++2
+Activate to view larger image,
+like
+37
+5 comments
+
+Like
+
+Comment
+
+Repost
+
+Send
+1,143 impressions
+View analytics
+Feed post number 24
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+8mo •  8 months ago • Visible to anyone on or off LinkedIn
+
+This is me, three years ago, just after achieving the Dean's List in my first semester of diploma.
+
+My first semester was more than just grades. It was the start of growing up, learning to handle life on my own, and realizing that university is nothing like high school.
+
+Looking back, I am proud of how far I have come. That first step meant everything.
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+like
+20
+2 comments
+
+Like
+
+Comment
+
+Repost
+
+Send
+1,099 impressions
+View analytics
+Feed post number 25
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Alysia Dania Binti Daini Dzulkarnain’s open to work graphic link
+Alysia Dania Binti Daini DzulkarnainAlysia Dania Binti Daini Dzulkarnain
+ • 1st1st
+Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3Final Year Student of Bachelor of Corporate Administration (Hons) at University Teknologi Mara (UiTM) Seremban 3
+8mo •  8 months ago • Visible to anyone on or off LinkedIn
+On 25th June 2025, our batch of Bachelor of Corporate Administration (Hons.) Semester 4 students from Universiti Teknologi MARA (UiTM) Cawangan Negeri Sembilan, Kampus Seremban 3, successfully carried out our CSR program at SK Sega, Rantau, Negeri Sembilan.
+
+The programme, under the Principle of Corporate Ethics (ADM590) course, aimed to nurture knowledge sharing, teamwork, and community engagement among students and the local community. Through various interactive and educational activities, we promoted environmental awareness, creativity, and collaboration.
+
+I am truly grateful to be part of this meaningful initiative as part of the Multimedia & Publicity Committee, capturing and sharing the spirit of teamwork, joy, and learning throughout the event. 💙
+…more
+
+View image
+
+View image
+
+View image
+
+View image
++2
+Activate to view larger image,
+likelove
+13
+4 comments
+2 reposts
+
+love
+Love
+
+Comment
+
+Repost
+
+Send
+Feed post number 26
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Anis Amera’s  graphic link
+Anis AmeraAnis Amera
+   • 2ndVerified • 2nd
+Digital Marketing | Career Insights Creator 📌Digital Marketing | Career Insights Creator 📌
+9mo •  9 months ago • Visible to anyone on or off LinkedIn
+
+Follow
+Kadang bukan sebab you tak qualified, tapi sebab cara kita apply kerja tu yang kurang betul.
+
+Benda simple macam ni ramai orang masih overlook padahal benda ni lah yang boleh buat HR notice your resume 👇
+
+1️⃣ Use the same file name for both your resume & cover letter.
+Contoh:
+FarahYusof_MarketingExec_Resume.pdf
+FarahYusof_MarketingExec_CL.pdf
+- Nampak lebih professional & senang HR nak cari.
+
+2️⃣ Clean up your LinkedIn URL.
+Tukar nama dari https://lnkd.in/g8an3zqp → linkedin.com/in/namakorang
+- Simple touch, but it makes your profile look neat & credible.
+
+3️⃣ Always send in PDF format, not Word.
+- PDF maintain layout bila HR buka guna device berbeza.
+
+4️⃣ Add a proper email signature.
+- Letak nama, phone number, and LinkedIn link at the end of your email. It shows effort & attention to detail.
+
+5️⃣ Don’t CC multiple HRs in one email.
+- Nampak macam blast. Apply satu-satu supaya nampak genuine.
+
+6️⃣ Never send a blank email.
+At least write 2–3 short lines like:
+“Hi, I’m interested to apply for the [position]. I’ve attached my resume for your review. Thank you!”
+
+7️⃣ Check your grammar & formatting.
+- Pastikan semua font & title format consistent because it reflects your professionalism.
+
+8️⃣ Include a realistic expected salary (if required).
+- Do some market research dulu supaya tak underpaid or overvalue yourself.
+
+9️⃣ Write a strong email subject.
+Contoh:
+“Experienced Admin with Excel & Data Entry Skills – Application for Admin Role” terus nampak “this person adds value”.
+
+
+Small details like these show your professionalism and yes, recruiters notice them 😉
+
+Nak apply kerja dengan cara yang betul? Submit resume terus di Maukerja disini: https://lnkd.in/gQgt2xUX dan biar HR nampak versi terbaik diri korang!
+…more
+likeinsightfulsupport
+957
+2 comments
+344 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 27
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+9mo •  9 months ago • Visible to anyone on or off LinkedIn
+
+A little bit of highlight from the BizClub Annual Grand Meeting 2022 at UiTM Kedah. A day of connection, collaboration, and meaningful experiences.
+
+hashtag#BizClub hashtag#UiTMKedah hashtag#AGM2022
+…more
+
+Play
+Remaining time 
+0:11
+1x
+
+Playback speed
+
+Unmute
+
+Turn fullscreen on
+Pending: Review your auto captions to make them visible to viewers
+
+There was difficulty transcribing auto captions.
+Make sure to review.
+
+
+Review
+ Learn more
+
+like
+6
+6 comments
+
+Like
+
+Comment
+
+Repost
+
+Send
+461 impressions
+View analytics
+Feed post number 28
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+9mo •  9 months ago • Visible to anyone on or off LinkedIn
+
+Proud to be part of the BizClub Annual Grand Meeting 2022 ⭐️, held at UiTM Kedah. The purpose of this event was to bring together advisors, exco members and business major students to strengthen bonds and promote teamwork through exciting experience gained from speeches and fun games. it was truly inspiring to see how leadership and teamwork skills come together in this event.
+
+As one of the facilitators, I had the chance to contribute actively to the program’s success and ensure that all participants enjoyed and learned from the activities. My main tasks included:
+• Guiding and supervising one team throughout the program
+• Leading team cheers and motivating participants during games
+• Assisting with coordination and managing team participation across activities
+• Collaborating with fellow facilitators to maintain smooth event flow and high spirits
+
+All the amazing participants and facilitator involved.
+
+All the facilitator involved in this program.
+
+View image
+
+My team in this program.
++2
+Activate to view larger image,
+like
+9
+
+Like
+
+Comment
+
+Repost
+
+Send
+304 impressions
+View analytics
+Feed post number 29
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Zaqwan Syahmi’s  graphic link
+Zaqwan SyahmiZaqwan Syahmi
+   • 2ndVerified • 2nd
+Helping fresh grads land jobs with 1st-class strategies | Investor Services @ Vistra | Dean’s Lister 8xHelping fresh grads land jobs with 1st-class strategies | Investor Services @ Vistra | Dean’s Lister 8x
+9mo •  9 months ago • Visible to anyone on or off LinkedIn
+
+Follow
+Ramai fresh grad tengah gelisah sekarang.
+
+Baru habis intern bulan Julai & Ogos. Belum konvo pun lagi.
+
+Tapi dah mula apply kerja, minggu demi minggu. Scroll JobStreet, update resume, refresh email.
+
+Still… No interview invitation.
+
+Dan masa tu mula terfikir,
+“Kenapa orang lain senang dapat offer, aku tak?”
+
+Truth is, kalau job search awak rasa slow, itu bukan tanda gagal. Itu tanda awak tengah in progress.
+
+Ramai ingat:
+10 resume = 3 interview
+DM recruiter = Terus dapat call
+Post LinkedIn = Recruiter datang cari
+
+Tapi realitinya,
+• Awak akan ubah resume 5 kali
+• Hantar 20 DM yang tak berbalas
+• Rasa give up lebih dari sekali.
+
+Dan tiba-tiba, one day, ada satu mesej masuk.
+“Hi, we’d like to invite you for an interview.”
+
+Itu bukan magic. 
+
+Itu adalah breakthrough bila awak sabar, terus buat, masa orang lain dah give up.
+
+💬 Kalau awak tengah dalam fasa ni, drop “still fighting” kat komen.
+
+Nak tengok berapa ramai yang belum putus asa lagi.
+…more
+
+Show translation
+likelovesupport
+3,559
+162 comments
+703 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 30
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+9mo •  9 months ago • Visible to anyone on or off LinkedIn
+
+In 2022, during my first semester of diploma in Computer Science, I was selected as a mentor in my university's Mentor-Mentee Program after achieving an excellent mark in my Pre-Calculus midterm test. The purpose of this program was to help other students understand the subject better by learning it from someone their own age. Also, the program was conducted online via Google Meet over a period of three weeks, with sessions held every Friday. I have guided my mentees in understanding key mathematical concepts in a way that is easy to understand, solving complex problems, and building their confidence step by step. Alhamdulillah, all of my mentees achieved excellent results🎉. Being a mentor for this Pre-Calculus Mentor-Mentees Program has developed leadership and communication skills, increased my confidence, and deepened my own understanding of the subject matter by teaching it to others.
+
+View image
+
+View image
+
+View image
+
+View image
++4
+Activate to view larger image,
+likecelebrate
+8
+1 comment
+
+Like
+
+Comment
+
+Repost
+
+Send
+562 impressions
+View analytics
+Feed post number 31
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+9mo • Edited •  9 months ago • Edited • Visible to anyone on or off LinkedIn
+
+Recently, I came across a story of someone who was really disappointed about not getting into University Malaya 🎓, the most prestigious university in Malaysia.
+
+It reminded me of my own journey. I came from a normal local school, one of the lowest-ranked in my city. Resources were limited, opportunities were not the same as top schools, yet Alhamdulillah I still managed to achieve straight A’s in SPM and received the Best Student Award🏆 back in 2020.
+
+This achievement has opened my eyes on one thing, that is greatness does not come from prestigious school, it come from what you surround yourself with.
+
+Maintain a strong relationship with Allah, have a good relationships with your parent, choose a really good circle of friends, and put in relentless effort. These are the real foundations to make you become successful 🚀.
+
+hashtag#spm hashtag#education hashtag#motivation hashtag#alhamdulillah
+
+View image
+
+View image
+
+View image
+Activate to view larger image,
+likesupport
+7
+2 comments
+
+Like
+
+Comment
+
+Repost
+
+Send
+439 impressions
+View analytics
+Feed post number 32
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Aunie Zulkifli’s  graphic link
+Aunie ZulkifliAunie Zulkifli
+ • 2nd2nd
+Purchaser in Logistics Side I Writing & Random Storytelling, just sharing thoughts while building content & opportunities 🤍 DM / direct request for resume review ✉️Purchaser in Logistics Side I Writing & Random Storytelling, just sharing thoughts while building content & opportunities 🤍 DM / direct request for resume review ✉️
+1yr • Edited •  1 year ago • Edited • Visible to anyone on or off LinkedIn
+
+Follow
+Ada fresh grad tanya aku, “Saya gaji RM3.5k, kena bayar cukai ke?”
+
+1. Siapa Yang Kena Bayar Cukai? 🤔
+
+Kalau gaji lebih RM3,500 sebulan (RM42,000 setahun), kau wajib declare cukai sebab dah lepas syarat daftar (RM34,000 setahun selepas KWSP).
+
+Tapi bayar atau tak, bergantung pada pendapatan bercukai selepas pelepasan:
+
+✅ Bawah RM35,000 → Tak perlu bayar sebab ada rebat RM400.
+❌ Lebih RM35,000 → Baru kena bayar cukai ikut kadar progresif.
+
+2. Cara Daftar Cukai 📝
+✅ Daftar di LHDN – Boleh daftar online di MyTax atau pergi ke pejabat LHDN.
+✅ Dapatkan No. Cukai Pendapatan (TIN) – Macam IC untuk rekod cukai kau.
+✅ Guna e-Filing – Setiap tahun kena isi borang cukai secara online di MyTax.
+
+3. Berapa Banyak Kau Kena Bayar? 💰
+Cukai ikut kadar progresif, maksudnya lagi tinggi gaji, lagi tinggi cukai. Contohnya:
+
+Pendapatan bercukai RM30,000 ke bawah → Tak kena cukai
+Pendapatan bercukai RM35,000 → 1% cukai
+Pendapatan bercukai RM50,000 → 3% cukai
+Pendapatan bercukai RM70,000 → 8% cukai
+(Nak kira lebih tepat? Guna kalkulator cukai LHDN!)
+
+4. Cara Kurangkan Bayaran Cukai 🔥
+Kau boleh claim pelepasan cukai untuk kurangkan jumlah kena bayar. Contohnya:
+
+✅ KWSP & SOCSO – Automatik dapat pelepasan (hingga RM4,000 untuk KWSP, RM350 untuk SOCSO).
+✅ Insurans nyawa / takaful – Kalau ada, boleh tolak cukai hingga RM3,000.
+✅ Belanja pendidikan – Yuran pengajian sendiri boleh dapat pelepasan hingga RM7,000.
+✅ Laptop & buku – Kalau beli laptop, tablet, buku atau langganan internet, boleh claim hingga RM2,500.
+
+(Banyak lagi pelepasan cukai, jangan bayar lebih kalau boleh jimat!)
+
+5. Apa Jadi Kalau Tak Bayar Cukai? ⚠️
+Kalau pendapatan bercukai lebih RM35,000 tapi tak bayar cukai, LHDN boleh denda atau blacklist dari keluar negara. Jadi, lebih baik urus awal daripada kena masalah nanti.
+
+6. First Job, Perlu Declare Cukai Ke?
+✅ Gaji bawah RM3,500 sebulan → Tak wajib bayar, tapi boleh daftar & declare untuk rekod bersih.
+✅ Gaji atas RM3,500 sebulan → Wajib declare, tapi bayar atau tak bergantung pada pelepasan.
+
+Kesimpulan 🚀
+✅ Gaji bawah RM3,500 – Tak wajib bayar, tapi digalakkan daftar.
+✅ Gaji atas RM3,500 – Wajib declare (bayar atau tak bergantung pada pelepasan).
+✅ Gunakan pelepasan cukai – Supaya boleh jimat & bayar lebih rendah.
+
+Senang cerita:
+✅ Gaji RM4,300 ke atas (kasar/gross) baru confirm kena bayar cukai.
+❌ Kalau bawah RM4,300 (gross), tak perlu bayar, tapi wajib declare kalau lebih RM3,500.
+
+Kenapa RM4,300?
+Sebab lepas tolak pelepasan individu (RM9,000) & KWSP (±RM5,000), pendapatan bercukai lebih RM35,000, barulah kena cukai.
+
+Cukai hanya dikenakan jika pendapatan bercukai (setelah potongan) melebihi RM35,000 setahun.
+
+Tapi , apapun perlu refer LHDN website selalu, perubahan sentiasa akan "up to date" dari semasa ke semasa.
+…more
+
+Show translation
+Activate to view larger image,
+View image
+Activate to view larger image,
+likeinsightfullove
+11,742
+153 comments
+5,953 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 33
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+View Cangul Altundas Akcay’s  graphic link
+Cangul Altundas AkcayCangul Altundas Akcay
+ • 3rd+3rd+
+Data| PhD in Government and International Affairs | Durham UniversityData| PhD in Government and International Affairs | Durham University
+1yr • Edited •  1 year ago • Edited • Visible to anyone on or off LinkedIn
+
+Follow
+Sharing the interview questions I recall from my data analyst interview this week:
+"How do you validate data?"
+"What are outliers and how do you handle them?"
+"Tell me about a time when you faced a problem. What did you learn?"
+"Describe a situation where you applied a logical approach to data analysis. 
+"What motivates you?"
+
+Having specific examples ready really helped.
+
+If anyone has recent technical interview experience, would love to hear your tips and insights :) 
+hashtag#dataanalyst hashtag#jobinterview hashtag#careeradvice
+…more
+likeinsightfulcelebrate
+323
+13 comments
+6 reposts
+
+like
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 34
+MUHAMMAD IZWAN’s profile photo
+MUHAMMAD IZWAN AHMAD reposted this
+
+
+GXBankGXBank
+55,949 followers55,949 followers
+1yr • Edited •  1 year ago • Edited • Visible to anyone on or off LinkedIn
+𝗖𝗵𝗮𝗻𝗴𝗲 𝗶𝘀 𝘀𝗼𝗺𝗲𝘁𝗶𝗺𝗲𝘀 𝗻𝗲𝗰𝗲𝘀𝘀𝗮𝗿𝘆 𝘁𝗼 𝗺𝗼𝘃𝗲 𝗳𝗼𝗿𝘄𝗮𝗿𝗱
+
+The past year has been both humbling and exhilarating for us as a young digital bank. We have learnt a lot about our customers and ourselves, and it has been an honour for us to be part of their financial progress, which was beyond our expectations. 
+
+As we prepare to step into our second year of operations, we are taking our learnings and evolving, hence the upcoming changes so that we can continue supporting their financial dreams in the best way possible. 
+
+Change is inevitable, but this is what we need to keep on growing. We are already preparing to introduce a number of new products and features in the near future, which we are very excited about. 
+
+We hope our customers will continue keeping us as part of their financial journey and be just as excited as we are. 
+
+hashtag#GXBank hashtag#DigitalBank hashtag#Journeytotwo hashtag#Financialinclusion
+
+𝘎𝘟𝘉𝘢𝘯𝘬 𝘪𝘴 𝘢 𝘮𝘦𝘮𝘣𝘦𝘳 𝘰𝘧 𝘗𝘐𝘋𝘔
+𝘗𝘳𝘰𝘵𝘦𝘤𝘵𝘦𝘥 𝘣𝘺 𝘗𝘐𝘋𝘔 𝘶𝘱 𝘵𝘰 𝘙𝘔250,000 𝘧𝘰𝘳 𝘦𝘢𝘤𝘩 𝘥𝘦𝘱𝘰𝘴𝘪𝘵𝘰𝘳
+…more
+Activate to view larger image,
+text
+Activate to view larger image,
+likesupportcelebrate
+440
+11 comments
+25 reposts
+
+Like
+
+Comment
+
+Repost
+
+Send
+Feed post number 35
+View MUHAMMAD IZWAN AHMAD’s open to work graphic link
+MUHAMMAD IZWAN AHMADMUHAMMAD IZWAN AHMAD
+   • YouVerified • You
+Ex-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA ScholarEx-PETRONAS Software Engineer Intern | Computer Science Undergraduate | AI & Full-Stack Development | JPA Scholar
+1yr • Edited •  1 year ago • Edited • Visible to anyone on or off LinkedIn
+
+I’m happy to share that I’ve started 4th Semester of Bachelor's degree at Universiti Teknologi MARA! Last semester was amazing, I am able to achieve Dean's List with exceptional grade!
+
+
+Celebrating an Educational Milestone
+like
+1
+
+Like
+
+Comment
+
+Repost
+
+Send
+217 impressions
+View analytics
+
+People you may knowPeople you may know
+Siti Nur Alia Faizul Anuar is open to work
+Siti Nur Alia Faizul Anuar
+Siti Nur Alia Faizul Anuar
+Bachelor of Computer Science (Hons.) Netcentric Computing || 3rd Year StudentBachelor of Computer Science (Hons.) Netcentric Computing || 3rd Year Student
+
+Connect
+Husna Umairah
+Husna Umairah
+Husna Umairah
+Student at Universiti Teknologi MARAStudent at Universiti Teknologi MARA
+
+Connect
+Hazim Qasri
+Hazim Qasri
+Hazim Qasri
+Final Year Student Bachelor of Computer Science (Honours) at
+Universiti Teknologi MARAFinal Year Student Bachelor of Computer Science (Honours) at Universiti Teknologi MARA
+
+Connect
+NUR NISRINA NADHIRAH ABDULLAH
+NUR NISRINA NADHIRAH ABDULLAH
+NUR NISRINA NADHIRAH ABDULLAH
+Student at Universiti Teknologi MARAStudent at Universiti Teknologi MARA
+
+Connect
+ZAABA AHMAD
+ZAABA AHMAD
+ZAABA AHMAD
+Senior Lecturer at Universiti Teknologi MARASenior Lecturer at Universiti Teknologi MARA
+
+Connect
+
+Show more
+
+About
+Accessibility
+Help Center
+
+Privacy & Terms
+Ad Choices
+Advertising
+
+Business Services
+Get the LinkedIn app
+More
+ LinkedIn Corporation © 2026
+MUHAMMAD IZWAN AHMADStatus is online
+MessagingYou are on the messaging overlay. Press enter to open the list of conversations.
+
+Compose message
+You are on the messaging overlay. Press enter to open the list of conversations.

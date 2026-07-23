@@ -1,42 +1,32 @@
-# Muhammad Izwan Ahmad — Personal Portfolio
+# React + TypeScript + Vite
 
-Single-page portfolio website for **Muhammad Izwan Ahmad**, Freelance Software Engineer, Ex-PETRONAS Digital, specializing in AI, Automation & Full-Stack Engineering.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## 🚀 Live Site
-- **GitHub Repository**: [https://github.com/izwanGit/IzwanAhmad.git](https://github.com/izwanGit/IzwanAhmad.git)
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 📁 Repository Structure
+## React Compiler
 
-```
-IzwanPortfolio/
-├── index.html         # Main single-page application (HTML5, CSS3, Vanilla JS)
-├── DESIGN.md          # Stitch / DESIGN.md design system specifications
-├── README.md          # Project documentation
-├── images/            # Web-optimized assets (JPEG/PNG screenshots & photos)
-├── raw_assets/        # Original high-res source media, awards, and raw screenshots
-└── .agents/           # Custom AI workspace agent skills & design frameworks
-```
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
----
+## Expanding the Oxlint configuration
 
-## 🛠️ Built With
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-- **HTML5 & Vanilla CSS3**: CSS custom properties, grid/flexbox responsive layouts, keyframe animations, glassmorphism navigation.
-- **Vanilla JavaScript**: `IntersectionObserver` scroll animations, sticky navigation scroll detection, mobile drawer toggles, dynamic category filter tabs.
-- **Typography**: Google Font **Plus Jakarta Sans** (weights 400, 500, 600, 700, 800).
-- **Design System**: Full compliance with Google Stitch `DESIGN.md` specification rules (zero emojis, clean 1px structural borders, HSL-based cyan palette).
-
----
-
-## 💻 Local Development
-
-Run a local HTTP server to view the site:
-
-```bash
-# Python 3
-python3 -m http.server 8081
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
 
-Open `http://localhost:8081` in your browser.
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
