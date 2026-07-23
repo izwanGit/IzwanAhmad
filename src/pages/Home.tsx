@@ -109,18 +109,13 @@ const Home = () => {
                 Open to full-time & freelance opportunities
               </div>
 
-              <div className="text-xl md:text-2xl font-extrabold text-primary mb-3 font-mono tracking-tight">
-                Muhammad Izwan Ahmad
-              </div>
-
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
-                Software Engineer building{' '}
-                <span className="text-primary">high-impact</span>{' '}
-                AI & Web systems.
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.15] mb-6">
+                Building web apps,<br className="hidden sm:inline" />
+                <span className="text-primary">AI & automation.</span>
               </h1>
 
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
-                UiTM Computer Science graduate (3.9+ CGPA). Ex-PETRONAS Digital engineer who self-initiated 10+ production systems serving 50,000+ users. I turn complex technical challenges into fast, beautiful, and autonomous software.
+                Hi, I'm <strong className="text-foreground font-semibold">Izwan Ahmad</strong> — a Computer Science graduate (3.9+ CGPA) and ex-PETRONAS Digital engineer. I build high-performance web applications, AI systems, and workflow automation.
               </p>
 
               <div className="flex flex-wrap gap-4">
