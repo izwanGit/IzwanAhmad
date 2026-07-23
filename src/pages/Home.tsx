@@ -106,18 +106,21 @@ const Home = () => {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border shadow-sm text-sm font-semibold text-primary mb-8">
                 <span className="w-2 h-2 rounded-full bg-statusGreen animate-pulse" />
-                Open to full-time opportunities
+                Open to full-time & freelance opportunities
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
-                Software Engineer<br />
-                building{' '}
+              <div className="text-xl md:text-2xl font-extrabold text-primary mb-3 font-mono tracking-tight">
+                Muhammad Izwan Ahmad
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
+                Software Engineer building{' '}
                 <span className="text-primary">high-impact</span>{' '}
-                systems.
+                AI & Web systems.
               </h1>
 
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg mb-10">
-                Graduating Computer Science student at UiTM. I build end-to-end web apps, AI systems, and workflow automation — turning complex challenges into scalable, autonomous solutions.
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
+                UiTM Computer Science graduate (3.9+ CGPA). Ex-PETRONAS Digital engineer who self-initiated 10+ production systems serving 50,000+ users. I turn complex technical challenges into fast, beautiful, and autonomous software.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -139,7 +142,7 @@ const Home = () => {
               {/* Quick stats */}
               <div className="flex flex-wrap gap-6 mt-10 pt-10 border-t border-border">
                 <div>
-                  <div className="text-2xl font-black text-foreground">3.93</div>
+                  <div className="text-2xl font-black text-foreground">3.9+</div>
                   <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">CGPA (Dean's List)</div>
                 </div>
                 <div>
@@ -148,7 +151,7 @@ const Home = () => {
                 </div>
                 <div>
                   <div className="text-2xl font-black text-foreground">11+</div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Awards</div>
+                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Awards & Recognitions</div>
                 </div>
               </div>
             </motion.div>
@@ -188,7 +191,7 @@ const Home = () => {
               </div>
               {/* Floating info badge */}
               <div className="absolute -bottom-6 -right-2 lg:right-0 bg-primary text-white px-6 py-4 rounded-xl shadow-hover">
-                <div className="text-2xl font-black">3.93</div>
+                <div className="text-2xl font-black">3.9+</div>
                 <div className="text-xs font-semibold opacity-80">CGPA · Dean's List</div>
               </div>
             </motion.div>
@@ -216,7 +219,7 @@ const Home = () => {
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-3 text-sm font-semibold text-foreground">
                   <GraduationCap size={18} className="text-primary shrink-0" />
-                  Bachelor's in Computer Science, UiTM (CGPA 3.93 — graduating Aug 2026)
+                  Bachelor's in Computer Science, UiTM (CGPA 3.9+ — graduating Aug 2026)
                 </div>
                 <div className="flex items-center gap-3 text-sm font-semibold text-foreground">
                   <MapPin size={18} className="text-primary shrink-0" />

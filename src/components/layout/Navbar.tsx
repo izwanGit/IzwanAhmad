@@ -36,9 +36,9 @@ const Navbar = () => {
         {/* Logo — use real logo image */}
         <Link to="/" className="relative z-10 flex items-center gap-3 group">
           <img
-            src="/images/logo.png"
+            src="/images/logo-full-inverse.png"
             alt="Izwan Ahmad Logo"
-            className="h-10 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
         </Link>
 
