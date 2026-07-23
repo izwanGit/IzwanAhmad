@@ -6,9 +6,9 @@ const petronasProjects = [
     id: 'ops-hub',
     title: 'HCSM Operations Hub',
     tools: [
-      { name: 'Python', icon: 'https://cdn.simpleicons.org/python/ffffff' },
-      { name: 'Streamlit', icon: 'https://cdn.simpleicons.org/streamlit/ffffff' },
-      { name: 'Playwright', icon: 'https://cdn.simpleicons.org/playwright/ffffff' },
+      { name: 'Python', icon: '/images/tools/python.svg' },
+      { name: 'Streamlit', icon: '/images/tools/streamlit.svg' },
+      { name: 'Playwright', icon: '/images/tools/playwright.svg' },
     ],
     solidColor: '#7B8B18', // Solid Lime Green
     desc: 'Unified internal platform automating 3 ITSM workflows. Cut weekly report prep from 3–4 hrs to under 2 min, monthly from 1–2 hrs to under 3 min, and pre-deployment from 30 min to under 1 min.',
@@ -24,9 +24,10 @@ const petronasProjects = [
     id: 'weekly',
     title: 'Full Weekly Report Automation',
     tools: [
-      { name: 'Power Automate', icon: 'https://cdn.simpleicons.org/powerautomate/ffffff' },
-      { name: 'TypeScript', icon: 'https://cdn.simpleicons.org/typescript/ffffff' },
-      { name: 'SharePoint', icon: 'https://cdn.simpleicons.org/microsoftsharepoint/ffffff' },
+      { name: 'Power Automate', icon: '/images/tools/Microsoft_Power_Automate.svg' },
+      { name: 'TypeScript', icon: '/images/tools/typescript.svg' },
+      { name: 'SharePoint', icon: '/images/tools/microsoft-sharepoint.svg' },
+      { name: 'Excel', icon: '/images/tools/microsoft-excel.svg' },
     ],
     solidColor: '#B37E0E', // Solid Amber
     desc: 'Zero-touch pipeline running every Monday 7 AM. Ingests 4 Excel files with 6 TypeScript Office Scripts, builds PETRONAS-branded HTML emails, and sends Teams reminders with @mentions.',
@@ -39,9 +40,9 @@ const petronasProjects = [
     id: 'monthly',
     title: 'Full Monthly Report Automation',
     tools: [
-      { name: 'Power BI', icon: 'https://cdn.simpleicons.org/powerbi/ffffff' },
-      { name: 'Power Automate', icon: 'https://cdn.simpleicons.org/powerautomate/ffffff' },
-      { name: 'SharePoint', icon: 'https://cdn.simpleicons.org/microsoftsharepoint/ffffff' },
+      { name: 'Power BI', icon: '/images/tools/microsoft-power-bi.svg' },
+      { name: 'Power Automate', icon: '/images/tools/Microsoft_Power_Automate.svg' },
+      { name: 'SharePoint', icon: '/images/tools/microsoft-sharepoint.svg' },
     ],
     solidColor: '#6B308C', // Solid PETRONAS Purple
     desc: 'Runs on the 1st of every month with zero human touch. Redesigned Power BI template uses DAX to generate executive summaries, then Power Automate exports to PPTX and emails leadership.',
@@ -56,9 +57,9 @@ const petronasProjects = [
     id: 'predeploy',
     title: 'Pre-Deployment Automation',
     tools: [
-      { name: 'Power Automate', icon: 'https://cdn.simpleicons.org/powerautomate/ffffff' },
-      { name: 'Playwright', icon: 'https://cdn.simpleicons.org/playwright/ffffff' },
-      { name: 'Word', icon: 'https://cdn.simpleicons.org/microsoftword/ffffff' },
+      { name: 'Power Automate', icon: '/images/tools/Microsoft_Power_Automate.svg' },
+      { name: 'Playwright', icon: '/images/tools/playwright.svg' },
+      { name: 'Word', icon: '/images/tools/microsoft-word.svg' },
     ],
     solidColor: '#162E70', // Solid PETRONAS Deep Blue
     desc: 'Triggered automatically by UAT endorsement emails. Generates PETRONAS-branded OAT Word documents and posts interactive Teams cards with a 1-click Streamlit RPA launcher.',
@@ -72,9 +73,10 @@ const petronasProjects = [
     id: 'priority',
     title: 'Priority Ticket Automation',
     tools: [
-      { name: 'Power Automate', icon: 'https://cdn.simpleicons.org/powerautomate/ffffff' },
-      { name: 'Teams', icon: 'https://cdn.simpleicons.org/microsoftteams/ffffff' },
-      { name: 'Office 365', icon: 'https://cdn.simpleicons.org/microsoftoffice/ffffff' },
+      { name: 'Power Automate', icon: '/images/tools/Microsoft_Power_Automate.svg' },
+      { name: 'Teams', icon: '/images/tools/microsoft-teams.svg' },
+      { name: 'Office 365', icon: '/images/tools/Microsoft_365_(2022).svg' },
+      { name: 'Excel', icon: '/images/tools/microsoft-excel.svg' },
     ],
     solidColor: '#00605B', // Solid Emerald Dark
     desc: '24/7 Teams chat listener intercepting urgent ticket mentions (REQ / ICT_WO). Auto-logs placeholders in SharePoint, enriches details via Office Scripts, and posts weekly reminders.',
@@ -88,8 +90,8 @@ const petronasProjects = [
     id: 'dashboard',
     title: 'HCSM Ticket Monitoring Dashboard',
     tools: [
-      { name: 'Power BI', icon: 'https://cdn.simpleicons.org/powerbi/ffffff' },
-      { name: 'SharePoint', icon: 'https://cdn.simpleicons.org/microsoftsharepoint/ffffff' },
+      { name: 'Power BI', icon: '/images/tools/microsoft-power-bi.svg' },
+      { name: 'SharePoint', icon: '/images/tools/microsoft-sharepoint.svg' },
     ],
     solidColor: '#026597', // Solid Sky Blue
     desc: 'Maintained production Power BI monitoring dashboard for 50,000+ employee myCareerX operations. Refined data models, corrected legacy filters, and added new DAX metrics.',
