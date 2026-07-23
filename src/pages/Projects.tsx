@@ -59,6 +59,68 @@ const projects = [
     github: "https://github.com/izwanGit/BatikRecognitionAndClassification"
   },
   {
+    title: "PETRONAS HCSM Operations Hub",
+    category: "Enterprise RPA & ITSM Platform",
+    description: "Designed and built the HCSM Operations Hub end-to-end at PETRONAS Digital. Streamlit platform unifying 3 ITSM workflows for myCareerX (Oracle HCM Cloud) serving 50,000+ employees. PyMuPDF spatial chart extraction, OpenPyXL fast engine, and Playwright SSO subprocess wizard.",
+    tags: ["Python", "Streamlit", "PyMuPDF", "Playwright RPA", "OpenPyXL", "Oracle HCM"],
+    images: [
+      '/images/petronas-hub-main.jpg',
+      '/images/petronas-hub-wizard.jpg',
+      '/images/petronas-hub-weekly.jpg',
+      '/images/petronas-hub-monthly.jpg',
+      '/images/petronas-hub-pptx.jpg'
+    ],
+    awards: ["Deployed to Production at PETRONAS Digital"],
+  },
+  {
+    title: "Full Weekly Report Automation",
+    category: "Zero-Touch Workflow Automation",
+    description: "Zero-touch Power Automate pipeline for myCareerX ITSM reporting. Processes 4 raw Excel files with 6 TypeScript Office Scripts every Monday at 7:00 AM. Generates PETRONAS teal HTML emails, resolves Office 365 recipients, and sends Teams reminders with @mentions.",
+    tags: ["Power Automate", "TypeScript", "Office Scripts", "Outlook HTML", "SharePoint"],
+    images: [
+      '/images/petronas-weekly-email.jpg',
+      '/images/petronas-weekly-reminder.jpg'
+    ],
+    awards: ["Replaced 3-4 Hours of Weekly Manual Work"],
+  },
+  {
+    title: "Full Monthly Report Automation",
+    category: "Cloud-Native Reporting Pipeline",
+    description: "Automated monthly reporting pipeline pairing a 16:9 Power BI template with Power Automate REST API connectors. Wrote DAX measures generating natural-language executive summary bullets directly inside report cards. Exports to PPTX, archives to SharePoint, and emails management on the 1st of every month.",
+    tags: ["Power BI", "DAX", "Power Automate", "REST API", "SharePoint"],
+    images: [
+      '/images/petronas-monthly-cover.jpg',
+      '/images/petronas-monthly-pbi.jpg',
+      '/images/petronas-monthly-email.jpg',
+      '/images/petronas-monthly-teams.jpg'
+    ],
+    awards: ["Replaced 1-2 Hours of Monthly Manual Work"],
+  },
+  {
+    title: "Pre-Deployment Automation & Teams Handoff",
+    category: "RPA & Document Automation",
+    description: "Power Automate flow triggered by UAT endorsement emails. Extracts ticket IDs, queries SharePoint details, generates branded PETRONAS OAT Word documents, and posts an interactive Teams card with an 'Open in Ops Hub' launch button for the Streamlit Playwright RPA wizard.",
+    tags: ["Power Automate", "Playwright RPA", "SharePoint", "Adaptive Cards", "BMC Helix"],
+    images: [
+      '/images/petronas-predeploy-card.jpg',
+      '/images/petronas-predeploy-doc.jpg',
+      '/images/petronas-predeploy-wizard.jpg'
+    ],
+    awards: ["Cut Deployment Prep from 30 min to <1 min"],
+  },
+  {
+    title: "Priority Ticket Automation System",
+    category: "Real-Time Chat Listener & Bot",
+    description: "System monitoring Teams support chat 24/7, intercepting urgent ticket mentions (REQ / ICT_WO). Auto-logs placeholders in SharePoint, enriches details via TypeScript Office Scripts from daily dumps, and posts weekly Thursday @mention reminders for ticket assignees.",
+    tags: ["Power Automate", "TypeScript", "Teams Bot", "Office 365 Users API"],
+    images: [
+      '/images/petronas-priority-notif.jpg',
+      '/images/petronas-priority-list.jpg',
+      '/images/petronas-priority-reminder.jpg'
+    ],
+    awards: ["24/7 Autonomous Teams Ticket Listener"],
+  },
+  {
     title: "YuLaoshi: AI Mandarin Tutor",
     category: "AI Chatbot / Full-Stack",
     description: "Full-stack AI chatbot serving as a conversational Mandarin tutor for UiTM students. Combines GPT-4o-mini with a gamified listening quiz module and real-time audio via gTTS. Deployed on PythonAnywhere.",

@@ -4,6 +4,7 @@ import { ArrowRight, Building, Trophy, GraduationCap, MapPin } from 'lucide-reac
 import { Link } from 'react-router-dom';
 
 import HeroShowcase from '../components/HeroShowcase';
+import PetronasShowcase from '../components/PetronasShowcase';
 
 const awards = [
   { img: '/images/award-secops.jpeg', title: 'Champion + 4 Awards', sub: 'UiTM Mobile SecOps Challenge (RentVerse)', color: '#FDB924' },
@@ -12,19 +13,6 @@ const awards = [
 ];
 
 const Home = () => {
-  const [activePetronas, setActivePetronas] = useState(0);
-  const [activePetronasImg, setActivePetronasImg] = useState('/images/petronas-hub-main.jpg');
-
-  useEffect(() => {
-    const defaults = [
-      '/images/petronas-hub-main.jpg',
-      '/images/petronas-report-email.jpg',
-      '/images/petronas-report-pbi.jpg',
-      '/images/petronas-teams-reminder.jpg'
-    ];
-    setActivePetronasImg(defaults[activePetronas]);
-  }, [activePetronas]);
-
   return (
     <div className="w-full">
 
@@ -296,195 +284,8 @@ const Home = () => {
             ))}
           </div>
 
-          {/* Two Column Layout: Left (Interactive Tabs), Right (Mock Browser with Screenshots) */}
-          <div className="grid lg:grid-cols-12 gap-8 items-stretch">
-            {/* Left Column - Tab Selectors */}
-            <div className="lg:col-span-5 flex flex-col gap-4">
-              {[
-                {
-                  color: '#BFD730',
-                  title: 'HCSM Operations Hub',
-                  desc: 'Unified Streamlit platform automating 3 workflows. Cut report prep from 3-4 hrs to under 2 min.',
-                },
-                {
-                  color: '#FDB924',
-                  title: 'Zero-Touch Weekly Pipeline',
-                  desc: 'Power Automate + 6 TypeScript Office Scripts. Runs every Monday 7AM, fully autonomous.',
-                },
-                {
-                  color: '#763F98',
-                  title: 'Monthly Report Automation',
-                  desc: 'Cloud-native Power BI → PowerPoint pipeline. Runs on the 1st of every month with zero human touch.',
-                },
-                {
-                  color: '#20419A',
-                  title: 'Priority Ticket System',
-                  desc: '24/7 Teams monitoring, auto-logging, enrichment & weekly reminders for urgent ITSM tickets.',
-                },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  onClick={() => setActivePetronas(i)}
-                  className={`rounded-xl p-5 cursor-pointer transition-all duration-300 border ${
-                    activePetronas === i
-                      ? 'bg-white/15 border-white/30 shadow-lg scale-[1.02]'
-                      : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
-                  }`}
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div
-                      className="w-3 h-3 rounded-full shrink-0"
-                      style={{ background: item.color, boxShadow: `0 0 12px ${item.color}` }}
-                    />
-                    <h3 className="text-base font-bold text-white">{item.title}</h3>
-                  </div>
-                  <p className="text-sm text-white/70 leading-relaxed pl-6">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Right Column - Mock Browser Window */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="w-full bg-[#1E1E24] rounded-xl overflow-hidden shadow-2xl border border-white/10 flex flex-col"
-              >
-                {/* Browser Title Bar */}
-                <div className="bg-[#14151B] px-4 py-3 flex items-center justify-between border-b border-white/5 select-none">
-                  {/* Window Controls */}
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <span className="w-3 h-3 rounded-full bg-[#EF4444] opacity-85" />
-                    <span className="w-3 h-3 rounded-full bg-[#F59E0B] opacity-85" />
-                    <span className="w-3 h-3 rounded-full bg-[#10B981] opacity-85" />
-                  </div>
-                  {/* Address bar */}
-                  <div className="mx-auto w-3/5 max-w-sm bg-[#1E1E24] text-[11px] text-white/60 text-center py-1.5 rounded-md border border-white/5 font-mono select-none overflow-hidden text-ellipsis whitespace-nowrap">
-                    {activePetronas === 0 && 'ops-hub.hcsm.petronas.internal'}
-                    {activePetronas === 1 && 'weekly-pipeline.flow.powerautomate'}
-                    {activePetronas === 2 && 'monthly-report.powerbi.com'}
-                    {activePetronas === 3 && 'priority-tickets.teams.microsoft'}
-                  </div>
-                  <div className="w-12 shrink-0" />
-                </div>
-
-                {/* Browser Content Frame */}
-                <div className="relative aspect-[16/10] bg-[#14151B] overflow-hidden flex flex-col">
-                  <div className="flex-1 w-full h-full relative">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activePetronasImg}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="w-full h-full"
-                      >
-                        <img
-                          src={activePetronasImg}
-                          alt="PETRONAS Production Screenshot"
-                          className="w-full h-full object-cover object-top"
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Sub-tabs overlay buttons */}
-                  <div className="absolute bottom-3 left-3 right-3 flex justify-end gap-2 z-20">
-                    {activePetronas === 0 && (
-                      <>
-                        <button
-                          onClick={() => setActivePetronasImg('/images/petronas-hub-main.jpg')}
-                          className={`px-3 py-1.5 text-[11px] rounded font-bold border transition-colors shadow-md ${
-                            activePetronasImg === '/images/petronas-hub-main.jpg'
-                              ? 'bg-white text-primary border-white'
-                              : 'bg-black/60 text-white border-white/10 hover:bg-black/80'
-                          }`}
-                        >
-                          Ops Hub UI
-                        </button>
-                        <button
-                          onClick={() => setActivePetronasImg('/images/petronas-hub-wizard.jpg')}
-                          className={`px-3 py-1.5 text-[11px] rounded font-bold border transition-colors shadow-md ${
-                            activePetronasImg === '/images/petronas-hub-wizard.jpg'
-                              ? 'bg-white text-primary border-white'
-                              : 'bg-black/60 text-white border-white/10 hover:bg-black/80'
-                          }`}
-                        >
-                          6-Step RFC/RDM Wizard
-                        </button>
-                      </>
-                    )}
-                    {activePetronas === 1 && (
-                      <>
-                        <button
-                          onClick={() => setActivePetronasImg('/images/petronas-report-email.jpg')}
-                          className={`px-3 py-1.5 text-[11px] rounded font-bold border transition-colors shadow-md ${
-                            activePetronasImg === '/images/petronas-report-email.jpg'
-                              ? 'bg-white text-primary border-white'
-                              : 'bg-black/60 text-white border-white/10 hover:bg-black/80'
-                          }`}
-                        >
-                          Outlook Report
-                        </button>
-                        <button
-                          onClick={() => setActivePetronasImg('/images/petronas-teams-card.jpg')}
-                          className={`px-3 py-1.5 text-[11px] rounded font-bold border transition-colors shadow-md ${
-                            activePetronasImg === '/images/petronas-teams-card.jpg'
-                              ? 'bg-white text-primary border-white'
-                              : 'bg-black/60 text-white border-white/10 hover:bg-black/80'
-                          }`}
-                        >
-                          Teams Handoff Card
-                        </button>
-                      </>
-                    )}
-                    {activePetronas === 2 && (
-                      <>
-                        <button
-                          onClick={() => setActivePetronasImg('/images/petronas-report-pbi.jpg')}
-                          className={`px-3 py-1.5 text-[11px] rounded font-bold border transition-colors shadow-md ${
-                            activePetronasImg === '/images/petronas-report-pbi.jpg'
-                              ? 'bg-white text-primary border-white'
-                              : 'bg-black/60 text-white border-white/10 hover:bg-black/80'
-                          }`}
-                        >
-                          Power BI Template
-                        </button>
-                        <button
-                          onClick={() => setActivePetronasImg('/images/petronas-dashboard.jpg')}
-                          className={`px-3 py-1.5 text-[11px] rounded font-bold border transition-colors shadow-md ${
-                            activePetronasImg === '/images/petronas-dashboard.jpg'
-                              ? 'bg-white text-primary border-white'
-                              : 'bg-black/60 text-white border-white/10 hover:bg-black/80'
-                          }`}
-                        >
-                          Monitoring View
-                        </button>
-                      </>
-                    )}
-                    {activePetronas === 3 && (
-                      <button
-                        onClick={() => setActivePetronasImg('/images/petronas-teams-reminder.jpg')}
-                        className={`px-3 py-1.5 text-[11px] rounded font-bold border transition-colors shadow-md ${
-                          activePetronasImg === '/images/petronas-teams-reminder.jpg'
-                            ? 'bg-white text-primary border-white'
-                            : 'bg-black/60 text-white border-white/10 hover:bg-black/80'
-                        }`}
-                      >
-                        Teams Weekly Reminder
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
+          {/* Interactive 6-Project Story Showcase */}
+          <PetronasShowcase />
         </div>
       </section>
 
