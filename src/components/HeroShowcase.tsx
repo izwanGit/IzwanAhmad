@@ -99,9 +99,9 @@ type ShowcaseItem =
 const showcaseItems: ShowcaseItem[] = [
   {
     type: 'laptop',
-    src: '/images/rentverse-laptop.jpg',
-    title: 'RentVerse Platform',
-    tag: 'Web / DevSecOps',
+    src: '/images/petronas-hub-main.jpg',
+    title: 'HCSM Operations Hub',
+    tag: 'PETRONAS / Enterprise RPA',
   },
   {
     type: 'phone',
@@ -111,24 +111,27 @@ const showcaseItems: ShowcaseItem[] = [
   },
   {
     type: 'laptop',
+    src: '/images/rentverse-laptop.jpg',
+    title: 'RentVerse Platform',
+    tag: 'Web / DevSecOps Champion',
+  },
+  {
+    type: 'phone',
+    src: '/images/play2grow-mobile.jpg',
+    title: 'Play2Grow Edutainment',
+    tag: 'Android / Firebase',
+  },
+  {
+    type: 'laptop',
     src: '/images/kuehlicious-laptop.jpg',
     title: 'Kuehlicious Web System',
-    tag: 'Web / Youth Innovation Winner',
+    tag: 'Web / Innovation Winner',
   },
   {
-    type: 'polaroid',
-    src: '/images/award-secops.jpeg',
-    caption: 'Champion & 4 Awards @ SecOps Challenge',
-  },
-  {
-    type: 'polaroid',
-    src: '/images/izwan-hero.jpg',
-    caption: 'Internship @ PETRONAS Digital',
-  },
-  {
-    type: 'polaroid',
-    src: '/images/award-ai-booth.jpeg',
-    caption: 'Best AI Booth Award @ AI Seminar',
+    type: 'laptop',
+    src: '/images/batik-main.jpeg',
+    title: 'Batik AI Recognition',
+    tag: 'Computer Vision / ViT',
   },
 ];
 
