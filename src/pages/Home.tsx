@@ -332,7 +332,7 @@ const Home = () => {
             <div className="shrink-0">
               <div className="bg-white rounded-2xl p-4 shadow-2xl w-40 flex items-center justify-center">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/c/c6/PETRONAS_Logo_%282013%29.png"
+                  src="https://companieslogo.com/img/orig/5183.KL_BIG.D-a824ccc5.png?t=1720244490"
                   alt="PETRONAS Logo"
                   className="w-full h-auto object-contain"
                 />
