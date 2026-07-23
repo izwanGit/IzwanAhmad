@@ -121,9 +121,9 @@ const showcaseItems: ShowcaseItem[] = [
   },
   {
     type: 'laptop',
-    src: '/images/montswitzerland-laptop.jpg',
-    title: 'Mont Switzerland E-Commerce',
-    tag: 'Web / RM100k Monthly Sales',
+    src: '/images/kuehlicious-laptop.jpg',
+    title: 'Kuehlicious Web System',
+    tag: 'Web / Youth Innovation Winner',
   },
   {
     type: 'polaroid',
