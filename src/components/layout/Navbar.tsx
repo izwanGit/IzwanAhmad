@@ -28,16 +28,18 @@ const Navbar = () => {
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white/80 backdrop-blur-md border-b border-border shadow-sm py-4'
-          : 'bg-transparent py-6'
+          ? 'bg-white/90 backdrop-blur-md border-b border-border shadow-sm py-3'
+          : 'bg-transparent py-5'
       )}
     >
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
-        <Link to="/" className="relative z-10 flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold tracking-tighter group-hover:bg-primary-hover transition-colors">
-            IA
-          </div>
-          <span className="font-bold text-lg tracking-tight text-foreground">Izwan Ahmad</span>
+        {/* Logo — use real logo image */}
+        <Link to="/" className="relative z-10 flex items-center gap-3 group">
+          <img
+            src="/images/logo.png"
+            alt="Izwan Ahmad Logo"
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -79,8 +81,9 @@ const Navbar = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              className="fixed inset-0 bg-white/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+              className="fixed inset-0 bg-white/97 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden"
             >
+              <img src="/images/logo.png" alt="Izwan Ahmad Logo" className="h-14 mb-4" />
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
