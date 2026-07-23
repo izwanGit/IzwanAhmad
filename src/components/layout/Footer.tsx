@@ -94,17 +94,17 @@ const Footer = () => {
       {/* ============================================================
           FOOTER
       ============================================================ */}
-      <footer className="bg-[#0C1A20] text-white/60 py-9 text-sm">
+      <footer className="bg-[#0C1A20] text-[#F5F9FA] py-9 text-sm">
         <div className="container mx-auto px-6 max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link to="/" className="flex items-center">
             <img
               src="/images/izwanlogoheader.png"
               alt="Izwan Ahmad Logo"
-              className="h-[60px] object-contain"
+              className="h-10 object-contain"
             />
           </Link>
 
-          <div className="text-center font-medium">
+          <div className="text-center font-medium opacity-80">
             Built with intention. © 2026 Muhammad Izwan Ahmad.
           </div>
 
@@ -113,7 +113,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/izwanworks/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-white/70 hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#F5F9FA] hover:text-accent transition-colors"
             >
               <LinkedInIcon size={15} />
               LinkedIn
@@ -122,7 +122,7 @@ const Footer = () => {
               href="https://github.com/izwanGit"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-white/70 hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#F5F9FA] hover:text-accent transition-colors"
             >
               <GithubIcon size={15} />
               GitHub
@@ -131,7 +131,7 @@ const Footer = () => {
               href="https://wa.me/60100000000"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-white/70 hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#F5F9FA] hover:text-accent transition-colors"
             >
               <MessageCircle size={15} />
               WhatsApp
