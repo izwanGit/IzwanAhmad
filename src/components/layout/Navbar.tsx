@@ -36,9 +36,9 @@ const Navbar = () => {
         {/* Logo — use real logo image */}
         <Link to="/" className="relative z-10 flex items-center gap-3 group">
           <img
-            src="/images/logo-full-inverse.png"
+            src="/images/izwanlogoheader.png"
             alt="Izwan Ahmad Logo"
-            className="h-12 w-auto object-contain"
+            className="h-20 w-auto object-contain"
           />
         </Link>
 
@@ -83,7 +83,7 @@ const Navbar = () => {
               exit={{ opacity: 0, x: 20 }}
               className="fixed inset-0 bg-white/97 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden"
             >
-              <img src="/images/logo.png" alt="Izwan Ahmad Logo" className="h-14 mb-4" />
+              <img src="/images/izwanlogoheader.png" alt="Izwan Ahmad Logo" className="h-20 mb-4" />
               {navLinks.map((link) => (
                 <Link
                   key={link.path}

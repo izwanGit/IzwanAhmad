@@ -98,9 +98,9 @@ const Footer = () => {
         <div className="container mx-auto px-6 max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link to="/" className="flex items-center">
             <img
-              src="/images/logo-full.png"
+              src="/images/izwanlogoheader.png"
               alt="Izwan Ahmad Logo"
-              className="h-[38px] object-contain"
+              className="h-[60px] object-contain"
             />
           </Link>
 
