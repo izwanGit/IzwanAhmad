@@ -38,7 +38,7 @@ export const LaptopFrame = ({ src, title, tag }: { src: string; title: string; t
 // iPhone Frame Component
 export const PhoneFrame = ({ src, title, tag }: { src: string; title: string; tag: string }) => {
   return (
-    <div className="w-[220px] sm:w-[260px] flex flex-col items-center">
+    <div className="w-[180px] sm:w-[220px] flex flex-col items-center">
       {/* Phone Outer Shell */}
       <div className="w-full bg-[#1A1B22] rounded-[38px] p-3 shadow-2xl border-2 border-slate-700/80 relative">
         {/* Power / Volume side button accents */}
