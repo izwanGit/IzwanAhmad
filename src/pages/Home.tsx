@@ -172,29 +172,38 @@ const Home = () => {
             
             <div className="flex animate-marquee gap-6 w-max hover:pause">
               {[
-                { title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge' },
-                { title: 'Best System Architecture', sub: 'Final Year Project (Beruang)' },
-                { title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition' },
-                { title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM' },
-                { title: 'Best Website GUI', sub: 'UiTM Website Competition' },
-                { title: "Dean's List", sub: 'Every semester — Diploma & Degree' },
-                { title: 'Outstanding Performance', sub: 'West Malayan Group (+ Increment)' },
+                { img: '/images/awards/Champion National Cybersecurity Competition.jpeg', title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge' },
+                { img: '/images/awards/Best System Architecture (FYP).jpg', title: 'Best System Architecture', sub: 'Final Year Project (Beruang)' },
+                { img: '/images/awards/Best AI Booth Award.jpeg', title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition' },
+                { img: '/images/awards/Vice Chancellor Award.jpeg', title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM' },
+                { img: '/images/awards/Best Website GUI Award.jpeg', title: 'Best Website GUI', sub: 'UiTM Website Competition' },
+                { img: '/images/awards/Dean List.jpeg', title: "Dean's List", sub: 'Every semester — Diploma & Degree' },
+                { img: '/images/awards/Outstanding Performance.jpeg', title: 'Outstanding Performance', sub: 'West Malayan Group (+ Increment)' },
                 // Duplicate for seamless infinite scroll
-                { title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge' },
-                { title: 'Best System Architecture', sub: 'Final Year Project (Beruang)' },
-                { title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition' },
-                { title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM' },
-                { title: 'Best Website GUI', sub: 'UiTM Website Competition' },
-                { title: "Dean's List", sub: 'Every semester — Diploma & Degree' },
-                { title: 'Outstanding Performance', sub: 'West Malayan Group (+ Increment)' },
+                { img: '/images/awards/Champion National Cybersecurity Competition.jpeg', title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge' },
+                { img: '/images/awards/Best System Architecture (FYP).jpg', title: 'Best System Architecture', sub: 'Final Year Project (Beruang)' },
+                { img: '/images/awards/Best AI Booth Award.jpeg', title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition' },
+                { img: '/images/awards/Vice Chancellor Award.jpeg', title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM' },
+                { img: '/images/awards/Best Website GUI Award.jpeg', title: 'Best Website GUI', sub: 'UiTM Website Competition' },
+                { img: '/images/awards/Dean List.jpeg', title: "Dean's List", sub: 'Every semester — Diploma & Degree' },
+                { img: '/images/awards/Outstanding Performance.jpeg', title: 'Outstanding Performance', sub: 'West Malayan Group (+ Increment)' },
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="w-[280px] p-5 bg-white border border-border rounded-xl flex-shrink-0 shadow-sm transition-shadow hover:shadow-md cursor-default"
+                  className="w-[320px] bg-white border border-border rounded-xl flex-shrink-0 shadow-sm transition-shadow hover:shadow-md cursor-default overflow-hidden group"
                 >
-                  <div className="text-xs font-bold uppercase tracking-widest text-[#FDB924] mb-2">Award</div>
-                  <div className="font-bold text-foreground mb-1 text-[15px]">{item.title}</div>
-                  <div className="text-[13px] text-muted-foreground leading-relaxed">{item.sub}</div>
+                  <div className="w-full aspect-[4/3] bg-tint overflow-hidden border-b border-border">
+                    <img 
+                      src={item.img} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
+                  </div>
+                  <div className="p-5">
+                    <div className="text-xs font-bold uppercase tracking-widest text-[#FDB924] mb-2">Award</div>
+                    <div className="font-bold text-foreground mb-1 text-[15px]">{item.title}</div>
+                    <div className="text-[13px] text-muted-foreground leading-relaxed">{item.sub}</div>
+                  </div>
                 </div>
               ))}
             </div>
