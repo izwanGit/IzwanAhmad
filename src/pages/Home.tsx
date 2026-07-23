@@ -7,9 +7,13 @@ import HeroShowcase from '../components/HeroShowcase';
 import PetronasShowcase from '../components/PetronasShowcase';
 
 const awards = [
-  { img: '/images/award-secops.jpeg', title: 'Champion + 4 Awards', sub: 'UiTM Mobile SecOps Challenge (RentVerse)', color: '#FDB924' },
-  { img: '/images/award-ai-booth.jpeg', title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition', color: '#BFD730' },
-  { img: '/images/award-vc.jpeg', title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM', color: '#763F98' },
+  { img: '/images/awards/Champion National Cybersecurity Competition.jpeg', title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge', color: '#FDB924' },
+  { img: '/images/awards/Best System Architecture (FYP).jpg', title: 'Best System Architecture', sub: 'Final Year Project — UiTM', color: '#00B1A9' },
+  { img: '/images/awards/Best AI Booth Award.jpeg', title: 'Best AI Booth Award', sub: 'AI Seminar 2025 — Batik Recognition', color: '#BFD730' },
+  { img: '/images/awards/Vice Chancellor Award.jpeg', title: "Vice Chancellor's Award", sub: 'Diploma in Computer Science, UiTM', color: '#763F98' },
+  { img: '/images/awards/Best Website GUI Award.jpeg', title: 'Best Website GUI Award', sub: 'Web Development Showcase', color: '#E3000F' },
+  { img: '/images/awards/Dean List.jpeg', title: "Dean's List Award", sub: 'Consistent Academic Excellence', color: '#FF7F3F' },
+  { img: '/images/awards/Outstanding Performance.jpeg', title: 'Outstanding Performance', sub: 'Recognized for Excellence', color: '#005587' },
 ];
 
 const Home = () => {
