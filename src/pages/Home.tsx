@@ -309,14 +309,6 @@ const Home = () => {
         className="py-24 relative overflow-hidden"
         style={{ background: '#00B1A9' }}
       >
-        {/* Decorative PETRONAS colored orbs */}
-        <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-[150px] opacity-20"
-          style={{ background: '#BFD730' }} />
-        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-[150px] opacity-20"
-          style={{ background: '#763F98' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[200px] opacity-10"
-          style={{ background: '#FDB924' }} />
-
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           {/* Header with PETRONAS logo */}
           <motion.div
