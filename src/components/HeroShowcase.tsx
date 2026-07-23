@@ -104,26 +104,26 @@ const showcaseItems: ShowcaseItem[] = [
     tag: 'Web / DevSecOps',
   },
   {
-    type: 'polaroid',
-    src: '/images/award-secops.jpeg',
-    caption: 'Champion & 4 Awards @ SecOps Challenge',
-  },
-  {
     type: 'phone',
     src: '/images/beruang-mobile.jpg',
     title: 'Beruang AI Money App',
     tag: 'Mobile / React Native',
   },
   {
-    type: 'polaroid',
-    src: '/images/izwan-hero.jpg',
-    caption: 'Internship @ PETRONAS Digital',
-  },
-  {
     type: 'laptop',
     src: '/images/kuehlicious-laptop.jpg',
     title: 'Kuehlicious Web System',
     tag: 'Web / Youth Innovation Winner',
+  },
+  {
+    type: 'polaroid',
+    src: '/images/award-secops.jpeg',
+    caption: 'Champion & 4 Awards @ SecOps Challenge',
+  },
+  {
+    type: 'polaroid',
+    src: '/images/izwan-hero.jpg',
+    caption: 'Internship @ PETRONAS Digital',
   },
   {
     type: 'polaroid',
