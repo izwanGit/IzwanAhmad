@@ -142,7 +142,7 @@ export const PetronasShowcase = () => {
                 color: '#FFFFFF',
               }}
             >
-              <h3 className="font-bold text-[17px] tracking-tight mb-3">
+              <h3 className="font-bold text-[17px] text-white tracking-tight mb-3">
                 {p.title}
               </h3>
               
@@ -151,7 +151,7 @@ export const PetronasShowcase = () => {
                 {p.tools.map((tool, tIdx) => (
                   <div key={tIdx} className="flex items-center gap-1.5 bg-black/15 px-2.5 py-1 rounded-md">
                     <img src={tool.icon} alt={tool.name} className="w-3.5 h-3.5 object-contain" />
-                    <span className="text-[11px] font-semibold tracking-wide whitespace-nowrap">{tool.name}</span>
+                    <span className="text-[11px] font-semibold text-white tracking-wide whitespace-nowrap">{tool.name}</span>
                   </div>
                 ))}
               </div>
@@ -175,7 +175,7 @@ export const PetronasShowcase = () => {
                 className="w-3.5 h-3.5 rounded-full shadow-inner"
                 style={{ backgroundColor: active.solidColor }}
               />
-              <h2 className="text-lg font-extrabold text-slate-800 tracking-tight">
+              <h2 className="text-lg font-extrabold text-[#00B1A9] tracking-tight">
                 {active.title}
               </h2>
             </div>
@@ -223,7 +223,7 @@ export const PetronasShowcase = () => {
 
         {/* Dedicated Description Box in pristine white */}
         <div className="bg-white rounded-xl p-5 shadow-lg border border-gray-50">
-          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+          <div className="text-xs font-bold text-[#00B1A9] uppercase tracking-wider mb-2">
             System Overview
           </div>
           <p className="text-[15px] text-slate-700 leading-relaxed font-medium">
