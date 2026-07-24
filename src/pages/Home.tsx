@@ -314,12 +314,17 @@ const Home = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="absolute right-0 w-[45%] p-5 rounded-2xl bg-[#D93876] text-white shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow group"
+              className="absolute right-0 w-[45%] p-5 rounded-2xl bg-[#D93876] text-white shadow-md flex flex-col justify-between hover:shadow-lg transition-all group"
               style={{ top: "48px", height: "360px" }}
             >
               <div>
-                <div className="text-xs font-bold text-white/80 uppercase tracking-wider mb-1">
-                  Mar 2024 – Aug 2026 • Degree
+                <div className="flex items-center justify-between mb-3">
+                  <div className="text-xs font-bold text-white/80 uppercase tracking-wider">
+                    Mar 2024 – Aug 2026 • Degree
+                  </div>
+                  <div className="w-10 h-10 rounded-xl bg-white/95 p-1.5 flex items-center justify-center shadow-xs shrink-0">
+                    <img src="/images/uitm-logo.png" alt="UiTM" className="w-full h-full object-contain" />
+                  </div>
                 </div>
                 <h3 className="font-extrabold text-lg sm:text-xl text-white mb-1 group-hover:underline">
                   Computer Science (Hons)
@@ -328,7 +333,7 @@ const Home = () => {
                   Universiti Teknologi MARA (UiTM)
                 </div>
               </div>
-              <div className="text-xs font-medium text-white/75 border-t border-white/20 pt-3 flex items-center justify-between">
+              <div className="text-xs font-medium text-white/80 border-t border-white/20 pt-3 flex items-center justify-between">
                 <span>Degree Undergraduate</span>
                 <span>2.5 Years</span>
               </div>
@@ -339,12 +344,17 @@ const Home = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="absolute right-0 w-[45%] p-5 rounded-2xl bg-[#8E44AD] text-white shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow group"
+              className="absolute right-0 w-[45%] p-5 rounded-2xl bg-[#8E44AD] text-white shadow-md flex flex-col justify-between hover:shadow-lg transition-all group"
               style={{ top: "408px", height: "408px" }}
             >
               <div>
-                <div className="text-xs font-bold text-white/80 uppercase tracking-wider mb-1">
-                  Oct 2021 – Mar 2024 • Diploma
+                <div className="flex items-center justify-between mb-3">
+                  <div className="text-xs font-bold text-white/80 uppercase tracking-wider">
+                    Oct 2021 – Mar 2024 • Diploma
+                  </div>
+                  <div className="w-10 h-10 rounded-xl bg-white/95 p-1.5 flex items-center justify-center shadow-xs shrink-0">
+                    <img src="/images/uitm-logo.png" alt="UiTM" className="w-full h-full object-contain" />
+                  </div>
                 </div>
                 <h3 className="font-extrabold text-lg sm:text-xl text-white mb-1 group-hover:underline">
                   Computer Science (Diploma)
@@ -353,7 +363,7 @@ const Home = () => {
                   Universiti Teknologi MARA (UiTM)
                 </div>
               </div>
-              <div className="text-xs font-medium text-white/75 border-t border-white/20 pt-3 flex items-center justify-between">
+              <div className="text-xs font-medium text-white/80 border-t border-white/20 pt-3 flex items-center justify-between">
                 <span>3.9+ CGPA • Vice Chancellor's Award</span>
                 <span>2.5 Years</span>
               </div>
@@ -365,16 +375,21 @@ const Home = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="absolute left-0 w-[22%] p-3.5 rounded-xl bg-[#27AE60] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
-              style={{ top: "34px", height: "85px" }}
+              className="absolute left-0 w-[22%] p-3.5 rounded-xl bg-[#27AE60] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-all group"
+              style={{ top: "34px", height: "100px" }}
             >
-              <div>
-                <h4 className="font-bold text-xs sm:text-sm text-white group-hover:underline leading-tight truncate">
-                  Freelance Engineer
-                </h4>
-                <div className="text-[10px] text-white/80 truncate">Independent</div>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-white/95 p-0.5 flex items-center justify-center shadow-xs shrink-0">
+                  <img src="/images/freelance-logo.jpeg" alt="Freelance" className="w-full h-full object-contain rounded" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-bold text-xs text-white group-hover:underline leading-tight truncate">
+                    Freelance Engineer
+                  </h4>
+                  <div className="text-[10px] text-white/80 truncate">Independent</div>
+                </div>
               </div>
-              <div className="text-[9px] font-bold text-white/90">Mar 2026 – Present</div>
+              <div className="text-[9px] font-bold text-white/90 pt-1 border-t border-white/20">Mar 2026 – Present</div>
             </motion.div>
 
             {/* 2. PETRONAS Software Engineer Intern (Mar 2026 - Jul 2026) */}
@@ -382,16 +397,21 @@ const Home = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="absolute left-[24%] w-[21%] p-3.5 rounded-xl bg-[#C0392B] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
-              style={{ top: "52px", height: "68px" }}
+              className="absolute left-[24%] w-[21%] p-3.5 rounded-xl bg-[#C0392B] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-all group"
+              style={{ top: "34px", height: "100px" }}
             >
-              <div>
-                <h4 className="font-bold text-xs sm:text-sm text-white group-hover:underline leading-tight truncate">
-                  Software Engineer Intern
-                </h4>
-                <div className="text-[10px] text-white/80 truncate">PETRONAS Digital</div>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-white/95 p-0.5 flex items-center justify-center shadow-xs shrink-0">
+                  <img src="/images/petronas-logo.png" alt="PETRONAS" className="w-full h-full object-contain" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-bold text-xs text-white group-hover:underline leading-tight truncate">
+                    Software Engineer
+                  </h4>
+                  <div className="text-[10px] text-white/80 truncate">PETRONAS Digital</div>
+                </div>
               </div>
-              <div className="text-[9px] font-bold text-white/90">Mar – Jul 2026</div>
+              <div className="text-[9px] font-bold text-white/90 pt-1 border-t border-white/20">Mar – Jul 2026</div>
             </motion.div>
 
             {/* 3. Service Crew (Aug 2023 - Oct 2025) */}
@@ -399,7 +419,7 @@ const Home = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="absolute left-0 w-[22%] p-4 rounded-xl bg-[#5D6D7E] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
+              className="absolute left-0 w-[22%] p-4 rounded-xl bg-[#5D6D7E] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-all group"
               style={{ top: "163px", height: "295px" }}
             >
               <div>
@@ -419,16 +439,21 @@ const Home = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="absolute left-[24%] w-[21%] p-3.5 rounded-xl bg-[#16A085] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
-              style={{ top: "395px", height: "80px" }}
+              className="absolute left-[24%] w-[21%] p-3.5 rounded-xl bg-[#16A085] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-all group"
+              style={{ top: "395px", height: "95px" }}
             >
-              <div>
-                <h4 className="font-bold text-xs text-white group-hover:underline leading-tight truncate">
-                  IT Specialist Intern
-                </h4>
-                <div className="text-[10px] text-white/80 truncate">West Malayan Group</div>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-white/95 p-0.5 flex items-center justify-center shadow-xs shrink-0">
+                  <img src="/images/wmg-logo.png" alt="WMG" className="w-full h-full object-contain" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-bold text-xs text-white group-hover:underline leading-tight truncate">
+                    IT Specialist Intern
+                  </h4>
+                  <div className="text-[10px] text-white/80 truncate">West Malayan Group</div>
+                </div>
               </div>
-              <div className="text-[9px] font-bold text-white/90">Sep 2023 – Mar 2024</div>
+              <div className="text-[9px] font-bold text-white/90 pt-1 border-t border-white/20">Sep 2023 – Mar 2024</div>
             </motion.div>
           </div>
 
@@ -439,43 +464,56 @@ const Home = () => {
                 title: "Freelance Software Engineer",
                 org: "Independent Consultant",
                 period: "Mar 2026 – Present",
-                color: "bg-[#27AE60]"
+                color: "bg-[#27AE60]",
+                logo: "/images/freelance-logo.jpeg"
               },
               {
                 title: "Software Engineer Intern",
                 org: "PETRONAS Digital Sdn Bhd",
                 period: "Mar 2026 – Jul 2026",
-                color: "bg-[#C0392B]"
+                color: "bg-[#C0392B]",
+                logo: "/images/petronas-logo.png"
               },
               {
                 title: "Computer Science (Hons)",
                 org: "Universiti Teknologi MARA (UiTM)",
                 period: "Mar 2024 – Aug 2026 • 2.5 Years Degree",
-                color: "bg-[#D93876]"
+                color: "bg-[#D93876]",
+                logo: "/images/uitm-logo.png"
               },
               {
                 title: "Service Crew",
                 org: "Yasmeen Arau Sdn. Bhd",
                 period: "Aug 2023 – Oct 2025 • 2 Yrs 3 Mos",
-                color: "bg-[#5D6D7E]"
+                color: "bg-[#5D6D7E]",
+                logo: null
               },
               {
                 title: "IT Specialist Intern",
                 org: "West Malayan Group",
                 period: "Sep 2023 – Mar 2024",
-                color: "bg-[#16A085]"
+                color: "bg-[#16A085]",
+                logo: "/images/wmg-logo.png"
               },
               {
                 title: "Computer Science (Diploma)",
                 org: "Universiti Teknologi MARA (UiTM)",
                 period: "Oct 2021 – Mar 2024 • 2.5 Years Diploma",
-                color: "bg-[#8E44AD]"
+                color: "bg-[#8E44AD]",
+                logo: "/images/uitm-logo.png"
               }
             ].map((item, i) => (
-              <div key={i} className={`p-4 rounded-xl text-white shadow-sm ${item.color}`}>
-                <div className="text-[10px] font-bold text-white/80 uppercase mb-1">{item.period}</div>
-                <h3 className="font-bold text-base text-white mb-0.5">{item.title}</h3>
-                <div className="text-xs text-white/90">{item.org}</div>
+              <div key={i} className={`p-4 rounded-xl text-white shadow-sm flex items-center gap-3 ${item.color}`}>
+                {item.logo && (
+                  <div className="w-9 h-9 rounded-lg bg-white/95 p-1 flex items-center justify-center shadow-xs shrink-0">
+                    <img src={item.logo} alt={item.org} className="w-full h-full object-contain" />
+                  </div>
+                )}
+                <div className="flex-1 min-w-0">
+                  <div className="text-[10px] font-bold text-white/80 uppercase mb-0.5">{item.period}</div>
+                  <h3 className="font-bold text-sm text-white leading-snug">{item.title}</h3>
+                  <div className="text-xs text-white/90 truncate">{item.org}</div>
+                </div>
               </div>
             ))}
           </div>
