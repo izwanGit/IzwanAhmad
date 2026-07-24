@@ -348,28 +348,26 @@ const Home = () => {
 
                     {/* Content Card */}
                     <div className="w-full md:w-[45%] pl-10 md:pl-0">
-                      <div
-                        className={`p-4 bg-white border border-border rounded-xl shadow-xs hover:shadow-sm transition-shadow group flex flex-col items-start ${
-                          isWork ? "md:items-end md:text-right" : "md:items-start md:text-left"
-                        }`}
-                      >
+                      <div className="p-4 bg-white border border-border rounded-xl shadow-xs hover:shadow-sm transition-shadow group flex items-center gap-4 text-left">
                         {item.logo && (
-                          <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center p-1.5 mb-3 shadow-sm shrink-0">
+                          <div className="w-14 h-14 rounded-xl bg-white border border-border flex items-center justify-center p-2 shadow-sm shrink-0">
                             <img src={item.logo} alt={item.org} className="w-full h-full object-contain" />
                           </div>
                         )}
-                        <div
-                          className={`text-[10px] font-extrabold uppercase tracking-widest mb-1 ${
-                            isWork ? "text-primary" : "text-amber-600"
-                          }`}
-                        >
-                          {item.period}
-                        </div>
-                        <h3 className="font-bold text-foreground text-sm sm:text-base mb-1 group-hover:text-primary transition-colors">
-                          {item.title}
-                        </h3>
-                        <div className="text-xs font-semibold text-muted-foreground">
-                          {item.org}
+                        <div className="flex-1 min-w-0">
+                          <div
+                            className={`text-[10px] font-extrabold uppercase tracking-widest mb-1 truncate ${
+                              isWork ? "text-primary" : "text-amber-600"
+                            }`}
+                          >
+                            {item.period}
+                          </div>
+                          <h3 className="font-bold text-foreground text-sm sm:text-base mb-0.5 group-hover:text-primary transition-colors leading-tight">
+                            {item.title}
+                          </h3>
+                          <div className="text-xs font-semibold text-muted-foreground truncate">
+                            {item.org}
+                          </div>
                         </div>
                       </div>
                     </div>
