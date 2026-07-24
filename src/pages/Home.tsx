@@ -268,6 +268,163 @@ const Home = () => {
       </section>
 
       {/* ============================================================
+          CAREER & ACADEMIC TIMELINE SECTION
+      ============================================================ */}
+      <section className="py-24 bg-background border-t border-border">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <div className="text-[13px] font-extrabold uppercase tracking-widest text-accent mb-3 flex items-center justify-center gap-2">
+              <GraduationCap size={14} />
+              Trajectory
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Experience & Education Timeline
+            </h2>
+            <p className="text-muted-foreground text-base">
+              A unified timeline of software engineering roles, enterprise impact, and academic distinction.
+            </p>
+          </motion.div>
+
+          {/* Timeline Vertical Track */}
+          <div className="relative pl-6 md:pl-0">
+            {/* Center Line (Hidden on mobile, centered on md+) */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-border -translate-x-1/2" />
+
+            <div className="space-y-12">
+              {[
+                {
+                  period: "Nov 2024 – Feb 2025",
+                  title: "Software Engineer Intern",
+                  organization: "PETRONAS Digital (HCSM Operations)",
+                  type: "Work Experience",
+                  badgeColor: "bg-[#00B1A9]/10 text-[#00B1A9] border-[#00B1A9]/30",
+                  icon: Building,
+                  highlights: [
+                    "Architected and deployed 10+ autonomous RPA systems serving 50,000+ employees.",
+                    "Built Streamlit HCSM Operations Hub with Playwright browser wizards.",
+                    "Automated weekly & monthly ITSM reporting pipelines with Power Automate & Office Scripts."
+                  ],
+                  alignRight: false
+                },
+                {
+                  period: "2022 – 2025",
+                  title: "Diploma in Computer Science",
+                  organization: "Universiti Teknologi MARA (UiTM)",
+                  type: "Education & Honors",
+                  badgeColor: "bg-amber-500/10 text-amber-600 border-amber-500/30",
+                  icon: GraduationCap,
+                  highlights: [
+                    "Graduated with 3.9+ CGPA academic distinction.",
+                    "Awarded Vice Chancellor's Award (Anugerah Naib Canselor) & Dean's List every semester.",
+                    "Best System Architecture Award for Final Year Project (Beruang AI Money Manager)."
+                  ],
+                  alignRight: true
+                },
+                {
+                  period: "2023 – 2024",
+                  title: "Corporate Web Architect & Growth Engineer",
+                  organization: "West Malayan Group",
+                  type: "Work Experience",
+                  badgeColor: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30",
+                  icon: Building,
+                  highlights: [
+                    "Scaled corporate e-commerce sales from RM100/day to RM100,000/month.",
+                    "Architected and deployed corporate web platform within a 24-hour turnaround.",
+                    "Received Outstanding Performance Award + Allowance Increment."
+                  ],
+                  alignRight: false
+                },
+                {
+                  period: "2023 – Present",
+                  title: "Freelance Software & AI Engineer",
+                  organization: "Independent Consultant",
+                  type: "Client Projects",
+                  badgeColor: "bg-purple-500/10 text-purple-600 border-purple-500/30",
+                  icon: Trophy,
+                  highlights: [
+                    "Designed & shipped O-Iqra Islamic EdTech learning platform.",
+                    "Digitized local business operations for Kuehlicious food ordering system.",
+                    "Integrated LLM agents (GPT-4o, Gemini, Grok) and Vision Transformers for clients."
+                  ],
+                  alignRight: true
+                }
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className={`relative flex flex-col md:flex-row items-center ${
+                      item.alignRight ? 'md:flex-row-reverse' : ''
+                    }`}
+                  >
+                    {/* Timeline Node Point */}
+                    <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-primary shadow-md flex items-center justify-center z-10 text-primary">
+                      <Icon size={18} />
+                    </div>
+
+                    {/* Content Box (Half width on md+) */}
+                    <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${
+                      item.alignRight ? 'md:pr-10 md:text-right' : 'md:pl-10 md:text-left'
+                    }`}>
+                      <div className="bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-card transition-all group">
+                        <div className={`flex items-center gap-2 mb-3 flex-wrap ${
+                          item.alignRight ? 'md:justify-end' : 'md:justify-start'
+                        }`}>
+                          <span className={`px-2.5 py-0.5 text-[11px] font-extrabold uppercase tracking-wider rounded-full border ${item.badgeColor}`}>
+                            {item.type}
+                          </span>
+                          <span className="text-xs font-bold text-muted-foreground">
+                            {item.period}
+                          </span>
+                        </div>
+
+                        <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                          {item.title}
+                        </h3>
+                        <div className="text-sm font-semibold text-primary mb-4">
+                          {item.organization}
+                        </div>
+
+                        <ul className={`space-y-2 text-xs text-muted-foreground leading-relaxed ${
+                          item.alignRight ? 'md:text-right' : 'md:text-left'
+                        }`}>
+                          {item.highlights.map((h, hIdx) => (
+                            <li key={hIdx} className="flex items-start gap-2">
+                              <span className="text-accent mt-0.5 shrink-0">•</span>
+                              <span>{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="text-center mt-14">
+            <Link
+              to="/experience"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-tint text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all shadow-sm"
+            >
+              <span>View Full Interactive Experience Breakdown</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
           FEATURED PROJECTS TEASER
       ============================================================ */}
       <section className="py-24 bg-background">
