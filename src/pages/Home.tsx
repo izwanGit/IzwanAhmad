@@ -216,66 +216,54 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          PETRONAS SHOWCASE
+          PETRONAS SUMMARY TEASER
       ============================================================ */}
       <section
-        className="py-24 relative overflow-hidden"
+        className="py-20 relative overflow-hidden"
         style={{ background: '#00B1A9' }}
       >
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          {/* Header with PETRONAS logo */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col md:flex-row md:items-center gap-6 mb-16"
-          >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div className="flex-1">
-              <div className="text-[13px] font-extrabold uppercase tracking-widest text-white/60 mb-3 flex items-center gap-2">
+              <div className="text-[13px] font-extrabold uppercase tracking-widest text-white/70 mb-3 flex items-center gap-2">
                 <Building size={14} />
                 Corporate Experience
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 PETRONAS Digital
               </h2>
-              <p className="text-white/75 max-w-xl leading-relaxed">
-                Software Engineer Intern at the Human Capital Solution Management team, supporting myCareerX (Oracle HCM Cloud) for 50,000+ employees across Malaysia.
+              <p className="text-white/85 max-w-2xl text-base md:text-lg leading-relaxed mb-6">
+                Software Engineer Intern at Human Capital Solution Management. Architected, solo-built, and deployed 10+ production ITSM RPA platforms serving 50,000+ employees across Malaysia.
               </p>
-            </div>
-            <div className="shrink-0">
-              <img
-                src="https://companieslogo.com/img/orig/5183.KL_BIG.D-a824ccc5.png?t=1720244490"
-                alt="PETRONAS Logo"
-                className="w-24 h-auto object-contain"
-              />
-            </div>
-          </motion.div>
-
-          {/* Stats Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
-            {[
-              { num: '10+', label: 'Production Systems Shipped' },
-              { num: '3mo', label: 'Solo. End-to-End.' },
-              { num: '50k+', label: 'Employees Served' },
-              { num: 'All running', label: 'Post-Departure Autonomously' },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="rounded-xl px-5 py-4 text-center"
-                style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.2)' }}
+              
+              <Link
+                to="/experience"
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-white text-[#00B1A9] rounded-xl font-bold hover:bg-slate-50 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
-                <div className="text-2xl font-black text-white mb-1">{stat.num}</div>
-                <div className="text-xs font-semibold text-white/70">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
+                <span>Explore Full PETRONAS & Corporate Breakdown</span>
+                <ArrowRight size={16} />
+              </Link>
+            </div>
 
-          {/* Interactive 6-Project Story Showcase */}
-          <PetronasShowcase />
+            {/* Quick Stats Grid */}
+            <div className="grid grid-cols-2 gap-4 shrink-0 w-full md:w-auto">
+              {[
+                { num: '10+', label: 'Production Systems' },
+                { num: '3mo', label: 'Solo & End-to-End' },
+                { num: '50k+', label: 'Employees Served' },
+                { num: '100%', label: 'Autonomous Today' },
+              ].map((stat, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl px-5 py-4 text-center min-w-[130px]"
+                  style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.25)' }}
+                >
+                  <div className="text-2xl font-black text-white mb-0.5">{stat.num}</div>
+                  <div className="text-xs font-semibold text-white/80">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
