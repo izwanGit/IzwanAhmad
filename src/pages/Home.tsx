@@ -399,11 +399,6 @@ const Home = () => {
                             >
                               {item.period}
                             </span>
-                            {item.active && (
-                              <span className="px-1.5 py-0.2 text-[9px] font-black rounded-full bg-[#06B6D4]/15 text-[#0E7490]">
-                                NOW
-                              </span>
-                            )}
                           </div>
                           <h3 className="font-bold text-foreground text-xs sm:text-sm mb-0.5 group-hover:text-primary transition-colors leading-snug">
                             {item.title}
