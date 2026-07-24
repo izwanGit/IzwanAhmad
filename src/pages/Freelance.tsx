@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MonitorPlay, Bot, Settings2, CheckCircle2 } from 'lucide-react';
+import { MonitorPlay, Bot, Settings2, CheckCircle2, Globe } from 'lucide-react';
 
 const services = [
   {
@@ -44,10 +44,32 @@ const services = [
   }
 ];
 
+const clientProjects = [
+  {
+    title: "O-Iqra",
+    domain: "Islamic EdTech & Learning Platform",
+    category: "EdTech System",
+    image: "/images/oiqra-laptop.png",
+  },
+  {
+    title: "Mont Switzerland",
+    domain: "montswitzerland.com",
+    category: "Corporate & E-Commerce",
+    image: "/images/montswitzerland-laptop.jpg",
+  },
+  {
+    title: "Kuihlicious",
+    domain: "Digital Food Ordering Platform",
+    category: "Full-Stack Web System",
+    image: "/images/kuehlicious-laptop.jpg",
+  },
+];
+
 const Freelance = () => {
   return (
     <div className="w-full pt-32 pb-24">
       <div className="container mx-auto px-6 max-w-7xl">
+        {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,7 +86,8 @@ const Freelance = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mt-12">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mt-12 mb-24">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
@@ -97,6 +120,70 @@ const Freelance = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Client Website Laptop Showcase */}
+        <section className="pt-16 border-t border-border">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <div className="text-[13px] font-extrabold uppercase tracking-widest text-accent mb-3 flex items-center justify-center gap-2">
+              <Globe size={14} />
+              Client Showcase
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Real Client Websites & Platforms
+            </h2>
+            <p className="text-muted-foreground text-base">
+              Custom engineered web applications shipped and live for businesses and institutions.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-10 items-start justify-items-center">
+            {clientProjects.map((client, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col items-center group w-full"
+              >
+                {/* Laptop Frame */}
+                <div className="w-full max-w-[340px] sm:max-w-[380px]">
+                  {/* Laptop Screen */}
+                  <div className="w-full bg-[#1E1E24] rounded-t-2xl p-2 pt-2.5 shadow-2xl relative border border-slate-700/60">
+                    {/* Camera Dot */}
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center">
+                      <div className="w-0.5 h-0.5 rounded-full bg-blue-400" />
+                    </div>
+                    {/* Screen Image */}
+                    <div className="w-full aspect-[16/10] bg-slate-900 rounded-lg overflow-hidden relative group">
+                      <img
+                        src={client.image}
+                        alt={client.title}
+                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                  {/* Laptop Base */}
+                  <div className="w-[106%] -ml-[3%] h-3.5 bg-gradient-to-b from-[#2C2D35] to-[#1A1B22] rounded-b-xl shadow-xl relative border-t border-slate-600/40 flex justify-center items-start">
+                    <div className="w-14 h-1 bg-[#14151B] rounded-b-md border-x border-b border-slate-700/50" />
+                  </div>
+                </div>
+
+                {/* Client Label */}
+                <div className="text-center mt-6">
+                  <div className="text-xs font-bold uppercase tracking-wider text-accent mb-1">{client.category}</div>
+                  <h3 className="text-xl font-bold text-foreground">{client.title}</h3>
+                  <p className="text-sm font-medium text-muted-foreground mt-0.5">{client.domain}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
