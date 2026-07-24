@@ -330,35 +330,40 @@ const Home = () => {
                   period: "Mar 2026 – Present",
                   title: "Freelance Software Engineer",
                   org: "Independent Consultant",
-                  logo: "/images/freelance-logo.jpeg"
+                  logo: "/images/freelance-logo.jpeg",
+                  year: "2026"
                 },
                 {
                   type: "work",
                   period: "Mar 2026 – Jul 2026",
                   title: "Software Engineer Intern",
                   org: "PETRONAS Digital Sdn Bhd",
-                  logo: "/images/petronas-logo.png"
+                  logo: "/images/petronas-logo.png",
+                  year: "2026"
                 },
                 {
                   type: "study",
                   period: "Mar 2024 – Aug 2026",
                   title: "Bachelor of Computer Science (Hons)",
                   org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png"
+                  logo: "/images/uitm-logo.png",
+                  year: "2024"
                 },
                 {
                   type: "work",
                   period: "Sep 2023 – Mar 2024",
                   title: "IT Specialist, Digital Marketing And E-Commerce Intern",
                   org: "West Malayan Group",
-                  logo: "/images/wmg-logo.png"
+                  logo: "/images/wmg-logo.png",
+                  year: "2023"
                 },
                 {
                   type: "study",
                   period: "Oct 2021 – Mar 2024",
                   title: "Diploma in Computer Science",
                   org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png"
+                  logo: "/images/uitm-logo.png",
+                  year: "2021"
                 }
               ].map((item, idx) => {
                 const isWork = item.type === "work";
@@ -373,14 +378,16 @@ const Home = () => {
                       isWork ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    {/* Uniform Solid Node Dot strictly using #06B6D4 */}
-                    <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 z-10 w-3.5 h-3.5 rounded-full bg-[#06B6D4] border-2 border-white shadow-xs" />
+                    {/* Sleek Year Node Badge on the central timeline line */}
+                    <div className="absolute left-[16px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 px-2 py-0.5 rounded-full bg-white border border-[#06B6D4] text-[#06B6D4] text-[10px] font-black shadow-2xs whitespace-nowrap">
+                      {item.year}
+                    </div>
 
                     {/* Empty spacer for opposite side on desktop */}
                     <div className="hidden md:block w-[45%]" />
 
                     {/* Content Card — Compact & Sleek */}
-                    <div className="w-full md:w-[45%] pl-8 md:pl-0">
+                    <div className="w-full md:w-[45%] pl-11 md:pl-0">
                       <div className="group flex items-center gap-3 p-3 bg-white border border-border rounded-lg shadow-xs hover:shadow-sm transition-all">
                         {/* Free-floating logo */}
                         {item.logo && (
