@@ -288,79 +288,87 @@ const Home = () => {
             {/* Center Bar for Desktop */}
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2 hidden md:block" />
             {/* Left Bar for Mobile */}
-            <div className="absolute left-[21px] top-0 bottom-0 w-0.5 bg-primary/20 md:hidden" />
+            <div className="absolute left-[17px] top-0 bottom-0 w-0.5 bg-primary/20 md:hidden" />
 
-            <div className="space-y-8 md:space-y-12">
+            <div className="space-y-6 md:space-y-8">
               {[
                 {
                   type: "study",
                   period: "2025 – Present",
                   title: "Bachelor of Computer Science (Hons)",
-                  org: "Universiti Teknologi MARA (UiTM)"
+                  org: "Universiti Teknologi MARA (UiTM)",
+                  desc: "Currently in 4th semester. Actively seeking Software Engineering & AI internship/role opportunities."
+                },
+                {
+                  type: "work",
+                  period: "2025 – Present",
+                  title: "Freelance Software & AI Engineer",
+                  org: "Independent Consultant",
+                  desc: "Building live client systems and integrating LLM AI agents."
                 },
                 {
                   type: "work",
                   period: "Nov 2024 – Feb 2025",
                   title: "Software Engineer Intern",
-                  org: "PETRONAS Digital"
+                  org: "PETRONAS Digital",
+                  desc: "Shipped 10+ autonomous RPA platforms serving 50,000+ employees."
                 },
                 {
                   type: "study",
                   period: "May 2025",
                   title: "Diploma in Computer Science",
-                  org: "Universiti Teknologi MARA (UiTM)"
+                  org: "Universiti Teknologi MARA (UiTM)",
+                  desc: "3.9+ CGPA. Vice Chancellor's Award & Best System Architecture Award."
                 },
                 {
                   type: "work",
                   period: "Sept 2023 – Mar 2024",
                   title: "IT Specialist Intern",
-                  org: "West Malayan Group"
-                },
-                {
-                  type: "work",
-                  period: "2023 – Present",
-                  title: "Freelance Software & AI Engineer",
-                  org: "Independent Consultant"
+                  org: "West Malayan Group",
+                  desc: "Scaled corporate digital sales to RM100,000/month."
                 }
               ].map((item, idx) => {
                 const isWork = item.type === "work";
                 return (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
+                    transition={{ delay: idx * 0.05 }}
                     className={`relative flex flex-col md:flex-row items-center justify-between ${
                       isWork ? "md:flex-row-reverse" : ""
                     }`}
                   >
                     {/* Timeline Node Dot */}
-                    <div className="absolute left-[21px] md:left-1/2 w-4 h-4 rounded-full border-2 border-primary bg-background md:-translate-x-1/2 z-10 shadow-sm" />
+                    <div className="absolute left-[17px] md:left-1/2 w-3.5 h-3.5 rounded-full border-2 border-primary bg-background md:-translate-x-1/2 z-10 shadow-sm" />
 
                     {/* Empty spacer for opposite side on desktop */}
                     <div className="hidden md:block w-[45%]" />
 
                     {/* Content Card */}
-                    <div className="w-full md:w-[45%] pl-12 md:pl-0">
+                    <div className="w-full md:w-[45%] pl-10 md:pl-0">
                       <div
-                        className={`p-5 bg-white border border-border rounded-xl shadow-xs hover:shadow-md transition-shadow group ${
+                        className={`p-4 bg-white border border-border rounded-xl shadow-xs hover:shadow-sm transition-shadow group ${
                           isWork ? "md:text-right" : "md:text-left"
                         }`}
                       >
                         <div
-                          className={`text-[11px] font-extrabold uppercase tracking-widest mb-1.5 ${
+                          className={`text-[10px] font-extrabold uppercase tracking-widest mb-1 ${
                             isWork ? "text-primary" : "text-amber-600"
                           }`}
                         >
                           {item.period}
                         </div>
-                        <h3 className="font-bold text-foreground text-lg mb-1 group-hover:text-primary transition-colors">
+                        <h3 className="font-bold text-foreground text-sm sm:text-base mb-0.5 group-hover:text-primary transition-colors">
                           {item.title}
                         </h3>
-                        <div className="text-sm font-medium text-muted-foreground">
+                        <div className="text-xs font-semibold text-muted-foreground mb-1.5">
                           {item.org}
                         </div>
+                        <p className="text-[11px] sm:text-xs text-muted-foreground/80 leading-relaxed">
+                          {item.desc}
+                        </p>
                       </div>
                     </div>
                   </motion.div>
