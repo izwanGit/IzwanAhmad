@@ -268,22 +268,22 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          SIMPLE SIDE-BY-SIDE EXPERIENCE & EDUCATION
+          UNIFIED CAREER & ACADEMIC TIMELINE (SINGLE BAR)
       ============================================================ */}
       <section className="py-20 bg-background border-t border-border">
-        <div className="container mx-auto px-6 max-w-6xl">
+        <div className="container mx-auto px-6 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12"
+            className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14"
           >
             <div>
               <div className="text-[13px] font-extrabold uppercase tracking-widest text-accent mb-2 flex items-center gap-2">
                 <Briefcase size={14} />
-                Background
+                Trajectory
               </div>
-              <h2 className="text-3xl font-bold text-foreground">Experience & Education</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Experience & Education Timeline</h2>
             </div>
             <Link
               to="/experience"
@@ -294,101 +294,103 @@ const Home = () => {
             </Link>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Left Column: Job Experience */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              <div className="flex items-center gap-2 text-primary font-bold text-lg mb-6 pb-2 border-b border-border">
-                <Building size={20} />
-                <span>Job Experience</span>
-              </div>
-
-              {[
-                {
-                  period: "Nov 2024 – Feb 2025",
-                  title: "Software Engineer Intern",
-                  org: "PETRONAS Digital",
-                  desc: "Shipped 10+ autonomous RPA platforms & ITSM automation tools for myCareerX (Oracle HCM Cloud) serving 50,000+ employees.",
-                  tag: "Enterprise RPA"
-                },
-                {
-                  period: "2023 – 2024",
-                  title: "Corporate Web Architect",
-                  org: "West Malayan Group",
-                  desc: "Scaled corporate e-commerce sales from RM100/day to RM100,000/month; deployed web platform under 24-hour turnaround.",
-                  tag: "Web & Growth"
-                },
-                {
-                  period: "2023 – Present",
-                  title: "Freelance Software & AI Engineer",
-                  org: "Independent Consultant",
-                  desc: "Built live client systems (O-Iqra, Mont Switzerland, Kuehlicious) and integrated LLM AI agents.",
-                  tag: "Full-Stack & AI"
-                }
-              ].map((job, idx) => (
-                <div key={idx} className="p-6 bg-white border border-border rounded-2xl shadow-xs hover:shadow-card transition-all group">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground font-semibold mb-2">
-                    <span className="text-primary font-bold">{job.org}</span>
-                    <span>{job.period}</span>
-                  </div>
-                  <h3 className="font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors">
-                    {job.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
-                    {job.desc}
-                  </p>
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded bg-tint text-primary border border-border">
-                    {job.tag}
-                  </span>
+          {/* SINGLE TIMELINE BAR */}
+          <div className="relative pl-6 sm:pl-8 border-l-2 border-primary/40 space-y-10 ml-2 sm:ml-4">
+            {[
+              {
+                period: "2025 – Present",
+                title: "Bachelor of Computer Science (Hons)",
+                org: "Universiti Teknologi MARA (UiTM)",
+                type: "Degree",
+                typeColor: "bg-blue-50 text-blue-700 border-blue-200",
+                desc: "Currently pursuing Bachelor's Degree in Computer Science. JPA Scholar. Consistently achieved Dean's List honors.",
+                tags: ["JPA Scholar", "Dean's List", "Netcentric & AI"]
+              },
+              {
+                period: "Nov 2024 – Feb 2025",
+                title: "Software Engineer Intern (HCSM)",
+                org: "PETRONAS Digital",
+                type: "Work",
+                typeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+                desc: "Shipped 10+ autonomous RPA platforms & ITSM automation tools for myCareerX (Oracle HCM Cloud) serving 50,000+ employees.",
+                tags: ["Streamlit", "Power Automate", "Playwright RPA", "Power BI", "Python"]
+              },
+              {
+                period: "May 2025",
+                title: "Diploma in Computer Science & Vice Chancellor's Award",
+                org: "Universiti Teknologi MARA (UiTM)",
+                type: "Diploma",
+                typeColor: "bg-amber-50 text-amber-700 border-amber-200",
+                desc: "Graduated with 3.9+ CGPA. Awarded prestigious Vice Chancellor's Award (Anugerah Naib Canselor) & Dean's List every semester. Winner of Best System Architecture Award.",
+                tags: ["3.9+ CGPA", "Vice Chancellor Award", "Dean's List Every Sem", "Best FYP Architecture"]
+              },
+              {
+                period: "Sept 2023 – Mar 2024",
+                title: "IT Specialist Intern",
+                org: "West Malayan Group",
+                type: "Work",
+                typeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+                desc: "7-month internship. Architected corporate website under 24-hour turnaround and scaled e-commerce sales from RM100/day to RM100,000/month. Awarded Outstanding Performance + Allowance Increment.",
+                tags: ["Revenue Scaling", "24-Hour Deployment", "Outstanding Performance Award"]
+              },
+              {
+                period: "2023 – Present",
+                title: "Freelance Software & AI Engineer",
+                org: "Independent Consultant",
+                type: "Freelance",
+                typeColor: "bg-purple-50 text-purple-700 border-purple-200",
+                desc: "Engineered client platforms (O-Iqra EdTech, Mont Switzerland, Kuehlicious) and integrated LLM AI agents & Vision Transformers.",
+                tags: ["O-Iqra", "Kuehlicious (Best GUI Winner)", "Batik AI (Best AI Booth Winner)"]
+              }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="relative group"
+              >
+                {/* Single Timeline Node Dot */}
+                <div className="absolute -left-[31px] sm:-left-[39px] top-2 w-4 h-4 rounded-full bg-white border-2 border-primary group-hover:bg-primary group-hover:scale-125 transition-all shadow-xs flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:bg-white" />
                 </div>
-              ))}
-            </motion.div>
 
-            {/* Right Column: Study Experience */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="space-y-4"
-            >
-              <div className="flex items-center gap-2 text-primary font-bold text-lg mb-6 pb-2 border-b border-border">
-                <GraduationCap size={20} />
-                <span>Education & Honors</span>
-              </div>
-
-              <div className="p-6 bg-white border border-border rounded-2xl shadow-xs hover:shadow-card transition-all group">
-                <div className="flex items-center justify-between text-xs text-muted-foreground font-semibold mb-2">
-                  <span className="text-amber-600 font-bold">CGPA 3.9+</span>
-                  <span>2022 – 2025</span>
-                </div>
-                <h3 className="font-bold text-foreground text-lg mb-1 group-hover:text-primary transition-colors">
-                  Diploma in Computer Science
-                </h3>
-                <div className="text-sm font-semibold text-primary mb-3">
-                  Universiti Teknologi MARA (UiTM)
-                </div>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
-                  Graduated with top academic honors. Demonstrated excellence across software engineering, algorithms, and system design.
-                </p>
-                <div className="space-y-2 pt-3 border-t border-border">
-                  {[
-                    "Vice Chancellor's Award (Anugerah Naib Canselor)",
-                    "Dean's List Award (Every Semester)",
-                    "Best System Architecture Award (FYP — Beruang)"
-                  ].map((honor, hIdx) => (
-                    <div key={hIdx} className="flex items-center gap-2 text-xs font-semibold text-foreground">
-                      <Trophy size={14} className="text-amber-500 shrink-0" />
-                      <span>{honor}</span>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-xs hover:shadow-card transition-all">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <span className="text-xs font-semibold text-primary bg-tint px-2.5 py-0.5 rounded-full">
+                        @{item.org}
+                      </span>
                     </div>
-                  ))}
+
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className={`text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded border ${item.typeColor}`}>
+                        {item.type}
+                      </span>
+                      <span className="text-xs font-bold text-muted-foreground whitespace-nowrap">
+                        {item.period}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
+                    {item.desc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.tags.map((t, tIdx) => (
+                      <span key={tIdx} className="text-[11px] font-medium px-2 py-0.5 bg-background text-foreground/80 rounded border border-border">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
