@@ -297,7 +297,6 @@ const Home = () => {
                   period: "2025 – Present",
                   title: "Bachelor of Computer Science (Hons)",
                   org: "Universiti Teknologi MARA (UiTM)",
-                  desc: "Currently in 4th semester. Actively seeking Software Engineering & AI internship/role opportunities.",
                   logo: "/images/uitm-logo.png"
                 },
                 {
@@ -305,7 +304,6 @@ const Home = () => {
                   period: "2025 – Present",
                   title: "Freelance Software & AI Engineer",
                   org: "Independent Consultant",
-                  desc: "Building live client systems and integrating LLM AI agents.",
                   logo: "/images/freelance-logo.jpeg"
                 },
                 {
@@ -313,7 +311,6 @@ const Home = () => {
                   period: "Nov 2024 – Feb 2025",
                   title: "Software Engineer Intern",
                   org: "PETRONAS Digital",
-                  desc: "Shipped 10+ autonomous RPA platforms serving 50,000+ employees.",
                   logo: "/images/petronas-logo.png"
                 },
                 {
@@ -321,7 +318,6 @@ const Home = () => {
                   period: "May 2025",
                   title: "Diploma in Computer Science",
                   org: "Universiti Teknologi MARA (UiTM)",
-                  desc: "3.9+ CGPA. Vice Chancellor's Award & Best System Architecture Award.",
                   logo: "/images/uitm-logo.png"
                 },
                 {
@@ -329,7 +325,6 @@ const Home = () => {
                   period: "Sept 2023 – Mar 2024",
                   title: "IT Specialist Intern",
                   org: "West Malayan Group",
-                  desc: "Scaled corporate digital sales to RM100,000/month.",
                   logo: "/images/wmg-logo.png"
                 }
               ].map((item, idx) => {
@@ -354,10 +349,15 @@ const Home = () => {
                     {/* Content Card */}
                     <div className="w-full md:w-[45%] pl-10 md:pl-0">
                       <div
-                        className={`p-4 bg-white border border-border rounded-xl shadow-xs hover:shadow-sm transition-shadow group ${
-                          isWork ? "md:text-right" : "md:text-left"
+                        className={`p-4 bg-white border border-border rounded-xl shadow-xs hover:shadow-sm transition-shadow group flex flex-col items-start ${
+                          isWork ? "md:items-end md:text-right" : "md:items-start md:text-left"
                         }`}
                       >
+                        {item.logo && (
+                          <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center p-1.5 mb-3 shadow-sm shrink-0">
+                            <img src={item.logo} alt={item.org} className="w-full h-full object-contain" />
+                          </div>
+                        )}
                         <div
                           className={`text-[10px] font-extrabold uppercase tracking-widest mb-1 ${
                             isWork ? "text-primary" : "text-amber-600"
@@ -365,26 +365,12 @@ const Home = () => {
                         >
                           {item.period}
                         </div>
-                        <h3 className="font-bold text-foreground text-sm sm:text-base mb-1.5 group-hover:text-primary transition-colors">
+                        <h3 className="font-bold text-foreground text-sm sm:text-base mb-1 group-hover:text-primary transition-colors">
                           {item.title}
                         </h3>
-                        
-                        <div className={`flex items-center gap-2 mb-2 ${isWork ? "md:justify-end" : ""}`}>
-                          <div className={`flex items-center gap-2 ${isWork ? "md:flex-row-reverse" : ""}`}>
-                            {item.logo && (
-                              <div className="w-5 h-5 rounded overflow-hidden shrink-0 bg-white shadow-sm flex items-center justify-center border border-border">
-                                <img src={item.logo} alt={item.org} className="w-full h-full object-contain" />
-                              </div>
-                            )}
-                            <div className="text-xs font-semibold text-muted-foreground">
-                              {item.org}
-                            </div>
-                          </div>
+                        <div className="text-xs font-semibold text-muted-foreground">
+                          {item.org}
                         </div>
-
-                        <p className="text-[11px] sm:text-xs text-muted-foreground/80 leading-relaxed">
-                          {item.desc}
-                        </p>
                       </div>
                     </div>
                   </motion.div>
