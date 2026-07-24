@@ -293,39 +293,39 @@ const Home = () => {
             <div className="space-y-6 md:space-y-8">
               {[
                 {
+                  type: "work",
+                  period: "Mar 2026 – Present",
+                  title: "Software Engineer Intern",
+                  org: "PETRONAS Digital Sdn Bhd",
+                  logo: "/images/petronas-logo.png"
+                },
+                {
+                  type: "work",
+                  period: "Mar 2026 – Present",
+                  title: "Freelance Software Engineer",
+                  org: "Independent Consultant",
+                  logo: "/images/freelance-logo.jpeg"
+                },
+                {
                   type: "study",
-                  period: "2025 – Present",
+                  period: "Mar 2024 – Aug 2026",
                   title: "Bachelor of Computer Science (Hons)",
                   org: "Universiti Teknologi MARA (UiTM)",
                   logo: "/images/uitm-logo.png"
                 },
                 {
                   type: "work",
-                  period: "2025 – Present",
-                  title: "Freelance Software & AI Engineer",
-                  org: "Independent Consultant",
-                  logo: "/images/freelance-logo.jpeg"
-                },
-                {
-                  type: "work",
-                  period: "Nov 2024 – Feb 2025",
-                  title: "Software Engineer Intern",
-                  org: "PETRONAS Digital",
-                  logo: "/images/petronas-logo.png"
-                },
-                {
-                  type: "study",
-                  period: "May 2025",
-                  title: "Diploma in Computer Science",
-                  org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png"
-                },
-                {
-                  type: "work",
-                  period: "Sept 2023 – Mar 2024",
+                  period: "Sep 2023 – Mar 2024",
                   title: "IT Specialist Intern",
                   org: "West Malayan Group",
                   logo: "/images/wmg-logo.png"
+                },
+                {
+                  type: "study",
+                  period: "Oct 2021 – Mar 2024",
+                  title: "Diploma in Computer Science",
+                  org: "Universiti Teknologi MARA (UiTM)",
+                  logo: "/images/uitm-logo.png"
                 }
               ].map((item, idx) => {
                 const isWork = item.type === "work";
