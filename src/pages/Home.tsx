@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Building, Trophy, GraduationCap, MapPin, Briefcase } from 'lucide-react';
+import { ArrowRight, Building, Trophy, GraduationCap, MapPin, Briefcase, Sparkles, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import HeroShowcase from '../components/HeroShowcase';
@@ -426,67 +426,212 @@ const Home = () => {
       {/* ============================================================
           FEATURED PROJECTS TEASER
       ============================================================ */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="flex justify-between items-end mb-12">
+      <section className="py-24 bg-gradient-to-b from-background via-[#F8FAFC] to-background border-t border-border/60 relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#06B6D4]/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <div className="text-[13px] font-extrabold uppercase tracking-widest text-accent mb-2">Featured Work</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Selected Projects</h2>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#06B6D4]/10 border border-[#06B6D4]/20 text-[#06B6D4] text-[11px] font-black tracking-widest uppercase mb-3">
+                <Sparkles size={12} />
+                Featured Work
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight">
+                Selected Flagship Projects
+              </h2>
+              <p className="text-muted-foreground text-sm sm:text-base mt-2 max-w-xl">
+                High-impact software solutions engineered with robust architecture, AI integration, and enterprise DevSecOps standards.
+              </p>
             </div>
-            <Link to="/projects" className="hidden sm:inline-flex items-center gap-2 font-semibold text-primary hover:text-primary-hover">
-              View all <ArrowRight size={16} />
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-border shadow-xs hover:shadow-md hover:border-[#06B6D4]/50 text-xs font-bold text-foreground hover:text-[#06B6D4] transition-all group"
+            >
+              <span>View All Projects</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
-            {/* Beruang */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Project 1: Beruang */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group cursor-pointer"
+              transition={{ duration: 0.5 }}
+              className="group relative bg-white border border-border/80 rounded-3xl overflow-hidden shadow-xs hover:shadow-xl hover:border-[#06B6D4]/40 transition-all duration-500 flex flex-col justify-between"
             >
-              <div className="w-full aspect-[4/3] bg-white border border-border rounded-2xl mb-6 overflow-hidden shadow-sm group-hover:shadow-hover transition-all">
-                <img
-                  src="/images/beruang-dashboard.jpg"
-                  alt="Beruang App"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <div>
+                {/* Image Container with Hover Scale */}
+                <div className="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
+                  <img
+                    src="/images/beruang-dashboard.jpg"
+                    alt="Beruang AI Money App"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                  {/* Top Floating Badge */}
+                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-amber-200 text-amber-700 text-[11px] font-bold shadow-sm">
+                      <Trophy size={12} className="text-amber-500" />
+                      Best Architecture Award
+                    </span>
+                  </div>
+
+                  {/* Hover Overlay Button */}
+                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                    <Link
+                      to="/projects"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#06B6D4] text-white text-xs font-bold shadow-lg hover:bg-[#0891B2] transition-colors"
+                    >
+                      <span>Explore Case Study</span>
+                      <ArrowUpRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Content Details */}
+                <div className="p-7 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-black uppercase tracking-widest text-[#06B6D4] bg-[#06B6D4]/10 px-2.5 py-0.5 rounded-full border border-[#06B6D4]/20">
+                      AI / Mobile App
+                    </span>
+                    <span className="text-xs font-semibold text-muted-foreground">React Native & PyTorch</span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-foreground group-hover:text-[#06B6D4] transition-colors">
+                    Beruang AI Financial Platform
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    AI-powered money management platform featuring custom Bi-LSTM neural networks (99.61% accuracy) trained on 220k+ Malaysian transaction records. Evaluated at 86.77 System Usability Scale (SUS).
+                  </p>
+
+                  {/* Key Stats Bar */}
+                  <div className="grid grid-cols-3 gap-2 py-3 px-4 bg-[#F8FAFC] border border-border/60 rounded-2xl text-center">
+                    <div>
+                      <div className="text-sm font-black text-foreground">99.61%</div>
+                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">AI Accuracy</div>
+                    </div>
+                    <div className="border-x border-border/60">
+                      <div className="text-sm font-black text-foreground">220k+</div>
+                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Dataset Records</div>
+                    </div>
+                    <div>
+                      <div className="text-sm font-black text-foreground">86.77</div>
+                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">SUS Score</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="px-3 py-1 bg-tint text-primary text-xs font-bold rounded-full border border-border">AI / Mobile</span>
-                <span className="px-3 py-1 bg-[#FFFBEB] text-[#B45309] text-xs font-bold rounded-full border border-[#FCD34D]">Best Architecture Award</span>
+
+              {/* Card Footer Link */}
+              <div className="px-7 pb-6 pt-0">
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#06B6D4] hover:text-[#0891B2] transition-colors group/link"
+                >
+                  <span>Read Full Technical Architecture</span>
+                  <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+                </Link>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Beruang</h3>
-              <p className="text-muted-foreground leading-relaxed">AI-powered money management app with Bi-LSTM (99.61% accuracy) trained on 220k+ Malaysian transactions. 86.77 SUS score.</p>
             </motion.div>
 
-            {/* RentVerse */}
+            {/* Project 2: RentVerse */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group cursor-pointer md:mt-14"
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="group relative bg-white border border-border/80 rounded-3xl overflow-hidden shadow-xs hover:shadow-xl hover:border-[#06B6D4]/40 transition-all duration-500 flex flex-col justify-between"
             >
-              <div className="w-full aspect-[4/3] bg-white border border-border rounded-2xl mb-6 overflow-hidden shadow-sm group-hover:shadow-hover transition-all">
-                <img
-                  src="/images/rentverse.jpeg"
-                  alt="RentVerse"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <div>
+                {/* Image Container with Hover Scale */}
+                <div className="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
+                  <img
+                    src="/images/rentverse.jpeg"
+                    alt="RentVerse Platform"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                  {/* Top Floating Badge */}
+                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-amber-200 text-amber-700 text-[11px] font-bold shadow-sm">
+                      <Trophy size={12} className="text-amber-500" />
+                      Champion — 4 Awards
+                    </span>
+                  </div>
+
+                  {/* Hover Overlay Button */}
+                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                    <Link
+                      to="/projects"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#06B6D4] text-white text-xs font-bold shadow-lg hover:bg-[#0891B2] transition-colors"
+                    >
+                      <span>Explore Case Study</span>
+                      <ArrowUpRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Content Details */}
+                <div className="p-7 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-black uppercase tracking-widest text-[#06B6D4] bg-[#06B6D4]/10 px-2.5 py-0.5 rounded-full border border-[#06B6D4]/20">
+                      Web System / DevSecOps
+                    </span>
+                    <span className="text-xs font-semibold text-muted-foreground">Next.js & Docker & CI/CD</span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-foreground group-hover:text-[#06B6D4] transition-colors">
+                    RentVerse Rental Ecosystem
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Enterprise-grade secure property rental platform equipped with Zero Trust authentication, AI-driven tenant fraud detection, and an automated 14-stage CI/CD DevSecOps security pipeline.
+                  </p>
+
+                  {/* Key Stats Bar */}
+                  <div className="grid grid-cols-3 gap-2 py-3 px-4 bg-[#F8FAFC] border border-border/60 rounded-2xl text-center">
+                    <div>
+                      <div className="text-sm font-black text-foreground">4 Awards</div>
+                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Competition Winner</div>
+                    </div>
+                    <div className="border-x border-border/60">
+                      <div className="text-sm font-black text-foreground">14-Stage</div>
+                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">CI/CD Pipeline</div>
+                    </div>
+                    <div>
+                      <div className="text-sm font-black text-foreground">Zero Trust</div>
+                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Security Auth</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="px-3 py-1 bg-tint text-primary text-xs font-bold rounded-full border border-border">Web / DevSecOps</span>
-                <span className="px-3 py-1 bg-[#FFFBEB] text-[#B45309] text-xs font-bold rounded-full border border-[#FCD34D]">Champion — 4 Awards</span>
+
+              {/* Card Footer Link */}
+              <div className="px-7 pb-6 pt-0">
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#06B6D4] hover:text-[#0891B2] transition-colors group/link"
+                >
+                  <span>Read Full Technical Architecture</span>
+                  <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+                </Link>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">RentVerse</h3>
-              <p className="text-muted-foreground leading-relaxed">Enterprise-grade secure rental platform. Zero Trust Auth, AI fraud detection, 14-stage CI/CD DevSecOps pipeline.</p>
             </motion.div>
           </div>
 
-          <div className="mt-10 sm:hidden flex justify-center">
-            <Link to="/projects" className="inline-flex items-center gap-2 font-semibold text-primary">
-              View all projects <ArrowRight size={16} />
+          <div className="mt-12 text-center sm:hidden">
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#06B6D4] text-white text-xs font-bold shadow-md"
+            >
+              <span>View All Projects</span>
+              <ArrowRight size={14} />
             </Link>
           </div>
         </div>
