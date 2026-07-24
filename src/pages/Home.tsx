@@ -268,184 +268,219 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          CENTRAL TIMELINE (WORK ON LEFT, STUDY ON RIGHT)
+          PROPORTIONAL GANTT TIMELINE (WORK LEFT, EDUCATION RIGHT)
       ============================================================ */}
-      <section className="py-16 bg-background border-t border-border">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <section className="py-20 bg-background border-t border-border overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <div className="text-[12px] font-extrabold uppercase tracking-widest text-accent mb-1.5">
+            <div className="text-[12px] font-extrabold uppercase tracking-widest text-[#06B6D4] mb-1.5">
               Trajectory
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Experience & Education</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Experience & Education Timeline</h2>
           </motion.div>
 
-          {/* Column labels */}
-          <div className="hidden md:flex justify-between mb-6 px-2">
-            <div className="w-[45%] flex items-center gap-2">
-              <Building size={14} className="text-[#06B6D4]" />
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#06B6D4]">Work Experience</span>
-            </div>
-            <div className="w-[45%] flex items-center justify-end gap-2">
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#06B6D4]">Education</span>
-              <GraduationCap size={14} className="text-[#06B6D4]" />
-            </div>
+          {/* DESKTOP PROPORTIONAL GANTT TIMELINE */}
+          <div className="hidden md:block relative h-[860px] max-w-4xl mx-auto">
+            {/* Center Vertical Timeline Bar */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-[1px] bg-border" />
+
+            {/* Centered Year Markers on the Line (2027 down to 2021) */}
+            {[
+              { year: "2027", top: 0 },
+              { year: "2026", top: 136 },
+              { year: "2025", top: 272 },
+              { year: "2024", top: 408 },
+              { year: "2023", top: 544 },
+              { year: "2022", top: 680 },
+              { year: "2021", top: 816 }
+            ].map((m, i) => (
+              <div
+                key={i}
+                className="absolute left-1/2 -translate-x-1/2 text-xs font-bold text-muted-foreground/60 bg-background px-1.5 py-0.5 rounded z-20 border border-border/40"
+                style={{ top: `${m.top}px` }}
+              >
+                {m.year}
+              </div>
+            ))}
+
+            {/* RIGHT SIDE: EDUCATION BLOCKS (PHYSICALLY STRETCHED) */}
+            {/* 1. Bachelor of Computer Science (Mar 2024 - Aug 2026) */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="absolute right-0 w-[45%] p-5 rounded-2xl bg-[#D93876] text-white shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow group"
+              style={{ top: "48px", height: "360px" }}
+            >
+              <div>
+                <div className="text-xs font-bold text-white/80 uppercase tracking-wider mb-1">
+                  Mar 2024 – Aug 2026 • Degree
+                </div>
+                <h3 className="font-extrabold text-lg sm:text-xl text-white mb-1 group-hover:underline">
+                  Computer Science (Hons)
+                </h3>
+                <div className="text-sm font-semibold text-white/90">
+                  Universiti Teknologi MARA (UiTM)
+                </div>
+              </div>
+              <div className="text-xs font-medium text-white/75 border-t border-white/20 pt-3 flex items-center justify-between">
+                <span>Degree Undergraduate</span>
+                <span>2.5 Years</span>
+              </div>
+            </motion.div>
+
+            {/* 2. Diploma in Computer Science (Oct 2021 - Mar 2024) */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="absolute right-0 w-[45%] p-5 rounded-2xl bg-[#8E44AD] text-white shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow group"
+              style={{ top: "408px", height: "408px" }}
+            >
+              <div>
+                <div className="text-xs font-bold text-white/80 uppercase tracking-wider mb-1">
+                  Oct 2021 – Mar 2024 • Diploma
+                </div>
+                <h3 className="font-extrabold text-lg sm:text-xl text-white mb-1 group-hover:underline">
+                  Computer Science (Diploma)
+                </h3>
+                <div className="text-sm font-semibold text-white/90">
+                  Universiti Teknologi MARA (UiTM)
+                </div>
+              </div>
+              <div className="text-xs font-medium text-white/75 border-t border-white/20 pt-3 flex items-center justify-between">
+                <span>3.9+ CGPA • Vice Chancellor's Award</span>
+                <span>2.5 Years</span>
+              </div>
+            </motion.div>
+
+            {/* LEFT SIDE: WORK BLOCKS (PHYSICALLY POSITIONED & STRETCHED) */}
+            {/* 1. Freelance Software Engineer (Mar 2026 - Present) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="absolute left-0 w-[22%] p-3.5 rounded-xl bg-[#27AE60] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
+              style={{ top: "34px", height: "85px" }}
+            >
+              <div>
+                <h4 className="font-bold text-xs sm:text-sm text-white group-hover:underline leading-tight truncate">
+                  Freelance Engineer
+                </h4>
+                <div className="text-[10px] text-white/80 truncate">Independent</div>
+              </div>
+              <div className="text-[9px] font-bold text-white/90">Mar 2026 – Present</div>
+            </motion.div>
+
+            {/* 2. PETRONAS Software Engineer Intern (Mar 2026 - Jul 2026) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="absolute left-[24%] w-[21%] p-3.5 rounded-xl bg-[#C0392B] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
+              style={{ top: "52px", height: "68px" }}
+            >
+              <div>
+                <h4 className="font-bold text-xs sm:text-sm text-white group-hover:underline leading-tight truncate">
+                  Software Engineer Intern
+                </h4>
+                <div className="text-[10px] text-white/80 truncate">PETRONAS Digital</div>
+              </div>
+              <div className="text-[9px] font-bold text-white/90">Mar – Jul 2026</div>
+            </motion.div>
+
+            {/* 3. Service Crew (Aug 2023 - Oct 2025) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="absolute left-0 w-[22%] p-4 rounded-xl bg-[#5D6D7E] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
+              style={{ top: "163px", height: "295px" }}
+            >
+              <div>
+                <div className="text-[10px] font-bold text-white/80 uppercase mb-1">Part-Time</div>
+                <h3 className="font-bold text-sm sm:text-base text-white mb-1 group-hover:underline">
+                  Service Crew
+                </h3>
+                <div className="text-xs text-white/85">Yasmeen Arau Sdn. Bhd</div>
+              </div>
+              <div className="text-[10px] font-medium text-white/75 border-t border-white/20 pt-2">
+                Aug 2023 – Oct 2025 (2 yrs 3 mos)
+              </div>
+            </motion.div>
+
+            {/* 4. IT Specialist Intern (Sep 2023 - Mar 2024) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="absolute left-[24%] w-[21%] p-3.5 rounded-xl bg-[#16A085] text-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
+              style={{ top: "395px", height: "80px" }}
+            >
+              <div>
+                <h4 className="font-bold text-xs text-white group-hover:underline leading-tight truncate">
+                  IT Specialist Intern
+                </h4>
+                <div className="text-[10px] text-white/80 truncate">West Malayan Group</div>
+              </div>
+              <div className="text-[9px] font-bold text-white/90">Sep 2023 – Mar 2024</div>
+            </motion.div>
           </div>
 
-          <div className="relative pt-6">
-            {/* Center Bar for Desktop — 2px line perfectly centered */}
-            <div className="absolute left-1/2 top-7 bottom-0 w-[2px] -translate-x-[1px] hidden md:block bg-gradient-to-b from-[#06B6D4] via-[#06B6D4]/50 to-transparent opacity-50" />
-            
-            {/* NOW Badge + Arrowhead pointing UP at top of bar (Desktop) */}
-            <div className="absolute left-1/2 top-0 -translate-x-1/2 hidden md:flex flex-col items-center z-10">
-              <span className="text-[10px] font-black tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-[#06B6D4]/15 text-[#06B6D4] border border-[#06B6D4]/30 shadow-2xs mb-1">
-                NOW
-              </span>
-              <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
-                <path d="M5 0L10 7H0L5 0Z" fill="#06B6D4" fillOpacity="0.9"/>
-              </svg>
-            </div>
-
-            {/* Left Bar for Mobile */}
-            <div className="absolute left-[16px] top-7 bottom-0 w-[2px] -translate-x-[1px] md:hidden bg-gradient-to-b from-[#06B6D4] to-transparent opacity-50" />
-            
-            {/* NOW Badge + Arrowhead pointing UP at top of bar (Mobile) */}
-            <div className="absolute left-[16px] top-0 -translate-x-1/2 md:hidden flex flex-col items-center z-10">
-              <span className="text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded-full bg-[#06B6D4]/15 text-[#06B6D4] border border-[#06B6D4]/30 shadow-2xs mb-1">
-                NOW
-              </span>
-              <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
-                <path d="M5 0L10 7H0L5 0Z" fill="#06B6D4" fillOpacity="0.9"/>
-              </svg>
-            </div>
-
-            <div className="space-y-4 md:space-y-5 pt-3 pb-4">
-              {[
-                {
-                  type: "work",
-                  period: "Mar 2026 – Present",
-                  title: "Freelance Software Engineer",
-                  org: "Independent Consultant",
-                  logo: "/images/freelance-logo.jpeg",
-                  range: "2026 – Present",
-                  startLabel: "Mar 2026",
-                  endLabel: "Present",
-                  duration: "Ongoing"
-                },
-                {
-                  type: "work",
-                  period: "Mar 2026 – Jul 2026",
-                  title: "Software Engineer Intern",
-                  org: "PETRONAS Digital Sdn Bhd",
-                  logo: "/images/petronas-logo.png",
-                  range: "Mar – Jul 2026",
-                  startLabel: "Mar 2026",
-                  endLabel: "Jul 2026",
-                  duration: "5 Months"
-                },
-                {
-                  type: "study",
-                  period: "Mar 2024 – Aug 2026",
-                  title: "Bachelor of Computer Science (Hons)",
-                  org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png",
-                  range: "2024 – 2026",
-                  startLabel: "Mar 2024",
-                  endLabel: "Aug 2026",
-                  duration: "2.5 Years"
-                },
-                {
-                  type: "work",
-                  period: "Sep 2023 – Mar 2024",
-                  title: "IT Specialist, Digital Marketing And E-Commerce Intern",
-                  org: "West Malayan Group",
-                  logo: "/images/wmg-logo.png",
-                  range: "2023 – 2024",
-                  startLabel: "Sep 2023",
-                  endLabel: "Mar 2024",
-                  duration: "7 Months"
-                },
-                {
-                  type: "study",
-                  period: "Oct 2021 – Mar 2024",
-                  title: "Diploma in Computer Science",
-                  org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png",
-                  range: "2021 – 2024",
-                  startLabel: "Oct 2021",
-                  endLabel: "Mar 2024",
-                  duration: "2.5 Years"
-                }
-              ].map((item, idx) => {
-                const isWork = item.type === "work";
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.05 }}
-                    className={`relative flex flex-col md:flex-row items-center justify-between min-h-[92px] ${
-                      isWork ? "md:flex-row-reverse" : ""
-                    }`}
-                  >
-                    {/* Range Node Badge on the central timeline line */}
-                    <div className="absolute left-[16px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 px-2 py-0.5 rounded-full bg-white border border-[#06B6D4] text-[#06B6D4] text-[9px] font-black shadow-2xs whitespace-nowrap">
-                      {item.range}
-                    </div>
-
-                    {/* Empty spacer for opposite side on desktop */}
-                    <div className="hidden md:block w-[45%]" />
-
-                    {/* Content Card — Compact & Sleek with Visual Span Drag Bar */}
-                    <div className="w-full md:w-[45%] pl-12 md:pl-0">
-                      <div className="group p-3.5 bg-white border border-border rounded-lg shadow-xs hover:shadow-sm transition-all space-y-2">
-                        <div className="flex items-center gap-3">
-                          {/* Free-floating logo */}
-                          {item.logo && (
-                            <img
-                              src={item.logo}
-                              alt={item.org}
-                              className="w-10 h-10 object-contain shrink-0 drop-shadow-xs"
-                            />
-                          )}
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-bold text-foreground text-xs sm:text-sm group-hover:text-[#06B6D4] transition-colors leading-snug">
-                              {item.title}
-                            </h3>
-                            <div className="text-[11px] font-medium text-muted-foreground truncate">
-                              {item.org}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Range Drag/Span Bar inside Card */}
-                        <div className="pt-1.5 border-t border-border/50">
-                          <div className="flex items-center justify-between text-[10px] font-extrabold text-[#06B6D4] mb-1">
-                            <span>{item.startLabel}</span>
-                            <span className="text-[9px] font-semibold text-muted-foreground bg-[#F5F9FA] px-1.5 py-0.2 rounded border border-border">
-                              {item.duration}
-                            </span>
-                            <span>{item.endLabel}</span>
-                          </div>
-                          {/* Visual Range Drag Bar */}
-                          <div className="relative w-full h-1.5 bg-[#F5F9FA] rounded-full overflow-hidden border border-border/40">
-                            <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-r from-[#06B6D4] to-[#0E7490] rounded-full" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+          {/* MOBILE RESPONSIVE TIMELINE */}
+          <div className="md:hidden space-y-4">
+            {[
+              {
+                title: "Freelance Software Engineer",
+                org: "Independent Consultant",
+                period: "Mar 2026 – Present",
+                color: "bg-[#27AE60]"
+              },
+              {
+                title: "Software Engineer Intern",
+                org: "PETRONAS Digital Sdn Bhd",
+                period: "Mar 2026 – Jul 2026",
+                color: "bg-[#C0392B]"
+              },
+              {
+                title: "Computer Science (Hons)",
+                org: "Universiti Teknologi MARA (UiTM)",
+                period: "Mar 2024 – Aug 2026 • 2.5 Years Degree",
+                color: "bg-[#D93876]"
+              },
+              {
+                title: "Service Crew",
+                org: "Yasmeen Arau Sdn. Bhd",
+                period: "Aug 2023 – Oct 2025 • 2 Yrs 3 Mos",
+                color: "bg-[#5D6D7E]"
+              },
+              {
+                title: "IT Specialist Intern",
+                org: "West Malayan Group",
+                period: "Sep 2023 – Mar 2024",
+                color: "bg-[#16A085]"
+              },
+              {
+                title: "Computer Science (Diploma)",
+                org: "Universiti Teknologi MARA (UiTM)",
+                period: "Oct 2021 – Mar 2024 • 2.5 Years Diploma",
+                color: "bg-[#8E44AD]"
+              }
+            ].map((item, i) => (
+              <div key={i} className={`p-4 rounded-xl text-white shadow-sm ${item.color}`}>
+                <div className="text-[10px] font-bold text-white/80 uppercase mb-1">{item.period}</div>
+                <h3 className="font-bold text-base text-white mb-0.5">{item.title}</h3>
+                <div className="text-xs text-white/90">{item.org}</div>
+              </div>
+            ))}
           </div>
 
-          <div className="mt-8 flex justify-center">
+          <div className="mt-12 flex justify-center">
             <Link
               to="/experience"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover transition-colors"
