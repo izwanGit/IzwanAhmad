@@ -297,31 +297,31 @@ const Home = () => {
           </div>
 
           <div className="relative">
-            {/* Center Bar for Desktop — with arrowhead at bottom */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 hidden md:block" style={{ background: 'linear-gradient(to bottom, #0E7490, #06B6D4aa, transparent)' }} />
-            {/* Arrowhead at bottom of bar */}
-            <div className="absolute left-1/2 bottom-0 -translate-x-1/2 hidden md:flex flex-col items-center z-10">
+            {/* Center Bar for Desktop — with upward arrowhead at top */}
+            <div className="absolute left-1/2 top-2 bottom-0 w-0.5 -translate-x-1/2 hidden md:block" style={{ background: 'linear-gradient(to top, transparent, #06B6D4aa 30%, #0E7490)' }} />
+            {/* Arrowhead pointing UP at top of bar */}
+            <div className="absolute left-1/2 top-0 -translate-x-1/2 hidden md:flex flex-col items-center z-10">
               <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M6 8L0 0H12L6 8Z" fill="#0E7490" fillOpacity="0.5"/>
+                <path d="M6 0L12 8H0L6 0Z" fill="#0E7490" fillOpacity="0.8"/>
               </svg>
             </div>
             {/* Left Bar for Mobile */}
-            <div className="absolute left-[17px] top-0 bottom-8 w-0.5 md:hidden" style={{ background: 'linear-gradient(to bottom, #0E7490, transparent)' }} />
-            <div className="absolute left-[17px] bottom-0 -translate-x-1/2 md:hidden">
+            <div className="absolute left-[17px] top-2 bottom-0 w-0.5 md:hidden" style={{ background: 'linear-gradient(to top, transparent, #0E7490)' }} />
+            <div className="absolute left-[17px] top-0 -translate-x-1/2 md:hidden">
               <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M6 8L0 0H12L6 8Z" fill="#0E7490" fillOpacity="0.5"/>
+                <path d="M6 0L12 8H0L6 0Z" fill="#0E7490" fillOpacity="0.8"/>
               </svg>
             </div>
 
-            <div className="space-y-6 md:space-y-8 pb-6">
+            <div className="space-y-6 md:space-y-8 pt-4 pb-6">
               {[
                 {
                   type: "work",
-                  period: "Mar 2026 – Present",
+                  period: "Mar 2026 – Jul 2026",
                   title: "Software Engineer Intern",
                   org: "PETRONAS Digital Sdn Bhd",
                   logo: "/images/petronas-logo.png",
-                  active: true
+                  active: false
                 },
                 {
                   type: "work",
