@@ -287,39 +287,39 @@ const Home = () => {
           {/* Column labels */}
           <div className="hidden md:flex justify-between mb-6 px-2">
             <div className="w-[45%] flex items-center gap-2">
-              <Building size={14} className="text-primary" />
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary">Work Experience</span>
+              <Building size={14} className="text-[#06B6D4]" />
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#06B6D4]">Work Experience</span>
             </div>
             <div className="w-[45%] flex items-center justify-end gap-2">
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent">Education</span>
-              <GraduationCap size={14} className="text-accent" />
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#06B6D4]">Education</span>
+              <GraduationCap size={14} className="text-[#06B6D4]" />
             </div>
           </div>
 
           <div className="relative pt-6">
             {/* Center Bar for Desktop — 2px line perfectly centered */}
-            <div className="absolute left-1/2 top-7 bottom-0 w-[2px] -translate-x-[1px] hidden md:block bg-gradient-to-b from-[#0E7490] via-[#06B6D4] to-transparent opacity-40" />
+            <div className="absolute left-1/2 top-7 bottom-0 w-[2px] -translate-x-[1px] hidden md:block bg-gradient-to-b from-[#06B6D4] via-[#06B6D4]/50 to-transparent opacity-50" />
             
             {/* NOW Badge + Arrowhead pointing UP at top of bar (Desktop) */}
             <div className="absolute left-1/2 top-0 -translate-x-1/2 hidden md:flex flex-col items-center z-10">
-              <span className="text-[10px] font-black tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-[#06B6D4]/20 text-[#0E7490] border border-[#06B6D4]/30 shadow-2xs mb-1">
+              <span className="text-[10px] font-black tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-[#06B6D4]/15 text-[#06B6D4] border border-[#06B6D4]/30 shadow-2xs mb-1">
                 NOW
               </span>
               <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
-                <path d="M5 0L10 7H0L5 0Z" fill="#0E7490" fillOpacity="0.9"/>
+                <path d="M5 0L10 7H0L5 0Z" fill="#06B6D4" fillOpacity="0.9"/>
               </svg>
             </div>
 
             {/* Left Bar for Mobile */}
-            <div className="absolute left-[16px] top-7 bottom-0 w-[2px] -translate-x-[1px] md:hidden bg-gradient-to-b from-[#0E7490] to-transparent opacity-40" />
+            <div className="absolute left-[16px] top-7 bottom-0 w-[2px] -translate-x-[1px] md:hidden bg-gradient-to-b from-[#06B6D4] to-transparent opacity-50" />
             
             {/* NOW Badge + Arrowhead pointing UP at top of bar (Mobile) */}
             <div className="absolute left-[16px] top-0 -translate-x-1/2 md:hidden flex flex-col items-center z-10">
-              <span className="text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded-full bg-[#06B6D4]/20 text-[#0E7490] border border-[#06B6D4]/30 shadow-2xs mb-1">
+              <span className="text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded-full bg-[#06B6D4]/15 text-[#06B6D4] border border-[#06B6D4]/30 shadow-2xs mb-1">
                 NOW
               </span>
               <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
-                <path d="M5 0L10 7H0L5 0Z" fill="#0E7490" fillOpacity="0.9"/>
+                <path d="M5 0L10 7H0L5 0Z" fill="#06B6D4" fillOpacity="0.9"/>
               </svg>
             </div>
 
@@ -373,8 +373,8 @@ const Home = () => {
                       isWork ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    {/* Perfectly Centered Node Dot — top-1/2 -translate-y-1/2 guarantees 100% equal vertical distance */}
-                    <div className="absolute left-[16px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-3.5 h-3.5 rounded-full bg-[#0E7490] border-2 border-white shadow-xs" />
+                    {/* Uniform Solid Node Dot strictly using #06B6D4 */}
+                    <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 z-10 w-3.5 h-3.5 rounded-full bg-[#06B6D4] border-2 border-white shadow-xs" />
 
                     {/* Empty spacer for opposite side on desktop */}
                     <div className="hidden md:block w-[45%]" />
@@ -392,15 +392,11 @@ const Home = () => {
                         )}
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-0.5">
-                            <span
-                              className={`text-[10px] font-extrabold uppercase tracking-wider ${
-                                isWork ? "text-primary" : "text-accent"
-                              }`}
-                            >
+                            <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#06B6D4]">
                               {item.period}
                             </span>
                           </div>
-                          <h3 className="font-bold text-foreground text-xs sm:text-sm mb-0.5 group-hover:text-primary transition-colors leading-snug">
+                          <h3 className="font-bold text-foreground text-xs sm:text-sm mb-0.5 group-hover:text-[#06B6D4] transition-colors leading-snug">
                             {item.title}
                           </h3>
                           <div className="text-[11px] font-medium text-muted-foreground truncate">
