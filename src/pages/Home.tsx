@@ -323,7 +323,7 @@ const Home = () => {
               </svg>
             </div>
 
-            <div className="space-y-4 md:space-y-5 pt-3 pb-4">
+            <div className="space-y-4 md:space-y-4 pt-3 pb-4">
               {[
                 {
                   type: "work",
@@ -369,12 +369,12 @@ const Home = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.05 }}
-                    className={`relative flex flex-col md:flex-row items-center justify-between ${
+                    className={`relative flex flex-col md:flex-row items-center justify-between min-h-[84px] ${
                       isWork ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    {/* Uniform Solid Filled Node Dot — centered precisely on 2px line */}
-                    <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 z-10 w-3.5 h-3.5 rounded-full bg-[#0E7490] border-2 border-white shadow-xs" />
+                    {/* Perfectly Centered Node Dot — top-1/2 -translate-y-1/2 guarantees 100% equal vertical distance */}
+                    <div className="absolute left-[16px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-3.5 h-3.5 rounded-full bg-[#0E7490] border-2 border-white shadow-xs" />
 
                     {/* Empty spacer for opposite side on desktop */}
                     <div className="hidden md:block w-[45%]" />
