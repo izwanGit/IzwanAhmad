@@ -35,25 +35,67 @@ export const LaptopFrame = ({ src, title, tag }: { src: string; title: string; t
   );
 };
 
-// Android / Google Pixel Frame Component
-export const PhoneFrame = ({ src, title, tag }: { src: string; title: string; tag: string }) => {
+// Phone Frame Component (renders iPhone or Android dynamically)
+export const PhoneFrame = ({
+  src,
+  title,
+  tag,
+  variant = 'iphone',
+}: {
+  src: string;
+  title: string;
+  tag: string;
+  variant?: 'iphone' | 'android';
+}) => {
+  const isAndroid = variant === 'android';
+
   return (
     <div className="w-[200px] sm:w-[240px] flex flex-col items-center">
-      {/* Phone Outer Shell (Pixel Style) */}
-      <div className="w-full bg-[#1A1B22] rounded-[36px] p-2.5 shadow-2xl border-2 border-slate-700/80 relative">
-        {/* Pixel style side buttons (all on the right side: Power above Volume) */}
-        <div className="absolute -right-[4px] top-20 w-[2px] h-7 bg-slate-600 rounded-r" />
-        <div className="absolute -right-[4px] top-30 w-[2px] h-14 bg-slate-600 rounded-r" />
+      {/* Phone Outer Shell */}
+      <div
+        className={`w-full bg-[#1A1B22] shadow-2xl border-2 border-slate-700/80 relative transition-all duration-300 ${
+          isAndroid ? 'rounded-[36px] p-2.5' : 'rounded-[38px] p-3'
+        }`}
+      >
+        {/* Buttons */}
+        {isAndroid ? (
+          <>
+            {/* Pixel style side buttons (all on the right side: Power above Volume) */}
+            <div className="absolute -right-[4px] top-20 w-[2px] h-7 bg-slate-600 rounded-r" />
+            <div className="absolute -right-[4px] top-30 w-[2px] h-14 bg-slate-600 rounded-r" />
+          </>
+        ) : (
+          <>
+            {/* iPhone side buttons */}
+            <div className="absolute -left-[4px] top-20 w-[2px] h-8 bg-slate-600 rounded-l" />
+            <div className="absolute -left-[4px] top-32 w-[2px] h-8 bg-slate-600 rounded-l" />
+            <div className="absolute -right-[4px] top-24 w-[2px] h-12 bg-slate-600 rounded-r" />
+          </>
+        )}
 
         {/* Screen Container */}
-        <div className="w-full aspect-[9/19.5] bg-slate-950 rounded-[28px] overflow-hidden relative border border-slate-800">
-          {/* Top Speaker Slit */}
-          <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-[#09090b] rounded-full z-20" />
-
-          {/* Camera Punch-hole */}
-          <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-black border border-slate-900 rounded-full z-20 flex items-center justify-center">
-            <div className="w-1 h-1 rounded-full bg-[#1e293b]" />
-          </div>
+        <div
+          className={`w-full aspect-[9/19.5] bg-slate-950 overflow-hidden relative border border-slate-800 transition-all duration-300 ${
+            isAndroid ? 'rounded-[28px]' : 'rounded-[30px]'
+          }`}
+        >
+          {isAndroid ? (
+            <>
+              {/* Top Speaker Slit */}
+              <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-[#09090b] rounded-full z-20" />
+              {/* Camera Punch-hole */}
+              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-black border border-slate-900 rounded-full z-20 flex items-center justify-center">
+                <div className="w-1 h-1 rounded-full bg-[#1e293b]" />
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Dynamic Island Notch */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-black rounded-full z-20 flex items-center justify-end px-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#0E7490]/80 animate-pulse" />
+              </div>
+            </>
+          )}
 
           {/* Screen Image */}
           <img
@@ -94,7 +136,7 @@ export const PolaroidCard = ({ src, caption }: { src: string; caption: string })
 
 type ShowcaseItem =
   | { type: 'laptop'; src: string; title: string; tag: string }
-  | { type: 'phone'; src: string; title: string; tag: string }
+  | { type: 'phone'; src: string; title: string; tag: string; variant?: 'iphone' | 'android' }
   | { type: 'polaroid'; src: string; caption: string };
 
 // Combined Showcase Items
@@ -107,6 +149,7 @@ const showcaseItems: ShowcaseItem[] = [
   },
   {
     type: 'phone',
+    variant: 'iphone',
     src: '/images/beruang-mobile.jpg',
     title: 'Beruang AI Money App',
     tag: 'Mobile / React Native',
@@ -119,6 +162,7 @@ const showcaseItems: ShowcaseItem[] = [
   },
   {
     type: 'phone',
+    variant: 'android',
     src: '/images/play2grow-mobile.jpg',
     title: 'Play2Grow Edutainment',
     tag: 'Android / Firebase',
@@ -158,7 +202,12 @@ const HeroShowcase = () => {
             <LaptopFrame src={activeItem.src} title={activeItem.title} tag={activeItem.tag} />
           )}
           {activeItem.type === 'phone' && (
-            <PhoneFrame src={activeItem.src} title={activeItem.title} tag={activeItem.tag} />
+            <PhoneFrame
+              src={activeItem.src}
+              title={activeItem.title}
+              tag={activeItem.tag}
+              variant={activeItem.variant}
+            />
           )}
           {activeItem.type === 'polaroid' && (
             <PolaroidCard src={activeItem.src} caption={activeItem.caption} />
