@@ -53,7 +53,7 @@ export const PhoneFrame = ({
     <div className="w-[200px] sm:w-[240px] flex flex-col items-center">
       {/* Phone Outer Shell */}
       <div
-        className={`w-full bg-[#1A1B22] shadow-2xl border-2 border-slate-700/80 relative transition-all duration-300 ${
+        className={`w-full bg-[#1A1B22] shadow-2xl border-2 border-slate-700/80 relative ${
           isAndroid ? 'rounded-[36px] p-2.5' : 'rounded-[38px] p-3'
         }`}
       >
@@ -61,21 +61,21 @@ export const PhoneFrame = ({
         {isAndroid ? (
           <>
             {/* Pixel style side buttons (all on the right side: Power above Volume) */}
-            <div className="absolute -right-[4px] top-20 w-[2px] h-7 bg-slate-600 rounded-r" />
-            <div className="absolute -right-[4px] top-30 w-[2px] h-14 bg-slate-600 rounded-r" />
+            <div className="absolute -right-[3px] top-20 w-[3px] h-7 bg-slate-600 rounded-r" />
+            <div className="absolute -right-[3px] top-30 w-[3px] h-14 bg-slate-600 rounded-r" />
           </>
         ) : (
           <>
             {/* iPhone side buttons */}
-            <div className="absolute -left-[4px] top-20 w-[2px] h-8 bg-slate-600 rounded-l" />
-            <div className="absolute -left-[4px] top-32 w-[2px] h-8 bg-slate-600 rounded-l" />
-            <div className="absolute -right-[4px] top-24 w-[2px] h-12 bg-slate-600 rounded-r" />
+            <div className="absolute -left-[3px] top-20 w-[3px] h-8 bg-slate-600 rounded-l" />
+            <div className="absolute -left-[3px] top-32 w-[3px] h-8 bg-slate-600 rounded-l" />
+            <div className="absolute -right-[3px] top-24 w-[3px] h-12 bg-slate-600 rounded-r" />
           </>
         )}
 
         {/* Screen Container */}
         <div
-          className={`w-full aspect-[9/19.5] bg-slate-950 overflow-hidden relative border border-slate-800 transition-all duration-300 ${
+          className={`w-full aspect-[9/19.5] bg-slate-950 overflow-hidden relative border border-slate-800 ${
             isAndroid ? 'rounded-[28px]' : 'rounded-[30px]'
           }`}
         >
