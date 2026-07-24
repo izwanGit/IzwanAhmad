@@ -327,17 +327,17 @@ const Home = () => {
               {[
                 {
                   type: "work",
-                  period: "Mar 2026 – Jul 2026",
-                  title: "Software Engineer Intern",
-                  org: "PETRONAS Digital Sdn Bhd",
-                  logo: "/images/petronas-logo.png"
-                },
-                {
-                  type: "work",
                   period: "Mar 2026 – Present",
                   title: "Freelance Software Engineer",
                   org: "Independent Consultant",
                   logo: "/images/freelance-logo.jpeg"
+                },
+                {
+                  type: "work",
+                  period: "Mar 2026 – Jul 2026",
+                  title: "Software Engineer Intern",
+                  org: "PETRONAS Digital Sdn Bhd",
+                  logo: "/images/petronas-logo.png"
                 },
                 {
                   type: "study",
