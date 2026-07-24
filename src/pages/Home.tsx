@@ -284,48 +284,76 @@ const Home = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Experience & Education</h2>
           </motion.div>
 
-          <div className="relative">
-            {/* Center Bar for Desktop */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2 hidden md:block" />
-            {/* Left Bar for Mobile */}
-            <div className="absolute left-[17px] top-0 bottom-0 w-0.5 bg-primary/20 md:hidden" />
+          {/* Column labels */}
+          <div className="hidden md:flex justify-between mb-8 px-2">
+            <div className="w-[45%] flex items-center gap-2">
+              <Building size={14} className="text-primary" />
+              <span className="text-xs font-extrabold uppercase tracking-widest text-primary">Work Experience</span>
+            </div>
+            <div className="w-[45%] flex items-center justify-end gap-2">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">Education</span>
+              <GraduationCap size={14} className="text-amber-600" />
+            </div>
+          </div>
 
-            <div className="space-y-6 md:space-y-8">
+          <div className="relative">
+            {/* Center Bar for Desktop — with arrowhead at bottom */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 hidden md:block" style={{ background: 'linear-gradient(to bottom, #0E7490, #06B6D4aa, transparent)' }} />
+            {/* Arrowhead at bottom of bar */}
+            <div className="absolute left-1/2 bottom-0 -translate-x-1/2 hidden md:flex flex-col items-center z-10">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M6 8L0 0H12L6 8Z" fill="#0E7490" fillOpacity="0.5"/>
+              </svg>
+            </div>
+            {/* Left Bar for Mobile */}
+            <div className="absolute left-[17px] top-0 bottom-8 w-0.5 md:hidden" style={{ background: 'linear-gradient(to bottom, #0E7490, transparent)' }} />
+            <div className="absolute left-[17px] bottom-0 -translate-x-1/2 md:hidden">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M6 8L0 0H12L6 8Z" fill="#0E7490" fillOpacity="0.5"/>
+              </svg>
+            </div>
+
+            <div className="space-y-6 md:space-y-8 pb-6">
               {[
                 {
                   type: "work",
                   period: "Mar 2026 – Present",
                   title: "Software Engineer Intern",
                   org: "PETRONAS Digital Sdn Bhd",
-                  logo: "/images/petronas-logo.png"
+                  logo: "/images/petronas-logo.png",
+                  active: true
                 },
                 {
                   type: "work",
                   period: "Mar 2026 – Present",
                   title: "Freelance Software Engineer",
                   org: "Independent Consultant",
-                  logo: "/images/freelance-logo.jpeg"
+                  logo: "/images/freelance-logo.jpeg",
+                  active: true
                 },
                 {
                   type: "study",
                   period: "Mar 2024 – Aug 2026",
                   title: "Bachelor of Computer Science (Hons)",
                   org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png"
+                  logo: "/images/uitm-logo.png",
+                  active: true
                 },
                 {
                   type: "work",
                   period: "Sep 2023 – Mar 2024",
                   title: "IT Specialist Intern",
                   org: "West Malayan Group",
-                  logo: "/images/wmg-logo.png"
+                  logo: "/images/wmg-logo.png",
+                  active: false
                 },
                 {
                   type: "study",
                   period: "Oct 2021 – Mar 2024",
                   title: "Diploma in Computer Science",
                   org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png"
+                  logo: "/images/uitm-logo.png",
+                  active: false
                 }
               ].map((item, idx) => {
                 const isWork = item.type === "work";
@@ -335,37 +363,54 @@ const Home = () => {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.05 }}
+                    transition={{ delay: idx * 0.08 }}
                     className={`relative flex flex-col md:flex-row items-center justify-between ${
                       isWork ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    {/* Timeline Node Dot */}
-                    <div className="absolute left-[17px] md:left-1/2 w-3.5 h-3.5 rounded-full border-2 border-primary bg-background md:-translate-x-1/2 z-10 shadow-sm" />
+                    {/* Timeline Node — pulsing if active */}
+                    <div className="absolute left-[17px] md:left-1/2 md:-translate-x-1/2 z-10 flex items-center justify-center">
+                      {item.active ? (
+                        <span className="relative flex h-3.5 w-3.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-40" style={{ backgroundColor: '#06B6D4' }} />
+                          <span className="relative inline-flex rounded-full h-3.5 w-3.5" style={{ backgroundColor: '#0E7490' }} />
+                        </span>
+                      ) : (
+                        <div className="w-3.5 h-3.5 rounded-full border-2 shadow-sm" style={{ borderColor: '#0E7490', backgroundColor: '#F5F9FA' }} />
+                      )}
+                    </div>
 
                     {/* Empty spacer for opposite side on desktop */}
                     <div className="hidden md:block w-[45%]" />
 
                     {/* Content Card */}
                     <div className="w-full md:w-[45%] pl-10 md:pl-0">
-                      <div className="p-4 bg-white border border-border rounded-xl shadow-xs hover:shadow-sm transition-shadow group flex items-center gap-4 text-left">
+                      <div className="group flex items-center gap-3 py-1">
+                        {/* Free-floating logo */}
                         {item.logo && (
-                          <div className="w-14 h-14 rounded-xl bg-white border border-border flex items-center justify-center p-2 shadow-sm shrink-0">
-                            <img src={item.logo} alt={item.org} className="w-full h-full object-contain" />
-                          </div>
+                          <img
+                            src={item.logo}
+                            alt={item.org}
+                            className="w-12 h-12 object-contain shrink-0 drop-shadow-sm"
+                          />
                         )}
                         <div className="flex-1 min-w-0">
                           <div
-                            className={`text-[10px] font-extrabold uppercase tracking-widest mb-1 truncate ${
+                            className={`text-[10px] font-extrabold uppercase tracking-widest mb-0.5 ${
                               isWork ? "text-primary" : "text-amber-600"
                             }`}
                           >
                             {item.period}
+                            {item.active && (
+                              <span className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-black" style={{ background: '#06B6D422', color: '#0E7490' }}>
+                                NOW
+                              </span>
+                            )}
                           </div>
                           <h3 className="font-bold text-foreground text-sm sm:text-base mb-0.5 group-hover:text-primary transition-colors leading-tight">
                             {item.title}
                           </h3>
-                          <div className="text-xs font-semibold text-muted-foreground truncate">
+                          <div className="text-xs font-medium text-muted-foreground truncate">
                             {item.org}
                           </div>
                         </div>
@@ -376,8 +421,8 @@ const Home = () => {
               })}
             </div>
           </div>
-          
-          <div className="mt-16 flex justify-center">
+
+          <div className="mt-10 flex justify-center">
             <Link
               to="/experience"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-hover transition-colors"
