@@ -323,72 +323,42 @@ const Home = () => {
               </svg>
             </div>
 
-            <div className="space-y-4 md:space-y-5 pt-3 pb-4">
+            <div className="space-y-4 md:space-y-4 pt-3 pb-4">
               {[
                 {
                   type: "work",
                   period: "Mar 2026 – Present",
                   title: "Freelance Software Engineer",
                   org: "Independent Consultant",
-                  logo: "/images/freelance-logo.jpeg",
-                  range: "2026 – Present",
-                  startLabel: "Mar 2026",
-                  endLabel: "Present",
-                  duration: "Ongoing"
+                  logo: "/images/freelance-logo.jpeg"
                 },
                 {
                   type: "work",
                   period: "Mar 2026 – Jul 2026",
                   title: "Software Engineer Intern",
                   org: "PETRONAS Digital Sdn Bhd",
-                  logo: "/images/petronas-logo.png",
-                  range: "Mar – Jul 2026",
-                  startLabel: "Mar 2026",
-                  endLabel: "Jul 2026",
-                  duration: "5 Months"
+                  logo: "/images/petronas-logo.png"
                 },
                 {
                   type: "study",
                   period: "Mar 2024 – Aug 2026",
                   title: "Bachelor of Computer Science (Hons)",
                   org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png",
-                  range: "2024 – 2026",
-                  startLabel: "Mar 2024",
-                  endLabel: "Aug 2026",
-                  duration: "2.5 Years"
+                  logo: "/images/uitm-logo.png"
                 },
                 {
                   type: "work",
                   period: "Sep 2023 – Mar 2024",
                   title: "IT Specialist, Digital Marketing And E-Commerce Intern",
                   org: "West Malayan Group",
-                  logo: "/images/wmg-logo.png",
-                  range: "2023 – 2024",
-                  startLabel: "Sep 2023",
-                  endLabel: "Mar 2024",
-                  duration: "7 Months"
-                },
-                {
-                  type: "work",
-                  period: "Aug 2023 – Oct 2025",
-                  title: "Service Crew (Part-Time)",
-                  org: "Yasmeen Arau Sdn. Bhd",
-                  range: "2023 – 2025",
-                  startLabel: "Aug 2023",
-                  endLabel: "Oct 2025",
-                  duration: "2 Yrs 3 Mos"
+                  logo: "/images/wmg-logo.png"
                 },
                 {
                   type: "study",
                   period: "Oct 2021 – Mar 2024",
                   title: "Diploma in Computer Science",
                   org: "Universiti Teknologi MARA (UiTM)",
-                  logo: "/images/uitm-logo.png",
-                  range: "2021 – 2024",
-                  startLabel: "Oct 2021",
-                  endLabel: "Mar 2024",
-                  duration: "2.5 Years"
+                  logo: "/images/uitm-logo.png"
                 }
               ].map((item, idx) => {
                 const isWork = item.type === "work";
@@ -399,52 +369,38 @@ const Home = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.05 }}
-                    className={`relative flex flex-col md:flex-row items-center justify-between min-h-[92px] ${
+                    className={`relative flex flex-col md:flex-row items-center justify-between min-h-[84px] ${
                       isWork ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    {/* Range Node Badge on the central timeline line */}
-                    <div className="absolute left-[16px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 px-2 py-0.5 rounded-full bg-white border border-[#06B6D4] text-[#06B6D4] text-[9px] font-black shadow-2xs whitespace-nowrap">
-                      {item.range}
-                    </div>
+                    {/* Uniform Solid Node Dot strictly using #06B6D4 */}
+                    <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 z-10 w-3.5 h-3.5 rounded-full bg-[#06B6D4] border-2 border-white shadow-xs" />
 
                     {/* Empty spacer for opposite side on desktop */}
                     <div className="hidden md:block w-[45%]" />
 
-                    {/* Content Card — Compact & Sleek with Visual Span Drag Bar */}
-                    <div className="w-full md:w-[45%] pl-12 md:pl-0">
-                      <div className="group p-3.5 bg-white border border-border rounded-lg shadow-xs hover:shadow-sm transition-all space-y-2">
-                        <div className="flex items-center gap-3">
-                          {/* Free-floating logo */}
-                          {item.logo && (
-                            <img
-                              src={item.logo}
-                              alt={item.org}
-                              className="w-10 h-10 object-contain shrink-0 drop-shadow-xs"
-                            />
-                          )}
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-bold text-foreground text-xs sm:text-sm group-hover:text-[#06B6D4] transition-colors leading-snug">
-                              {item.title}
-                            </h3>
-                            <div className="text-[11px] font-medium text-muted-foreground truncate">
-                              {item.org}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Range Drag/Span Bar inside Card */}
-                        <div className="pt-1.5 border-t border-border/50">
-                          <div className="flex items-center justify-between text-[10px] font-extrabold text-[#06B6D4] mb-1">
-                            <span>{item.startLabel}</span>
-                            <span className="text-[9px] font-semibold text-muted-foreground bg-[#F5F9FA] px-1.5 py-0.2 rounded border border-border">
-                              {item.duration}
+                    {/* Content Card — Compact & Sleek */}
+                    <div className="w-full md:w-[45%] pl-8 md:pl-0">
+                      <div className="group flex items-center gap-3 p-3 bg-white border border-border rounded-lg shadow-xs hover:shadow-sm transition-all">
+                        {/* Free-floating logo */}
+                        {item.logo && (
+                          <img
+                            src={item.logo}
+                            alt={item.org}
+                            className="w-10 h-10 object-contain shrink-0 drop-shadow-xs"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#06B6D4]">
+                              {item.period}
                             </span>
-                            <span>{item.endLabel}</span>
                           </div>
-                          {/* Visual Range Drag Bar */}
-                          <div className="relative w-full h-1.5 bg-[#F5F9FA] rounded-full overflow-hidden border border-border/40">
-                            <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-r from-[#06B6D4] to-[#0E7490] rounded-full" />
+                          <h3 className="font-bold text-foreground text-xs sm:text-sm mb-0.5 group-hover:text-[#06B6D4] transition-colors leading-snug">
+                            {item.title}
+                          </h3>
+                          <div className="text-[11px] font-medium text-muted-foreground truncate">
+                            {item.org}
                           </div>
                         </div>
                       </div>
