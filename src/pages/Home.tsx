@@ -342,7 +342,7 @@ const Home = () => {
                 {
                   type: "work",
                   period: "Sep 2023 – Mar 2024",
-                  title: "IT Specialist Intern",
+                  title: "IT Specialist, Digital Marketing And E-Commerce Intern",
                   org: "West Malayan Group",
                   logo: "/images/wmg-logo.png",
                   active: false
