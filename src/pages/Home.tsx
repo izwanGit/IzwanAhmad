@@ -270,50 +270,50 @@ const Home = () => {
       {/* ============================================================
           CENTRAL TIMELINE (WORK ON LEFT, STUDY ON RIGHT)
       ============================================================ */}
-      <section className="py-20 bg-background border-t border-border">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+      <section className="py-16 bg-background border-t border-border">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <div className="text-[13px] font-extrabold uppercase tracking-widest text-accent mb-2">
+            <div className="text-[12px] font-extrabold uppercase tracking-widest text-accent mb-1.5">
               Trajectory
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Experience & Education</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Experience & Education</h2>
           </motion.div>
 
           {/* Column labels */}
-          <div className="hidden md:flex justify-between mb-8 px-2">
+          <div className="hidden md:flex justify-between mb-6 px-2">
             <div className="w-[45%] flex items-center gap-2">
               <Building size={14} className="text-primary" />
-              <span className="text-xs font-extrabold uppercase tracking-widest text-primary">Work Experience</span>
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary">Work Experience</span>
             </div>
             <div className="w-[45%] flex items-center justify-end gap-2">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">Education</span>
-              <GraduationCap size={14} className="text-amber-600" />
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent">Education</span>
+              <GraduationCap size={14} className="text-accent" />
             </div>
           </div>
 
           <div className="relative">
-            {/* Center Bar for Desktop — with upward arrowhead at top */}
-            <div className="absolute left-1/2 top-2 bottom-0 w-0.5 -translate-x-1/2 hidden md:block" style={{ background: 'linear-gradient(to top, transparent, #06B6D4aa 30%, #0E7490)' }} />
+            {/* Center Bar for Desktop — 2px line perfectly centered */}
+            <div className="absolute left-1/2 top-3 bottom-0 w-[2px] -translate-x-[1px] hidden md:block bg-gradient-to-b from-[#0E7490] via-[#06B6D4] to-transparent opacity-40" />
             {/* Arrowhead pointing UP at top of bar */}
             <div className="absolute left-1/2 top-0 -translate-x-1/2 hidden md:flex flex-col items-center z-10">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M6 0L12 8H0L6 0Z" fill="#0E7490" fillOpacity="0.8"/>
+              <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
+                <path d="M5 0L10 7H0L5 0Z" fill="#0E7490" fillOpacity="0.8"/>
               </svg>
             </div>
             {/* Left Bar for Mobile */}
-            <div className="absolute left-[17px] top-2 bottom-0 w-0.5 md:hidden" style={{ background: 'linear-gradient(to top, transparent, #0E7490)' }} />
-            <div className="absolute left-[17px] top-0 -translate-x-1/2 md:hidden">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M6 0L12 8H0L6 0Z" fill="#0E7490" fillOpacity="0.8"/>
+            <div className="absolute left-[16px] top-3 bottom-0 w-[2px] -translate-x-[1px] md:hidden bg-gradient-to-b from-[#0E7490] to-transparent opacity-40" />
+            <div className="absolute left-[16px] top-0 -translate-x-1/2 md:hidden">
+              <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
+                <path d="M5 0L10 7H0L5 0Z" fill="#0E7490" fillOpacity="0.8"/>
               </svg>
             </div>
 
-            <div className="space-y-6 md:space-y-8 pt-4 pb-6">
+            <div className="space-y-4 md:space-y-5 pt-3 pb-4">
               {[
                 {
                   type: "work",
@@ -363,54 +363,51 @@ const Home = () => {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.08 }}
+                    transition={{ delay: idx * 0.05 }}
                     className={`relative flex flex-col md:flex-row items-center justify-between ${
                       isWork ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    {/* Timeline Node — pulsing if active */}
-                    <div className="absolute left-[17px] md:left-1/2 md:-translate-x-1/2 z-10 flex items-center justify-center">
-                      {item.active ? (
-                        <span className="relative flex h-3.5 w-3.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-40" style={{ backgroundColor: '#06B6D4' }} />
-                          <span className="relative inline-flex rounded-full h-3.5 w-3.5" style={{ backgroundColor: '#0E7490' }} />
-                        </span>
-                      ) : (
-                        <div className="w-3.5 h-3.5 rounded-full border-2 shadow-sm" style={{ borderColor: '#0E7490', backgroundColor: '#F5F9FA' }} />
+                    {/* Perfect 12px Node Dot — centered precisely on the 2px line */}
+                    <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 z-10 w-3 h-3 rounded-full border-2 border-[#0E7490] bg-[#F5F9FA] flex items-center justify-center shadow-xs">
+                      {item.active && (
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]" />
                       )}
                     </div>
 
                     {/* Empty spacer for opposite side on desktop */}
                     <div className="hidden md:block w-[45%]" />
 
-                    {/* Content Card */}
-                    <div className="w-full md:w-[45%] pl-10 md:pl-0">
-                      <div className="group flex items-center gap-4 p-4 bg-white border border-border rounded-xl shadow-xs hover:shadow-md transition-all">
+                    {/* Content Card — Compact & Sleek */}
+                    <div className="w-full md:w-[45%] pl-8 md:pl-0">
+                      <div className="group flex items-center gap-3 p-3 bg-white border border-border rounded-lg shadow-xs hover:shadow-sm transition-all">
                         {/* Free-floating logo */}
                         {item.logo && (
                           <img
                             src={item.logo}
                             alt={item.org}
-                            className="w-12 h-12 object-contain shrink-0 drop-shadow-sm"
+                            className="w-10 h-10 object-contain shrink-0 drop-shadow-xs"
                           />
                         )}
                         <div className="flex-1 min-w-0">
-                          <div
-                            className={`text-[10px] font-extrabold uppercase tracking-widest mb-0.5 ${
-                              isWork ? "text-primary" : "text-amber-600"
-                            }`}
-                          >
-                            {item.period}
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <span
+                              className={`text-[10px] font-extrabold uppercase tracking-wider ${
+                                isWork ? "text-primary" : "text-accent"
+                              }`}
+                            >
+                              {item.period}
+                            </span>
                             {item.active && (
-                              <span className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-black" style={{ background: '#06B6D422', color: '#0E7490' }}>
+                              <span className="px-1.5 py-0.2 text-[9px] font-black rounded-full bg-[#06B6D4]/15 text-[#0E7490]">
                                 NOW
                               </span>
                             )}
                           </div>
-                          <h3 className="font-bold text-foreground text-sm sm:text-base mb-0.5 group-hover:text-primary transition-colors leading-tight">
+                          <h3 className="font-bold text-foreground text-xs sm:text-sm mb-0.5 group-hover:text-primary transition-colors leading-snug">
                             {item.title}
                           </h3>
-                          <div className="text-xs font-medium text-muted-foreground truncate">
+                          <div className="text-[11px] font-medium text-muted-foreground truncate">
                             {item.org}
                           </div>
                         </div>
@@ -422,13 +419,13 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <Link
               to="/experience"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-hover transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover transition-colors"
             >
               <span>View Full Experience Breakdown</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={14} />
             </Link>
           </div>
         </div>
