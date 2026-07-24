@@ -385,7 +385,7 @@ const Home = () => {
 
                     {/* Content Card */}
                     <div className="w-full md:w-[45%] pl-10 md:pl-0">
-                      <div className="group flex items-center gap-3 py-1">
+                      <div className="group flex items-center gap-4 p-4 bg-white border border-border rounded-xl shadow-xs hover:shadow-md transition-all">
                         {/* Free-floating logo */}
                         {item.logo && (
                           <img
