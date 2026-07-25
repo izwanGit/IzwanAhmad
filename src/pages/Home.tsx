@@ -40,62 +40,65 @@ const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
     offset: ["start end", "end start"],
   });
 
-  // Apple-style 3D Dolly Zoom Transforms (Hardware Accelerated)
-  const rotateX = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [22, 0, 0, -14]);
-  const scale = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [0.84, 1, 1, 1.05]);
-  const translateZ = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [-180, 0, 0, 80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.35, 1, 1, 0.4]);
-  const shineY = useTransform(scrollYProgress, [0, 1], ["-150%", "250%"]);
+  // Apple-style 3D Object Zoom & Parallax Scrollytelling Transforms
+  // Instead of tilting the whole flat card, we move and zoom the individual 3D objects inside!
+  const contentY = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -30]);
+  const bgOrbX = useTransform(scrollYProgress, [0, 1], ["-20%", "40%"]);
+  const bgOrbY = useTransform(scrollYProgress, [0, 1], ["30%", "-30%"]);
+
+  // Main Device 3D Zoom & Parallax Motion
+  const deviceScale = useTransform(scrollYProgress, [0, 0.45, 0.9], [0.75, 1.02, 1.12]);
+  const deviceY = useTransform(scrollYProgress, [0, 0.45, 0.9], [80, 0, -45]);
+  const deviceRotateX = useTransform(scrollYProgress, [0, 0.45, 0.9], [14, 0, -5]);
+
+  // Secondary Device (Mobile Phone overlay) zoomed faster for intense 3D depth separation
+  const mobileScale = useTransform(scrollYProgress, [0, 0.45, 0.9], [0.55, 1.08, 1.25]);
+  const mobileY = useTransform(scrollYProgress, [0, 0.45, 0.9], [140, -10, -70]);
+  const mobileRotateZ = useTransform(scrollYProgress, [0, 0.45, 0.9], [-10, 0, 6]);
+
+  // Floating 3D Metric Badges Parallax Orbit
+  const badge1Y = useTransform(scrollYProgress, [0, 0.5, 1], [60, -15, -90]);
+  const badge1Scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.7, 1.05, 0.9]);
+  const badge2Y = useTransform(scrollYProgress, [0, 0.5, 1], [90, 10, -60]);
+  const badge2Scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.6, 1.0, 1.1]);
 
   return (
-    <div ref={cardRef} className="py-10 sm:py-16 perspective-[1000px] will-change-transform">
-      <motion.div
-        style={{
-          rotateX,
-          scale,
-          opacity,
-          z: translateZ,
-          transformStyle: "preserve-3d",
-          willChange: "transform, opacity",
-        }}
-        className="w-full bg-[#0B0F19] border border-slate-800/90 rounded-[32px] sm:rounded-[44px] p-6 sm:p-10 md:p-14 shadow-[0_25px_80px_-15px_rgba(0,0,0,0.8)] relative overflow-hidden group hover:border-[#06B6D4]/60 transition-colors duration-500 [transform:translateZ(0)]"
-      >
-        {/* Dynamic 3D Glossy Light Reflection Sweep */}
+    <div ref={cardRef} className="py-8 sm:py-12 perspective-[1200px]">
+      <div className="w-full bg-white border border-[#0E7490]/20 rounded-[32px] sm:rounded-[44px] p-6 sm:p-10 md:p-14 shadow-[0_20px_50px_rgba(14,116,144,0.08)] hover:shadow-[0_25px_60px_rgba(14,116,144,0.15)] hover:border-[#06B6D4]/60 transition-all duration-500 relative overflow-hidden group">
+        {/* Animated Background Drift Texture strictly using user theme cyan/teal (#0E7490 & #06B6D4) */}
         <motion.div
-          style={{ y: shineY, willChange: "transform" }}
-          className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06B6D4]/15 to-transparent pointer-events-none opacity-50 group-hover:opacity-90 transition-opacity"
+          style={{ x: bgOrbX, y: bgOrbY, willChange: "transform" }}
+          className="absolute -top-20 -left-20 w-[450px] h-[450px] bg-gradient-to-br from-[#06B6D4]/15 to-[#0E7490]/10 rounded-full blur-3xl pointer-events-none"
         />
-
-        {/* Ambient Top & Bottom Glow */}
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-48 bg-[#06B6D4]/15 blur-3xl pointer-events-none rounded-full" />
+        <div className="absolute -bottom-24 -right-24 w-[400px] h-[400px] bg-[#0E7490]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10">
-          {/* Left Text & Metrics Column (7 cols on lg) */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Left Text & Metrics Column (7 cols on lg) with Parallax motion */}
+          <motion.div style={{ y: contentY, willChange: "transform" }} className="lg:col-span-7 space-y-6">
             {/* Badges Row */}
             <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#06B6D4]/15 border border-[#06B6D4]/30 text-[#06B6D4] text-[11px] font-black tracking-widest uppercase">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F5F9FA] border border-[#06B6D4]/40 text-[#0E7490] text-[11px] font-black tracking-widest uppercase shadow-2xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] animate-pulse" />
                 {category}
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[11px] font-bold shadow-xs">
-                <Trophy size={13} className="text-amber-400" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0E7490]/10 border border-[#0E7490]/30 text-[#0E7490] text-[11px] font-bold shadow-2xs">
+                <Trophy size={13} className="text-[#0E7490]" />
                 {award}
               </span>
             </div>
 
-            {/* Title & Subtitle */}
+            {/* Title & Subtitle strictly using #0C1A20 & #0E7490 */}
             <div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight group-hover:text-[#06B6D4] transition-colors leading-tight">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0C1A20] tracking-tight group-hover:text-[#0E7490] transition-colors leading-tight">
                 {title}
               </h3>
-              <p className="text-xs sm:text-sm font-semibold text-slate-400 mt-1.5">
+              <p className="text-xs sm:text-sm font-bold text-[#0E7490] mt-1.5">
                 {techSubtitle}
               </p>
             </div>
 
-            {/* Description */}
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            {/* Description strictly using text-[#0C1A20] */}
+            <p className="text-sm sm:text-base text-[#0C1A20]/80 leading-relaxed font-normal">
               {description}
             </p>
 
@@ -104,90 +107,138 @@ const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
               {techBadges.map((badge, bIdx) => (
                 <span
                   key={bIdx}
-                  className="px-3 py-1 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-300 text-xs font-semibold shadow-xs"
+                  className="px-3.5 py-1.5 rounded-xl bg-[#F5F9FA] border border-[#0E7490]/20 text-[#0C1A20] text-xs font-semibold shadow-2xs hover:border-[#06B6D4] transition-colors"
                 >
                   {badge}
                 </span>
               ))}
             </div>
 
-            {/* Metrics Bar */}
-            <div className="grid grid-cols-3 gap-3 p-4 bg-slate-900/90 border border-slate-800 rounded-2xl">
+            {/* Metrics Bar strictly using #F5F9FA background and theme colors */}
+            <div className="grid grid-cols-3 gap-3 p-4 bg-[#F5F9FA] border border-[#0E7490]/20 rounded-2xl shadow-xs">
               {metrics.map((m, mIdx) => (
-                <div key={mIdx} className={`text-center ${mIdx === 1 ? 'border-x border-slate-800' : ''}`}>
-                  <div className="text-lg sm:text-2xl font-black text-white group-hover:text-[#06B6D4] transition-colors">
+                <div key={mIdx} className={`text-center ${mIdx === 1 ? 'border-x border-[#0E7490]/20' : ''}`}>
+                  <div className="text-lg sm:text-2xl font-black text-[#0E7490] group-hover:text-[#06B6D4] transition-colors">
                     {m.value}
                   </div>
-                  <div className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">
+                  <div className="text-[10px] sm:text-[11px] font-bold text-[#0C1A20]/70 uppercase tracking-wider mt-0.5">
                     {m.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button strictly using #0E7490 primary and #06B6D4 hover */}
             <div className="pt-2">
               <Link
                 to={link}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#06B6D4] hover:bg-[#0891B2] text-white text-xs font-bold transition-all shadow-[0_0_25px_rgba(6,182,212,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] group/btn"
+                className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#0E7490] hover:bg-[#06B6D4] text-white text-xs font-bold transition-all shadow-[0_10px_25px_rgba(14,116,144,0.25)] hover:shadow-[0_15px_30px_rgba(6,182,212,0.4)] group/btn"
               >
                 <span>Read Full Technical Architecture</span>
                 <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Image Showcase Column (5 cols on lg) */}
-          <div className="lg:col-span-5 relative flex justify-center items-center">
+          {/* Right 3D Object Zoom Showcase Column (5 cols on lg) */}
+          <div className="lg:col-span-5 relative flex justify-center items-center py-6 sm:py-0 [transform-style:preserve-3d]">
             {secondaryImage ? (
-              /* Dual Overlay Phone/Dashboard Collage (for Beruang) */
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] flex items-center justify-center">
-                {/* Background Dashboard Card */}
-                <div className="w-[88%] aspect-[16/10] rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl relative translate-x-3 -translate-y-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-700">
+              /* Dual Object Parallax (Beruang Dashboard + Mobile Mockup) */
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] flex items-center justify-center [transform-style:preserve-3d]">
+                {/* Background Dashboard Object 3D Zoom */}
+                <motion.div
+                  style={{
+                    scale: deviceScale,
+                    y: deviceY,
+                    rotateX: deviceRotateX,
+                    transformStyle: "preserve-3d",
+                    willChange: "transform",
+                  }}
+                  className="w-[88%] aspect-[16/10] rounded-2xl overflow-hidden border-2 border-[#0E7490]/20 shadow-2xl relative bg-white"
+                >
                   <img
                     src={primaryImage}
                     alt={title}
                     className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-slate-950/20" />
-                </div>
-                {/* Foreground Overlay Phone Card */}
-                <div className="absolute left-1 bottom-0 w-[44%] aspect-[9/19] rounded-[24px] overflow-hidden border-2 border-slate-700 bg-slate-950 shadow-[0_25px_60px_rgba(0,0,0,0.85)] -translate-x-2 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-700">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/20 via-transparent to-transparent" />
+                </motion.div>
+
+                {/* Foreground Phone Object 3D Zooming In Closer & Moving Independently */}
+                <motion.div
+                  style={{
+                    scale: mobileScale,
+                    y: mobileY,
+                    rotateZ: mobileRotateZ,
+                    transformStyle: "preserve-3d",
+                    willChange: "transform",
+                  }}
+                  className="absolute left-2 bottom-0 w-[45%] aspect-[9/19] rounded-[28px] overflow-hidden border-4 border-[#0C1A20] bg-[#0C1A20] shadow-[0_25px_60px_rgba(14,116,144,0.4)] z-20"
+                >
                   <img
                     src={secondaryImage}
                     alt={`${title} Mobile`}
                     className="w-full h-full object-cover object-top"
                   />
-                  {/* Dynamic Notch */}
-                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-black rounded-full" />
-                </div>
+                  {/* Dynamic Island Notch */}
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-3 bg-black rounded-full border border-white/10" />
+                </motion.div>
+
+                {/* Floating 3D Parallax Badge 1 */}
+                <motion.div
+                  style={{ y: badge1Y, scale: badge1Scale, willChange: "transform" }}
+                  className="absolute -top-4 -right-2 z-30 hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#0E7490]/30 shadow-xl"
+                >
+                  <div className="w-2 h-2 rounded-full bg-[#06B6D4] animate-ping" />
+                  <span className="text-xs font-black text-[#0C1A20]">99.61% AI Accuracy</span>
+                </motion.div>
               </div>
             ) : (
-              /* Laptop Mockup Frame (for RentVerse) */
-              <div className="w-full relative group/laptop">
-                <div className="w-full bg-[#1E1E24] rounded-t-2xl p-2.5 pt-3 shadow-2xl relative border border-slate-700/60">
-                  {/* Camera */}
-                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center">
-                    <div className="w-0.5 h-0.5 rounded-full bg-[#06B6D4]" />
+              /* Laptop Mockup Object 3D Zoom & Hinge Tilt (RentVerse) */
+              <div className="w-full relative group/laptop [transform-style:preserve-3d]">
+                <motion.div
+                  style={{
+                    scale: deviceScale,
+                    y: deviceY,
+                    rotateX: deviceRotateX,
+                    transformStyle: "preserve-3d",
+                    willChange: "transform",
+                  }}
+                  className="w-full"
+                >
+                  <div className="w-full bg-[#0C1A20] rounded-t-2xl p-2.5 pt-3.5 shadow-2xl relative border-2 border-[#0E7490]/30">
+                    {/* Camera */}
+                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center">
+                      <div className="w-0.5 h-0.5 rounded-full bg-[#06B6D4]" />
+                    </div>
+                    {/* Screen Content */}
+                    <div className="w-full aspect-[16/10] bg-slate-900 rounded-lg overflow-hidden relative border border-slate-800">
+                      <img
+                        src={primaryImage}
+                        alt={title}
+                        className="w-full h-full object-cover object-top group-hover/laptop:scale-105 transition-transform duration-700"
+                      />
+                    </div>
                   </div>
-                  {/* Screen Content */}
-                  <div className="w-full aspect-[16/10] bg-slate-900 rounded-lg overflow-hidden relative">
-                    <img
-                      src={primaryImage}
-                      alt={title}
-                      className="w-full h-full object-cover object-top group-hover/laptop:scale-105 transition-transform duration-700"
-                    />
+                  {/* Laptop Base */}
+                  <div className="w-[106%] -ml-[3%] h-4 bg-gradient-to-b from-[#1E293B] to-[#0C1A20] rounded-b-2xl shadow-2xl relative border-t border-[#0E7490]/40 flex justify-center items-start">
+                    <div className="w-16 h-1.5 bg-[#0C1A20] rounded-b-md border-x border-b border-[#0E7490]/30" />
                   </div>
-                </div>
-                {/* Laptop Base */}
-                <div className="w-[106%] -ml-[3%] h-3.5 bg-gradient-to-b from-[#2C2D35] to-[#1A1B22] rounded-b-xl shadow-2xl relative border-t border-slate-600/40 flex justify-center items-start">
-                  <div className="w-14 h-1 bg-[#14151B] rounded-b-md border-x border-b border-slate-700/50" />
-                </div>
+                </motion.div>
+
+                {/* Floating 3D Parallax Badge 2 */}
+                <motion.div
+                  style={{ y: badge2Y, scale: badge2Scale, willChange: "transform" }}
+                  className="absolute -bottom-6 -left-4 z-30 hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#0E7490]/30 shadow-xl"
+                >
+                  <ShieldCheck size={16} className="text-[#0E7490]" />
+                  <span className="text-xs font-black text-[#0C1A20]">14-Stage DevSecOps</span>
+                </motion.div>
               </div>
             )}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -608,36 +659,36 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          FEATURED PROJECTS TEASER (APPLE 3D SCROLL EXPERIENCE)
+          FEATURED PROJECTS TEASER (3D OBJECT ZOOM & PARALLAX SCROLL)
       ============================================================ */}
-      <section className="py-24 bg-gradient-to-b from-background via-slate-950/40 to-background border-t border-border/60 relative overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#06B6D4]/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="py-28 bg-[#F5F9FA] border-t border-[#0E7490]/15 relative overflow-hidden">
+        {/* Subtle background atmosphere strictly using theme cyan (#06B6D4 / #0E7490) */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-to-tr from-[#06B6D4]/10 to-[#0E7490]/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#06B6D4]/10 border border-[#06B6D4]/20 text-[#06B6D4] text-[11px] font-black tracking-widest uppercase mb-3">
-                <Sparkles size={12} />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0E7490]/10 border border-[#0E7490]/25 text-[#0E7490] text-[11px] font-black tracking-widest uppercase mb-3 shadow-2xs">
+                <Sparkles size={13} className="text-[#06B6D4]" />
                 Featured Work
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-black text-[#0C1A20] tracking-tight">
                 Selected Flagship Projects
               </h2>
-              <p className="text-muted-foreground text-sm sm:text-base mt-2 max-w-xl">
-                High-impact software solutions engineered with robust architecture, AI integration, and enterprise DevSecOps standards.
+              <p className="text-[#0C1A20]/75 text-sm sm:text-base mt-2.5 max-w-xl font-normal leading-relaxed">
+                High-impact software solutions engineered with robust architecture, AI integration, and enterprise DevSecOps standards. Notice the 3D objects zoom in and float as you scroll down!
               </p>
             </div>
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-border shadow-xs hover:shadow-md hover:border-[#06B6D4]/50 text-xs font-bold text-foreground hover:text-[#06B6D4] transition-all group"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#0E7490]/20 shadow-xs hover:shadow-md hover:border-[#06B6D4] text-xs font-bold text-[#0C1A20] hover:text-[#0E7490] transition-all group"
             >
               <span>View All Projects</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-8">
             {/* Project 1: Beruang AI Financial Platform */}
             <Apple3DProjectCard
               category="AI / Mobile App"
@@ -677,7 +728,7 @@ const Home = () => {
           <div className="mt-12 text-center sm:hidden">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#06B6D4] text-white text-xs font-bold shadow-md"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0E7490] text-white text-xs font-bold shadow-md hover:bg-[#06B6D4] transition-colors"
             >
               <span>View All Projects</span>
               <ArrowRight size={14} />
