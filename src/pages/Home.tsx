@@ -40,33 +40,36 @@ const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
     offset: ["start end", "end start"],
   });
 
-  // Apple-style 3D Scroll Transforms
-  const rotateX = useTransform(scrollYProgress, [0, 0.35, 0.75, 1], [16, 0, 0, -12]);
-  const scale = useTransform(scrollYProgress, [0, 0.35, 0.75, 1], [0.92, 1, 1, 0.95]);
-  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.8, 1], [0.4, 1, 1, 0.6]);
-  const shineY = useTransform(scrollYProgress, [0, 1], ["-120%", "220%"]);
+  // Apple-style 3D Dolly Zoom Transforms (Hardware Accelerated)
+  const rotateX = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [22, 0, 0, -14]);
+  const scale = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [0.84, 1, 1, 1.05]);
+  const translateZ = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [-180, 0, 0, 80]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.35, 1, 1, 0.4]);
+  const shineY = useTransform(scrollYProgress, [0, 1], ["-150%", "250%"]);
 
   return (
-    <div ref={cardRef} className="py-6 sm:py-10 perspective-[1200px]">
+    <div ref={cardRef} className="py-10 sm:py-16 perspective-[1000px] will-change-transform">
       <motion.div
         style={{
           rotateX,
           scale,
           opacity,
+          z: translateZ,
           transformStyle: "preserve-3d",
+          willChange: "transform, opacity",
         }}
-        className="w-full bg-gradient-to-b from-[#0F172A] via-[#090D16] to-[#0B0F19] border border-slate-800/80 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 md:p-12 shadow-[0_30px_90px_-15px_rgba(0,0,0,0.7)] backdrop-blur-2xl relative overflow-hidden group hover:border-[#06B6D4]/50 transition-colors duration-500"
+        className="w-full bg-[#0B0F19] border border-slate-800/90 rounded-[32px] sm:rounded-[44px] p-6 sm:p-10 md:p-14 shadow-[0_25px_80px_-15px_rgba(0,0,0,0.8)] relative overflow-hidden group hover:border-[#06B6D4]/60 transition-colors duration-500 [transform:translateZ(0)]"
       >
         {/* Dynamic 3D Glossy Light Reflection Sweep */}
         <motion.div
-          style={{ y: shineY }}
-          className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06B6D4]/15 to-transparent pointer-events-none opacity-40 group-hover:opacity-80 transition-opacity"
+          style={{ y: shineY, willChange: "transform" }}
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06B6D4]/15 to-transparent pointer-events-none opacity-50 group-hover:opacity-90 transition-opacity"
         />
 
-        {/* Ambient Top Glow */}
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#06B6D4]/15 blur-3xl pointer-events-none rounded-full" />
+        {/* Ambient Top & Bottom Glow */}
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-48 bg-[#06B6D4]/15 blur-3xl pointer-events-none rounded-full" />
 
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10">
           {/* Left Text & Metrics Column (7 cols on lg) */}
           <div className="lg:col-span-7 space-y-6">
             {/* Badges Row */}
@@ -86,13 +89,13 @@ const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight group-hover:text-[#06B6D4] transition-colors leading-tight">
                 {title}
               </h3>
-              <p className="text-xs sm:text-sm font-semibold text-slate-400 mt-1">
+              <p className="text-xs sm:text-sm font-semibold text-slate-400 mt-1.5">
                 {techSubtitle}
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-sm text-slate-300 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
               {description}
             </p>
 
@@ -112,10 +115,10 @@ const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
             <div className="grid grid-cols-3 gap-3 p-4 bg-slate-900/90 border border-slate-800 rounded-2xl">
               {metrics.map((m, mIdx) => (
                 <div key={mIdx} className={`text-center ${mIdx === 1 ? 'border-x border-slate-800' : ''}`}>
-                  <div className="text-lg sm:text-xl font-black text-white group-hover:text-[#06B6D4] transition-colors">
+                  <div className="text-lg sm:text-2xl font-black text-white group-hover:text-[#06B6D4] transition-colors">
                     {m.value}
                   </div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">
+                  <div className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">
                     {m.label}
                   </div>
                 </div>
@@ -126,7 +129,7 @@ const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
             <div className="pt-2">
               <Link
                 to={link}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#06B6D4] hover:bg-[#0891B2] text-white text-xs font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] group/btn"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#06B6D4] hover:bg-[#0891B2] text-white text-xs font-bold transition-all shadow-[0_0_25px_rgba(6,182,212,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] group/btn"
               >
                 <span>Read Full Technical Architecture</span>
                 <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
