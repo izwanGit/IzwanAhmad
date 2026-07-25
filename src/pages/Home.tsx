@@ -1,12 +1,193 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Building, Trophy, GraduationCap, MapPin, Briefcase, Sparkles, ArrowUpRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Building, Trophy, GraduationCap, MapPin, Briefcase, Sparkles, ArrowUpRight, ShieldCheck, Cpu, Layers, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import HeroShowcase from '../components/HeroShowcase';
 import PetronasShowcase from '../components/PetronasShowcase';
 
 
+
+interface Apple3DCardProps {
+  category: string;
+  techSubtitle: string;
+  award: string;
+  title: string;
+  description: string;
+  techBadges: string[];
+  metrics: { value: string; label: string }[];
+  primaryImage: string;
+  secondaryImage?: string;
+  link: string;
+}
+
+const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
+  category,
+  techSubtitle,
+  award,
+  title,
+  description,
+  techBadges,
+  metrics,
+  primaryImage,
+  secondaryImage,
+  link,
+}) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Apple-style 3D Scroll Transforms
+  const rotateX = useTransform(scrollYProgress, [0, 0.35, 0.75, 1], [16, 0, 0, -12]);
+  const scale = useTransform(scrollYProgress, [0, 0.35, 0.75, 1], [0.92, 1, 1, 0.95]);
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.8, 1], [0.4, 1, 1, 0.6]);
+  const shineY = useTransform(scrollYProgress, [0, 1], ["-120%", "220%"]);
+
+  return (
+    <div ref={cardRef} className="py-6 sm:py-10 perspective-[1200px]">
+      <motion.div
+        style={{
+          rotateX,
+          scale,
+          opacity,
+          transformStyle: "preserve-3d",
+        }}
+        className="w-full bg-gradient-to-b from-[#0F172A] via-[#090D16] to-[#0B0F19] border border-slate-800/80 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 md:p-12 shadow-[0_30px_90px_-15px_rgba(0,0,0,0.7)] backdrop-blur-2xl relative overflow-hidden group hover:border-[#06B6D4]/50 transition-colors duration-500"
+      >
+        {/* Dynamic 3D Glossy Light Reflection Sweep */}
+        <motion.div
+          style={{ y: shineY }}
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06B6D4]/15 to-transparent pointer-events-none opacity-40 group-hover:opacity-80 transition-opacity"
+        />
+
+        {/* Ambient Top Glow */}
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#06B6D4]/15 blur-3xl pointer-events-none rounded-full" />
+
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+          {/* Left Text & Metrics Column (7 cols on lg) */}
+          <div className="lg:col-span-7 space-y-6">
+            {/* Badges Row */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#06B6D4]/15 border border-[#06B6D4]/30 text-[#06B6D4] text-[11px] font-black tracking-widest uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] animate-pulse" />
+                {category}
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[11px] font-bold shadow-xs">
+                <Trophy size={13} className="text-amber-400" />
+                {award}
+              </span>
+            </div>
+
+            {/* Title & Subtitle */}
+            <div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight group-hover:text-[#06B6D4] transition-colors leading-tight">
+                {title}
+              </h3>
+              <p className="text-xs sm:text-sm font-semibold text-slate-400 mt-1">
+                {techSubtitle}
+              </p>
+            </div>
+
+            {/* Description */}
+            <p className="text-sm text-slate-300 leading-relaxed font-normal">
+              {description}
+            </p>
+
+            {/* Tech Badges */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              {techBadges.map((badge, bIdx) => (
+                <span
+                  key={bIdx}
+                  className="px-3 py-1 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-300 text-xs font-semibold shadow-xs"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            {/* Metrics Bar */}
+            <div className="grid grid-cols-3 gap-3 p-4 bg-slate-900/90 border border-slate-800 rounded-2xl">
+              {metrics.map((m, mIdx) => (
+                <div key={mIdx} className={`text-center ${mIdx === 1 ? 'border-x border-slate-800' : ''}`}>
+                  <div className="text-lg sm:text-xl font-black text-white group-hover:text-[#06B6D4] transition-colors">
+                    {m.value}
+                  </div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-2">
+              <Link
+                to={link}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#06B6D4] hover:bg-[#0891B2] text-white text-xs font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] group/btn"
+              >
+                <span>Read Full Technical Architecture</span>
+                <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Image Showcase Column (5 cols on lg) */}
+          <div className="lg:col-span-5 relative flex justify-center items-center">
+            {secondaryImage ? (
+              /* Dual Overlay Phone/Dashboard Collage (for Beruang) */
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] flex items-center justify-center">
+                {/* Background Dashboard Card */}
+                <div className="w-[88%] aspect-[16/10] rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl relative translate-x-3 -translate-y-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-700">
+                  <img
+                    src={primaryImage}
+                    alt={title}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/20" />
+                </div>
+                {/* Foreground Overlay Phone Card */}
+                <div className="absolute left-1 bottom-0 w-[44%] aspect-[9/19] rounded-[24px] overflow-hidden border-2 border-slate-700 bg-slate-950 shadow-[0_25px_60px_rgba(0,0,0,0.85)] -translate-x-2 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-700">
+                  <img
+                    src={secondaryImage}
+                    alt={`${title} Mobile`}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  {/* Dynamic Notch */}
+                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-black rounded-full" />
+                </div>
+              </div>
+            ) : (
+              /* Laptop Mockup Frame (for RentVerse) */
+              <div className="w-full relative group/laptop">
+                <div className="w-full bg-[#1E1E24] rounded-t-2xl p-2.5 pt-3 shadow-2xl relative border border-slate-700/60">
+                  {/* Camera */}
+                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center">
+                    <div className="w-0.5 h-0.5 rounded-full bg-[#06B6D4]" />
+                  </div>
+                  {/* Screen Content */}
+                  <div className="w-full aspect-[16/10] bg-slate-900 rounded-lg overflow-hidden relative">
+                    <img
+                      src={primaryImage}
+                      alt={title}
+                      className="w-full h-full object-cover object-top group-hover/laptop:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+                {/* Laptop Base */}
+                <div className="w-[106%] -ml-[3%] h-3.5 bg-gradient-to-b from-[#2C2D35] to-[#1A1B22] rounded-b-xl shadow-2xl relative border-t border-slate-600/40 flex justify-center items-start">
+                  <div className="w-14 h-1 bg-[#14151B] rounded-b-md border-x border-b border-slate-700/50" />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
 const Home = () => {
   return (
@@ -424,16 +605,16 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          FEATURED PROJECTS TEASER
+          FEATURED PROJECTS TEASER (APPLE 3D SCROLL EXPERIENCE)
       ============================================================ */}
-      <section className="py-24 bg-gradient-to-b from-background via-[#F8FAFC] to-background border-t border-border/60 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-background via-slate-950/40 to-background border-t border-border/60 relative overflow-hidden">
         {/* Subtle background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#06B6D4]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#06B6D4]/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#06B6D4]/10 border border-[#06B6D4]/20 text-[#06B6D4] text-[11px] font-black tracking-widest uppercase mb-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#06B6D4]/10 border border-[#06B6D4]/20 text-[#06B6D4] text-[11px] font-black tracking-widest uppercase mb-3">
                 <Sparkles size={12} />
                 Featured Work
               </div>
@@ -453,176 +634,41 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Project 1: Beruang */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="group relative bg-white border border-border/80 rounded-3xl overflow-hidden shadow-xs hover:shadow-xl hover:border-[#06B6D4]/40 transition-all duration-500 flex flex-col justify-between"
-            >
-              <div>
-                {/* Image Container with Hover Scale */}
-                <div className="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
-                  <img
-                    src="/images/beruang-dashboard.jpg"
-                    alt="Beruang AI Money App"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+          <div className="space-y-6">
+            {/* Project 1: Beruang AI Financial Platform */}
+            <Apple3DProjectCard
+              category="AI / Mobile App"
+              award="Best Architecture Award"
+              title="Beruang AI Financial Platform"
+              techSubtitle="React Native & PyTorch & Bi-LSTM Neural Engine"
+              description="AI-powered money management platform featuring custom Bi-LSTM neural networks (99.61% accuracy) trained on 220k+ Malaysian transaction records. Evaluated at 86.77 System Usability Scale (SUS)."
+              techBadges={['Bi-LSTM Neural Net', 'React Native', 'PyTorch', 'FastAPI', 'SUS Score: 86.77', 'Python']}
+              metrics={[
+                { value: '99.61%', label: 'AI Accuracy' },
+                { value: '220k+', label: 'Dataset Records' },
+                { value: '86.77', label: 'SUS Score' }
+              ]}
+              primaryImage="/images/beruang-dashboard.jpg"
+              secondaryImage="/images/beruang-mobile.jpg"
+              link="/projects"
+            />
 
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-amber-200 text-amber-700 text-[11px] font-bold shadow-sm">
-                      <Trophy size={12} className="text-amber-500" />
-                      Best Architecture Award
-                    </span>
-                  </div>
-
-                  {/* Hover Overlay Button */}
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <Link
-                      to="/projects"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#06B6D4] text-white text-xs font-bold shadow-lg hover:bg-[#0891B2] transition-colors"
-                    >
-                      <span>Explore Case Study</span>
-                      <ArrowUpRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Content Details */}
-                <div className="p-7 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-black uppercase tracking-widest text-[#06B6D4] bg-[#06B6D4]/10 px-2.5 py-0.5 rounded-full border border-[#06B6D4]/20">
-                      AI / Mobile App
-                    </span>
-                    <span className="text-xs font-semibold text-muted-foreground">React Native & PyTorch</span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-[#06B6D4] transition-colors">
-                    Beruang AI Financial Platform
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    AI-powered money management platform featuring custom Bi-LSTM neural networks (99.61% accuracy) trained on 220k+ Malaysian transaction records. Evaluated at 86.77 System Usability Scale (SUS).
-                  </p>
-
-                  {/* Key Stats Bar */}
-                  <div className="grid grid-cols-3 gap-2 py-3 px-4 bg-[#F8FAFC] border border-border/60 rounded-2xl text-center">
-                    <div>
-                      <div className="text-sm font-black text-foreground">99.61%</div>
-                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">AI Accuracy</div>
-                    </div>
-                    <div className="border-x border-border/60">
-                      <div className="text-sm font-black text-foreground">220k+</div>
-                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Dataset Records</div>
-                    </div>
-                    <div>
-                      <div className="text-sm font-black text-foreground">86.77</div>
-                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">SUS Score</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Footer Link */}
-              <div className="px-7 pb-6 pt-0">
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#06B6D4] hover:text-[#0891B2] transition-colors group/link"
-                >
-                  <span>Read Full Technical Architecture</span>
-                  <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Project 2: RentVerse */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="group relative bg-white border border-border/80 rounded-3xl overflow-hidden shadow-xs hover:shadow-xl hover:border-[#06B6D4]/40 transition-all duration-500 flex flex-col justify-between"
-            >
-              <div>
-                {/* Image Container with Hover Scale */}
-                <div className="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
-                  <img
-                    src="/images/rentverse.jpeg"
-                    alt="RentVerse Platform"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-amber-200 text-amber-700 text-[11px] font-bold shadow-sm">
-                      <Trophy size={12} className="text-amber-500" />
-                      Champion — 4 Awards
-                    </span>
-                  </div>
-
-                  {/* Hover Overlay Button */}
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <Link
-                      to="/projects"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#06B6D4] text-white text-xs font-bold shadow-lg hover:bg-[#0891B2] transition-colors"
-                    >
-                      <span>Explore Case Study</span>
-                      <ArrowUpRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Content Details */}
-                <div className="p-7 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-black uppercase tracking-widest text-[#06B6D4] bg-[#06B6D4]/10 px-2.5 py-0.5 rounded-full border border-[#06B6D4]/20">
-                      Web System / DevSecOps
-                    </span>
-                    <span className="text-xs font-semibold text-muted-foreground">Next.js & Docker & CI/CD</span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-[#06B6D4] transition-colors">
-                    RentVerse Rental Ecosystem
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Enterprise-grade secure property rental platform equipped with Zero Trust authentication, AI-driven tenant fraud detection, and an automated 14-stage CI/CD DevSecOps security pipeline.
-                  </p>
-
-                  {/* Key Stats Bar */}
-                  <div className="grid grid-cols-3 gap-2 py-3 px-4 bg-[#F8FAFC] border border-border/60 rounded-2xl text-center">
-                    <div>
-                      <div className="text-sm font-black text-foreground">4 Awards</div>
-                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Competition Winner</div>
-                    </div>
-                    <div className="border-x border-border/60">
-                      <div className="text-sm font-black text-foreground">14-Stage</div>
-                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">CI/CD Pipeline</div>
-                    </div>
-                    <div>
-                      <div className="text-sm font-black text-foreground">Zero Trust</div>
-                      <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Security Auth</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Footer Link */}
-              <div className="px-7 pb-6 pt-0">
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#06B6D4] hover:text-[#0891B2] transition-colors group/link"
-                >
-                  <span>Read Full Technical Architecture</span>
-                  <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
+            {/* Project 2: RentVerse Rental Ecosystem */}
+            <Apple3DProjectCard
+              category="Web System / DevSecOps"
+              award="Champion — 4 Awards"
+              title="RentVerse Rental Ecosystem"
+              techSubtitle="Next.js 14 & Docker & Automated CI/CD DevSecOps"
+              description="Enterprise-grade secure property rental platform equipped with Zero Trust authentication, AI-driven tenant fraud detection, and an automated 14-stage CI/CD DevSecOps security pipeline."
+              techBadges={['Next.js 14', 'Zero Trust Auth', 'SonarQube & Trivy', '14-Stage CI/CD', 'Docker', 'PostgreSQL']}
+              metrics={[
+                { value: '4 Awards', label: 'Competition Winner' },
+                { value: '14-Stage', label: 'CI/CD Pipeline' },
+                { value: 'Zero Trust', label: 'Security Auth' }
+              ]}
+              primaryImage="/images/rentverse-laptop.jpg"
+              link="/projects"
+            />
           </div>
 
           <div className="mt-12 text-center sm:hidden">
