@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Building, Trophy, GraduationCap, MapPin, Briefcase, Sparkles, ArrowUpRight, ShieldCheck, Cpu, Layers, ExternalLink } from 'lucide-react';
+import { ArrowRight, Building, Trophy, GraduationCap, MapPin, Briefcase, Sparkles, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import HeroShowcase from '../components/HeroShowcase';
 import PetronasShowcase from '../components/PetronasShowcase';
-
-
+import FlagshipScrollytelling from '../components/FlagshipScrollytelling';
 
 interface Apple3DCardProps {
   category: string;
@@ -15,7 +14,7 @@ interface Apple3DCardProps {
   title: string;
   description: string;
   techBadges: string[];
-  metrics: { value: string; label: string }[];
+  metrics: { label: string; value: string }[];
   primaryImage: string;
   secondaryImage?: string;
   link: string;
@@ -104,7 +103,7 @@ const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
 
             {/* Tech Badges */}
             <div className="flex flex-wrap gap-2 pt-1">
-              {techBadges.map((badge, bIdx) => (
+              {techBadges.map((badge: string, bIdx: number) => (
                 <span
                   key={bIdx}
                   className="px-3.5 py-1.5 rounded-xl bg-[#F5F9FA] border border-[#0E7490]/20 text-[#0C1A20] text-xs font-semibold shadow-2xs hover:border-[#06B6D4] transition-colors"
@@ -116,7 +115,7 @@ const Apple3DProjectCard: React.FC<Apple3DCardProps> = ({
 
             {/* Metrics Bar strictly using #F5F9FA background and theme colors */}
             <div className="grid grid-cols-3 gap-3 p-4 bg-[#F5F9FA] border border-[#0E7490]/20 rounded-2xl shadow-xs">
-              {metrics.map((m, mIdx) => (
+              {metrics.map((m: { label: string; value: string }, mIdx: number) => (
                 <div key={mIdx} className={`text-center ${mIdx === 1 ? 'border-x border-[#0E7490]/20' : ''}`}>
                   <div className="text-lg sm:text-2xl font-black text-[#0E7490] group-hover:text-[#06B6D4] transition-colors">
                     {m.value}
