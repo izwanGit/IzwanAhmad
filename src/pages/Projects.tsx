@@ -57,6 +57,8 @@ const projects: Project[] = [
     tags: ["Next.js", "Node.js", "GitHub Actions", "Puppeteer", "Trivy", "Zero-Trust"],
     images: [
       '/images/rentverse/homepage.jpg',
+      '/images/rentverse/mobile-web.png',
+      '/images/rentverse/android-mobile.png',
       '/images/rentverse/explore.jpg',
       '/images/rentverse/admin.jpg',
       '/images/rentverse/slack-alerts.jpg'
