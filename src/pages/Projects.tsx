@@ -123,16 +123,16 @@ const Projects = () => {
                 >
                   {/* Device-Aware Mockup Header — Equal Height for Both Beruang & RentVerse */}
                   <div 
-                    className="p-6 sm:p-8 flex justify-center items-center h-[380px] sm:h-[420px] relative overflow-hidden border-b border-border/80"
+                    className="p-5 sm:p-6 flex justify-center items-center h-[300px] sm:h-[330px] relative overflow-hidden border-b border-border/80"
                     style={{ backgroundColor: project.imageType === 'phone' ? (project.mobileBgColor || '#5C4634') : undefined }}
                   >
                     {project.imageType === 'phone' ? (
                       /* Mobile App UI Brand Background & Phone Mockup */
                       <>
                         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
-                        <div className="w-[170px] sm:w-[195px] rounded-[28px] bg-slate-950 p-2 border-2 border-white/20 shadow-2xl relative z-10 group-hover:scale-103 transition-transform duration-300">
-                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-3 bg-slate-900 rounded-b-md z-10" />
-                          <div className="rounded-[22px] overflow-hidden aspect-[9/19.5] bg-black">
+                        <div className="w-[140px] sm:w-[155px] rounded-[26px] bg-slate-950 p-1.5 border-2 border-white/20 shadow-2xl relative z-10 group-hover:scale-103 transition-transform duration-300">
+                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-2.5 bg-slate-900 rounded-b-md z-10" />
+                          <div className="rounded-[20px] overflow-hidden aspect-[9/19.5] bg-black">
                             <img 
                               src={project.image} 
                               alt={project.title}
@@ -153,7 +153,7 @@ const Projects = () => {
                           />
                           <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply" />
                         </div>
-                        <div className="w-full max-w-[500px] sm:max-w-[540px] rounded-xl bg-white border border-slate-300/80 shadow-2xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
+                        <div className="w-full max-w-[400px] sm:max-w-[440px] rounded-xl bg-white border border-slate-300/80 shadow-2xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
                           <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
                             <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
                             <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
