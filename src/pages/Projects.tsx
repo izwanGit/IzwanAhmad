@@ -130,16 +130,12 @@ const Projects = () => {
                       /* Mobile App UI Brand Background & Phone Mockup */
                       <>
                         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
-                        <div className="w-[150px] sm:w-[170px] aspect-[9/19.5] rounded-[24px] bg-[#0C1A20] p-1 border border-white/30 shadow-xl relative z-10 group-hover:scale-103 transition-transform duration-300">
-                          {/* Sleek Dynamic Pill Notch */}
-                          <div className="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-2 bg-[#0C1A20] rounded-full z-20" />
-                          <div className="rounded-[20px] overflow-hidden w-full h-full bg-slate-950">
-                            <img 
-                              src={project.image} 
-                              alt={project.title}
-                              className="w-full h-full object-cover object-top"
-                            />
-                          </div>
+                        <div className="w-full h-full flex items-center justify-center p-2 relative z-10 group-hover:scale-103 transition-transform duration-300">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="max-h-full max-w-full object-contain rounded-2xl shadow-2xl border-2 border-white/20"
+                          />
                         </div>
                       </>
                     ) : (
@@ -358,16 +354,12 @@ const Projects = () => {
                       /* Mobile App UI Brand Color Background & Phone Frame */
                       <>
                         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
-                        <div className="w-[125px] sm:w-[135px] aspect-[9/19.5] rounded-[20px] bg-[#0C1A20] p-1 border border-white/30 shadow-lg relative z-10 group-hover:scale-103 transition-transform duration-300">
-                          {/* Sleek Dynamic Pill Notch */}
-                          <div className="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-[#0C1A20] rounded-full z-20" />
-                          <div className="rounded-[16px] overflow-hidden w-full h-full bg-slate-950">
-                            <img 
-                              src={project.image} 
-                              alt={project.title}
-                              className="w-full h-full object-cover object-top"
-                            />
-                          </div>
+                        <div className="w-full h-full flex items-center justify-center p-2 relative z-10 group-hover:scale-103 transition-transform duration-300">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="max-h-full max-w-full object-contain rounded-2xl shadow-2xl border-2 border-white/20"
+                          />
                         </div>
                       </>
                     ) : (
