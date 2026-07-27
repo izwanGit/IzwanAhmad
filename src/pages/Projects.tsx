@@ -280,16 +280,16 @@ const skillCategories = [
     title: "Languages & Core Syntax",
     icon: FileCode2,
     skills: [
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "JavaScript (ES6+)", icon: SiJavascript },
-      { name: "Python 3.10+", icon: SiPython },
-      { name: "Java", icon: FaJava },
-      { name: "PHP", icon: SiPhp },
-      { name: "HTML5", icon: SiHtml5 },
-      { name: "Vanilla CSS3", icon: DiCss3 },
-      { name: "DAX", icon: FaChartBar },
-      { name: "SQL", icon: TbSql },
-      { name: "MATLAB", icon: TbMath }
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "JavaScript (ES6+)", icon: SiJavascript, color: "#D4A017" },
+      { name: "Python 3.10+", icon: SiPython, color: "#3776AB" },
+      { name: "Java", icon: FaJava, color: "#007396" },
+      { name: "PHP", icon: SiPhp, color: "#777BB4" },
+      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+      { name: "Vanilla CSS3", icon: DiCss3, color: "#1572B6" },
+      { name: "DAX", icon: FaChartBar, color: "#E6AD00" },
+      { name: "SQL", icon: TbSql, color: "#00758F" },
+      { name: "MATLAB", icon: TbMath, color: "#E16B5B" }
     ]
   },
   {
@@ -297,19 +297,19 @@ const skillCategories = [
     title: "AI & Machine Learning",
     icon: BrainCircuit,
     skills: [
-      { name: "TensorFlow.js", icon: SiTensorflow },
-      { name: "PyTorch", icon: SiPytorch },
-      { name: "Scikit-Learn", icon: SiScikitlearn },
-      { name: "OpenCV", icon: SiOpencv },
-      { name: "Vision Transformer (ViT)", icon: FaEye },
-      { name: "xAI Grok 4.1", icon: TbBrandOpenai },
-      { name: "GPT-4o-mini", icon: VscOpenai },
-      { name: "Gemini 2.5 Flash", icon: SiGoogle },
-      { name: "RAG Pipelines", icon: TbBrain },
-      { name: "Prompt Engineering", icon: TbPrompt },
-      { name: "Natural Language Processing (NLP)", icon: FaRobot },
-      { name: "Computer Vision", icon: FaCamera },
-      { name: "gTTS", icon: FaMicrochip }
+      { name: "TensorFlow.js", icon: SiTensorflow, color: "#FF6F00" },
+      { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
+      { name: "Scikit-Learn", icon: SiScikitlearn, color: "#F7931E" },
+      { name: "OpenCV", icon: SiOpencv, color: "#5C2D91" },
+      { name: "Vision Transformer (ViT)", icon: FaEye, color: "#8E44AD" },
+      { name: "xAI Grok 4.1", icon: TbBrandOpenai, color: "#0C1A20" },
+      { name: "GPT-4o-mini", icon: VscOpenai, color: "#10A37F" },
+      { name: "Gemini 2.5 Flash", icon: SiGoogle, color: "#4285F4" },
+      { name: "RAG Pipelines", icon: TbBrain, color: "#00A67E" },
+      { name: "Prompt Engineering", icon: TbPrompt, color: "#D97706" },
+      { name: "Natural Language Processing (NLP)", icon: FaRobot, color: "#2563EB" },
+      { name: "Computer Vision", icon: FaCamera, color: "#DC2626" },
+      { name: "gTTS", icon: FaMicrochip, color: "#059669" }
     ]
   },
   {
@@ -317,16 +317,16 @@ const skillCategories = [
     title: "Web & Mobile Frameworks",
     icon: AppWindow,
     skills: [
-      { name: "React Native", icon: SiReact },
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "Node.js", icon: SiNodedotjs },
-      { name: "Express.js", icon: SiExpress },
-      { name: "Flask", icon: SiFlask },
-      { name: "Jakarta Servlets", icon: SiApachetomcat },
-      { name: "JSP", icon: FaJava },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Bootstrap 5", icon: SiBootstrap },
-      { name: "Streamlit", icon: SiStreamlit }
+      { name: "React Native", icon: SiReact, color: "#087EA4" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#0C1A20" },
+      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+      { name: "Express.js", icon: SiExpress, color: "#303030" },
+      { name: "Flask", icon: SiFlask, color: "#0C4B33" },
+      { name: "Jakarta Servlets", icon: SiApachetomcat, color: "#D22128" },
+      { name: "JSP", icon: FaJava, color: "#007396" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "Bootstrap 5", icon: SiBootstrap, color: "#7952B3" },
+      { name: "Streamlit", icon: SiStreamlit, color: "#FF4B4B" }
     ]
   },
   {
@@ -334,15 +334,15 @@ const skillCategories = [
     title: "Enterprise Automation & RPA",
     icon: Workflow,
     skills: [
-      { name: "Power Automate", icon: FaGears },
-      { name: "Playwright RPA", icon: TbRobot },
-      { name: "Office Scripts (TypeScript)", icon: SiTypescript },
-      { name: "BMC Helix ITSM", icon: FaServer },
-      { name: "Oracle HCM Cloud", icon: FaCloud },
-      { name: "SharePoint APIs", icon: FaFolderTree },
-      { name: "Win32com Outlook Engine", icon: FaEnvelope },
-      { name: "PyMuPDF", icon: FaFilePdf },
-      { name: "OpenPyXL", icon: FaFileExcel }
+      { name: "Power Automate", icon: FaGears, color: "#0066FF" },
+      { name: "Playwright RPA", icon: TbRobot, color: "#2EAD33" },
+      { name: "Office Scripts (TypeScript)", icon: SiTypescript, color: "#3178C6" },
+      { name: "BMC Helix ITSM", icon: FaServer, color: "#FF6C00" },
+      { name: "Oracle HCM Cloud", icon: FaCloud, color: "#C74634" },
+      { name: "SharePoint APIs", icon: FaFolderTree, color: "#038387" },
+      { name: "Win32com Outlook Engine", icon: FaEnvelope, color: "#0078D4" },
+      { name: "PyMuPDF", icon: FaFilePdf, color: "#EC2025" },
+      { name: "OpenPyXL", icon: FaFileExcel, color: "#217346" }
     ]
   },
   {
@@ -350,17 +350,17 @@ const skillCategories = [
     title: "Cloud, DevOps & Security",
     icon: ShieldCheck,
     skills: [
-      { name: "GitHub Actions CI/CD", icon: SiGithubactions },
-      { name: "Zero Trust Architecture", icon: FaShieldHalved },
-      { name: "Role-Based Access Control (RBAC)", icon: FaLock },
-      { name: "CodeQL SAST", icon: FaCode },
-      { name: "Trivy Scanning", icon: SiTrivy },
-      { name: "Gitleaks", icon: FaUserSecret },
-      { name: "Penetration Testing", icon: FaBug },
-      { name: "Nmap", icon: FaNetworkWired },
-      { name: "Metasploit", icon: FaTerminal },
-      { name: "Rate Limiting & HSTS", icon: FaShieldHalved },
-      { name: "Apache Tomcat", icon: SiApachetomcat }
+      { name: "GitHub Actions CI/CD", icon: SiGithubactions, color: "#2088FF" },
+      { name: "Zero Trust Architecture", icon: FaShieldHalved, color: "#0284C7" },
+      { name: "Role-Based Access Control (RBAC)", icon: FaLock, color: "#7C3AED" },
+      { name: "CodeQL SAST", icon: FaCode, color: "#6E5494" },
+      { name: "Trivy Scanning", icon: SiTrivy, color: "#008080" },
+      { name: "Gitleaks", icon: FaUserSecret, color: "#E11D48" },
+      { name: "Penetration Testing", icon: FaBug, color: "#DC2626" },
+      { name: "Nmap", icon: FaNetworkWired, color: "#3B82F6" },
+      { name: "Metasploit", icon: FaTerminal, color: "#0284C7" },
+      { name: "Rate Limiting & HSTS", icon: FaShieldHalved, color: "#059669" },
+      { name: "Apache Tomcat", icon: SiApachetomcat, color: "#D22128" }
     ]
   },
   {
@@ -368,17 +368,17 @@ const skillCategories = [
     title: "Data & Analytics Architecture",
     icon: BarChart3,
     skills: [
-      { name: "Power BI", icon: FaChartBar },
-      { name: "Tableau", icon: FaMagnifyingGlassChart },
-      { name: "Pandas", icon: SiPandas },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "MySQL", icon: SiMysql },
-      { name: "SQLite", icon: SiSqlite },
-      { name: "Prisma ORM", icon: SiPrisma },
-      { name: "Firebase Firestore", icon: SiFirebase },
-      { name: "NoSQL Architecture", icon: FaDatabase },
-      { name: "Data Visualization", icon: FaChartPie },
-      { name: "Data Storytelling", icon: FaChartBar }
+      { name: "Power BI", icon: FaChartBar, color: "#E6AD00" },
+      { name: "Tableau", icon: FaMagnifyingGlassChart, color: "#E65100" },
+      { name: "Pandas", icon: SiPandas, color: "#150458" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+      { name: "SQLite", icon: SiSqlite, color: "#044A64" },
+      { name: "Prisma ORM", icon: SiPrisma, color: "#0C344B" },
+      { name: "Firebase Firestore", icon: SiFirebase, color: "#FF8F00" },
+      { name: "NoSQL Architecture", icon: FaDatabase, color: "#4DB33D" },
+      { name: "Data Visualization", icon: FaChartPie, color: "#8B5CF6" },
+      { name: "Data Storytelling", icon: FaChartBar, color: "#0E7490" }
     ]
   },
   {
@@ -386,15 +386,15 @@ const skillCategories = [
     title: "Design & Product Management",
     icon: Palette,
     skills: [
-      { name: "Figma", icon: SiFigma },
-      { name: "Adobe Photoshop", icon: DiPhotoshop },
-      { name: "Final Cut Pro", icon: FaVideo },
-      { name: "Canva", icon: SiCanvas },
-      { name: "CapCut", icon: FaVideo },
-      { name: "Product Photography", icon: FaCamera },
-      { name: "Git / GitHub Version Control", icon: SiGithub },
-      { name: "Microsoft Office 365", icon: FaFileWord },
-      { name: "E-Commerce Strategy", icon: FaCartShopping }
+      { name: "Figma", icon: SiFigma, color: "#F24E1E" },
+      { name: "Adobe Photoshop", icon: DiPhotoshop, color: "#31A8FF" },
+      { name: "Final Cut Pro", icon: FaVideo, color: "#7B1FA2" },
+      { name: "Canva", icon: SiCanvas, color: "#00C4CC" },
+      { name: "CapCut", icon: FaVideo, color: "#0C1A20" },
+      { name: "Product Photography", icon: FaCamera, color: "#E11D48" },
+      { name: "Git / GitHub Version Control", icon: SiGithub, color: "#F05032" },
+      { name: "Microsoft Office 365", icon: FaFileWord, color: "#D83B01" },
+      { name: "E-Commerce Strategy", icon: FaCartShopping, color: "#95BF47" }
     ]
   }
 ];
@@ -615,7 +615,7 @@ const Projects = () => {
                           key={i}
                           className="px-3 py-1.5 bg-[#F5F9FA] border border-border hover:border-[#06B6D4]/50 rounded-lg text-xs font-semibold text-[#0C1A20] transition-colors cursor-default flex items-center gap-2 shadow-2xs"
                         >
-                          <SkillIcon className="text-[#0E7490] shrink-0 text-sm" />
+                          <SkillIcon className="shrink-0 text-sm" style={{ color: skill.color }} />
                           <span>{skill.name}</span>
                         </span>
                       );
