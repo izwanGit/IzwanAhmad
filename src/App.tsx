@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Pages
 import Home from './pages/Home';
 import Projects from './pages/Projects';
+import ProjectDetail from './pages/ProjectDetail';
 import Experience from './pages/Experience';
 import Freelance from './pages/Freelance';
 
@@ -34,6 +35,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/freelance" element={<Freelance />} />
           </Routes>

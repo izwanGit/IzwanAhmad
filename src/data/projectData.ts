@@ -1,0 +1,447 @@
+import type { IconType } from 'react-icons';
+import {
+  SiTypescript,
+  SiJavascript,
+  SiPython,
+  SiPhp,
+  SiHtml5,
+  SiTensorflow,
+  SiPytorch,
+  SiScikitlearn,
+  SiOpencv,
+  SiGoogle,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiFlask,
+  SiApachetomcat,
+  SiTailwindcss,
+  SiBootstrap,
+  SiStreamlit,
+  SiGithubactions,
+  SiTrivy,
+  SiPandas,
+  SiPostgresql,
+  SiMysql,
+  SiSqlite,
+  SiPrisma,
+  SiFirebase,
+  SiFigma,
+  SiCanvas,
+  SiGithub,
+} from 'react-icons/si';
+import {
+  FaJava,
+  FaChartBar,
+  FaEye,
+  FaRobot,
+  FaCamera,
+  FaMicrochip,
+  FaGears,
+  FaServer,
+  FaCloud,
+  FaFolderTree,
+  FaEnvelope,
+  FaFilePdf,
+  FaFileExcel,
+  FaShieldHalved,
+  FaLock,
+  FaCode,
+  FaUserSecret,
+  FaBug,
+  FaNetworkWired,
+  FaTerminal,
+  FaMagnifyingGlassChart,
+  FaDatabase,
+  FaChartPie,
+  FaVideo,
+  FaFileWord,
+  FaCartShopping,
+} from 'react-icons/fa6';
+import {
+  TbSql,
+  TbMath,
+  TbBrandOpenai,
+  TbBrain,
+  TbPrompt,
+  TbRobot,
+} from 'react-icons/tb';
+import { DiCss3, DiPhotoshop } from 'react-icons/di';
+import { VscOpenai } from 'react-icons/vsc';
+
+// ─── Project Types ───────────────────────────────────────────────
+export interface Project {
+  id: string;
+  title: string;
+  tagline: string;
+  category: string;
+  categories: ('web' | 'mobile' | 'ai' | 'enterprise')[];
+  description: string;
+  tags: string[];
+  image: string;
+  imageType: 'phone' | 'laptop';
+  year: string;
+  awards?: string[];
+  impact?: string[];
+  github?: string;
+  demo?: string;
+}
+
+// ─── Skill Types ─────────────────────────────────────────────────
+export interface Skill {
+  name: string;
+  icon: IconType;
+  color: string;
+}
+
+export interface SkillCategory {
+  id: string;
+  title: string;
+  skills: Skill[];
+}
+
+// ─── All 16 Projects ─────────────────────────────────────────────
+export const projects: Project[] = [
+  {
+    id: "beruang",
+    title: "Beruang: AI Money Management & Advisor",
+    tagline: "Hybrid AI finance app with 99.61% transaction accuracy",
+    category: "AI / Mobile Application",
+    categories: ['mobile', 'ai'],
+    description: "Hybrid multi-model AI personal finance app. Trained a Bi-LSTM model on 220,000+ Malaysian transactions (99.61% accuracy) with MiniLM transformer on-device routing and xAI Grok 4.1 RAG advisor. 86.77 SUS usability score across 55 respondents.",
+    tags: ["React Native", "Node.js", "TensorFlow.js", "Firebase", "xAI Grok 4.1", "RAG"],
+    image: '/images/beruang-mobile.jpg',
+    imageType: 'phone',
+    year: "2026",
+    awards: ["Best System Architecture Award", "86.77 SUS Score"],
+    impact: ["99.61% accuracy", "55 testers", "86.77 SUS"],
+    github: "https://github.com/izwanGit/Beruang",
+    demo: "https://beruang-landing.vercel.app/"
+  },
+  {
+    id: "rentverse",
+    title: "RentVerse Enterprise Rental Platform",
+    tagline: "Champion — UiTM Mobile SecOps Challenge",
+    category: "DevSecOps / Web Platform",
+    categories: ['web'],
+    description: "Secure-by-design property rental ecosystem built for the 21-day UiTM Mobile SecOps Challenge. Next.js frontend + hardened Node.js backend featuring Zero-Trust MFA, impossible travel anomaly detection, and 14-stage CI/CD pipeline with CodeQL SAST, Trivy, and Gitleaks.",
+    tags: ["Next.js", "Node.js", "GitHub Actions", "Puppeteer", "Trivy", "Zero-Trust"],
+    image: '/images/rentverse/homepage.jpg',
+    imageType: 'laptop',
+    year: "2025",
+    awards: ["Champion (1st Place)", "Best Automated Security Testing", "Best Zero Trust Logic", "Best Threat Intelligence"],
+    impact: ["4 awards", "14-stage CI/CD", "21-day sprint"],
+    github: "https://github.com/izwanGit/uitm-devops-challenge_TeamOne",
+    demo: "https://uitm-devops-challenge-team-one.vercel.app/"
+  },
+  {
+    id: "petronas-hub",
+    title: "PETRONAS HCSM Operations Hub",
+    tagline: "Solo-built enterprise RPA serving 50,000+ employees",
+    category: "Enterprise RPA & ITSM Platform",
+    categories: ['enterprise'],
+    description: "Designed and solo-built the HCSM Operations Hub at PETRONAS Digital. Streamlit platform automating 3 core ITSM workflows for myCareerX (Oracle HCM Cloud) serving 50,000+ employees. Cut processing times by 95%.",
+    tags: ["Python", "Streamlit", "PyMuPDF", "Playwright RPA", "OpenPyXL", "Oracle HCM"],
+    image: '/images/petronas-hub-main.jpg',
+    imageType: 'laptop',
+    year: "2025",
+    awards: ["Deployed to Production at PETRONAS Digital", "95% Workflow Time Reduction"],
+    impact: ["95% time cut", "50,000+ users", "3 workflows"],
+  },
+  {
+    id: "batik",
+    title: "Batik AI Recognition & Classification",
+    tagline: "Real-time ViT model — Best AI Booth Award",
+    category: "Computer Vision / Deep Learning",
+    categories: ['ai'],
+    description: "Real-time computer vision system classifying Malaysian vs. Indonesian batik patterns using a Vision Transformer (ViT) deep learning model with 94.2% accuracy. Features live brightness/focus quality checks and anti-flicker filters.",
+    tags: ["Python", "OpenCV", "Flask", "Vision Transformer (ViT)", "Roboflow"],
+    image: '/images/batik-main.jpeg',
+    imageType: 'laptop',
+    year: "2025",
+    awards: ["Best AI Booth Award — AI Seminar 2025"],
+    impact: ["94.2% accuracy", "Real-time inference"],
+    github: "https://github.com/izwanGit/BatikRecognitionAndClassification"
+  },
+  {
+    id: "montswitzerland",
+    title: "Mont Switzerland Corporate & E-Commerce",
+    tagline: "Built in 24 hours — scaled to RM100K/month",
+    category: "Full-Stack Web / E-Commerce",
+    categories: ['web'],
+    description: "Architected and deployed corporate website within a 24-hour deadline. Engineered affiliate tracking and ad performance workflows, scaling monthly platform sales from RM100/day to RM100,000/month.",
+    tags: ["Web Architecture", "E-Commerce", "Zoho Mail", "Affiliate Tracking", "DNS / Domain"],
+    image: '/images/montswitzerland-laptop.jpg',
+    imageType: 'laptop',
+    year: "2024",
+    awards: ["Exceeded Sales Target (+ Allowance Increment)"],
+    impact: ["RM100K/month", "24-hour build"],
+  },
+  {
+    id: "play2grow",
+    title: "Play2Grow Edutainment Android App",
+    tagline: "Dual-mode learning app for children ages 4–6",
+    category: "Android Application",
+    categories: ['mobile'],
+    description: "Dual-mode educational Android app preparing children (ages 4-6) for primary school. Features Parent Mode for task assignment/printable reports and Kid Mode for interactive gamified quizzes powered by Firebase Firestore NoSQL.",
+    tags: ["Java", "Android Studio", "Firebase Auth", "Firestore NoSQL"],
+    image: '/images/play2grow-mobile.jpg',
+    imageType: 'phone',
+    year: "2024",
+    github: "https://github.com/izwanGit/Play2GrowGames",
+  },
+  {
+    id: "uems",
+    title: "UiTM Event Management System (UEMS)",
+    tagline: "Enterprise Java web portal for campus events",
+    category: "Java Web Application",
+    categories: ['web'],
+    description: "Enterprise Java web portal enabling campus admins to manage events and students to register and submit feedback. Server-side logic built using Jakarta Servlets and JSP, persisted in MySQL, and deployed on Apache Tomcat.",
+    tags: ["Java", "Jakarta Servlets", "JSP", "MySQL", "Apache Tomcat"],
+    image: '/images/uems-laptop.jpg',
+    imageType: 'laptop',
+    year: "2024",
+    github: "https://github.com/izwanGit/UiTM-Event-Management-System"
+  },
+  {
+    id: "hawker-food",
+    title: "Malaysian Hawker Food Recognition & Calorie AI",
+    tagline: "MATLAB CNN food classifier with calorie mapping",
+    category: "Computer Vision / Deep Learning",
+    categories: ['ai'],
+    description: "Led AI architecture for a MATLAB-based system recognizing Malaysian hawker food and estimating calorie content. Fine-tuned SqueezeNet CNN (83% accuracy) with 3-stage Gray World CLAHE image preprocessing and MyFCD nutrition mapping.",
+    tags: ["MATLAB", "SqueezeNet CNN", "SVM Classifier", "Computer Vision", "MyFCD"],
+    image: '/images/food-placeholder.jpg',
+    imageType: 'laptop',
+    year: "2025",
+    impact: ["83% accuracy", "3-stage preprocessing"],
+    github: "https://github.com/izwanGit/malaysian-food-recognition"
+  },
+  {
+    id: "weekly-report",
+    title: "Weekly ITSM Report Automation Pipeline",
+    tagline: "Zero-touch Monday 7 AM reporting pipeline",
+    category: "Zero-Touch Workflow Automation",
+    categories: ['enterprise'],
+    description: "Zero-touch Power Automate pipeline for myCareerX ITSM reporting. Processes 4 raw Excel files with 6 TypeScript Office Scripts every Monday at 7:00 AM. Generates PETRONAS teal HTML emails and sends Teams reminders with @mentions.",
+    tags: ["Power Automate", "TypeScript", "Office Scripts", "Outlook HTML", "SharePoint"],
+    image: '/images/petronas-weekly-email.jpg',
+    imageType: 'laptop',
+    year: "2025",
+    awards: ["Replaced 3-4 Hours of Weekly Manual Work"],
+    impact: ["3-4 hrs saved/week", "6 Office Scripts"],
+  },
+  {
+    id: "monthly-report",
+    title: "Monthly Power BI Executive Dashboard",
+    tagline: "Auto-generated executive summary with DAX NLG",
+    category: "Business Intelligence & Automation",
+    categories: ['enterprise'],
+    description: "Automated monthly reporting pipeline pairing a 16:9 Power BI template with Power Automate REST API connectors. Wrote custom DAX measures generating natural-language executive summary bullets directly inside report cards.",
+    tags: ["Power BI", "DAX", "Power Automate", "REST API", "SharePoint"],
+    image: '/images/petronas-monthly-cover.jpg',
+    imageType: 'laptop',
+    year: "2025",
+    awards: ["Replaced 1-2 Hours of Monthly Manual Work"],
+    impact: ["1-2 hrs saved/month", "DAX NLG bullets"],
+  },
+  {
+    id: "predeploy",
+    title: "Pre-Deployment Automation & Teams Handoff",
+    tagline: "UAT → OAT document + Teams card in < 1 min",
+    category: "RPA & Document Automation",
+    categories: ['enterprise'],
+    description: "Power Automate flow triggered by UAT endorsement emails. Extracts ticket IDs, queries SharePoint details, generates branded PETRONAS OAT Word documents, and posts an interactive Teams card with an 'Open in Ops Hub' launch button.",
+    tags: ["Power Automate", "Playwright RPA", "SharePoint", "Adaptive Cards", "BMC Helix"],
+    image: '/images/petronas-predeploy-card.jpg',
+    imageType: 'laptop',
+    year: "2025",
+    awards: ["Cut Deployment Prep from 30 min to <1 min"],
+    impact: ["30 min → <1 min", "Auto-gen Word docs"],
+  },
+  {
+    id: "priority-ticket",
+    title: "Priority Ticket 24/7 Teams Listener Bot",
+    tagline: "24/7 autonomous chat listener for urgent tickets",
+    category: "Real-Time Chat Listener & Bot",
+    categories: ['enterprise'],
+    description: "System monitoring Teams support chat 24/7, intercepting urgent ticket mentions (REQ / ICT_WO). Auto-logs placeholders in SharePoint, enriches details via TypeScript Office Scripts from daily dumps, and posts weekly reminders.",
+    tags: ["Power Automate", "TypeScript", "Teams Bot", "Office 365 Users API"],
+    image: '/images/petronas-priority-notif.jpg',
+    imageType: 'laptop',
+    year: "2025",
+    awards: ["24/7 Autonomous Teams Ticket Listener"],
+    impact: ["24/7 monitoring", "Auto-enrichment"],
+  },
+  {
+    id: "crime-analytics",
+    title: "Economic Disparities & Crime Analytics",
+    tagline: "Head of Data Science — Malaysian crime patterns",
+    category: "Data Science & Visual Analytics",
+    categories: ['enterprise'],
+    description: "Served as Head of Data Science investigating socioeconomic correlations with Malaysian crime patterns using 2022 Open DOSM datasets. Conducted Python/Pandas normalization in Colab and engineered an interactive Tableau dashboard.",
+    tags: ["Python", "Pandas", "Scikit-Learn", "Tableau", "Data Storytelling"],
+    image: '/images/petronas-dashboard.jpg',
+    imageType: 'laptop',
+    year: "2024",
+    github: "https://github.com/izwanGit/EconomicPressureAndSocialPatterns_DataProcessing"
+  },
+  {
+    id: "network-sec",
+    title: "Network Service Enumeration & Exploitation",
+    tagline: "Full-chain penetration testing demonstration",
+    category: "Cybersecurity / Penetration Testing",
+    categories: ['enterprise'],
+    description: "Executed full-chain penetration testing demonstration: SMB reconnaissance via enum4linux to exfiltrate private SSH keys, non-standard Telnet reverse shell execution for root privilege escalation, and FTP dictionary brute-forcing.",
+    tags: ["Penetration Testing", "Nmap", "Metasploit", "SMB / Telnet / FTP", "Hydra"],
+    image: '/images/rentverse/admin.jpg',
+    imageType: 'laptop',
+    year: "2024",
+  },
+  {
+    id: "yulaoshi",
+    title: "YuLaoshi: AI Mandarin Conversational Tutor",
+    tagline: "GPT-4o chatbot with gamified Mandarin quizzes",
+    category: "AI Chatbot / Full-Stack Web",
+    categories: ['ai', 'web'],
+    description: "Full-stack AI chatbot serving as a conversational Mandarin tutor for UiTM students. Combines GPT-4o-mini with a gamified listening quiz module, real-time audio via gTTS, and persistent SQLite progression tracking.",
+    tags: ["Flask", "GPT-4o-mini", "gTTS", "JavaScript", "SQLite"],
+    image: '/images/yulaoshi-main.jpeg',
+    imageType: 'laptop',
+    year: "2024",
+    github: "https://github.com/izwanGit/LaoshiYu-Chatbot",
+    demo: "https://yulaoshi.onrender.com/"
+  },
+  {
+    id: "kuehlicious",
+    title: "Kuehlicious: Traditional Kuih Mobile & Web",
+    tagline: "Innovation Award — mobile ordering + PHP backend",
+    category: "Mobile App & Web Backend",
+    categories: ['mobile', 'web'],
+    description: "Dual-platform ordering system for traditional Malaysian kuih. React Native mobile app with PHP/MySQL admin backend. Features delivery tracking, push notifications, and integrated payment flow.",
+    tags: ["React Native", "PHP", "MySQL", "Bootstrap", "REST API"],
+    image: '/images/kuehlicious-laptop.jpg',
+    imageType: 'laptop',
+    year: "2024",
+    awards: ["Innovation Award"],
+    github: "https://github.com/izwanGit/KuihBatangBurukOrderingSystem"
+  },
+];
+
+export const featuredProjectIds = ["beruang", "rentverse", "petronas-hub", "batik"];
+
+// ─── Skills Data ─────────────────────────────────────────────────
+export const skillCategories: SkillCategory[] = [
+  {
+    id: "languages",
+    title: "Languages",
+    skills: [
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "Python", icon: SiPython, color: "#3776AB" },
+      { name: "Java", icon: FaJava, color: "#007396" },
+      { name: "PHP", icon: SiPhp, color: "#777BB4" },
+      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+      { name: "CSS3", icon: DiCss3, color: "#1572B6" },
+      { name: "DAX", icon: FaChartBar, color: "#E6AD00" },
+      { name: "SQL", icon: TbSql, color: "#00758F" },
+      { name: "MATLAB", icon: TbMath, color: "#E16B5B" },
+    ],
+  },
+  {
+    id: "ai",
+    title: "AI & ML",
+    skills: [
+      { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
+      { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
+      { name: "Scikit-Learn", icon: SiScikitlearn, color: "#F7931E" },
+      { name: "OpenCV", icon: SiOpencv, color: "#5C2D91" },
+      { name: "ViT", icon: FaEye, color: "#8E44AD" },
+      { name: "Grok 4.1", icon: TbBrandOpenai, color: "#FFFFFF" },
+      { name: "GPT-4o", icon: VscOpenai, color: "#10A37F" },
+      { name: "Gemini", icon: SiGoogle, color: "#4285F4" },
+      { name: "RAG", icon: TbBrain, color: "#00A67E" },
+      { name: "Prompt Eng", icon: TbPrompt, color: "#D97706" },
+      { name: "NLP", icon: FaRobot, color: "#2563EB" },
+      { name: "Computer Vision", icon: FaCamera, color: "#DC2626" },
+      { name: "gTTS", icon: FaMicrochip, color: "#059669" },
+    ],
+  },
+  {
+    id: "frameworks",
+    title: "Frameworks",
+    skills: [
+      { name: "React Native", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+      { name: "Express", icon: SiExpress, color: "#FFFFFF" },
+      { name: "Flask", icon: SiFlask, color: "#FFFFFF" },
+      { name: "Tomcat", icon: SiApachetomcat, color: "#D22128" },
+      { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+      { name: "Streamlit", icon: SiStreamlit, color: "#FF4B4B" },
+    ],
+  },
+  {
+    id: "enterprise",
+    title: "Enterprise",
+    skills: [
+      { name: "Power Automate", icon: FaGears, color: "#0066FF" },
+      { name: "Playwright", icon: TbRobot, color: "#2EAD33" },
+      { name: "Office Scripts", icon: SiTypescript, color: "#3178C6" },
+      { name: "BMC Helix", icon: FaServer, color: "#FF6C00" },
+      { name: "Oracle HCM", icon: FaCloud, color: "#C74634" },
+      { name: "SharePoint", icon: FaFolderTree, color: "#038387" },
+      { name: "Outlook", icon: FaEnvelope, color: "#0078D4" },
+      { name: "PyMuPDF", icon: FaFilePdf, color: "#EC2025" },
+      { name: "OpenPyXL", icon: FaFileExcel, color: "#217346" },
+    ],
+  },
+  {
+    id: "devops",
+    title: "DevOps",
+    skills: [
+      { name: "GitHub Actions", icon: SiGithubactions, color: "#2088FF" },
+      { name: "Zero Trust", icon: FaShieldHalved, color: "#0284C7" },
+      { name: "RBAC", icon: FaLock, color: "#7C3AED" },
+      { name: "CodeQL", icon: FaCode, color: "#6E5494" },
+      { name: "Trivy", icon: SiTrivy, color: "#1DB8C5" },
+      { name: "Gitleaks", icon: FaUserSecret, color: "#E11D48" },
+      { name: "Pen Testing", icon: FaBug, color: "#DC2626" },
+      { name: "Nmap", icon: FaNetworkWired, color: "#3B82F6" },
+      { name: "Metasploit", icon: FaTerminal, color: "#0284C7" },
+    ],
+  },
+  {
+    id: "data",
+    title: "Data",
+    skills: [
+      { name: "Power BI", icon: FaChartBar, color: "#E6AD00" },
+      { name: "Tableau", icon: FaMagnifyingGlassChart, color: "#E97627" },
+      { name: "Pandas", icon: SiPandas, color: "#150458" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+      { name: "SQLite", icon: SiSqlite, color: "#44A8D6" },
+      { name: "Prisma", icon: SiPrisma, color: "#5A67D8" },
+      { name: "Firebase", icon: SiFirebase, color: "#FF8F00" },
+      { name: "NoSQL", icon: FaDatabase, color: "#4DB33D" },
+      { name: "Visualization", icon: FaChartPie, color: "#8B5CF6" },
+    ],
+  },
+  {
+    id: "tools",
+    title: "Design",
+    skills: [
+      { name: "Figma", icon: SiFigma, color: "#F24E1E" },
+      { name: "Photoshop", icon: DiPhotoshop, color: "#31A8FF" },
+      { name: "Final Cut Pro", icon: FaVideo, color: "#9333EA" },
+      { name: "Canva", icon: SiCanvas, color: "#00C4CC" },
+      { name: "CapCut", icon: FaVideo, color: "#FFFFFF" },
+      { name: "Photography", icon: FaCamera, color: "#E11D48" },
+      { name: "Git / GitHub", icon: SiGithub, color: "#FFFFFF" },
+      { name: "Office 365", icon: FaFileWord, color: "#D83B01" },
+      { name: "E-Commerce", icon: FaCartShopping, color: "#95BF47" },
+    ],
+  },
+];
