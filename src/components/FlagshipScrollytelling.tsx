@@ -4,11 +4,13 @@
  * RECRUITER-OPTIMIZED FLAGSHIP SCROLLYTELLING
  *
  * Architectural & Design Highlights:
- *   1. ORIGINAL CLEAN FEATURE PILLS RESTORED (Biometric Auth, Real-Time Tracker, 50/30/20, etc.)
- *   2. REAL OFFICIAL TECH LOGO BADGES in Top Brand Header (React Native, PyTorch, Firebase, Next.js, Docker).
- *   3. BERUANG IOS LOGO (/images/beruang/logo.png) in high-impact header.
- *   4. UPRIGHT NATURAL DEVICE PRESENTATION (Not Slenty).
- *   5. ZERO TEXT CLASHING: AnimatePresence mode="wait" single active text block.
+ *   1. BERUANG AI PLATFORM: 7 UI Screenshots (Login -> Home -> Expenses -> Chat 1 -> Chat 2 -> Chat 3 -> Profile)
+ *      + Official Logos (React, PyTorch, Firebase) + Live Demo Link (https://beruang-landing.vercel.app/).
+ *   2. RENTVERSE DEVOPS ECOSYSTEM: 4 Real Screenshots (Homepage -> Explore Map -> Admin Dashboard -> Slack Alerts)
+ *      + RentVerse Logo (/images/rentverse/logo.png) + Live Website (https://uitm-devops-challenge-team-one.vercel.app/)
+ *      + GitHub Repo Link (https://github.com/izwanGit/uitm-devops-challenge_TeamOne).
+ *   3. UPRIGHT NATURAL DEVICE PRESENTATION (Not Slenty).
+ *   4. ZERO TEXT CLASHING: AnimatePresence mode="wait" single active text block.
  *
  * Theme: #F5F9FA (bg) · #0E7490 (primary) · #06B6D4 (accent) · #0C1A20 (text)
  */
@@ -159,26 +161,48 @@ const BERUANG_CHAPTERS: Chapter[] = [
 
 const RENTVERSE_CHAPTERS: Chapter[] = [
   {
-    id: 'zerotrust',
+    id: 'homepage',
     number: '01',
-    badge: 'Zero Trust Security Platform',
-    title: 'Enterprise Rental Ecosystem',
+    badge: 'Enterprise Rental Platform',
+    title: 'Property Discovery Engine',
     paragraph:
-      'Zero Trust security platform with AI-driven tenant fraud detection and real-time behavioral monitoring.',
-    pill: 'Zero Trust Security · Fraud Detection',
+      'Location-aware rental search platform featuring real-time property filter, Malay architecture UI, and instant booking.',
+    pill: 'Next.js 14 · Interactive Location Search',
     icon: ShieldCheck,
-    image: '/images/rentverse-laptop.jpg',
+    image: '/images/rentverse/homepage.jpg',
   },
   {
-    id: 'pipeline',
+    id: 'explore',
     number: '02',
-    badge: '14-Stage DevSecOps Pipeline',
-    title: 'Automated Security Pipeline',
+    badge: 'Spatial Property Mapping',
+    title: 'Interactive MapTiler Search',
     paragraph:
-      'Automated 14-stage DevSecOps CI/CD security pipeline with SonarQube static code analysis and Docker.',
-    pill: 'DevSecOps Pipeline · Docker Containerization',
+      'MapTiler spatial cluster mapping across Putrajaya and Cyberjaya with real-time price & sqft filtering.',
+    pill: 'MapTiler Geo-Clustering · Real-Time Map Query',
+    icon: Globe,
+    image: '/images/rentverse/explore.jpg',
+  },
+  {
+    id: 'admin',
+    number: '03',
+    badge: 'Security Monitoring Console',
+    title: 'Zero-Trust Threat Dashboard',
+    paragraph:
+      'Real-time threat level monitoring console tracking failed login spikes, critical audit trails, and automated moderation.',
+    pill: 'Zero Trust Auth · Threat Monitoring Console',
     icon: Server,
-    image: '/images/rentverse-home.jpg',
+    image: '/images/rentverse/admin.jpg',
+  },
+  {
+    id: 'slack',
+    number: '04',
+    badge: 'Real-Time DevSecOps Alerts',
+    title: 'Slack Webhook Threat Dispatch',
+    paragraph:
+      'Automated DevSecOps incident response pushing real-time risk scores (99/100 CRITICAL), IP tracking, and webhooks to Slack.',
+    pill: 'Slack Webhooks · Real-Time Incident Response',
+    icon: Zap,
+    image: '/images/rentverse/slack-alerts.jpg',
   },
 ];
 
@@ -316,6 +340,123 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/20 via-transparent to-transparent pointer-events-none" />
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
+      </div>
+    </motion.div>
+  );
+};
+
+// ─── Dynamic 3D Laptop Item for RentVerse ─────────────────────
+
+interface CascadeLaptopProps {
+  image: string;
+  alt: string;
+  scrollYProgress: MotionValue<number>;
+  index: number;
+  total: number;
+}
+
+const CascadeLaptopItem: React.FC<CascadeLaptopProps> = ({
+  image,
+  alt,
+  scrollYProgress,
+  index,
+  total,
+}) => {
+  const span = 1 / total;
+
+  const x = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return -150;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return -150 * exitP;
+      }
+      return 0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return (pos - advanceP) * 75;
+    }
+    return pos * 75;
+  });
+
+  const y = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return 80;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 80 * exitP;
+      }
+      return 0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return -20 * (pos - advanceP);
+    }
+    return -20 * pos;
+  });
+
+  const scale = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return 0.88;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 1 - 0.12 * exitP;
+      }
+      return index === total - 1 ? 1.03 : 1.0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return Math.max(0.7, 1 - 0.08 * (pos - advanceP));
+    }
+    return Math.max(0.7, 1 - 0.08 * pos);
+  });
+
+  const opacity = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return 0;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 1 - exitP;
+      }
+      return 1;
+    }
+    const pos = index - step;
+    if (pos === 1) return 0.65;
+    if (pos === 2) return 0.35;
+    return 0;
+  });
+
+  return (
+    <motion.div
+      style={{ x, y, scale, opacity }}
+      className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
+    >
+      <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/50 shadow-[0_30px_70px_rgba(14,116,144,0.25)] relative ring-1 ring-white/15">
+        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
+          <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
+        </div>
+        <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
+          <img src={image} alt={alt} className="w-full h-full object-cover object-top" loading="lazy" />
+        </div>
+      </div>
+      <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
+        <div className="w-20 h-1.5 rounded-b-md bg-[#0C1A20] border-x border-b border-[#0E7490]/30" />
       </div>
     </motion.div>
   );
@@ -523,15 +664,7 @@ const RentVerseShowcaseSection: React.FC = () => {
   });
 
   const currentChapter = RENTVERSE_CHAPTERS[activeIdx] || RENTVERSE_CHAPTERS[0];
-
-  const l0X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, -150, -150]);
-  const l0Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 80, 80]);
-  const l0Opacity = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [1, 1, 0, 0]);
-
-  const l1X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [75, 75, 0, 0]);
-  const l1Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [-20, -20, 0, 0]);
-  const l1Scale = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0.92, 0.92, 1.0, 1.0]);
-  const l1Opacity = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0.65, 0.65, 1, 1]);
+  const reversedChapters = [...RENTVERSE_CHAPTERS].map((chap, idx) => ({ chap, idx })).reverse();
 
   return (
     <section
@@ -550,30 +683,58 @@ const RentVerseShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Header Bar */}
+        {/* Top Header Bar: DevSecOps Ecosystem with RentVerse Logo */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#0E7490]/15">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-[#0E7490]/10 text-[#0E7490]">
-                <Trophy size={18} />
-              </div>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#0E7490]/15">
+            
+            <div className="flex items-center gap-3.5">
+              <img
+                src="/images/rentverse/logo.png"
+                alt="RentVerse Logo"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl object-cover shadow-sm border border-[#0E7490]/25 shrink-0 bg-white"
+              />
               <div>
-                <span className="text-sm sm:text-base font-black text-[#0C1A20] tracking-tight block leading-none">RentVerse Platform</span>
-                <span className="text-[11px] font-bold text-[#0E7490] mt-1 block">Champion · 4 Competition Awards</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-base sm:text-lg font-black text-[#0C1A20] tracking-tight">RentVerse Ecosystem</span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#0E7490]/10 text-[#0E7490] text-[10px] font-black uppercase tracking-wider border border-[#0E7490]/20">
+                    DevSecOps Winner
+                  </span>
+                </div>
+                <p className="text-xs font-bold text-[#0E7490] mt-0.5">
+                  14-Stage CI/CD Security Pipeline · Zero Trust Authentication · Docker
+                </p>
               </div>
             </div>
 
-            {/* Recruiter Tech Stack Badges with Official Logos */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
                 <NextjsIcon />
                 <span>Next.js 14</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
                 <DockerIcon />
                 <span>Docker CI/CD</span>
               </span>
+              <a
+                href="https://uitm-devops-challenge-team-one.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0E7490] hover:bg-[#06B6D4] text-white text-xs font-black shadow-2xs transition-all hover:scale-105 group shrink-0"
+              >
+                <span>Live Website</span>
+                <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+              <a
+                href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-[#0E7490]/30 hover:border-[#06B6D4] text-[#0C1A20] text-xs font-black shadow-2xs transition-all hover:scale-105 group shrink-0"
+              >
+                <span>View Repo</span>
+                <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
             </div>
+
           </div>
         </div>
 
@@ -613,43 +774,16 @@ const RentVerseShowcaseSection: React.FC = () => {
           <div className="lg:col-span-7 flex items-center justify-center relative min-h-[440px]">
             <div className="relative w-full h-[400px] sm:h-[440px] flex items-center justify-center">
               <div className="relative w-full h-full flex items-center justify-center">
-                
-                {/* Laptop 1 */}
-                <motion.div
-                  style={{ x: l1X, y: l1Y, scale: l1Scale, opacity: l1Opacity }}
-                  className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
-                >
-                  <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/50 shadow-[0_30px_70px_rgba(14,116,144,0.25)] relative ring-1 ring-white/15">
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
-                      <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
-                    </div>
-                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
-                      <img src="/images/rentverse-home.jpg" alt="DevSecOps Pipeline" className="w-full h-full object-cover object-top" />
-                    </div>
-                  </div>
-                  <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
-                    <div className="w-20 h-1.5 rounded-b-md bg-[#0C1A20] border-x border-b border-[#0E7490]/30" />
-                  </div>
-                </motion.div>
-
-                {/* Laptop 0 */}
-                <motion.div
-                  style={{ x: l0X, y: l0Y, opacity: l0Opacity }}
-                  className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
-                >
-                  <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/60 shadow-[0_35px_80px_rgba(14,116,144,0.35)] relative ring-1 ring-white/20">
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
-                      <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
-                    </div>
-                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
-                      <img src="/images/rentverse-laptop.jpg" alt="Zero Trust Security" className="w-full h-full object-cover object-top" />
-                    </div>
-                  </div>
-                  <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
-                    <div className="w-20 h-1.5 rounded-b-md bg-[#0C1A20] border-x border-b border-[#0E7490]/30" />
-                  </div>
-                </motion.div>
-
+                {reversedChapters.map(({ chap, idx }) => (
+                  <CascadeLaptopItem
+                    key={chap.id}
+                    image={chap.image}
+                    alt={chap.title}
+                    scrollYProgress={scrollYProgress}
+                    index={idx}
+                    total={total}
+                  />
+                ))}
               </div>
             </div>
           </div>

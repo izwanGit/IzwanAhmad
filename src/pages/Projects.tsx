@@ -55,9 +55,15 @@ const projects: Project[] = [
     categories: ['web'],
     description: "Enterprise-grade secure rental platform for the 21-day UiTM Mobile SecOps Challenge. Next.js frontend + hardened Node.js backend. Zero-Trust MFA, anomaly detection (impossible travel at 800km/h), 14-stage CI/CD pipeline, and tamper-evident SHA-256 digital agreements.",
     tags: ["Next.js", "Node.js", "GitHub Actions", "Puppeteer", "Trivy", "Zero-Trust"],
-    images: ['/images/rentverse-laptop.jpg', '/images/rentverse-home.jpg', '/images/rentverse.jpeg'],
+    images: [
+      '/images/rentverse/homepage.jpg',
+      '/images/rentverse/explore.jpg',
+      '/images/rentverse/admin.jpg',
+      '/images/rentverse/slack-alerts.jpg'
+    ],
     awards: ["Champion (1st Place)", "Best Automated Security Testing", "Best Zero Trust Logic", "Best Threat Intelligence"],
-    github: "https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
+    github: "https://github.com/izwanGit/uitm-devops-challenge_TeamOne",
+    demo: "https://uitm-devops-challenge-team-one.vercel.app/"
   },
   {
     id: "montswitzerland",
