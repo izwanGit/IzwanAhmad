@@ -1,20 +1,16 @@
 /**
  * FlagshipScrollytelling.tsx
  *
- * MC+ STYLE 3D LAYERED PHONE CASCADE (Zero Lag, 60fps/120fps)
+ * UPRIGHT NATURAL DEVICE CASCADE (Zero Lag, 60fps/120fps)
  *
- * All 7 Beruang UI Screenshots in exact user-requested order:
- *   1. Login Page (`login.png`)
- *   2. Homepage (`home.png`)
- *   3. Expenses Page (`expenses.png`)
- *   4. Chatbot Conversation 1 (`chat-1.png`)
- *   5. Chatbot Conversation 2 (`chat-2.png`)
- *   6. Chatbot Conversation 3 (`chat-3.png`)
- *   7. Profile Page (`profile.png`)
- *
- * TEXT CLASHING ELIMINATION:
- *   Uses AnimatePresence mode="wait" keyed by active chapter index. Guaranteed that ONLY
- *   one chapter text block exists in the DOM at any microsecond. Zero text overlap.
+ * Fixes:
+ *   1. UPRIGHT PRESENTATION (NOT SLENTY): Removed awkward CSS 3D skewing/tilting.
+ *      Phones and laptops stand pristine, upright, and grounded for 100% readable UI.
+ *   2. NATURAL LAYERED STACK: Background device mockups stack neatly to the right
+ *      (`x: 0, 75px, 150px`) with scale and opacity falloffs for clean depth.
+ *   3. ALL 7 BERUANG UI SCREENSHOTS in exact requested order:
+ *      Login -> Home -> Expenses -> Chat 1 -> Chat 2 -> Chat 3 -> Profile.
+ *   4. ZERO TEXT OVERLAP: AnimatePresence mode="wait" single active text block.
  *
  * Theme: #F5F9FA (bg) · #0E7490 (primary) · #06B6D4 (accent) · #0C1A20 (text)
  */
@@ -142,7 +138,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
   },
 ];
 
-// ─── Right Column: Dynamic 3D Phone Item ──────────────────────
+// ─── Right Column: Upright Phone Mockup Item ──────────────────
 
 interface CascadePhoneProps {
   image: string;
@@ -165,80 +161,60 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
     const step = Math.min(Math.floor(v * total), total - 1);
     const progressInStep = (v - step * span) / span;
 
-    if (index < step) return -160;
+    if (index < step) return -150;
     if (index === step) {
       if (progressInStep > 0.7 && index < total - 1) {
         const exitP = (progressInStep - 0.7) / 0.3;
-        return -160 * exitP;
+        return -150 * exitP;
       }
       return 0;
     }
     const pos = index - step;
     if (progressInStep > 0.7) {
       const advanceP = (progressInStep - 0.7) / 0.3;
-      return (pos - advanceP) * 80;
+      return (pos - advanceP) * 75;
     }
-    return pos * 80;
+    return pos * 75;
   });
 
   const y = useTransform(scrollYProgress, (v) => {
     const step = Math.min(Math.floor(v * total), total - 1);
     const progressInStep = (v - step * span) / span;
 
-    if (index < step) return 120;
+    if (index < step) return 80;
     if (index === step) {
       if (progressInStep > 0.7 && index < total - 1) {
         const exitP = (progressInStep - 0.7) / 0.3;
-        return 120 * exitP;
+        return 80 * exitP;
       }
       return 0;
     }
     const pos = index - step;
     if (progressInStep > 0.7) {
       const advanceP = (progressInStep - 0.7) / 0.3;
-      return -25 * (pos - advanceP);
+      return -20 * (pos - advanceP);
     }
-    return -25 * pos;
-  });
-
-  const z = useTransform(scrollYProgress, (v) => {
-    const step = Math.min(Math.floor(v * total), total - 1);
-    const progressInStep = (v - step * span) / span;
-
-    if (index < step) return 50;
-    if (index === step) {
-      if (progressInStep > 0.7 && index < total - 1) {
-        const exitP = (progressInStep - 0.7) / 0.3;
-        return 50 * exitP;
-      }
-      return 0;
-    }
-    const pos = index - step;
-    if (progressInStep > 0.7) {
-      const advanceP = (progressInStep - 0.7) / 0.3;
-      return -80 * (pos - advanceP);
-    }
-    return -80 * pos;
+    return -20 * pos;
   });
 
   const scale = useTransform(scrollYProgress, (v) => {
     const step = Math.min(Math.floor(v * total), total - 1);
     const progressInStep = (v - step * span) / span;
 
-    if (index < step) return 0.85;
+    if (index < step) return 0.88;
     if (index === step) {
       if (progressInStep > 0.7 && index < total - 1) {
         const exitP = (progressInStep - 0.7) / 0.3;
-        return 1 - 0.15 * exitP;
+        return 1 - 0.12 * exitP;
       }
-      return index === total - 1 ? 1.04 : 1.0;
+      return index === total - 1 ? 1.03 : 1.0;
     }
     const pos = index - step;
     if (progressInStep > 0.7) {
       const advanceP = (progressInStep - 0.7) / 0.3;
-      return Math.max(0.6, 1 - 0.1 * (pos - advanceP));
+      return Math.max(0.7, 1 - 0.08 * (pos - advanceP));
     }
-    return Math.max(0.6, 1 - 0.1 * pos);
+    return Math.max(0.7, 1 - 0.08 * pos);
   });
 
   const opacity = useTransform(scrollYProgress, (v) => {
@@ -254,16 +230,16 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
       return 1;
     }
     const pos = index - step;
-    if (pos === 1) return 0.7;
-    if (pos === 2) return 0.4;
+    if (pos === 1) return 0.65;
+    if (pos === 2) return 0.35;
     return 0;
   });
 
   const borderColor = useTransform(scrollYProgress, (v) => {
     const step = Math.min(Math.floor(v * total), total - 1);
     if (index === step) return 'rgba(14,116,144,0.7)';
-    if (index === step + 1) return 'rgba(255,255,255,0.2)';
-    return 'rgba(255,255,255,0.08)';
+    if (index === step + 1) return 'rgba(14,116,144,0.25)';
+    return 'rgba(14,116,144,0.1)';
   });
 
   return (
@@ -271,13 +247,13 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
       style={{
         x,
         y,
-        z,
         scale,
         opacity,
         borderColor,
       }}
-      className="absolute w-[260px] sm:w-[300px] md:w-[320px] aspect-[9/19.2] rounded-[48px] p-3 bg-[#0C1A20] shadow-[0_45px_100px_rgba(6,182,212,0.35)] border-4 ring-1 ring-white/30 transform-gpu transition-shadow"
+      className="absolute w-[260px] sm:w-[300px] md:w-[320px] aspect-[9/19.2] rounded-[48px] p-3 bg-[#0C1A20] shadow-[0_30px_70px_rgba(14,116,144,0.3)] border-4 ring-1 ring-white/30 transform-gpu transition-shadow"
     >
+      {/* Dynamic Island Speaker Notch */}
       <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-2.5 border border-white/10 shadow-md">
         <div className="w-2.5 h-2.5 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
           <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
@@ -288,6 +264,7 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
         </div>
       </div>
 
+      {/* Upright Clean Phone Screen */}
       <div className="relative w-full h-full rounded-[38px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
         <img
           src={image}
@@ -295,14 +272,14 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
           className="w-full h-full object-cover object-top"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/25 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/20 via-transparent to-transparent pointer-events-none" />
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
       </div>
     </motion.div>
   );
 };
 
-// ─── Beruang Showcase Section (MC+ 3D Cascade) ────────────────
+// ─── Beruang Showcase Section (Upright Cascade) ────────────────
 
 const BeruangShowcaseSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -398,7 +375,7 @@ const BeruangShowcaseSection: React.FC = () => {
         {/* Main 2-Column Showcase Grid */}
         <div className="container mx-auto px-6 max-w-7xl relative z-30 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full my-auto py-2">
           
-          {/* LEFT COLUMN: Single Active Text Block (AnimatePresence mode="wait") */}
+          {/* LEFT COLUMN: Single Active Text Block */}
           <div className="lg:col-span-5 relative flex items-center min-h-[380px] sm:min-h-[420px]">
             <AnimatePresence mode="wait">
               <motion.div
@@ -449,22 +426,10 @@ const BeruangShowcaseSection: React.FC = () => {
             </AnimatePresence>
           </div>
 
-          {/* RIGHT COLUMN: 3D Tilted Phone Cascade Stage */}
+          {/* RIGHT COLUMN: Upright Pristine Phone Stage */}
           <div className="lg:col-span-7 flex items-center justify-center relative min-h-[460px] sm:min-h-[520px]">
-            <div
-              className="relative w-full h-[460px] sm:h-[520px] flex items-center justify-center"
-              style={{
-                perspective: '1400px',
-                transformStyle: 'preserve-3d',
-              }}
-            >
-              <div
-                className="relative w-full h-full flex items-center justify-center"
-                style={{
-                  transform: 'rotateY(-18deg) rotateX(10deg) rotate(-5deg)',
-                  transformStyle: 'preserve-3d',
-                }}
-              >
+            <div className="relative w-full h-[460px] sm:h-[520px] flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => (
                   <CascadePhoneItem
                     key={chap.id}
@@ -525,16 +490,14 @@ const RentVerseShowcaseSection: React.FC = () => {
   const currentChapter = RENTVERSE_CHAPTERS[activeIdx] || RENTVERSE_CHAPTERS[0];
   const IconComponent = currentChapter.icon;
 
-  const l0X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, -160, -160]);
-  const l0Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 100, 100]);
-  const l0Z = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 50, 50]);
+  const l0X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, -150, -150]);
+  const l0Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 80, 80]);
   const l0Opacity = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [1, 1, 0, 0]);
 
-  const l1X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [80, 80, 0, 0]);
-  const l1Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [-25, -25, 0, 0]);
-  const l1Z = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [-80, -80, 0, 0]);
-  const l1Scale = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0.9, 0.9, 1.02, 1.02]);
-  const l1Opacity = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0.6, 0.6, 1, 1]);
+  const l1X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [75, 75, 0, 0]);
+  const l1Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [-20, -20, 0, 0]);
+  const l1Scale = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0.92, 0.92, 1.0, 1.0]);
+  const l1Opacity = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0.65, 0.65, 1, 1]);
 
   return (
     <section
@@ -623,23 +586,17 @@ const RentVerseShowcaseSection: React.FC = () => {
             </AnimatePresence>
           </div>
 
-          {/* RIGHT COLUMN: 3D Laptop Cascade */}
+          {/* RIGHT COLUMN: Upright Pristine Laptop Cascade */}
           <div className="lg:col-span-7 flex items-center justify-center relative min-h-[440px]">
-            <div
-              className="relative w-full h-[400px] sm:h-[440px] flex items-center justify-center"
-              style={{ perspective: '1400px', transformStyle: 'preserve-3d' }}
-            >
-              <div
-                className="relative w-full h-full flex items-center justify-center"
-                style={{ transform: 'rotateY(-15deg) rotateX(8deg)', transformStyle: 'preserve-3d' }}
-              >
+            <div className="relative w-full h-[400px] sm:h-[440px] flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center">
                 
                 {/* Laptop 1 */}
                 <motion.div
-                  style={{ x: l1X, y: l1Y, z: l1Z, scale: l1Scale, opacity: l1Opacity }}
+                  style={{ x: l1X, y: l1Y, scale: l1Scale, opacity: l1Opacity }}
                   className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
                 >
-                  <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/50 shadow-[0_35px_80px_rgba(14,116,144,0.3)] relative ring-1 ring-white/15">
+                  <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/50 shadow-[0_30px_70px_rgba(14,116,144,0.25)] relative ring-1 ring-white/15">
                     <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
                       <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
                     </div>
@@ -654,10 +611,10 @@ const RentVerseShowcaseSection: React.FC = () => {
 
                 {/* Laptop 0 */}
                 <motion.div
-                  style={{ x: l0X, y: l0Y, z: l0Z, opacity: l0Opacity }}
+                  style={{ x: l0X, y: l0Y, opacity: l0Opacity }}
                   className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
                 >
-                  <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/60 shadow-[0_35px_80px_rgba(14,116,144,0.4)] relative ring-1 ring-white/20">
+                  <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/60 shadow-[0_35px_80px_rgba(14,116,144,0.35)] relative ring-1 ring-white/20">
                     <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
                       <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
                     </div>
@@ -729,7 +686,7 @@ const FlagshipScrollytelling: React.FC = () => {
         </div>
       </div>
 
-      {/* ── Beruang AI Centerpiece (MC+ Style 3D Layered Cascade) ── */}
+      {/* ── Beruang AI Centerpiece (Upright Natural Cascade) ── */}
       <BeruangShowcaseSection />
 
       {/* ── RentVerse Secondary Showcase ── */}
