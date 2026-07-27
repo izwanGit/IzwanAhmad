@@ -174,20 +174,8 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     device: 'laptop',
   },
   {
-    id: 'mobileweb',
-    number: '02',
-    badge: 'Responsive Web Architecture',
-    title: 'Mobile Web Interface',
-    paragraph:
-      'Cross-platform responsive web application optimized for iOS Safari and mobile viewports with instant touch navigation.',
-    pill: 'Responsive Web · iOS Safari Optimization',
-    icon: Globe,
-    image: '/images/rentverse/mobile-web.png',
-    device: 'raw',
-  },
-  {
     id: 'android',
-    number: '03',
+    number: '02',
     badge: 'Cross-Platform Mobile App',
     title: 'Android Native Client',
     paragraph:
@@ -199,7 +187,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
   },
   {
     id: 'explore',
-    number: '04',
+    number: '03',
     badge: 'Spatial Property Mapping',
     title: 'Interactive MapTiler Search',
     paragraph:
@@ -211,7 +199,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
   },
   {
     id: 'admin',
-    number: '05',
+    number: '04',
     badge: 'Security Monitoring Console',
     title: 'Zero-Trust Threat Dashboard',
     paragraph:
@@ -223,7 +211,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
   },
   {
     id: 'slack',
-    number: '06',
+    number: '05',
     badge: 'Real-Time DevSecOps Alerts',
     title: 'Slack Webhook Threat Dispatch',
     paragraph:
