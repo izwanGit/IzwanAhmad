@@ -386,12 +386,6 @@ const BeruangShowcaseSection: React.FC = () => {
                 transition={{ duration: 0.2, ease: 'easeOut' }}
                 className="flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl w-full"
               >
-                {/* Category Text Line (Un-encapsulated) */}
-                <div className="text-[13px] font-extrabold uppercase tracking-widest text-[#06B6D4] flex items-center gap-2">
-                  <IconComponent size={14} />
-                  <span>{currentChapter.number} — {currentChapter.badge}</span>
-                </div>
-
                 {/* Heading */}
                 <div>
                   <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0C1A20] tracking-tight leading-[1.05]">
@@ -541,11 +535,6 @@ const RentVerseShowcaseSection: React.FC = () => {
                 transition={{ duration: 0.2, ease: 'easeOut' }}
                 className="flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl w-full"
               >
-                <div className="text-[13px] font-extrabold uppercase tracking-widest text-[#0E7490] flex items-center gap-2">
-                  <IconComponent size={14} />
-                  <span>{currentChapter.number} — {currentChapter.badge}</span>
-                </div>
-
                 <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0C1A20] tracking-tight leading-[1.05]">
                   {currentChapter.title}
                 </h4>
