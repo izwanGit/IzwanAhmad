@@ -3,28 +3,25 @@
  *
  * MC+ STYLE 3D LAYERED PHONE CASCADE (Zero Lag, 60fps/120fps)
  *
- * Architecture & Design Fixes:
- *   1. 1-TO-1 VIDEO RECREATION: Exactly like the mcplus.my screen recording, we present a 3D queue
- *      of tilted phones in perspective (`perspective: 1400px`, `rotateY(-18deg) rotateX(10deg)`).
- *   2. SCROLL-DRIVEN 3D CASCADE: As the user scrolls down from Chapter 1 to Chapter 2, the phone
- *      in the middle ground smoothly slides forward and into the spotlight (`translateZ: -80px -> 0px`),
- *      taking the place of the front phone, which gracefully slides out to the left/down.
- *   3. CLEAN LEFT COLUMN HIERARCHY: Icon Badge -> Massive Heading -> Single Crisp Paragraph ->
- *      Feature Pill. Switches synchronously with the 3D phone cascade.
- *   4. BERUANG CENTERPIECE: Features iOS logo badge, rating metrics (`99.61% AI Accuracy`),
- *      and 4 physical 3D phone mockups advancing through the 4 feature chapters.
- *   5. 100% ZERO LAG GUARANTEE: Uses continuous Framer Motion `useTransform` on GPU compositor
- *      layers (`transform-gpu`, `translate3d`). No CSS blur animations, no background grid scaling,
- *      and zero React state re-renders during scroll.
- *   6. STRICT COPY DISCIPLINE: Zero emojis anywhere. Zero verbose instructions telling users how
- *      to scroll or navigate. Treated as a normal, ultra-premium flagship section.
+ * All 7 Beruang UI Screenshots in exact user-requested order:
+ *   1. Login Page (`login.png`)
+ *   2. Homepage (`home.png`)
+ *   3. Expenses Page (`expenses.png`)
+ *   4. Chatbot Conversation 1 (`chat-1.png`)
+ *   5. Chatbot Conversation 2 (`chat-2.png`)
+ *   6. Chatbot Conversation 3 (`chat-3.png`)
+ *   7. Profile Page (`profile.png`)
+ *
+ * TEXT CLASHING ELIMINATION:
+ *   Uses AnimatePresence mode="wait" keyed by active chapter index. Guaranteed that ONLY
+ *   one chapter text block exists in the DOM at any microsecond. Zero text overlap.
  *
  * Theme: #F5F9FA (bg) · #0E7490 (primary) · #06B6D4 (accent) · #0C1A20 (text)
  */
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Trophy, Cpu, Search, Brain, Lock, Server, CheckCircle2, Star } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence, MotionValue } from 'framer-motion';
+import { ArrowRight, Sparkles, Zap, Trophy, Cpu, Search, Brain, Lock, Server, CheckCircle2, Star, UserCheck, LayoutDashboard, Wallet, MessageSquareCode, Globe, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ─── Data Structures ──────────────────────────────────────────
@@ -42,8 +39,41 @@ interface Chapter {
 
 const BERUANG_CHAPTERS: Chapter[] = [
   {
-    id: 'mirror',
+    id: 'login',
     number: '01',
+    badge: 'Zero Trust Authentication',
+    title: 'Secure Identity Gateway',
+    paragraph:
+      'Biometric authentication gateway with encrypted JWT session rotation and multi-factor protection.',
+    pill: 'Biometric Auth · Encrypted Session Gateway',
+    icon: Lock,
+    image: '/images/beruang/login.png',
+  },
+  {
+    id: 'home',
+    number: '02',
+    badge: 'Financial Overview',
+    title: 'Real-Time Dashboard',
+    paragraph:
+      'Consolidated balance tracking, monthly income vs expense analytics, and instant financial health metrics.',
+    pill: 'Instant Balance Tracking · Financial Overview',
+    icon: LayoutDashboard,
+    image: '/images/beruang/home.png',
+  },
+  {
+    id: 'expenses',
+    number: '03',
+    badge: 'Expense Intelligence',
+    title: 'Automated Categorization',
+    paragraph:
+      'Real-time transaction logging with custom 50/30/20 category breakdowns and historical trend analysis.',
+    pill: '50/30/20 Budget Breakdown · Trend Analytics',
+    icon: Wallet,
+    image: '/images/beruang/expenses.png',
+  },
+  {
+    id: 'chat1',
+    number: '04',
     badge: 'Interactive Financial Mirror',
     title: 'Instant Natural Language UI',
     paragraph:
@@ -53,8 +83,8 @@ const BERUANG_CHAPTERS: Chapter[] = [
     image: '/images/beruang/chat-1.png',
   },
   {
-    id: 'nudge',
-    number: '02',
+    id: 'chat2',
+    number: '05',
     badge: 'Behavioural Nudging',
     title: 'Hyper-Localized Advisory',
     paragraph:
@@ -64,26 +94,26 @@ const BERUANG_CHAPTERS: Chapter[] = [
     image: '/images/beruang/chat-2.png',
   },
   {
-    id: 'search',
-    number: '03',
+    id: 'chat3',
+    number: '06',
     badge: 'Opportunity Cost Guardian',
     title: 'Real-Time Web Retrieval',
     paragraph:
       'Performs live internet retrieval for unindexed locations while calculating travel friction against budget.',
     pill: 'Live Web Retrieval · Spatial & Financial Guardian',
-    icon: Search,
+    icon: Globe,
     image: '/images/beruang/chat-3.png',
   },
   {
-    id: 'engine',
-    number: '04',
-    badge: 'Bi-LSTM Neural Engine',
-    title: '99.61% AI Accuracy Engine',
+    id: 'profile',
+    number: '07',
+    badge: 'Account & Security',
+    title: 'Profile & Preferences',
     paragraph:
-      'Custom PyTorch Bi-LSTM neural model trained on 220,000+ Malaysian records for instant categorization.',
-    pill: '99.61% AI Accuracy · 220k+ Malaysian Dataset',
-    icon: Cpu,
-    image: '/images/beruang/home.png',
+      'Customizable security preferences, financial goal configurations, and personal account management.',
+    pill: 'Custom Preferences · Goal Management',
+    icon: UserCheck,
+    image: '/images/beruang/profile.png',
   },
 ];
 
@@ -96,7 +126,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     paragraph:
       'Zero Trust security platform with AI-driven tenant fraud detection and real-time behavioral monitoring.',
     pill: 'Zero Trust Auth · Real-Time AI Fraud Prevention',
-    icon: Lock,
+    icon: ShieldCheck,
     image: '/images/rentverse-laptop.jpg',
   },
   {
@@ -112,111 +142,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
   },
 ];
 
-// ─── Left Column: Single Chapter Text Item ────────────────────
-
-interface ChapterTextProps {
-  chapter: Chapter;
-  scrollYProgress: MotionValue<number>;
-  index: number;
-  total: number;
-  accentColor: string;
-}
-
-const ChapterTextItem: React.FC<ChapterTextProps> = ({
-  chapter,
-  scrollYProgress,
-  index,
-  total,
-  accentColor,
-}) => {
-  const span = 1 / total;
-  const start = index * span;
-  const end = (index + 1) * span;
-
-  // Stagger fade slightly within the chapter window
-  const fadeIn = start + span * 0.12;
-  const fadeOut = end - span * 0.12;
-
-  const opacity = useTransform(
-    scrollYProgress,
-    index === 0
-      ? [0, fadeOut, end]
-      : index === total - 1
-      ? [start, fadeIn, 1]
-      : [start, fadeIn, fadeOut, end],
-    index === 0
-      ? [1, 1, 0]
-      : index === total - 1
-      ? [0, 1, 1]
-      : [0, 1, 1, 0]
-  );
-
-  const y = useTransform(
-    scrollYProgress,
-    index === 0
-      ? [0, fadeOut, end]
-      : index === total - 1
-      ? [start, fadeIn, 1]
-      : [start, fadeIn, fadeOut, end],
-    index === 0
-      ? [0, 0, -35]
-      : index === total - 1
-      ? [35, 0, 0]
-      : [35, 0, 0, -35]
-  );
-
-  const pointerEvents = useTransform(scrollYProgress, (v) =>
-    v >= start && v <= end ? 'auto' : 'none'
-  );
-
-  const IconComponent = chapter.icon;
-
-  return (
-    <motion.div
-      style={{ opacity, y, pointerEvents }}
-      className="col-start-1 row-start-1 flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl"
-    >
-      {/* Icon Badge */}
-      <div className="flex items-center gap-3 flex-wrap">
-        <span
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-xs sm:text-sm font-black tracking-widest uppercase border shadow-sm backdrop-blur-md"
-          style={{
-            background: `${accentColor}20`,
-            borderColor: `${accentColor}60`,
-            color: '#0E7490',
-          }}
-        >
-          <div className="p-1.5 rounded-xl bg-white shadow-2xs">
-            <IconComponent size={15} style={{ color: accentColor }} />
-          </div>
-          <span>{chapter.number} — {chapter.badge}</span>
-        </span>
-      </div>
-
-      {/* Massive Heading */}
-      <div>
-        <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0C1A20] tracking-tight leading-[1.05]">
-          {chapter.title}
-        </h4>
-      </div>
-
-      {/* Single Crisp Paragraph */}
-      <p className="text-base sm:text-lg md:text-xl font-medium text-[#0C1A20]/85 leading-relaxed">
-        {chapter.paragraph}
-      </p>
-
-      {/* Feature Pill */}
-      <div className="pt-2">
-        <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white border-2 border-[#0E7490]/20 shadow-xs text-xs sm:text-sm font-black text-[#0E7490]">
-          <CheckCircle2 size={16} className="text-[#06B6D4] shrink-0" />
-          <span>{chapter.pill}</span>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-// ─── Right Column: 3D Phone Mockup Item in the Cascade ────────
+// ─── Right Column: Dynamic 3D Phone Item ──────────────────────
 
 interface CascadePhoneProps {
   image: string;
@@ -231,90 +157,114 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
   alt,
   scrollYProgress,
   index,
+  total,
 }) => {
-  // We choreograph 4 phones across 4 chapters (progress 0..1)
-  // Transition periods occur at:
-  // T1: 0.20 to 0.30 (Phone 0 exits, Phone 1 moves to Spotlight)
-  // T2: 0.45 to 0.55 (Phone 1 exits, Phone 2 moves to Spotlight)
-  // T3: 0.70 to 0.80 (Phone 2 exits, Phone 3 moves to Spotlight)
+  const span = 1 / total;
 
-  // Calculate 3D X coordinate (0px is Spotlight Center, 80px is Mid Right, 160px is Back Right, -160px is Exited Left)
-  const x = useTransform(
-    scrollYProgress,
-    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
-    index === 0
-      ? [0, 0, -160, -160, -160, -160, -160, -160] // Phone 0 starts in Spotlight, exits at T1
-      : index === 1
-      ? [80, 80, 0, 0, -160, -160, -160, -160] // Phone 1 starts in Mid Right, moves to Spotlight at T1, exits at T2
-      : index === 2
-      ? [160, 160, 80, 80, 0, 0, -160, -160] // Phone 2 starts in Back Right, advances at T1 & T2, exits at T3
-      : [240, 240, 160, 160, 80, 80, 0, 0] // Phone 3 starts in deep space, advances to Spotlight at T3
-  );
+  const x = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
 
-  // Calculate 3D Y coordinate (0px is Spotlight Center, negative is slightly higher in back, 120px is exited down)
-  const y = useTransform(
-    scrollYProgress,
-    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
-    index === 0
-      ? [0, 0, 120, 120, 120, 120, 120, 120]
-      : index === 1
-      ? [-25, -25, 0, 0, 120, 120, 120, 120]
-      : index === 2
-      ? [-50, -50, -25, -25, 0, 0, 120, 120]
-      : [-75, -75, -50, -50, -25, -25, 0, 0]
-  );
+    if (index < step) return -160;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return -160 * exitP;
+      }
+      return 0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return (pos - advanceP) * 80;
+    }
+    return pos * 80;
+  });
 
-  // Calculate 3D Z depth (0px is Spotlight Front, -80px is Mid Right, -160px is Back Right)
-  const z = useTransform(
-    scrollYProgress,
-    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
-    index === 0
-      ? [0, 0, 50, 50, 50, 50, 50, 50]
-      : index === 1
-      ? [-80, -80, 0, 0, 50, 50, 50, 50]
-      : index === 2
-      ? [-160, -160, -80, -80, 0, 0, 50, 50]
-      : [-240, -240, -160, -160, -80, -80, 0, 0]
-  );
+  const y = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
 
-  // Calculate scale (1.0 is Spotlight, smaller is background)
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
-    index === 0
-      ? [1, 1, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85]
-      : index === 1
-      ? [0.9, 0.9, 1, 1, 0.85, 0.85, 0.85, 0.85]
-      : index === 2
-      ? [0.8, 0.8, 0.9, 0.9, 1, 1, 0.85, 0.85]
-      : [0.7, 0.7, 0.8, 0.8, 0.9, 0.9, 1.04, 1.04]
-  );
+    if (index < step) return 120;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 120 * exitP;
+      }
+      return 0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return -25 * (pos - advanceP);
+    }
+    return -25 * pos;
+  });
 
-  // Calculate opacity (1.0 in Spotlight, fades out when exiting or in deep background)
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
-    index === 0
-      ? [1, 1, 0, 0, 0, 0, 0, 0]
-      : index === 1
-      ? [0.7, 0.7, 1, 1, 0, 0, 0, 0]
-      : index === 2
-      ? [0.4, 0.4, 0.7, 0.7, 1, 1, 0, 0]
-      : [0, 0, 0.4, 0.4, 0.7, 0.7, 1, 1]
-  );
+  const z = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
 
-  // Active border glow intensity based on whether this phone is currently in the spotlight
-  const borderColor = useTransform(
-    scrollYProgress,
-    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
-    index === 0
-      ? ['rgba(14,116,144,0.6)', 'rgba(14,116,144,0.6)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)']
-      : index === 1
-      ? ['rgba(255,255,255,0.2)', 'rgba(255,255,255,0.2)', 'rgba(14,116,144,0.6)', 'rgba(14,116,144,0.6)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)']
-      : index === 2
-      ? ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.2)', 'rgba(255,255,255,0.2)', 'rgba(14,116,144,0.6)', 'rgba(14,116,144,0.6)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)']
-      : ['rgba(255,255,255,0.05)', 'rgba(255,255,255,0.05)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.2)', 'rgba(255,255,255,0.2)', 'rgba(6,182,212,0.8)', 'rgba(6,182,212,0.8)']
-  );
+    if (index < step) return 50;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 50 * exitP;
+      }
+      return 0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return -80 * (pos - advanceP);
+    }
+    return -80 * pos;
+  });
+
+  const scale = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return 0.85;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 1 - 0.15 * exitP;
+      }
+      return index === total - 1 ? 1.04 : 1.0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return Math.max(0.6, 1 - 0.1 * (pos - advanceP));
+    }
+    return Math.max(0.6, 1 - 0.1 * pos);
+  });
+
+  const opacity = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return 0;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 1 - exitP;
+      }
+      return 1;
+    }
+    const pos = index - step;
+    if (pos === 1) return 0.7;
+    if (pos === 2) return 0.4;
+    return 0;
+  });
+
+  const borderColor = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    if (index === step) return 'rgba(14,116,144,0.7)';
+    if (index === step + 1) return 'rgba(255,255,255,0.2)';
+    return 'rgba(255,255,255,0.08)';
+  });
 
   return (
     <motion.div
@@ -328,7 +278,6 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
       }}
       className="absolute w-[260px] sm:w-[300px] md:w-[320px] aspect-[9/19.2] rounded-[48px] p-3 bg-[#0C1A20] shadow-[0_45px_100px_rgba(6,182,212,0.35)] border-4 ring-1 ring-white/30 transform-gpu transition-shadow"
     >
-      {/* Dynamic Island Speaker Notch */}
       <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-2.5 border border-white/10 shadow-md">
         <div className="w-2.5 h-2.5 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
           <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
@@ -339,7 +288,6 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
         </div>
       </div>
 
-      {/* Phone Screen Container */}
       <div className="relative w-full h-full rounded-[38px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
         <img
           src={image}
@@ -348,7 +296,6 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/25 via-transparent to-transparent pointer-events-none" />
-        {/* Bottom Home Indicator Bar */}
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
       </div>
     </motion.div>
@@ -367,8 +314,17 @@ const BeruangShowcaseSection: React.FC = () => {
   const total = BERUANG_CHAPTERS.length;
   const barWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
-  // Render phones in reverse DOM order (3, 2, 1, 0) so Phone 0 starts naturally in front,
-  // while 3D perspective sorting dynamically promotes whichever phone moves forward to z=0.
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    const idx = Math.min(Math.floor(latest * total), total - 1);
+    if (idx !== activeIdx && idx >= 0) {
+      setActiveIdx(idx);
+    }
+  });
+
+  const currentChapter = BERUANG_CHAPTERS[activeIdx] || BERUANG_CHAPTERS[0];
+  const IconComponent = currentChapter.icon;
   const reversedChapters = [...BERUANG_CHAPTERS].map((chap, idx) => ({ chap, idx })).reverse();
 
   return (
@@ -398,7 +354,7 @@ const BeruangShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Header Bar with iOS Logo & Rating Badges */}
+        {/* Top Header Bar */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#0E7490]/15">
             <div className="flex items-center gap-3.5">
@@ -442,24 +398,59 @@ const BeruangShowcaseSection: React.FC = () => {
         {/* Main 2-Column Showcase Grid */}
         <div className="container mx-auto px-6 max-w-7xl relative z-30 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full my-auto py-2">
           
-          {/* LEFT COLUMN: Clean MC+ Style Explanations (5 cols) */}
-          <div className="lg:col-span-5 relative grid items-center min-h-[400px] sm:min-h-[440px]">
-            {BERUANG_CHAPTERS.map((chap, idx) => (
-              <ChapterTextItem
-                key={chap.id}
-                chapter={chap}
-                scrollYProgress={scrollYProgress}
-                index={idx}
-                total={total}
-                accentColor="#06B6D4"
-              />
-            ))}
+          {/* LEFT COLUMN: Single Active Text Block (AnimatePresence mode="wait") */}
+          <div className="lg:col-span-5 relative flex items-center min-h-[380px] sm:min-h-[420px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentChapter.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl w-full"
+              >
+                {/* Icon Badge */}
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-xs sm:text-sm font-black tracking-widest uppercase border shadow-sm backdrop-blur-md"
+                    style={{
+                      background: '#06B6D420',
+                      borderColor: '#06B6D460',
+                      color: '#0E7490',
+                    }}
+                  >
+                    <div className="p-1.5 rounded-xl bg-white shadow-2xs">
+                      <IconComponent size={15} className="text-[#06B6D4]" />
+                    </div>
+                    <span>{currentChapter.number} — {currentChapter.badge}</span>
+                  </span>
+                </div>
+
+                {/* Heading */}
+                <div>
+                  <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0C1A20] tracking-tight leading-[1.05]">
+                    {currentChapter.title}
+                  </h4>
+                </div>
+
+                {/* Crisp Paragraph */}
+                <p className="text-base sm:text-lg md:text-xl font-medium text-[#0C1A20]/85 leading-relaxed">
+                  {currentChapter.paragraph}
+                </p>
+
+                {/* Feature Pill */}
+                <div className="pt-2">
+                  <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white border-2 border-[#0E7490]/20 shadow-xs text-xs sm:text-sm font-black text-[#0E7490]">
+                    <CheckCircle2 size={16} className="text-[#06B6D4] shrink-0" />
+                    <span>{currentChapter.pill}</span>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          {/* RIGHT COLUMN: 3D Tilted Phone Cascade Stage (7 cols) */}
+          {/* RIGHT COLUMN: 3D Tilted Phone Cascade Stage */}
           <div className="lg:col-span-7 flex items-center justify-center relative min-h-[460px] sm:min-h-[520px]">
-            
-            {/* 3D Perspective Stage */}
             <div
               className="relative w-full h-[460px] sm:h-[520px] flex items-center justify-center"
               style={{
@@ -467,7 +458,6 @@ const BeruangShowcaseSection: React.FC = () => {
                 transformStyle: 'preserve-3d',
               }}
             >
-              {/* Tilted Container housing the 4 advancing physical phones */}
               <div
                 className="relative w-full h-full flex items-center justify-center"
                 style={{
@@ -487,7 +477,6 @@ const BeruangShowcaseSection: React.FC = () => {
                 ))}
               </div>
             </div>
-
           </div>
 
         </div>
@@ -512,7 +501,7 @@ const BeruangShowcaseSection: React.FC = () => {
   );
 };
 
-// ─── RentVerse Secondary Showcase Section (Upright/Sleek Laptop) ──
+// ─── RentVerse Secondary Showcase Section ─────────────────────
 
 const RentVerseShowcaseSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -524,7 +513,18 @@ const RentVerseShowcaseSection: React.FC = () => {
   const total = RENTVERSE_CHAPTERS.length;
   const barWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
-  // For RentVerse, we choreograph 2 Laptops advancing in 3D perspective
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    const idx = Math.min(Math.floor(latest * total), total - 1);
+    if (idx !== activeIdx && idx >= 0) {
+      setActiveIdx(idx);
+    }
+  });
+
+  const currentChapter = RENTVERSE_CHAPTERS[activeIdx] || RENTVERSE_CHAPTERS[0];
+  const IconComponent = currentChapter.icon;
+
   const l0X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, -160, -160]);
   const l0Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 100, 100]);
   const l0Z = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 50, 50]);
@@ -579,17 +579,48 @@ const RentVerseShowcaseSection: React.FC = () => {
         <div className="container mx-auto px-6 max-w-7xl relative z-30 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full my-auto py-2">
           
           {/* LEFT COLUMN */}
-          <div className="lg:col-span-5 relative grid items-center min-h-[380px]">
-            {RENTVERSE_CHAPTERS.map((chap, idx) => (
-              <ChapterTextItem
-                key={chap.id}
-                chapter={chap}
-                scrollYProgress={scrollYProgress}
-                index={idx}
-                total={total}
-                accentColor="#0E7490"
-              />
-            ))}
+          <div className="lg:col-span-5 relative flex items-center min-h-[380px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentChapter.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl w-full"
+              >
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-xs sm:text-sm font-black tracking-widest uppercase border shadow-sm backdrop-blur-md"
+                    style={{
+                      background: '#0E749020',
+                      borderColor: '#0E749060',
+                      color: '#0E7490',
+                    }}
+                  >
+                    <div className="p-1.5 rounded-xl bg-white shadow-2xs">
+                      <IconComponent size={15} className="text-[#0E7490]" />
+                    </div>
+                    <span>{currentChapter.number} — {currentChapter.badge}</span>
+                  </span>
+                </div>
+
+                <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0C1A20] tracking-tight leading-[1.05]">
+                  {currentChapter.title}
+                </h4>
+
+                <p className="text-base sm:text-lg md:text-xl font-medium text-[#0C1A20]/85 leading-relaxed">
+                  {currentChapter.paragraph}
+                </p>
+
+                <div className="pt-2">
+                  <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white border-2 border-[#0E7490]/20 shadow-xs text-xs sm:text-sm font-black text-[#0E7490]">
+                    <CheckCircle2 size={16} className="text-[#06B6D4] shrink-0" />
+                    <span>{currentChapter.pill}</span>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* RIGHT COLUMN: 3D Laptop Cascade */}
@@ -603,7 +634,7 @@ const RentVerseShowcaseSection: React.FC = () => {
                 style={{ transform: 'rotateY(-15deg) rotateX(8deg)', transformStyle: 'preserve-3d' }}
               >
                 
-                {/* Laptop 1 (Background -> Spotlight at 0.5) */}
+                {/* Laptop 1 */}
                 <motion.div
                   style={{ x: l1X, y: l1Y, z: l1Z, scale: l1Scale, opacity: l1Opacity }}
                   className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
@@ -621,7 +652,7 @@ const RentVerseShowcaseSection: React.FC = () => {
                   </div>
                 </motion.div>
 
-                {/* Laptop 0 (Spotlight -> Exits Left at 0.5) */}
+                {/* Laptop 0 */}
                 <motion.div
                   style={{ x: l0X, y: l0Y, z: l0Z, opacity: l0Opacity }}
                   className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
