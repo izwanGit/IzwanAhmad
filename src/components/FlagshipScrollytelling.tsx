@@ -1,28 +1,29 @@
 /**
  * FlagshipScrollytelling.tsx
  *
- * UPRIGHT STICKY-FRAME CHAPTER SCROLLYTELLING (Zero Lag, Apple/MC+ Style)
+ * MC+ STYLE 3D TILTED PHONE WITH SLIDING UI REPLACEMENT (Zero Lag, 60fps/120fps)
  *
- * Architecture & Design:
- *   1. UPRIGHT STATIC DEVICE FRAMES: Instead of slanted or zooming frames that cause GPU lag,
- *      we present pristine, upright iPhone 15 Pro and MacBook Pro frames that stay fixed in a
- *      sticky viewport (`sticky top-0 h-screen`).
- *   2. SCROLLING CHAPTER REPLACEMENT: As you scroll down through the section's height (400vh),
- *      the UI screenshot inside the device screen crossfades to show the exact app UI for each
- *      feature chapter.
- *   3. PUNCHY, HIGH-IMPACT EXPLANATIONS: On the left column, bold, simple, flagship-level
- *      explanations switch in sync with the device screen. Distilled from deep technical
- *      architecture into scannable, zero-fluff insights.
- *   4. 100% BUTTERY SMOOTH (ZERO LAG): Uses Framer Motion's continuous `useTransform` for opacity
- *      and subtle Y-translation on GPU compositor layers (`transform-gpu`). No state re-renders,
- *      no CSS blur filters, and no background grid scaling. 60fps/120fps guaranteed.
+ * Architecture & Design Fixes:
+ *   1. MC+ STYLE TILTED 3D PHONE COMPOSITION: Tilted primary phone in the foreground
+ *      (`rotateY(-20deg) rotateX(10deg) rotate(-6deg)`) with layered background screens
+ *      floating in perspective for jaw-dropping depth.
+ *   2. SLIDING UI REPLACEMENT: As the user scrolls down through the chapters, the new UI image
+ *      slides in from the bottom (`translateY: 100% -> 0%`), pushing and replacing the previous UI
+ *      image (`translateY: 0% -> -100%`), exactly like mcplus.my and Apple feature walkthroughs.
+ *   3. CLEAN LEFT COLUMN HIERARCHY: Replaced cluttered bullet lists with MC+'s clean structure:
+ *      Icon Badge -> Massive Feature Heading -> Single Crisp Paragraph -> Feature Pill.
+ *   4. BERUANG CENTERPIECE: Features the Beruang iOS logo (`/images/beruang/logo.png`), star rating
+ *      badges (`99.61% AI Accuracy ★★★★★`, `86.77 SUS Score ★★★★★`), and 4 dedicated chapters.
+ *   5. ZERO LAG GUARANTEE: Uses continuous Framer Motion `useTransform` for `translateY` and
+ *      `opacity` on GPU compositor layers (`transform-gpu`). Zero CSS blur animations, zero
+ *      background grid scaling, and zero React state re-renders during scroll.
  *
  * Theme: #F5F9FA (bg) · #0E7490 (primary) · #06B6D4 (accent) · #0C1A20 (text)
  */
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, ShieldCheck, Trophy, Cpu, Search, Brain, CheckCircle2, Lock, Server } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Trophy, Cpu, Search, Brain, Lock, Server, CheckCircle2, ShieldCheck, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ─── Data Structures ──────────────────────────────────────────
@@ -32,199 +33,122 @@ interface Chapter {
   number: string;
   badge: string;
   title: string;
-  subtitle: string;
+  paragraph: string;
+  pill: string;
   icon: React.ComponentType<any>;
   image: string;
-  points: { title: string; desc: string }[];
 }
 
-interface ProjectShowcase {
-  id: string;
-  name: string;
-  tagline: string;
-  category: string;
-  award: string;
-  accentColor: string;
-  deviceType: 'phone' | 'laptop';
-  link: string;
-  chapters: Chapter[];
-}
-
-const FLAGSHIP_PROJECTS: ProjectShowcase[] = [
+const BERUANG_CHAPTERS: Chapter[] = [
   {
-    id: 'beruang',
-    name: 'Beruang AI Financial Platform',
-    tagline: 'React Native · PyTorch · Bi-LSTM Neural Engine',
-    category: 'AI / Mobile App',
-    award: 'Best Architecture Award',
-    accentColor: '#06B6D4',
-    deviceType: 'phone',
-    link: '/projects',
-    chapters: [
-      {
-        id: 'mirror',
-        number: '01',
-        badge: 'Interactive Financial Mirror',
-        title: 'Instant Natural Language UI',
-        subtitle: 'Converts chat queries directly into visual widgets',
-        icon: Zap,
-        image: '/images/beruang/chat-1.png',
-        points: [
-          {
-            title: 'Dynamic Widget Rendering',
-            desc: 'Translates natural language ("Recent expenses?") into interactive 50/30/20 budget donut charts in milliseconds, eradicating cognitive load.',
-          },
-          {
-            title: 'Zero-Latency RAG Pipeline',
-            desc: 'Queries Firebase Firestore in real-time to intercept your exact financial footprint without mental math or text-heavy lists.',
-          },
-        ],
-      },
-      {
-        id: 'nudge',
-        number: '02',
-        badge: 'Behavioural Nudging',
-        title: 'Hyper-Localized Advisory',
-        subtitle: 'Contextual lifestyle guidance with psychological anchors',
-        icon: Brain,
-        image: '/images/beruang/chat-2.png',
-        points: [
-          {
-            title: 'Intelligent Intent Routing',
-            desc: 'MiniLM sentence transformers intercept local queries ("makan sedap di pekan tapah") and route directly to cloud LLMs.',
-          },
-          {
-            title: 'Frictionless Accountability',
-            desc: 'Recommends great local food while attaching a budget reminder ("Wants je ni, RM358 lagi!") to stop impulsive spending before it happens.',
-          },
-        ],
-      },
-      {
-        id: 'search',
-        number: '03',
-        badge: 'Real-Time Web Search',
-        title: 'Opportunity Cost Guardian',
-        subtitle: 'Ephemeral internet retrieval with spatial reasoning',
-        icon: Search,
-        image: '/images/beruang/chat-3.png',
-        points: [
-          {
-            title: 'Explicit Online Mode',
-            desc: 'Commands like "search rembayung" trigger live internet retrieval for brand-new locations outside static LLM training weights.',
-          },
-          {
-            title: 'Holistic Financial Protection',
-            desc: 'Calculates travel friction (2-3 hr drive from Tapah to KL) against your remaining budget so decisions are never made in a vacuum.',
-          },
-        ],
-      },
-      {
-        id: 'engine',
-        number: '04',
-        badge: 'Bi-LSTM Neural Engine',
-        title: '99.61% AI Accuracy',
-        subtitle: 'Custom neural network trained on Malaysian transactions',
-        icon: Cpu,
-        image: '/images/beruang/home.png',
-        points: [
-          {
-            title: 'Custom PyTorch Architecture',
-            desc: 'Powered by a Bi-LSTM model trained on 220,000+ Malaysian transaction records for instant, automated expense categorization.',
-          },
-          {
-            title: '86.77 SUS Usability Score',
-            desc: 'Evaluated at an exceptional System Usability Scale score, combining enterprise DevSecOps with frictionless consumer UX.',
-          },
-        ],
-      },
-    ],
+    id: 'mirror',
+    number: '01',
+    badge: 'Interactive Financial Mirror',
+    title: 'Instant Natural Language UI',
+    paragraph:
+      'Converts natural language queries ("Recent expenses?") directly into interactive 50/30/20 budget donut charts in milliseconds. Powered by a real-time RAG pipeline querying Firebase Firestore, it intercepts your exact financial footprint without mental math or text-heavy lists.',
+    pill: '⚡ Dynamic Widget Rendering · Zero-Latency RAG Pipeline',
+    icon: Zap,
+    image: '/images/beruang/chat-1.png',
   },
   {
-    id: 'rentverse',
-    name: 'RentVerse Rental Ecosystem',
-    tagline: 'Next.js 14 · Docker · 14-Stage CI/CD DevSecOps',
-    category: 'Web System / DevSecOps',
-    award: 'Champion — 4 Awards',
-    accentColor: '#0E7490',
-    deviceType: 'laptop',
-    link: '/projects',
-    chapters: [
-      {
-        id: 'zerotrust',
-        number: '01',
-        badge: 'Zero Trust Architecture',
-        title: 'Enterprise Security Platform',
-        subtitle: 'End-to-end encryption & real-time tenant verification',
-        icon: Lock,
-        image: '/images/rentverse-laptop.jpg',
-        points: [
-          {
-            title: 'Zero Trust Authentication',
-            desc: 'Strict identity verification, JWT session rotation, and role-based access control across all tenant and landlord workflows.',
-          },
-          {
-            title: 'AI Fraud Detection Engine',
-            desc: 'Intelligent pattern recognition identifies anomalous rental applications and fraudulent property listings in real-time.',
-          },
-        ],
-      },
-      {
-        id: 'pipeline',
-        number: '02',
-        badge: '14-Stage DevSecOps Pipeline',
-        title: 'Automated CI/CD Security',
-        subtitle: 'Continuous inspection & containerized deployment',
-        icon: Server,
-        image: '/images/rentverse-home.jpg',
-        points: [
-          {
-            title: '14-Stage CI/CD Automation',
-            desc: 'Fully integrated security pipeline featuring SonarQube static code analysis, Docker containerization, and automated vulnerability scanning.',
-          },
-          {
-            title: 'High-Performance Scalability',
-            desc: 'Built on Next.js 14 and PostgreSQL, delivering sub-second property search and enterprise-grade transaction reliability.',
-          },
-        ],
-      },
-    ],
+    id: 'nudge',
+    number: '02',
+    badge: 'Behavioural Nudging',
+    title: 'Hyper-Localized Advisory',
+    paragraph:
+      'Intelligent MiniLM sentence transformers route complex local food queries ("makan sedap di pekan tapah") directly to cloud LLMs. It recommends great local dining while attaching a budget reminder ("Wants je ni, RM358 lagi!") to stop impulsive spending before it happens.',
+    pill: '🧠 Intelligent Intent Routing · Frictionless Accountability',
+    icon: Brain,
+    image: '/images/beruang/chat-2.png',
+  },
+  {
+    id: 'search',
+    number: '03',
+    badge: 'Opportunity Cost Guardian',
+    title: 'Real-Time Web Retrieval',
+    paragraph:
+      'Commands like "search rembayung" trigger live internet retrieval for brand-new locations outside static LLM weights. It calculates travel friction (a 2-3 hr drive from Tapah to KL) against your remaining budget so decisions are never made in a vacuum.',
+    pill: '🌍 Live Web Retrieval · Spatial & Financial Guardian',
+    icon: Search,
+    image: '/images/beruang/chat-3.png',
+  },
+  {
+    id: 'engine',
+    number: '04',
+    badge: 'Bi-LSTM Neural Engine',
+    title: '99.61% AI Accuracy Engine',
+    paragraph:
+      'Powered by a custom PyTorch Bi-LSTM neural network trained on 220,000+ Malaysian transaction records for instant expense categorization. Evaluated at an exceptional 86.77 System Usability Scale score, combining enterprise security with frictionless consumer UX.',
+    pill: '📊 99.61% AI Accuracy · 220k+ Malaysian Dataset',
+    icon: Cpu,
+    image: '/images/beruang/home.png',
   },
 ];
 
-// ─── Individual Chapter View (Left Column Text) ───────────────
+const RENTVERSE_CHAPTERS: Chapter[] = [
+  {
+    id: 'zerotrust',
+    number: '01',
+    badge: 'Zero Trust Security Platform',
+    title: 'Enterprise Rental Ecosystem',
+    paragraph:
+      'Strict identity verification, JWT session rotation, and end-to-end encryption across all tenant and landlord workflows. An intelligent AI fraud detection engine analyzes behavioral patterns to block anomalous rental applications and fraudulent property listings in real-time.',
+    pill: '🔒 Zero Trust Auth · Real-Time AI Fraud Prevention',
+    icon: Lock,
+    image: '/images/rentverse-laptop.jpg',
+  },
+  {
+    id: 'pipeline',
+    number: '02',
+    badge: '14-Stage DevSecOps Pipeline',
+    title: 'Automated Security Pipeline',
+    paragraph:
+      'Fully integrated DevSecOps automation featuring SonarQube static code analysis, Docker containerization, and automated vulnerability scanning. Built on Next.js 14 and PostgreSQL, delivering sub-second search and enterprise-grade transaction reliability.',
+    pill: '🚀 14-Stage CI/CD · SonarQube & Docker Security',
+    icon: Server,
+    image: '/images/rentverse-home.jpg',
+  },
+];
+
+// ─── Left Column: Single Chapter Text Transition ──────────────
 
 interface ChapterTextProps {
   chapter: Chapter;
   scrollYProgress: MotionValue<number>;
-  start: number;
-  fadeIn: number;
-  fadeOut: number;
-  end: number;
-  isLast: boolean;
+  index: number;
+  total: number;
   accentColor: string;
 }
 
 const ChapterTextItem: React.FC<ChapterTextProps> = ({
   chapter,
   scrollYProgress,
-  start,
-  fadeIn,
-  fadeOut,
-  end,
-  isLast,
+  index,
+  total,
   accentColor,
 }) => {
-  // If it's the first chapter, start fully visible at 0. If last, stay visible at 1.0.
+  const span = 1 / total;
+  const start = index * span;
+  const end = (index + 1) * span;
+
+  // Stagger text fade slightly so it syncs perfectly with phone screen sliding
+  const fadeIn = start + span * 0.12;
+  const fadeOut = end - span * 0.12;
+
+  // If first chapter, start visible at progress 0. If last, stay visible at 1.0.
   const opacity = useTransform(
     scrollYProgress,
     [start, fadeIn, fadeOut, end],
-    [start === 0 ? 1 : 0, 1, 1, isLast ? 1 : 0]
+    [index === 0 ? 1 : 0, 1, 1, index === total - 1 ? 1 : 0]
   );
+
   const y = useTransform(
     scrollYProgress,
     [start, fadeIn, fadeOut, end],
-    [start === 0 ? 0 : 25, 0, 0, isLast ? 0 : -25]
+    [index === 0 ? 0 : 35, 0, 0, index === total - 1 ? 0 : -35]
   );
+
   const pointerEvents = useTransform(scrollYProgress, (v) =>
     v >= start && v <= end ? 'auto' : 'none'
   );
@@ -234,281 +158,415 @@ const ChapterTextItem: React.FC<ChapterTextProps> = ({
   return (
     <motion.div
       style={{ opacity, y, pointerEvents }}
-      className="col-start-1 row-start-1 flex flex-col justify-center space-y-6 transform-gpu"
+      className="col-start-1 row-start-1 flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl"
     >
-      {/* Chapter Number & Badge */}
+      {/* Icon Badge & Chapter Number */}
       <div className="flex items-center gap-3 flex-wrap">
         <span
-          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase border shadow-2xs"
-          style={{ background: `${accentColor}18`, borderColor: `${accentColor}45`, color: '#0E7490' }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-xs sm:text-sm font-black tracking-widest uppercase border shadow-sm backdrop-blur-md"
+          style={{
+            background: `${accentColor}20`,
+            borderColor: `${accentColor}60`,
+            color: '#0E7490',
+          }}
         >
-          <IconComponent size={13} style={{ color: accentColor }} />
+          <div className="p-1.5 rounded-xl bg-white shadow-2xs">
+            <IconComponent size={15} style={{ color: accentColor }} />
+          </div>
           <span>{chapter.number} — {chapter.badge}</span>
         </span>
       </div>
 
-      {/* Title & Subtitle */}
+      {/* Massive Feature Heading */}
       <div>
-        <h4 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0C1A20] tracking-tight leading-[1.08]">
+        <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0C1A20] tracking-tight leading-[1.05]">
           {chapter.title}
         </h4>
-        <p className="text-sm sm:text-base font-bold text-[#0E7490] mt-2">
-          {chapter.subtitle}
-        </p>
       </div>
 
-      {/* Bullet Points */}
-      <div className="space-y-4 pt-2 max-w-xl">
-        {chapter.points.map((pt, i) => (
-          <div
-            key={i}
-            className="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-[#0E7490]/15 shadow-xs hover:border-[#06B6D4]/40 transition-colors"
-          >
-            <div className="p-2 rounded-xl bg-[#0E7490]/10 text-[#0E7490] shrink-0 mt-0.5">
-              <CheckCircle2 size={16} />
-            </div>
-            <div>
-              <h5 className="text-sm font-black text-[#0C1A20] leading-snug">{pt.title}</h5>
-              <p className="text-xs sm:text-sm text-[#0C1A20]/75 mt-1 leading-relaxed">{pt.desc}</p>
-            </div>
-          </div>
-        ))}
+      {/* Single Crisp Descriptive Paragraph (MC+ Style) */}
+      <p className="text-base sm:text-lg md:text-xl font-medium text-[#0C1A20]/85 leading-relaxed">
+        {chapter.paragraph}
+      </p>
+
+      {/* Feature Pill / Metric Tag */}
+      <div className="pt-2">
+        <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white border-2 border-[#0E7490]/20 shadow-xs text-xs sm:text-sm font-black text-[#0E7490]">
+          <CheckCircle2 size={16} className="text-[#06B6D4] shrink-0" />
+          <span>{chapter.pill}</span>
+        </div>
       </div>
     </motion.div>
   );
 };
 
-// ─── Individual Chapter Image (Inside Device Screen) ──────────
+// ─── Right Column: Sliding Image Inside Phone Screen ──────────
 
-interface ChapterImageProps {
+interface SlidingScreenProps {
   image: string;
   alt: string;
   scrollYProgress: MotionValue<number>;
-  start: number;
-  fadeIn: number;
-  fadeOut: number;
-  end: number;
-  isLast: boolean;
+  index: number;
+  total: number;
 }
 
-const ChapterImageItem: React.FC<ChapterImageProps> = ({
+const SlidingScreenItem: React.FC<SlidingScreenProps> = ({
   image,
   alt,
   scrollYProgress,
-  start,
-  fadeIn,
-  fadeOut,
-  end,
-  isLast,
+  index,
+  total,
 }) => {
+  const span = 1 / total;
+  const start = index * span;
+  const end = (index + 1) * span;
+
+  // The sliding transition takes 15% of the chapter span at the boundaries
+  const transSpan = span * 0.15;
+  const slideInEnd = start + transSpan;
+  const slideOutStart = end - transSpan;
+
+  // Calculate translateY (100% waiting below -> 0% active in center -> -100% exited above)
+  const translateY = useTransform(
+    scrollYProgress,
+    [
+      index === 0 ? 0 : start,
+      index === 0 ? 0 : slideInEnd,
+      index === total - 1 ? 1 : slideOutStart,
+      index === total - 1 ? 1 : end,
+    ],
+    [
+      index === 0 ? '0%' : '100%',
+      '0%',
+      '0%',
+      index === total - 1 ? '0%' : '-100%',
+    ]
+  );
+
   const opacity = useTransform(
     scrollYProgress,
-    [start, fadeIn, fadeOut, end],
-    [start === 0 ? 1 : 0, 1, 1, isLast ? 1 : 0]
-  );
-  const scale = useTransform(
-    scrollYProgress,
-    [start, fadeIn, fadeOut, end],
-    [start === 0 ? 1 : 1.05, 1, 1, isLast ? 1 : 0.96]
+    [
+      index === 0 ? 0 : start - transSpan * 0.5,
+      index === 0 ? 0 : start,
+      index === total - 1 ? 1 : end,
+      index === total - 1 ? 1 : end + transSpan * 0.5,
+    ],
+    [index === 0 ? 1 : 0, 1, 1, index === total - 1 ? 1 : 0]
   );
 
   return (
     <motion.div
-      style={{ opacity, scale }}
+      style={{ translateY, opacity }}
       className="absolute inset-0 w-full h-full transform-gpu"
     >
       <img src={image} alt={alt} className="w-full h-full object-cover object-top" loading="lazy" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/25 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/30 via-transparent to-transparent pointer-events-none" />
     </motion.div>
   );
 };
 
-// ─── Single Project Section (Sticky Stage + Chapter Runway) ───
+// ─── Beruang Centerpiece Showcase Section (Tilted 3D Phones) ──
 
-interface ProjectSectionProps {
-  project: ProjectShowcase;
-}
-
-const ProjectSection: React.FC<ProjectSectionProps> = ({ project }) => {
+const BeruangShowcaseSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
 
-  const n = project.chapters.length;
-  // Calculate start/end ratios for each chapter on [0..1]
-  const chapterTimings = project.chapters.map((_, i) => {
-    const span = 1 / n;
-    const start = i * span;
-    const end = (i + 1) * span;
-    // Fade in over 15% of chapter span, hold steady, fade out over last 15%
-    const fadeIn = start + span * 0.15;
-    const fadeOut = end - span * 0.15;
-    return { start, fadeIn, fadeOut, end };
+  const total = BERUANG_CHAPTERS.length;
+  const barWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+
+  // Background layered screens advance smoothly as user scrolls
+  const bgLayer1Y = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
+  const bgLayer2Y = useTransform(scrollYProgress, [0, 1], ['-20%', '-70%']);
+
+  return (
+    <section
+      ref={containerRef}
+      style={{ height: `${total * 100}vh` }}
+      className="relative w-full border-t border-[#0E7490]/20"
+      aria-label="Beruang AI Financial Platform Showcase"
+    >
+      {/* Sticky Viewport */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#F5F9FA] flex flex-col justify-between py-6 lg:py-10">
+        
+        {/* Ambient Glows & Grid */}
+        <div
+          className="absolute top-1/2 right-10 -translate-y-1/2 w-[650px] h-[650px] rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(6,182,212,0.18) 0%, rgba(14,116,144,0.06) 40%, transparent 70%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(14,116,144,0.2) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(14,116,144,0.2) 1px, transparent 1px)
+            `,
+            backgroundSize: '70px 70px',
+          }}
+        />
+
+        {/* Top Header Bar with iOS Logo & Rating Badges (MC+ Style) */}
+        <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#0E7490]/15">
+            <div className="flex items-center gap-3.5">
+              <img
+                src="/images/beruang/logo.png"
+                alt="Beruang iOS Logo"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl object-cover shadow-md border border-[#0E7490]/30 shrink-0"
+              />
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm sm:text-base font-black text-[#0C1A20]">Beruang AI App</span>
+                  <span className="px-2 py-0.5 rounded-md bg-[#0E7490]/10 text-[#0E7490] text-[10px] font-extrabold uppercase tracking-wider">
+                    iOS & Android
+                  </span>
+                </div>
+                <p className="text-xs font-bold text-[#0E7490]">Best Architecture Award · 86.77 SUS Score</p>
+              </div>
+            </div>
+
+            {/* Rating Stars Bar */}
+            <div className="flex items-center gap-3 sm:gap-6 flex-wrap">
+              <div className="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-xl border border-[#0E7490]/20 shadow-2xs">
+                <span className="text-sm font-black text-[#0C1A20]">99.61%</span>
+                <div className="flex text-amber-400 text-xs">
+                  <Star size={12} fill="currentColor" />
+                  <Star size={12} fill="currentColor" />
+                  <Star size={12} fill="currentColor" />
+                  <Star size={12} fill="currentColor" />
+                  <Star size={12} fill="currentColor" />
+                </div>
+                <span className="text-[11px] font-bold text-[#0E7490]">AI Accuracy</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-xl border border-[#0E7490]/20 shadow-2xs">
+                <span className="text-sm font-black text-[#0C1A20]">220k+</span>
+                <span className="text-[11px] font-bold text-[#0E7490]">Transactions Dataset</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main 2-Column Showcase Grid */}
+        <div className="container mx-auto px-6 max-w-7xl relative z-30 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full my-auto py-2">
+          
+          {/* LEFT COLUMN: Clean MC+ Style Explanations (5 cols) */}
+          <div className="lg:col-span-5 relative grid items-center min-h-[400px] sm:min-h-[440px]">
+            {BERUANG_CHAPTERS.map((chap, idx) => (
+              <ChapterTextItem
+                key={chap.id}
+                chapter={chap}
+                scrollYProgress={scrollYProgress}
+                index={idx}
+                total={total}
+                accentColor="#06B6D4"
+              />
+            ))}
+          </div>
+
+          {/* RIGHT COLUMN: Tilted 3D Phones with Sliding Replacement (7 cols) */}
+          <div className="lg:col-span-7 flex items-center justify-center relative min-h-[460px] sm:min-h-[520px]">
+            
+            {/* 3D Perspective Stage */}
+            <div
+              className="relative w-full h-full flex items-center justify-center"
+              style={{ perspective: '1400px' }}
+            >
+              
+              {/* ── BACKGROUND LAYER 2 (Far Right / Deepest Phone) ── */}
+              <motion.div
+                style={{ y: bgLayer2Y }}
+                className="absolute right-2 sm:right-10 top-12 sm:top-16 w-[200px] sm:w-[240px] aspect-[9/19.2] rounded-[40px] p-2.5 bg-slate-900/60 border border-white/10 shadow-2xl overflow-hidden pointer-events-none opacity-35 hidden md:block transform-gpu"
+                initial={{ rotateY: -22, rotateX: 12, rotate: -7, x: 80, z: -140 }}
+              >
+                <div className="w-full h-full rounded-[32px] overflow-hidden bg-slate-950 relative">
+                  <img src="/images/beruang/chat-3.png" alt="Background Screen 2" className="w-full h-full object-cover object-top opacity-60" />
+                </div>
+              </motion.div>
+
+              {/* ── BACKGROUND LAYER 1 (Mid Right / Ghost Phone) ── */}
+              <motion.div
+                style={{ y: bgLayer1Y }}
+                className="absolute right-8 sm:right-24 top-6 sm:top-8 w-[230px] sm:w-[270px] aspect-[9/19.2] rounded-[44px] p-3 bg-slate-900/80 border border-white/20 shadow-2xl overflow-hidden pointer-events-none opacity-70 hidden sm:block transform-gpu"
+                initial={{ rotateY: -22, rotateX: 12, rotate: -7, x: 40, z: -70 }}
+              >
+                <div className="w-full h-full rounded-[34px] overflow-hidden bg-slate-950 relative">
+                  <img src="/images/beruang/chat-2.png" alt="Background Screen 1" className="w-full h-full object-cover object-top opacity-80" />
+                </div>
+              </motion.div>
+
+              {/* ── FOREGROUND MAIN TILTED PHONE (Prominent Showcase) ── */}
+              <div
+                className="relative z-30 w-[260px] sm:w-[300px] md:w-[320px] aspect-[9/19.2] rounded-[48px] p-3.5 bg-[#0C1A20] shadow-[0_45px_100px_rgba(6,182,212,0.38)] border-4 border-[#0E7490]/50 ring-1 ring-white/30 transform-gpu transition-all"
+                style={{
+                  transform: 'rotateY(-18deg) rotateX(10deg) rotate(-5deg)',
+                }}
+              >
+                {/* Dynamic Island Speaker Notch */}
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-2.5 border border-white/10 shadow-md">
+                  <div className="w-2.5 h-2.5 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
+                    <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[9px] font-bold text-white/80 tracking-tighter">LIVE</span>
+                    <div className="w-2 h-2 rounded-full bg-[#0E7490] animate-pulse" />
+                  </div>
+                </div>
+
+                {/* Phone Screen Container with Sliding UI Replacement */}
+                <div className="relative w-full h-full rounded-[38px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
+                  {BERUANG_CHAPTERS.map((chap, idx) => (
+                    <SlidingScreenItem
+                      key={chap.id}
+                      image={chap.image}
+                      alt={chap.title}
+                      scrollYProgress={scrollYProgress}
+                      index={idx}
+                      total={total}
+                    />
+                  ))}
+                  {/* Bottom Home Indicator Bar */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Bottom Progress Bar */}
+        <div className="container mx-auto px-6 max-w-7xl relative z-40 flex items-center justify-between shrink-0 pt-2 border-t border-[#0E7490]/15">
+          <div className="flex items-center gap-2 text-xs font-black text-[#0C1A20]/60 uppercase tracking-widest">
+            <span>Beruang Walkthrough</span>
+            <span>•</span>
+            <span className="text-[#0E7490] font-extrabold animate-bounce">Scroll Down ↓</span>
+          </div>
+          <div className="w-36 sm:w-56 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
+            <motion.div
+              className="h-full rounded-full bg-[#06B6D4] transform-gpu"
+              style={{ width: barWidth }}
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+// ─── RentVerse Secondary Showcase Section (Upright/Sleek Laptop) ──
+
+const RentVerseShowcaseSection: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
   });
 
-  // Progress bar width for this project
+  const total = RENTVERSE_CHAPTERS.length;
   const barWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
     <section
       ref={containerRef}
-      style={{ height: `${n * 100}vh` }}
-      className="relative w-full border-t border-[#0E7490]/15"
-      aria-label={project.name}
+      style={{ height: `${total * 100}vh` }}
+      className="relative w-full border-t border-[#0E7490]/20"
+      aria-label="RentVerse Rental Ecosystem Showcase"
     >
-      {/* Sticky Viewport (100vh locked while scrolling through chapters) */}
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#F5F9FA] flex flex-col justify-between py-6 lg:py-10">
         
-        {/* Ambient Glow */}
+        {/* Ambient Glows */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+          className="absolute top-1/2 left-10 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{
-            background: `radial-gradient(circle, ${project.accentColor}15 0%, #0E749008 40%, transparent 70%)`,
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-15 pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(${project.accentColor}25 1px, transparent 1px),
-              linear-gradient(90deg, ${project.accentColor}25 1px, transparent 1px)
-            `,
-            backgroundSize: '80px 80px',
+            background: 'radial-gradient(circle, rgba(14,116,144,0.15) 0%, transparent 70%)',
           }}
         />
 
-        {/* Top Project Header Bar */}
-        <div className="container mx-auto px-6 max-w-7xl relative z-40 flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-3">
-            <span
-              className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border bg-white/90 backdrop-blur-md shadow-2xs"
-              style={{ borderColor: `${project.accentColor}40`, color: '#0E7490' }}
+        {/* Top Header Bar */}
+        <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
+          <div className="flex items-center justify-between pb-4 border-b border-[#0E7490]/15">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-xl bg-[#0E7490]/10 text-[#0E7490]">
+                <Trophy size={18} />
+              </div>
+              <div>
+                <span className="text-base font-black text-[#0C1A20]">RentVerse Rental Platform</span>
+                <p className="text-xs font-bold text-[#0E7490]">Champion — 4 Competition Awards · Next.js 14</p>
+              </div>
+            </div>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-[#0E7490]/25 shadow-2xs hover:border-[#06B6D4] text-xs font-bold text-[#0C1A20] transition-all"
             >
-              <Trophy size={11} className="text-[#06B6D4]" />
-              <span>{project.award}</span>
-            </span>
-            <span className="text-xs sm:text-sm font-extrabold text-[#0C1A20] hidden md:inline">
-              {project.name} — <span className="font-medium text-[#0C1A20]/60">{project.tagline}</span>
-            </span>
+              <span>View Case Study</span>
+              <ArrowRight size={13} />
+            </Link>
           </div>
-          <Link
-            to={project.link}
-            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-white/90 backdrop-blur-md border border-[#0E7490]/25 shadow-xs hover:border-[#06B6D4] text-xs font-bold text-[#0C1A20] hover:text-[#0E7490] transition-all group"
-          >
-            <span>Explore Architecture</span>
-            <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
 
-        {/* Main 2-Column Showcase Grid */}
-        <div className="container mx-auto px-6 max-w-7xl relative z-30 grid lg:grid-cols-12 gap-8 lg:gap-14 items-center h-full my-auto py-4">
+        {/* Main Grid */}
+        <div className="container mx-auto px-6 max-w-7xl relative z-30 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full my-auto py-2">
           
-          {/* LEFT COLUMN: Scrolling Chapter Explanations (5 cols) */}
-          <div className="lg:col-span-5 relative grid items-center min-h-[380px] sm:min-h-[420px]">
-            {project.chapters.map((chap, i) => (
+          {/* LEFT COLUMN */}
+          <div className="lg:col-span-5 relative grid items-center min-h-[380px]">
+            {RENTVERSE_CHAPTERS.map((chap, idx) => (
               <ChapterTextItem
                 key={chap.id}
                 chapter={chap}
                 scrollYProgress={scrollYProgress}
-                start={chapterTimings[i].start}
-                fadeIn={chapterTimings[i].fadeIn}
-                fadeOut={chapterTimings[i].fadeOut}
-                end={chapterTimings[i].end}
-                isLast={i === n - 1}
-                accentColor={project.accentColor}
+                index={idx}
+                total={total}
+                accentColor="#0E7490"
               />
             ))}
           </div>
 
-          {/* RIGHT COLUMN: Upright Static Device Frame with Replacing UI (7 cols) */}
+          {/* RIGHT COLUMN: Upright Laptop with Sliding UI */}
           <div className="lg:col-span-7 flex items-center justify-center relative">
-            
-            {project.deviceType === 'phone' ? (
-              /* ── UPRIGHT iPHONE 15 PRO MOCKUP (NOT SLANTED!) ── */
-              <div className="relative mx-auto w-[270px] sm:w-[310px] md:w-[330px] aspect-[9/19.2] rounded-[48px] p-3 bg-[#0C1A20] shadow-[0_35px_80px_rgba(14,116,144,0.35)] border-4 border-[#0E7490]/40 ring-1 ring-white/20 transform-gpu">
-                
-                {/* Speaker / Dynamic Island */}
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-2.5 border border-white/10 shadow-md">
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
-                    <div className="w-1 h-1 rounded-full bg-[#06B6D4]/70" />
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[9px] font-bold text-white/80 tracking-tighter">AI</span>
-                    <div className="w-2 h-2 rounded-full bg-[#0E7490] animate-pulse" />
-                  </div>
+            <div className="relative mx-auto w-full max-w-[580px] lg:max-w-[640px] transform-gpu">
+              {/* Laptop Lid */}
+              <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/40 shadow-[0_35px_80px_rgba(14,116,144,0.3)] relative ring-1 ring-white/15">
+                <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
+                  <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
                 </div>
-
-                {/* Phone Screen Container where UI images replace/transition */}
-                <div className="relative w-full h-full rounded-[38px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
-                  {project.chapters.map((chap, i) => (
-                    <ChapterImageItem
+                <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
+                  {RENTVERSE_CHAPTERS.map((chap, idx) => (
+                    <SlidingScreenItem
                       key={chap.id}
                       image={chap.image}
-                      alt={`${project.name} - ${chap.title}`}
+                      alt={chap.title}
                       scrollYProgress={scrollYProgress}
-                      start={chapterTimings[i].start}
-                      fadeIn={chapterTimings[i].fadeIn}
-                      fadeOut={chapterTimings[i].fadeOut}
-                      end={chapterTimings[i].end}
-                      isLast={i === n - 1}
+                      index={idx}
+                      total={total}
                     />
                   ))}
-                  {/* Bottom Home Bar */}
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
                 </div>
               </div>
-            ) : (
-              /* ── UPRIGHT MACBOOK PRO MOCKUP (NOT SLANTED!) ── */
-              <div className="relative mx-auto w-full max-w-[560px] lg:max-w-[620px] transform-gpu">
-                
-                {/* Laptop Screen Lid */}
-                <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/40 shadow-[0_35px_80px_rgba(14,116,144,0.3)] relative ring-1 ring-white/15">
-                  {/* Camera Notch */}
-                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40 shadow-xs">
-                    <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
-                  </div>
-
-                  {/* Laptop Screen Container where UI images replace/transition */}
-                  <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
-                    {project.chapters.map((chap, i) => (
-                      <ChapterImageItem
-                        key={chap.id}
-                        image={chap.image}
-                        alt={`${project.name} - ${chap.title}`}
-                        scrollYProgress={scrollYProgress}
-                        start={chapterTimings[i].start}
-                        fadeIn={chapterTimings[i].fadeIn}
-                        fadeOut={chapterTimings[i].fadeOut}
-                        end={chapterTimings[i].end}
-                        isLast={i === n - 1}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Laptop Base */}
-                <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
-                  <div className="w-20 h-1.5 rounded-b-md bg-[#0C1A20] border-x border-b border-[#0E7490]/30" />
-                </div>
+              {/* Laptop Base */}
+              <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
+                <div className="w-20 h-1.5 rounded-b-md bg-[#0C1A20] border-x border-b border-[#0E7490]/30" />
               </div>
-            )}
-
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Progress Bar & Chapter Indicator */}
-        <div className="container mx-auto px-6 max-w-7xl relative z-40 flex items-center justify-between shrink-0 pt-2 border-t border-[#0E7490]/10">
-          <div className="flex items-center gap-2 text-xs font-black text-[#0C1A20]/50 uppercase tracking-widest">
-            <span>Chapter Walkthrough</span>
+        {/* Bottom Progress Bar */}
+        <div className="container mx-auto px-6 max-w-7xl relative z-40 flex items-center justify-between shrink-0 pt-2 border-t border-[#0E7490]/15">
+          <div className="flex items-center gap-2 text-xs font-black text-[#0C1A20]/60 uppercase tracking-widest">
+            <span>RentVerse Walkthrough</span>
             <span>•</span>
             <span className="text-[#0E7490]">Scroll Down ↓</span>
           </div>
-          <div className="w-36 sm:w-48 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
+          <div className="w-36 sm:w-56 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
             <motion.div
-              className="h-full rounded-full bg-[#06B6D4] transform-gpu"
+              className="h-full rounded-full bg-[#0E7490] transform-gpu"
               style={{ width: barWidth }}
             />
           </div>
@@ -552,12 +610,11 @@ const FlagshipScrollytelling: React.FC = () => {
         </div>
       </div>
 
-      {/* ── Render Each Flagship Project Showcase ────────────── */}
-      <div className="w-full">
-        {FLAGSHIP_PROJECTS.map((proj) => (
-          <ProjectSection key={proj.id} project={proj} />
-        ))}
-      </div>
+      {/* ── Beruang AI Centerpiece (MC+ Style Tilted 3D Phones) ── */}
+      <BeruangShowcaseSection />
+
+      {/* ── RentVerse Secondary Showcase ── */}
+      <RentVerseShowcaseSection />
 
     </div>
   );
