@@ -77,6 +77,7 @@ interface Chapter {
   pill: string;
   icon: React.ComponentType<any>;
   image: string;
+  device?: 'phone' | 'laptop';
 }
 
 const BERUANG_CHAPTERS: Chapter[] = [
@@ -170,6 +171,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     pill: 'Next.js 14 · Interactive Location Search',
     icon: ShieldCheck,
     image: '/images/rentverse/homepage.jpg',
+    device: 'laptop',
   },
   {
     id: 'mobileweb',
@@ -181,6 +183,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     pill: 'Responsive Web · iOS Safari Optimization',
     icon: Globe,
     image: '/images/rentverse/mobile-web.png',
+    device: 'phone',
   },
   {
     id: 'android',
@@ -192,6 +195,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     pill: 'Android Client · Geolocation Search',
     icon: UserCheck,
     image: '/images/rentverse/android-mobile.png',
+    device: 'phone',
   },
   {
     id: 'explore',
@@ -203,6 +207,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     pill: 'MapTiler Geo-Clustering · Real-Time Map Query',
     icon: Globe,
     image: '/images/rentverse/explore.jpg',
+    device: 'laptop',
   },
   {
     id: 'admin',
@@ -214,6 +219,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     pill: 'Zero Trust Auth · Threat Monitoring Console',
     icon: Server,
     image: '/images/rentverse/admin.jpg',
+    device: 'laptop',
   },
   {
     id: 'slack',
@@ -225,6 +231,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     pill: 'Slack Webhooks · Real-Time Incident Response',
     icon: Zap,
     image: '/images/rentverse/slack-alerts.jpg',
+    device: 'laptop',
   },
 ];
 
@@ -797,14 +804,25 @@ const RentVerseShowcaseSection: React.FC = () => {
             <div className="relative w-full h-[400px] sm:h-[440px] flex items-center justify-center">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => (
-                  <CascadeLaptopItem
-                    key={chap.id}
-                    image={chap.image}
-                    alt={chap.title}
-                    scrollYProgress={scrollYProgress}
-                    index={idx}
-                    total={total}
-                  />
+                  chap.device === 'phone' ? (
+                    <CascadePhoneItem
+                      key={chap.id}
+                      image={chap.image}
+                      alt={chap.title}
+                      scrollYProgress={scrollYProgress}
+                      index={idx}
+                      total={total}
+                    />
+                  ) : (
+                    <CascadeLaptopItem
+                      key={chap.id}
+                      image={chap.image}
+                      alt={chap.title}
+                      scrollYProgress={scrollYProgress}
+                      index={idx}
+                      total={total}
+                    />
+                  )
                 ))}
               </div>
             </div>
