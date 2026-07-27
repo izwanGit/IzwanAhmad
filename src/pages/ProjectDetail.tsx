@@ -269,11 +269,19 @@ const ProjectDetail = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
                     <div className="w-full h-full flex items-center justify-center p-2 relative z-10">
-                      <img 
-                        src={item.src} 
-                        alt={item.caption}
-                        className="max-h-[550px] max-w-full object-contain rounded-3xl shadow-2xl border-4 border-white/20"
-                      />
+                      <div className="h-full max-h-[550px] rounded-[36px] bg-slate-950 p-2.5 border-4 border-white/20 shadow-2xl relative flex flex-col items-center justify-center">
+                        {/* Speaker Notch */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-3.5 bg-slate-900 rounded-b-xl z-20 flex items-center justify-center">
+                          <div className="w-8 h-1 bg-slate-700 rounded-full" />
+                        </div>
+                        <div className="h-full rounded-[28px] overflow-hidden bg-black flex items-center justify-center">
+                          <img 
+                            src={item.src} 
+                            alt={item.caption}
+                            className="h-full w-auto max-h-[530px] object-contain"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ) : (

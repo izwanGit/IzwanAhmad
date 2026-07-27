@@ -357,12 +357,20 @@ const Projects = () => {
                       /* Mobile App UI Brand Color Background & Phone Frame */
                       <>
                         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
-                        <div className="w-full h-full flex items-center justify-center p-2 relative z-10 group-hover:scale-103 transition-transform duration-300">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="max-h-full max-w-full object-contain rounded-2xl shadow-2xl border-2 border-white/20"
-                          />
+                        <div className="h-full max-h-[200px] sm:max-h-[220px] flex items-center justify-center relative z-10 group-hover:scale-103 transition-transform duration-300">
+                          <div className="h-full rounded-[24px] bg-slate-950 p-2 border-2 border-white/20 shadow-2xl relative flex flex-col items-center justify-center">
+                            {/* Speaker Notch */}
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-b-md z-20 flex items-center justify-center">
+                              <div className="w-2 h-0.5 bg-slate-700 rounded-full" />
+                            </div>
+                            <div className="h-full rounded-[18px] overflow-hidden bg-black flex items-center justify-center">
+                              <img 
+                                src={project.image} 
+                                alt={project.title}
+                                className="h-full w-auto object-contain"
+                              />
+                            </div>
+                          </div>
                         </div>
                       </>
                     ) : (
