@@ -8,14 +8,16 @@
  *      of tilted phones in perspective (`perspective: 1400px`, `rotateY(-18deg) rotateX(10deg)`).
  *   2. SCROLL-DRIVEN 3D CASCADE: As the user scrolls down from Chapter 1 to Chapter 2, the phone
  *      in the middle ground smoothly slides forward and into the spotlight (`translateZ: -80px -> 0px`),
- *      taking the place of the front phone, which gracefully slides out to the left/down!
+ *      taking the place of the front phone, which gracefully slides out to the left/down.
  *   3. CLEAN LEFT COLUMN HIERARCHY: Icon Badge -> Massive Heading -> Single Crisp Paragraph ->
  *      Feature Pill. Switches synchronously with the 3D phone cascade.
- *   4. BERUANG CENTERPIECE: Features iOS logo badge, 5-star rating metrics (`99.61% AI Accuracy`),
+ *   4. BERUANG CENTERPIECE: Features iOS logo badge, rating metrics (`99.61% AI Accuracy`),
  *      and 4 physical 3D phone mockups advancing through the 4 feature chapters.
  *   5. 100% ZERO LAG GUARANTEE: Uses continuous Framer Motion `useTransform` on GPU compositor
  *      layers (`transform-gpu`, `translate3d`). No CSS blur animations, no background grid scaling,
  *      and zero React state re-renders during scroll.
+ *   6. STRICT COPY DISCIPLINE: Zero emojis anywhere. Zero verbose instructions telling users how
+ *      to scroll or navigate. Treated as a normal, ultra-premium flagship section.
  *
  * Theme: #F5F9FA (bg) · #0E7490 (primary) · #06B6D4 (accent) · #0C1A20 (text)
  */
@@ -46,7 +48,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Instant Natural Language UI',
     paragraph:
       'Converts natural language queries ("Recent expenses?") directly into interactive 50/30/20 budget donut charts in milliseconds. Powered by a real-time RAG pipeline querying Firebase Firestore, it intercepts your exact financial footprint without mental math or text-heavy lists.',
-    pill: '⚡ Dynamic Widget Rendering · Zero-Latency RAG Pipeline',
+    pill: 'Dynamic Widget Rendering · Zero-Latency RAG Pipeline',
     icon: Zap,
     image: '/images/beruang/chat-1.png',
   },
@@ -57,7 +59,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Hyper-Localized Advisory',
     paragraph:
       'Intelligent MiniLM sentence transformers route complex local food queries ("makan sedap di pekan tapah") directly to cloud LLMs. It recommends great local dining while attaching a budget reminder ("Wants je ni, RM358 lagi!") to stop impulsive spending before it happens.',
-    pill: '🧠 Intelligent Intent Routing · Frictionless Accountability',
+    pill: 'Intelligent Intent Routing · Frictionless Accountability',
     icon: Brain,
     image: '/images/beruang/chat-2.png',
   },
@@ -68,7 +70,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Real-Time Web Retrieval',
     paragraph:
       'Commands like "search rembayung" trigger live internet retrieval for brand-new locations outside static LLM weights. It calculates travel friction (a 2-3 hr drive from Tapah to KL) against your remaining budget so decisions are never made in a vacuum.',
-    pill: '🌍 Live Web Retrieval · Spatial & Financial Guardian',
+    pill: 'Live Web Retrieval · Spatial & Financial Guardian',
     icon: Search,
     image: '/images/beruang/chat-3.png',
   },
@@ -79,7 +81,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: '99.61% AI Accuracy Engine',
     paragraph:
       'Powered by a custom PyTorch Bi-LSTM neural network trained on 220,000+ Malaysian transaction records for instant expense categorization. Evaluated at an exceptional 86.77 System Usability Scale score, combining enterprise security with frictionless consumer UX.',
-    pill: '📊 99.61% AI Accuracy · 220k+ Malaysian Dataset',
+    pill: '99.61% AI Accuracy · 220k+ Malaysian Dataset',
     icon: Cpu,
     image: '/images/beruang/home.png',
   },
@@ -93,7 +95,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     title: 'Enterprise Rental Ecosystem',
     paragraph:
       'Strict identity verification, JWT session rotation, and end-to-end encryption across all tenant and landlord workflows. An intelligent AI fraud detection engine analyzes behavioral patterns to block anomalous rental applications and fraudulent property listings in real-time.',
-    pill: '🔒 Zero Trust Auth · Real-Time AI Fraud Prevention',
+    pill: 'Zero Trust Auth · Real-Time AI Fraud Prevention',
     icon: Lock,
     image: '/images/rentverse-laptop.jpg',
   },
@@ -104,7 +106,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     title: 'Automated Security Pipeline',
     paragraph:
       'Fully integrated DevSecOps automation featuring SonarQube static code analysis, Docker containerization, and automated vulnerability scanning. Built on Next.js 14 and PostgreSQL, delivering sub-second search and enterprise-grade transaction reliability.',
-    pill: '🚀 14-Stage CI/CD · SonarQube & Docker Security',
+    pill: '14-Stage CI/CD · SonarQube & Docker Security',
     icon: Server,
     image: '/images/rentverse-home.jpg',
   },
@@ -350,7 +352,7 @@ const BeruangShowcaseSection: React.FC = () => {
   const barWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   // Render phones in reverse DOM order (3, 2, 1, 0) so Phone 0 starts naturally in front,
-  // while 3D perspective sorting dynamically promotes whichever phone moves forward to z=0!
+  // while 3D perspective sorting dynamically promotes whichever phone moves forward to z=0.
   const reversedChapters = [...BERUANG_CHAPTERS].map((chap, idx) => ({ chap, idx })).reverse();
 
   return (
@@ -380,7 +382,7 @@ const BeruangShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Header Bar with iOS Logo & Rating Badges (MC+ Style) */}
+        {/* Top Header Bar with iOS Logo & Rating Badges */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#0E7490]/15">
             <div className="flex items-center gap-3.5">
@@ -474,12 +476,12 @@ const BeruangShowcaseSection: React.FC = () => {
 
         </div>
 
-        {/* Bottom Progress Bar */}
+        {/* Bottom Section Footer */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 flex items-center justify-between shrink-0 pt-2 border-t border-[#0E7490]/15">
           <div className="flex items-center gap-2 text-xs font-black text-[#0C1A20]/60 uppercase tracking-widest">
-            <span>Beruang 3D Walkthrough</span>
+            <span>Beruang AI Platform</span>
             <span>•</span>
-            <span className="text-[#0E7490] font-extrabold animate-bounce">Scroll Down ↓</span>
+            <span className="text-[#0E7490]">System Architecture</span>
           </div>
           <div className="w-36 sm:w-56 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
             <motion.div
@@ -627,12 +629,12 @@ const RentVerseShowcaseSection: React.FC = () => {
 
         </div>
 
-        {/* Bottom Progress Bar */}
+        {/* Bottom Section Footer */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 flex items-center justify-between shrink-0 pt-2 border-t border-[#0E7490]/15">
           <div className="flex items-center gap-2 text-xs font-black text-[#0C1A20]/60 uppercase tracking-widest">
-            <span>RentVerse 3D Walkthrough</span>
+            <span>RentVerse Platform</span>
             <span>•</span>
-            <span className="text-[#0E7490]">Scroll Down ↓</span>
+            <span className="text-[#0E7490]">DevSecOps Architecture</span>
           </div>
           <div className="w-36 sm:w-56 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
             <motion.div
@@ -660,13 +662,13 @@ const FlagshipScrollytelling: React.FC = () => {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0E7490]/10 border border-[#0E7490]/25 text-[#0E7490] text-[11px] font-black tracking-widest uppercase mb-4 shadow-2xs">
                 <Sparkles size={13} className="text-[#06B6D4]" />
-                <span>Featured Work — Interactive 3D Walkthrough</span>
+                <span>Featured Work · Flagship Architecture</span>
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#0C1A20] tracking-tight leading-[1.05]">
                 Selected Flagship Projects
               </h2>
               <p className="text-[#0C1A20]/75 text-sm sm:text-base md:text-lg mt-3 max-w-2xl font-normal leading-relaxed">
-                High-impact software solutions engineered with robust architecture, AI integration, and enterprise DevSecOps standards. Scroll down to experience interactive 3D feature walkthroughs.
+                High-impact software solutions engineered with robust architecture, AI integration, and enterprise DevSecOps standards.
               </p>
             </div>
             <Link
