@@ -1,29 +1,28 @@
 /**
  * FlagshipScrollytelling.tsx
  *
- * MC+ STYLE 3D TILTED PHONE WITH SLIDING UI REPLACEMENT (Zero Lag, 60fps/120fps)
+ * MC+ STYLE 3D LAYERED PHONE CASCADE (Zero Lag, 60fps/120fps)
  *
  * Architecture & Design Fixes:
- *   1. MC+ STYLE TILTED 3D PHONE COMPOSITION: Tilted primary phone in the foreground
- *      (`rotateY(-20deg) rotateX(10deg) rotate(-6deg)`) with layered background screens
- *      floating in perspective for jaw-dropping depth.
- *   2. SLIDING UI REPLACEMENT: As the user scrolls down through the chapters, the new UI image
- *      slides in from the bottom (`translateY: 100% -> 0%`), pushing and replacing the previous UI
- *      image (`translateY: 0% -> -100%`), exactly like mcplus.my and Apple feature walkthroughs.
- *   3. CLEAN LEFT COLUMN HIERARCHY: Replaced cluttered bullet lists with MC+'s clean structure:
- *      Icon Badge -> Massive Feature Heading -> Single Crisp Paragraph -> Feature Pill.
- *   4. BERUANG CENTERPIECE: Features the Beruang iOS logo (`/images/beruang/logo.png`), star rating
- *      badges (`99.61% AI Accuracy ★★★★★`, `86.77 SUS Score ★★★★★`), and 4 dedicated chapters.
- *   5. ZERO LAG GUARANTEE: Uses continuous Framer Motion `useTransform` for `translateY` and
- *      `opacity` on GPU compositor layers (`transform-gpu`). Zero CSS blur animations, zero
- *      background grid scaling, and zero React state re-renders during scroll.
+ *   1. 1-TO-1 VIDEO RECREATION: Exactly like the mcplus.my screen recording, we present a 3D queue
+ *      of tilted phones in perspective (`perspective: 1400px`, `rotateY(-18deg) rotateX(10deg)`).
+ *   2. SCROLL-DRIVEN 3D CASCADE: As the user scrolls down from Chapter 1 to Chapter 2, the phone
+ *      in the middle ground smoothly slides forward and into the spotlight (`translateZ: -80px -> 0px`),
+ *      taking the place of the front phone, which gracefully slides out to the left/down!
+ *   3. CLEAN LEFT COLUMN HIERARCHY: Icon Badge -> Massive Heading -> Single Crisp Paragraph ->
+ *      Feature Pill. Switches synchronously with the 3D phone cascade.
+ *   4. BERUANG CENTERPIECE: Features iOS logo badge, 5-star rating metrics (`99.61% AI Accuracy`),
+ *      and 4 physical 3D phone mockups advancing through the 4 feature chapters.
+ *   5. 100% ZERO LAG GUARANTEE: Uses continuous Framer Motion `useTransform` on GPU compositor
+ *      layers (`transform-gpu`, `translate3d`). No CSS blur animations, no background grid scaling,
+ *      and zero React state re-renders during scroll.
  *
  * Theme: #F5F9FA (bg) · #0E7490 (primary) · #06B6D4 (accent) · #0C1A20 (text)
  */
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Trophy, Cpu, Search, Brain, Lock, Server, CheckCircle2, ShieldCheck, Star } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Trophy, Cpu, Search, Brain, Lock, Server, CheckCircle2, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ─── Data Structures ──────────────────────────────────────────
@@ -111,7 +110,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
   },
 ];
 
-// ─── Left Column: Single Chapter Text Transition ──────────────
+// ─── Left Column: Single Chapter Text Item ────────────────────
 
 interface ChapterTextProps {
   chapter: Chapter;
@@ -132,11 +131,10 @@ const ChapterTextItem: React.FC<ChapterTextProps> = ({
   const start = index * span;
   const end = (index + 1) * span;
 
-  // Stagger text fade slightly so it syncs perfectly with phone screen sliding
+  // Stagger fade slightly within the chapter window
   const fadeIn = start + span * 0.12;
   const fadeOut = end - span * 0.12;
 
-  // If first chapter, start visible at progress 0. If last, stay visible at 1.0.
   const opacity = useTransform(
     scrollYProgress,
     [start, fadeIn, fadeOut, end],
@@ -160,7 +158,7 @@ const ChapterTextItem: React.FC<ChapterTextProps> = ({
       style={{ opacity, y, pointerEvents }}
       className="col-start-1 row-start-1 flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl"
     >
-      {/* Icon Badge & Chapter Number */}
+      {/* Icon Badge */}
       <div className="flex items-center gap-3 flex-wrap">
         <span
           className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-xs sm:text-sm font-black tracking-widest uppercase border shadow-sm backdrop-blur-md"
@@ -177,19 +175,19 @@ const ChapterTextItem: React.FC<ChapterTextProps> = ({
         </span>
       </div>
 
-      {/* Massive Feature Heading */}
+      {/* Massive Heading */}
       <div>
         <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0C1A20] tracking-tight leading-[1.05]">
           {chapter.title}
         </h4>
       </div>
 
-      {/* Single Crisp Descriptive Paragraph (MC+ Style) */}
+      {/* Single Crisp Paragraph */}
       <p className="text-base sm:text-lg md:text-xl font-medium text-[#0C1A20]/85 leading-relaxed">
         {chapter.paragraph}
       </p>
 
-      {/* Feature Pill / Metric Tag */}
+      {/* Feature Pill */}
       <div className="pt-2">
         <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white border-2 border-[#0E7490]/20 shadow-xs text-xs sm:text-sm font-black text-[#0E7490]">
           <CheckCircle2 size={16} className="text-[#06B6D4] shrink-0" />
@@ -200,9 +198,9 @@ const ChapterTextItem: React.FC<ChapterTextProps> = ({
   );
 };
 
-// ─── Right Column: Sliding Image Inside Phone Screen ──────────
+// ─── Right Column: 3D Phone Mockup Item in the Cascade ────────
 
-interface SlidingScreenProps {
+interface CascadePhoneProps {
   image: string;
   alt: string;
   scrollYProgress: MotionValue<number>;
@@ -210,62 +208,136 @@ interface SlidingScreenProps {
   total: number;
 }
 
-const SlidingScreenItem: React.FC<SlidingScreenProps> = ({
+const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
   image,
   alt,
   scrollYProgress,
   index,
-  total,
 }) => {
-  const span = 1 / total;
-  const start = index * span;
-  const end = (index + 1) * span;
+  // We choreograph 4 phones across 4 chapters (progress 0..1)
+  // Transition periods occur at:
+  // T1: 0.20 to 0.30 (Phone 0 exits, Phone 1 moves to Spotlight)
+  // T2: 0.45 to 0.55 (Phone 1 exits, Phone 2 moves to Spotlight)
+  // T3: 0.70 to 0.80 (Phone 2 exits, Phone 3 moves to Spotlight)
 
-  // The sliding transition takes 15% of the chapter span at the boundaries
-  const transSpan = span * 0.15;
-  const slideInEnd = start + transSpan;
-  const slideOutStart = end - transSpan;
-
-  // Calculate translateY (100% waiting below -> 0% active in center -> -100% exited above)
-  const translateY = useTransform(
+  // Calculate 3D X coordinate (0px is Spotlight Center, 80px is Mid Right, 160px is Back Right, -160px is Exited Left)
+  const x = useTransform(
     scrollYProgress,
-    [
-      index === 0 ? 0 : start,
-      index === 0 ? 0 : slideInEnd,
-      index === total - 1 ? 1 : slideOutStart,
-      index === total - 1 ? 1 : end,
-    ],
-    [
-      index === 0 ? '0%' : '100%',
-      '0%',
-      '0%',
-      index === total - 1 ? '0%' : '-100%',
-    ]
+    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
+    index === 0
+      ? [0, 0, -160, -160, -160, -160, -160, -160] // Phone 0 starts in Spotlight, exits at T1
+      : index === 1
+      ? [80, 80, 0, 0, -160, -160, -160, -160] // Phone 1 starts in Mid Right, moves to Spotlight at T1, exits at T2
+      : index === 2
+      ? [160, 160, 80, 80, 0, 0, -160, -160] // Phone 2 starts in Back Right, advances at T1 & T2, exits at T3
+      : [240, 240, 160, 160, 80, 80, 0, 0] // Phone 3 starts in deep space, advances to Spotlight at T3
   );
 
+  // Calculate 3D Y coordinate (0px is Spotlight Center, negative is slightly higher in back, 120px is exited down)
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
+    index === 0
+      ? [0, 0, 120, 120, 120, 120, 120, 120]
+      : index === 1
+      ? [-25, -25, 0, 0, 120, 120, 120, 120]
+      : index === 2
+      ? [-50, -50, -25, -25, 0, 0, 120, 120]
+      : [-75, -75, -50, -50, -25, -25, 0, 0]
+  );
+
+  // Calculate 3D Z depth (0px is Spotlight Front, -80px is Mid Right, -160px is Back Right)
+  const z = useTransform(
+    scrollYProgress,
+    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
+    index === 0
+      ? [0, 0, 50, 50, 50, 50, 50, 50]
+      : index === 1
+      ? [-80, -80, 0, 0, 50, 50, 50, 50]
+      : index === 2
+      ? [-160, -160, -80, -80, 0, 0, 50, 50]
+      : [-240, -240, -160, -160, -80, -80, 0, 0]
+  );
+
+  // Calculate scale (1.0 is Spotlight, smaller is background)
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
+    index === 0
+      ? [1, 1, 0.85, 0.85, 0.85, 0.85, 0.85, 0.85]
+      : index === 1
+      ? [0.9, 0.9, 1, 1, 0.85, 0.85, 0.85, 0.85]
+      : index === 2
+      ? [0.8, 0.8, 0.9, 0.9, 1, 1, 0.85, 0.85]
+      : [0.7, 0.7, 0.8, 0.8, 0.9, 0.9, 1.04, 1.04]
+  );
+
+  // Calculate opacity (1.0 in Spotlight, fades out when exiting or in deep background)
   const opacity = useTransform(
     scrollYProgress,
-    [
-      index === 0 ? 0 : start - transSpan * 0.5,
-      index === 0 ? 0 : start,
-      index === total - 1 ? 1 : end,
-      index === total - 1 ? 1 : end + transSpan * 0.5,
-    ],
-    [index === 0 ? 1 : 0, 1, 1, index === total - 1 ? 1 : 0]
+    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
+    index === 0
+      ? [1, 1, 0, 0, 0, 0, 0, 0]
+      : index === 1
+      ? [0.7, 0.7, 1, 1, 0, 0, 0, 0]
+      : index === 2
+      ? [0.4, 0.4, 0.7, 0.7, 1, 1, 0, 0]
+      : [0, 0, 0.4, 0.4, 0.7, 0.7, 1, 1]
+  );
+
+  // Active border glow intensity based on whether this phone is currently in the spotlight
+  const borderColor = useTransform(
+    scrollYProgress,
+    [0, 0.20, 0.30, 0.45, 0.55, 0.70, 0.80, 1],
+    index === 0
+      ? ['rgba(14,116,144,0.6)', 'rgba(14,116,144,0.6)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)']
+      : index === 1
+      ? ['rgba(255,255,255,0.2)', 'rgba(255,255,255,0.2)', 'rgba(14,116,144,0.6)', 'rgba(14,116,144,0.6)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)']
+      : index === 2
+      ? ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.2)', 'rgba(255,255,255,0.2)', 'rgba(14,116,144,0.6)', 'rgba(14,116,144,0.6)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)']
+      : ['rgba(255,255,255,0.05)', 'rgba(255,255,255,0.05)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.2)', 'rgba(255,255,255,0.2)', 'rgba(6,182,212,0.8)', 'rgba(6,182,212,0.8)']
   );
 
   return (
     <motion.div
-      style={{ translateY, opacity }}
-      className="absolute inset-0 w-full h-full transform-gpu"
+      style={{
+        x,
+        y,
+        z,
+        scale,
+        opacity,
+        borderColor,
+      }}
+      className="absolute w-[260px] sm:w-[300px] md:w-[320px] aspect-[9/19.2] rounded-[48px] p-3 bg-[#0C1A20] shadow-[0_45px_100px_rgba(6,182,212,0.35)] border-4 ring-1 ring-white/30 transform-gpu transition-shadow"
     >
-      <img src={image} alt={alt} className="w-full h-full object-cover object-top" loading="lazy" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/30 via-transparent to-transparent pointer-events-none" />
+      {/* Dynamic Island Speaker Notch */}
+      <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-2.5 border border-white/10 shadow-md">
+        <div className="w-2.5 h-2.5 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
+          <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="text-[9px] font-bold text-white/80 tracking-tighter">AI</span>
+          <div className="w-2 h-2 rounded-full bg-[#0E7490] animate-pulse" />
+        </div>
+      </div>
+
+      {/* Phone Screen Container */}
+      <div className="relative w-full h-full rounded-[38px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
+        <img
+          src={image}
+          alt={alt}
+          className="w-full h-full object-cover object-top"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/25 via-transparent to-transparent pointer-events-none" />
+        {/* Bottom Home Indicator Bar */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
+      </div>
     </motion.div>
   );
 };
 
-// ─── Beruang Centerpiece Showcase Section (Tilted 3D Phones) ──
+// ─── Beruang Showcase Section (MC+ 3D Cascade) ────────────────
 
 const BeruangShowcaseSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -277,9 +349,9 @@ const BeruangShowcaseSection: React.FC = () => {
   const total = BERUANG_CHAPTERS.length;
   const barWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
-  // Background layered screens advance smoothly as user scrolls
-  const bgLayer1Y = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
-  const bgLayer2Y = useTransform(scrollYProgress, [0, 1], ['-20%', '-70%']);
+  // Render phones in reverse DOM order (3, 2, 1, 0) so Phone 0 starts naturally in front,
+  // while 3D perspective sorting dynamically promotes whichever phone moves forward to z=0!
+  const reversedChapters = [...BERUANG_CHAPTERS].map((chap, idx) => ({ chap, idx })).reverse();
 
   return (
     <section
@@ -288,7 +360,6 @@ const BeruangShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="Beruang AI Financial Platform Showcase"
     >
-      {/* Sticky Viewport */}
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#F5F9FA] flex flex-col justify-between py-6 lg:py-10">
         
         {/* Ambient Glows & Grid */}
@@ -367,72 +438,36 @@ const BeruangShowcaseSection: React.FC = () => {
             ))}
           </div>
 
-          {/* RIGHT COLUMN: Tilted 3D Phones with Sliding Replacement (7 cols) */}
+          {/* RIGHT COLUMN: 3D Tilted Phone Cascade Stage (7 cols) */}
           <div className="lg:col-span-7 flex items-center justify-center relative min-h-[460px] sm:min-h-[520px]">
             
             {/* 3D Perspective Stage */}
             <div
-              className="relative w-full h-full flex items-center justify-center"
-              style={{ perspective: '1400px' }}
+              className="relative w-full h-[460px] sm:h-[520px] flex items-center justify-center"
+              style={{
+                perspective: '1400px',
+                transformStyle: 'preserve-3d',
+              }}
             >
-              
-              {/* ── BACKGROUND LAYER 2 (Far Right / Deepest Phone) ── */}
-              <motion.div
-                style={{ y: bgLayer2Y }}
-                className="absolute right-2 sm:right-10 top-12 sm:top-16 w-[200px] sm:w-[240px] aspect-[9/19.2] rounded-[40px] p-2.5 bg-slate-900/60 border border-white/10 shadow-2xl overflow-hidden pointer-events-none opacity-35 hidden md:block transform-gpu"
-                initial={{ rotateY: -22, rotateX: 12, rotate: -7, x: 80, z: -140 }}
-              >
-                <div className="w-full h-full rounded-[32px] overflow-hidden bg-slate-950 relative">
-                  <img src="/images/beruang/chat-3.png" alt="Background Screen 2" className="w-full h-full object-cover object-top opacity-60" />
-                </div>
-              </motion.div>
-
-              {/* ── BACKGROUND LAYER 1 (Mid Right / Ghost Phone) ── */}
-              <motion.div
-                style={{ y: bgLayer1Y }}
-                className="absolute right-8 sm:right-24 top-6 sm:top-8 w-[230px] sm:w-[270px] aspect-[9/19.2] rounded-[44px] p-3 bg-slate-900/80 border border-white/20 shadow-2xl overflow-hidden pointer-events-none opacity-70 hidden sm:block transform-gpu"
-                initial={{ rotateY: -22, rotateX: 12, rotate: -7, x: 40, z: -70 }}
-              >
-                <div className="w-full h-full rounded-[34px] overflow-hidden bg-slate-950 relative">
-                  <img src="/images/beruang/chat-2.png" alt="Background Screen 1" className="w-full h-full object-cover object-top opacity-80" />
-                </div>
-              </motion.div>
-
-              {/* ── FOREGROUND MAIN TILTED PHONE (Prominent Showcase) ── */}
+              {/* Tilted Container housing the 4 advancing physical phones */}
               <div
-                className="relative z-30 w-[260px] sm:w-[300px] md:w-[320px] aspect-[9/19.2] rounded-[48px] p-3.5 bg-[#0C1A20] shadow-[0_45px_100px_rgba(6,182,212,0.38)] border-4 border-[#0E7490]/50 ring-1 ring-white/30 transform-gpu transition-all"
+                className="relative w-full h-full flex items-center justify-center"
                 style={{
                   transform: 'rotateY(-18deg) rotateX(10deg) rotate(-5deg)',
+                  transformStyle: 'preserve-3d',
                 }}
               >
-                {/* Dynamic Island Speaker Notch */}
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-2.5 border border-white/10 shadow-md">
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
-                    <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[9px] font-bold text-white/80 tracking-tighter">LIVE</span>
-                    <div className="w-2 h-2 rounded-full bg-[#0E7490] animate-pulse" />
-                  </div>
-                </div>
-
-                {/* Phone Screen Container with Sliding UI Replacement */}
-                <div className="relative w-full h-full rounded-[38px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
-                  {BERUANG_CHAPTERS.map((chap, idx) => (
-                    <SlidingScreenItem
-                      key={chap.id}
-                      image={chap.image}
-                      alt={chap.title}
-                      scrollYProgress={scrollYProgress}
-                      index={idx}
-                      total={total}
-                    />
-                  ))}
-                  {/* Bottom Home Indicator Bar */}
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
-                </div>
+                {reversedChapters.map(({ chap, idx }) => (
+                  <CascadePhoneItem
+                    key={chap.id}
+                    image={chap.image}
+                    alt={chap.title}
+                    scrollYProgress={scrollYProgress}
+                    index={idx}
+                    total={total}
+                  />
+                ))}
               </div>
-
             </div>
 
           </div>
@@ -442,7 +477,7 @@ const BeruangShowcaseSection: React.FC = () => {
         {/* Bottom Progress Bar */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 flex items-center justify-between shrink-0 pt-2 border-t border-[#0E7490]/15">
           <div className="flex items-center gap-2 text-xs font-black text-[#0C1A20]/60 uppercase tracking-widest">
-            <span>Beruang Walkthrough</span>
+            <span>Beruang 3D Walkthrough</span>
             <span>•</span>
             <span className="text-[#0E7490] font-extrabold animate-bounce">Scroll Down ↓</span>
           </div>
@@ -470,6 +505,18 @@ const RentVerseShowcaseSection: React.FC = () => {
 
   const total = RENTVERSE_CHAPTERS.length;
   const barWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+
+  // For RentVerse, we choreograph 2 Laptops advancing in 3D perspective
+  const l0X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, -160, -160]);
+  const l0Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 100, 100]);
+  const l0Z = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 50, 50]);
+  const l0Opacity = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [1, 1, 0, 0]);
+
+  const l1X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [80, 80, 0, 0]);
+  const l1Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [-25, -25, 0, 0]);
+  const l1Z = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [-80, -80, 0, 0]);
+  const l1Scale = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0.9, 0.9, 1.02, 1.02]);
+  const l1Opacity = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0.6, 0.6, 1, 1]);
 
   return (
     <section
@@ -527,30 +574,53 @@ const RentVerseShowcaseSection: React.FC = () => {
             ))}
           </div>
 
-          {/* RIGHT COLUMN: Upright Laptop with Sliding UI */}
-          <div className="lg:col-span-7 flex items-center justify-center relative">
-            <div className="relative mx-auto w-full max-w-[580px] lg:max-w-[640px] transform-gpu">
-              {/* Laptop Lid */}
-              <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/40 shadow-[0_35px_80px_rgba(14,116,144,0.3)] relative ring-1 ring-white/15">
-                <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
-                  <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
-                </div>
-                <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
-                  {RENTVERSE_CHAPTERS.map((chap, idx) => (
-                    <SlidingScreenItem
-                      key={chap.id}
-                      image={chap.image}
-                      alt={chap.title}
-                      scrollYProgress={scrollYProgress}
-                      index={idx}
-                      total={total}
-                    />
-                  ))}
-                </div>
-              </div>
-              {/* Laptop Base */}
-              <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
-                <div className="w-20 h-1.5 rounded-b-md bg-[#0C1A20] border-x border-b border-[#0E7490]/30" />
+          {/* RIGHT COLUMN: 3D Laptop Cascade */}
+          <div className="lg:col-span-7 flex items-center justify-center relative min-h-[440px]">
+            <div
+              className="relative w-full h-[400px] sm:h-[440px] flex items-center justify-center"
+              style={{ perspective: '1400px', transformStyle: 'preserve-3d' }}
+            >
+              <div
+                className="relative w-full h-full flex items-center justify-center"
+                style={{ transform: 'rotateY(-15deg) rotateX(8deg)', transformStyle: 'preserve-3d' }}
+              >
+                
+                {/* Laptop 1 (Background -> Spotlight at 0.5) */}
+                <motion.div
+                  style={{ x: l1X, y: l1Y, z: l1Z, scale: l1Scale, opacity: l1Opacity }}
+                  className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
+                >
+                  <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/50 shadow-[0_35px_80px_rgba(14,116,144,0.3)] relative ring-1 ring-white/15">
+                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
+                      <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
+                    </div>
+                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
+                      <img src="/images/rentverse-home.jpg" alt="DevSecOps Pipeline" className="w-full h-full object-cover object-top" />
+                    </div>
+                  </div>
+                  <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
+                    <div className="w-20 h-1.5 rounded-b-md bg-[#0C1A20] border-x border-b border-[#0E7490]/30" />
+                  </div>
+                </motion.div>
+
+                {/* Laptop 0 (Spotlight -> Exits Left at 0.5) */}
+                <motion.div
+                  style={{ x: l0X, y: l0Y, z: l0Z, opacity: l0Opacity }}
+                  className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
+                >
+                  <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/60 shadow-[0_35px_80px_rgba(14,116,144,0.4)] relative ring-1 ring-white/20">
+                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
+                      <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
+                    </div>
+                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
+                      <img src="/images/rentverse-laptop.jpg" alt="Zero Trust Security" className="w-full h-full object-cover object-top" />
+                    </div>
+                  </div>
+                  <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
+                    <div className="w-20 h-1.5 rounded-b-md bg-[#0C1A20] border-x border-b border-[#0E7490]/30" />
+                  </div>
+                </motion.div>
+
               </div>
             </div>
           </div>
@@ -560,7 +630,7 @@ const RentVerseShowcaseSection: React.FC = () => {
         {/* Bottom Progress Bar */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 flex items-center justify-between shrink-0 pt-2 border-t border-[#0E7490]/15">
           <div className="flex items-center gap-2 text-xs font-black text-[#0C1A20]/60 uppercase tracking-widest">
-            <span>RentVerse Walkthrough</span>
+            <span>RentVerse 3D Walkthrough</span>
             <span>•</span>
             <span className="text-[#0E7490]">Scroll Down ↓</span>
           </div>
@@ -590,13 +660,13 @@ const FlagshipScrollytelling: React.FC = () => {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0E7490]/10 border border-[#0E7490]/25 text-[#0E7490] text-[11px] font-black tracking-widest uppercase mb-4 shadow-2xs">
                 <Sparkles size={13} className="text-[#06B6D4]" />
-                <span>Featured Work — Interactive Feature Walkthrough</span>
+                <span>Featured Work — Interactive 3D Walkthrough</span>
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#0C1A20] tracking-tight leading-[1.05]">
                 Selected Flagship Projects
               </h2>
               <p className="text-[#0C1A20]/75 text-sm sm:text-base md:text-lg mt-3 max-w-2xl font-normal leading-relaxed">
-                High-impact software solutions engineered with robust architecture, AI integration, and enterprise DevSecOps standards. Scroll down to experience interactive feature walkthroughs.
+                High-impact software solutions engineered with robust architecture, AI integration, and enterprise DevSecOps standards. Scroll down to experience interactive 3D feature walkthroughs.
               </p>
             </div>
             <Link
@@ -610,7 +680,7 @@ const FlagshipScrollytelling: React.FC = () => {
         </div>
       </div>
 
-      {/* ── Beruang AI Centerpiece (MC+ Style Tilted 3D Phones) ── */}
+      {/* ── Beruang AI Centerpiece (MC+ Style 3D Layered Cascade) ── */}
       <BeruangShowcaseSection />
 
       {/* ── RentVerse Secondary Showcase ── */}
