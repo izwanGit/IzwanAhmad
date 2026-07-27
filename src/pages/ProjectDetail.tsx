@@ -272,7 +272,7 @@ const ProjectDetail = () => {
                       <img 
                         src={item.src} 
                         alt={item.caption}
-                        className="max-h-[550px] max-w-full object-contain rounded-3xl shadow-2xl border-2 border-white/20"
+                        className="max-h-[550px] max-w-full object-contain rounded-2xl shadow-2xl"
                       />
                     </div>
                   </div>
