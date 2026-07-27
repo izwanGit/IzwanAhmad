@@ -662,7 +662,7 @@ const FlagshipScrollytelling: React.FC = () => {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0E7490]/10 border border-[#0E7490]/25 text-[#0E7490] text-[11px] font-black tracking-widest uppercase mb-4 shadow-2xs">
                 <Sparkles size={13} className="text-[#06B6D4]" />
-                <span>Featured Work · Flagship Architecture</span>
+                <span>Featured Work — Interactive Feature Walkthrough</span>
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#0C1A20] tracking-tight leading-[1.05]">
                 Selected Flagship Projects
