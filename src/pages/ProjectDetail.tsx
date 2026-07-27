@@ -268,19 +268,15 @@ const ProjectDetail = () => {
                     style={{ backgroundColor: project.mobileBgColor || '#5C4634' }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
-                    <div className="w-full h-full flex items-center justify-center p-2 relative z-10">
-                      <div className="h-full max-h-[550px] rounded-[36px] bg-slate-950 p-2.5 border-4 border-white/20 shadow-2xl relative flex flex-col items-center justify-center">
-                        {/* Speaker Notch */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-3.5 bg-slate-900 rounded-b-xl z-20 flex items-center justify-center">
-                          <div className="w-8 h-1 bg-slate-700 rounded-full" />
-                        </div>
-                        <div className="h-full rounded-[28px] overflow-hidden bg-black flex items-center justify-center">
-                          <img 
-                            src={item.src} 
-                            alt={item.caption}
-                            className="h-full w-auto max-h-[530px] object-contain"
-                          />
-                        </div>
+                    <div className="w-[240px] sm:w-[270px] aspect-[9/19.5] rounded-[32px] bg-[#0C1A20] p-1.5 border border-white/30 shadow-2xl relative z-10">
+                      {/* Sleek Dynamic Pill Notch */}
+                      <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-2.5 bg-[#0C1A20] rounded-full z-20" />
+                      <div className="rounded-[26px] overflow-hidden w-full h-full bg-slate-950">
+                        <img 
+                          src={item.src} 
+                          alt={item.caption}
+                          className="w-full h-full object-cover object-top"
+                        />
                       </div>
                     </div>
                   </div>
