@@ -372,36 +372,46 @@ const BeruangShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Brand Header with Real Official Tech Icons */}
+        {/* Top Brand Header: Multi-Repo Ecosystem Architecture */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#0E7490]/15">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#0E7490]/15">
+            
+            {/* Left: Brand Identity & Multi-Repo Scope */}
+            <div className="flex items-center gap-3.5">
               <img
                 src="/images/beruang/logo.png"
                 alt="Beruang Logo"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover shadow-xs border border-[#0E7490]/20 shrink-0"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl object-cover shadow-sm border border-[#0E7490]/25 shrink-0"
               />
               <div>
-                <span className="text-sm sm:text-base font-black text-[#0C1A20] tracking-tight block leading-none">Beruang AI Platform</span>
-                <span className="text-[11px] font-bold text-[#0E7490] mt-1 block">Best Architecture Award · 99.61% AI Accuracy</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-base sm:text-lg font-black text-[#0C1A20] tracking-tight">Beruang AI Platform</span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#0E7490]/10 text-[#0E7490] text-[10px] font-black uppercase tracking-wider border border-[#0E7490]/20">
+                    5 GitHub Repos
+                  </span>
+                </div>
+                <p className="text-xs font-bold text-[#0E7490] mt-0.5">
+                  Mobile App · AI Microservices · Express Server · RAG Engine · 99.61% Accuracy
+                </p>
               </div>
             </div>
 
-            {/* Recruiter Tech Stack Badges with Official Logos */}
+            {/* Right: Official Tech Logos Grid */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
                 <ReactIcon />
                 <span>React Native</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
                 <PyTorchIcon />
                 <span>PyTorch</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
                 <FirebaseIcon />
                 <span>Firebase RAG</span>
               </span>
             </div>
+
           </div>
         </div>
 
