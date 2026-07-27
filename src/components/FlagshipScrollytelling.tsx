@@ -335,7 +335,7 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
         <img
           src={image}
           alt={alt}
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-contain object-top bg-slate-950"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/20 via-transparent to-transparent pointer-events-none" />
@@ -451,8 +451,8 @@ const CascadeLaptopItem: React.FC<CascadeLaptopProps> = ({
         <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
           <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
         </div>
-        <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
-          <img src={image} alt={alt} className="w-full h-full object-cover object-top" loading="lazy" />
+        <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#F5F9FA] border border-white/10 shadow-inner">
+          <img src={image} alt={alt} className="w-full h-full object-contain object-top bg-[#F5F9FA]" loading="lazy" />
         </div>
       </div>
       <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">
