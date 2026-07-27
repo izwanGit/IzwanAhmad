@@ -4,11 +4,10 @@
  * RECRUITER-OPTIMIZED FLAGSHIP SCROLLYTELLING
  *
  * Architectural & Design Highlights:
- *   1. RECRUITER TECH BADGES: Prominently showcases core stack (React Native, PyTorch,
- *      Bi-LSTM Engine, Firebase RAG, Next.js 14, PostgreSQL, DevSecOps, Docker).
- *   2. FLAGSHIP SIMPLICITY: Clean, balanced layout with zero clutter.
+ *   1. ORIGINAL CLEAN FEATURE PILLS RESTORED (Biometric Auth, Real-Time Tracker, 50/30/20, etc.)
+ *   2. REAL OFFICIAL TECH LOGO BADGES in Top Brand Header (React Native, PyTorch, Firebase, Next.js, Docker).
  *   3. BERUANG IOS LOGO (/images/beruang/logo.png) in high-impact header.
- *   4. UPRIGHT NATURAL DEVICE PRESENTATION (Not Slenty): Clean, unwarped UI readability.
+ *   4. UPRIGHT NATURAL DEVICE PRESENTATION (Not Slenty).
  *   5. ZERO TEXT CLASHING: AnimatePresence mode="wait" single active text block.
  *
  * Theme: #F5F9FA (bg) · #0E7490 (primary) · #06B6D4 (accent) · #0C1A20 (text)
@@ -16,8 +15,54 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence, MotionValue } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Trophy, Cpu, Search, Brain, Lock, Server, CheckCircle2, Star, UserCheck, LayoutDashboard, Wallet, MessageSquareCode, Globe, ShieldCheck, Layers, Code2 } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Trophy, Brain, Lock, Server, CheckCircle2, UserCheck, LayoutDashboard, Wallet, Globe, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+// ─── Real Official Tech SVG Icons ─────────────────────────────
+
+const ReactIcon = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="-11.5 -10.23174 23 20.46348" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
+    <g stroke="#61DAFB" strokeWidth="1" fill="none">
+      <ellipse rx="11" ry="4.2" />
+      <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+      <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+    </g>
+  </svg>
+);
+
+const FirebaseIcon = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.89 15.672L6.16 3.424c.068-.363.547-.456.748-.154l2.585 3.916 4.394-8.324a.428.428 0 01.768.012l5.632 16.8-20.287-15.672z" fill="#FFCA28" />
+    <path d="M13.887 7.162l-4.394 8.324-2.585-3.916L3.89 15.672 12 21.9l8.287-6.228-6.4-8.51z" fill="#FFA000" />
+    <path d="M12 21.9L3.89 15.672l2.27-12.248c.068-.363.547-.456.748-.154l2.585 3.916L12 21.9z" fill="#F57C00" />
+  </svg>
+);
+
+const PyTorchIcon = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="#EE4C2C" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0L9.5 2.5l3.5 3.5H7.5C3.36 6 0 9.36 0 13.5S3.36 21 7.5 21H18v-3H7.5C5.01 18 3 15.99 3 13.5S5.01 9 7.5 9H13l-3.5 3.5L12 15l7.5-7.5L12 0z" />
+  </svg>
+);
+
+const NextjsIcon = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <mask id="nextjs-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180">
+      <circle cx="90" cy="90" r="90" fill="black" />
+    </mask>
+    <g mask="url(#nextjs-mask)">
+      <circle cx="90" cy="90" r="90" fill="#0C1A20" />
+      <path d="M149.508 157.52L69.142 54H54V126H67.08V69.756L136.908 160.056C141.48 159.48 145.644 158.616 149.508 157.52Z" fill="white" />
+      <path d="M115.2 54H128.28V126H115.2V54Z" fill="white" />
+    </g>
+  </svg>
+);
+
+const DockerIcon = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="#06B6D4" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm-2.954-5.43h2.118a.185.185 0 00.186-.186V3.575a.185.185 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .103.083.186.185.186zm0 5.43h2.118a.185.185 0 00.186-.185V9.006a.185.185 0 00-.186-.186h-2.118a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm-2.955 0h2.119a.186.186 0 00.185-.185V9.006a.185.185 0 00-.185-.186H8.074a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm0-2.715h2.119a.186.186 0 00.185-.186V6.291a.186.186 0 00-.185-.186H8.074a.185.185 0 00-.185.186v1.887c0 .102.083.186.185.186zm-2.955 2.715h2.119a.186.186 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.119a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm0-2.715h2.119a.186.186 0 00.185-.186V6.291a.186.186 0 00-.185-.186H5.119a.185.185 0 00-.185.186v1.887c0 .102.083.186.185.186zm-2.955 2.715h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H2.164a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm-2.955 0h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186H-.791a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185z" />
+  </svg>
+);
 
 // ─── Data Structures ──────────────────────────────────────────
 
@@ -40,7 +85,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Secure Identity Gateway',
     paragraph:
       'Biometric authentication gateway with encrypted JWT session rotation and multi-factor protection.',
-    pill: 'React Native · Biometric Auth · JWT Session Gateway',
+    pill: 'Biometric Auth · Encrypted Session Gateway',
     icon: Lock,
     image: '/images/beruang/login.png',
   },
@@ -51,7 +96,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Real-Time Dashboard',
     paragraph:
       'Consolidated balance tracking, monthly income vs expense analytics, and instant financial health metrics.',
-    pill: 'Firebase Firestore · Real-Time Balance Analytics',
+    pill: 'Real-Time Financial Health Tracker',
     icon: LayoutDashboard,
     image: '/images/beruang/home.png',
   },
@@ -62,7 +107,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Automated Categorization',
     paragraph:
       'Real-time transaction logging with custom 50/30/20 category breakdowns and historical trend analysis.',
-    pill: '50/30/20 Rule Engine · Automated Expense Analytics',
+    pill: '50/30/20 Budget Breakdown Engine',
     icon: Wallet,
     image: '/images/beruang/expenses.png',
   },
@@ -73,7 +118,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Instant Natural Language UI',
     paragraph:
       'Converts natural language queries directly into interactive budget donut charts in milliseconds.',
-    pill: 'MiniLM Transformer · Natural Language Widget RAG',
+    pill: 'Natural Language UI Generation',
     icon: Zap,
     image: '/images/beruang/chat-1.png',
   },
@@ -84,7 +129,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Hyper-Localized Advisory',
     paragraph:
       'Routes local food queries to cloud LLMs with smart budget reminders to stop impulse spending.',
-    pill: 'Intent Router · Hyper-Localized Advisory Engine',
+    pill: 'Hyper-Localized Advisory Engine',
     icon: Brain,
     image: '/images/beruang/chat-2.png',
   },
@@ -95,7 +140,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Real-Time Web Retrieval',
     paragraph:
       'Performs live internet retrieval for unindexed locations while calculating travel friction against budget.',
-    pill: 'xAI Grok · Opportunity Cost Live Web Retrieval',
+    pill: 'Live Web Retrieval · Spatial & Financial Guardian',
     icon: Globe,
     image: '/images/beruang/chat-3.png',
   },
@@ -106,7 +151,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Profile & Preferences',
     paragraph:
       'Customizable security preferences, financial goal configurations, and personal account management.',
-    pill: 'NoSQL Encryption · Custom Financial Goal Engine',
+    pill: 'Encrypted User Profile & Goal System',
     icon: UserCheck,
     image: '/images/beruang/profile.png',
   },
@@ -120,7 +165,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     title: 'Enterprise Rental Ecosystem',
     paragraph:
       'Zero Trust security platform with AI-driven tenant fraud detection and real-time behavioral monitoring.',
-    pill: 'Next.js 14 · Zero Trust Auth · AI Fraud Prevention',
+    pill: 'Zero Trust Security · Fraud Detection',
     icon: ShieldCheck,
     image: '/images/rentverse-laptop.jpg',
   },
@@ -131,7 +176,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     title: 'Automated Security Pipeline',
     paragraph:
       'Automated 14-stage DevSecOps CI/CD security pipeline with SonarQube static code analysis and Docker.',
-    pill: 'DevSecOps CI/CD · SonarQube · Docker Containerization',
+    pill: 'DevSecOps Pipeline · Docker Containerization',
     icon: Server,
     image: '/images/rentverse-home.jpg',
   },
@@ -327,7 +372,7 @@ const BeruangShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Brand Header with Recruiter Tech Badges */}
+        {/* Top Brand Header with Real Official Tech Icons */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#0E7490]/15">
             <div className="flex items-center gap-3">
@@ -342,19 +387,19 @@ const BeruangShowcaseSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Recruiter Tech Stack Badges */}
+            {/* Recruiter Tech Stack Badges with Official Logos */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
-                React Native
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+                <ReactIcon />
+                <span>React Native</span>
               </span>
-              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
-                PyTorch
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+                <PyTorchIcon />
+                <span>PyTorch</span>
               </span>
-              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
-                Bi-LSTM Engine
-              </span>
-              <span className="px-2.5 py-1 rounded-lg bg-[#0E7490]/10 border border-[#0E7490]/30 text-[#06B6D4] text-[11px] font-black shadow-2xs">
-                Firebase RAG
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+                <FirebaseIcon />
+                <span>Firebase RAG</span>
               </span>
             </div>
           </div>
@@ -386,12 +431,10 @@ const BeruangShowcaseSection: React.FC = () => {
                   {currentChapter.paragraph}
                 </p>
 
-                {/* Feature Tech Pill */}
+                {/* Original Feature Pill Restored */}
                 <div className="pt-2">
-                  <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border-2 border-[#0E7490]/25 shadow-xs text-xs sm:text-sm font-extrabold text-[#0C1A20]">
-                    <div className="p-1 rounded-lg bg-[#0E7490]/10 text-[#06B6D4]">
-                      <CheckCircle2 size={14} className="shrink-0 text-[#06B6D4]" />
-                    </div>
+                  <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#0E7490] border border-[#06B6D4]/30 shadow-md text-xs sm:text-sm font-black text-white">
+                    <CheckCircle2 size={16} className="text-white shrink-0" />
                     <span>{currentChapter.pill}</span>
                   </div>
                 </div>
@@ -501,19 +544,15 @@ const RentVerseShowcaseSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Recruiter Tech Stack Badges */}
+            {/* Recruiter Tech Stack Badges with Official Logos */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
-                Next.js 14
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+                <NextjsIcon />
+                <span>Next.js 14</span>
               </span>
-              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
-                PostgreSQL
-              </span>
-              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
-                DevSecOps CI/CD
-              </span>
-              <span className="px-2.5 py-1 rounded-lg bg-[#0E7490]/10 border border-[#0E7490]/30 text-[#06B6D4] text-[11px] font-black shadow-2xs">
-                Docker
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0C1A20] text-[11px] font-extrabold shadow-2xs">
+                <DockerIcon />
+                <span>Docker CI/CD</span>
               </span>
             </div>
           </div>
@@ -542,10 +581,8 @@ const RentVerseShowcaseSection: React.FC = () => {
                 </p>
 
                 <div className="pt-2">
-                  <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border-2 border-[#0E7490]/25 shadow-xs text-xs sm:text-sm font-extrabold text-[#0C1A20]">
-                    <div className="p-1 rounded-lg bg-[#0E7490]/10 text-[#06B6D4]">
-                      <CheckCircle2 size={14} className="shrink-0 text-[#06B6D4]" />
-                    </div>
+                  <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#0E7490] border border-[#06B6D4]/30 shadow-md text-xs sm:text-sm font-black text-white">
+                    <CheckCircle2 size={16} className="text-white shrink-0" />
                     <span>{currentChapter.pill}</span>
                   </div>
                 </div>
