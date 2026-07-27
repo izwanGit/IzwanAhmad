@@ -45,7 +45,8 @@ const projects: Project[] = [
       '/images/beruang-expenses.jpeg',
     ],
     awards: ["Best System Architecture Award", "86.77 SUS Score"],
-    github: "https://github.com/izwanGit/Beruang"
+    github: "https://github.com/izwanGit/Beruang",
+    demo: "https://beruang-landing.vercel.app/"
   },
   {
     id: "rentverse",

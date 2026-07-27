@@ -15,7 +15,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence, MotionValue } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Trophy, Brain, Lock, Server, CheckCircle2, UserCheck, LayoutDashboard, Wallet, Globe, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Trophy, Brain, Lock, Server, CheckCircle2, UserCheck, LayoutDashboard, Wallet, Globe, ShieldCheck, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ─── Real Official Tech SVG Icons ─────────────────────────────
@@ -396,7 +396,7 @@ const BeruangShowcaseSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right: Official Tech Logos Grid */}
+            {/* Right: Official Tech Logos Grid & Live App Button */}
             <div className="flex items-center gap-2 flex-wrap">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
                 <ReactIcon />
@@ -410,6 +410,15 @@ const BeruangShowcaseSection: React.FC = () => {
                 <FirebaseIcon />
                 <span>Firebase RAG</span>
               </span>
+              <a
+                href="https://beruang-landing.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0E7490] hover:bg-[#06B6D4] text-white text-xs font-black shadow-2xs transition-all hover:scale-105 group shrink-0"
+              >
+                <span>Live Demo</span>
+                <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
             </div>
 
           </div>
