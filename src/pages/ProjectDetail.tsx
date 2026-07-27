@@ -268,20 +268,12 @@ const ProjectDetail = () => {
                     style={{ backgroundColor: project.mobileBgColor || '#5C4634' }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
-                    <div className="w-[260px] sm:w-[300px] rounded-[40px] bg-slate-950 p-3 border-4 border-white/20 shadow-2xl relative z-10">
-                      {/* Phone Notch */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-4 bg-slate-900 rounded-b-xl z-20 flex items-center justify-center">
-                        <div className="w-2.5 h-2.5 rounded-full bg-black/60 mr-2" />
-                        <div className="w-8 h-1 bg-black/40 rounded-full" />
-                      </div>
-                      
-                      <div className="rounded-[32px] overflow-hidden aspect-[9/19.5] bg-black">
-                        <img 
-                          src={item.src} 
-                          alt={item.caption}
-                          className="w-full h-full object-cover object-top"
-                        />
-                      </div>
+                    <div className="w-full h-full flex items-center justify-center p-2 relative z-10">
+                      <img 
+                        src={item.src} 
+                        alt={item.caption}
+                        className="max-h-[550px] max-w-full object-contain rounded-3xl shadow-2xl border-4 border-white/20"
+                      />
                     </div>
                   </div>
                 ) : (
