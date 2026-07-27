@@ -386,21 +386,10 @@ const BeruangShowcaseSection: React.FC = () => {
                 transition={{ duration: 0.2, ease: 'easeOut' }}
                 className="flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl w-full"
               >
-                {/* Icon Badge */}
-                <div className="flex items-center gap-3 flex-wrap">
-                  <span
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-xs sm:text-sm font-black tracking-widest uppercase border shadow-sm backdrop-blur-md"
-                    style={{
-                      background: '#06B6D420',
-                      borderColor: '#06B6D460',
-                      color: '#0E7490',
-                    }}
-                  >
-                    <div className="p-1.5 rounded-xl bg-white shadow-2xs">
-                      <IconComponent size={15} className="text-[#06B6D4]" />
-                    </div>
-                    <span>{currentChapter.number} — {currentChapter.badge}</span>
-                  </span>
+                {/* Category Text Line (Un-encapsulated) */}
+                <div className="text-[13px] font-extrabold uppercase tracking-widest text-[#06B6D4] flex items-center gap-2">
+                  <IconComponent size={14} />
+                  <span>{currentChapter.number} — {currentChapter.badge}</span>
                 </div>
 
                 {/* Heading */}
@@ -552,20 +541,9 @@ const RentVerseShowcaseSection: React.FC = () => {
                 transition={{ duration: 0.2, ease: 'easeOut' }}
                 className="flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl w-full"
               >
-                <div className="flex items-center gap-3 flex-wrap">
-                  <span
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-xs sm:text-sm font-black tracking-widest uppercase border shadow-sm backdrop-blur-md"
-                    style={{
-                      background: '#0E749020',
-                      borderColor: '#0E749060',
-                      color: '#0E7490',
-                    }}
-                  >
-                    <div className="p-1.5 rounded-xl bg-white shadow-2xs">
-                      <IconComponent size={15} className="text-[#0E7490]" />
-                    </div>
-                    <span>{currentChapter.number} — {currentChapter.badge}</span>
-                  </span>
+                <div className="text-[13px] font-extrabold uppercase tracking-widest text-[#0E7490] flex items-center gap-2">
+                  <IconComponent size={14} />
+                  <span>{currentChapter.number} — {currentChapter.badge}</span>
                 </div>
 
                 <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0C1A20] tracking-tight leading-[1.05]">
