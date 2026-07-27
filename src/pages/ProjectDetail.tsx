@@ -262,11 +262,15 @@ const ProjectDetail = () => {
                 className="space-y-3"
               >
                 {project.imageType === 'phone' ? (
-                  /* Light Upright Phone Mockup Frame */
-                  <div className="bg-gradient-to-br from-[#E0F2FE]/60 via-[#F0FDFF] to-[#E0F2FE]/40 p-8 sm:p-12 rounded-3xl border border-border shadow-md flex justify-center items-center">
-                    <div className="w-[260px] sm:w-[300px] rounded-[40px] bg-slate-900 p-3 border-4 border-slate-800 shadow-2xl relative">
+                  /* Mobile App UI Brand Color Background & Phone Frame */
+                  <div 
+                    className="p-8 sm:p-12 rounded-3xl border border-border shadow-md flex justify-center items-center relative overflow-hidden"
+                    style={{ backgroundColor: project.mobileBgColor || '#5C4634' }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                    <div className="w-[260px] sm:w-[300px] rounded-[40px] bg-slate-950 p-3 border-4 border-white/20 shadow-2xl relative z-10">
                       {/* Phone Notch */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-4 bg-slate-800 rounded-b-xl z-20 flex items-center justify-center">
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-4 bg-slate-900 rounded-b-xl z-20 flex items-center justify-center">
                         <div className="w-2.5 h-2.5 rounded-full bg-black/60 mr-2" />
                         <div className="w-8 h-1 bg-black/40 rounded-full" />
                       </div>
@@ -281,24 +285,32 @@ const ProjectDetail = () => {
                     </div>
                   </div>
                 ) : (
-                  /* Light macOS Style Browser Window Frame */
-                  <div className="bg-white rounded-2xl border border-slate-300 shadow-lg overflow-hidden">
-                    {/* Window Controls Header */}
-                    <div className="bg-slate-100 px-4 py-3 flex items-center gap-2 border-b border-slate-200">
-                      <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
-                      <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
-                      <div className="w-3 h-3 rounded-full bg-[#10B981]" />
-                      <div className="ml-4 flex-grow bg-white rounded-md px-3 py-1 text-[11px] font-mono text-slate-500 truncate border border-slate-200">
-                        https://izwan.dev/projects/{project.id}
-                      </div>
-                    </div>
-                    {/* Window Body Image */}
-                    <div className="bg-slate-50 overflow-hidden">
+                  /* Super Duper Blurred Image Backdrop for Web/Laptop */
+                  <div className="p-6 sm:p-8 rounded-3xl border border-border shadow-md relative overflow-hidden bg-slate-900/10">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
                       <img 
                         src={item.src} 
-                        alt={item.caption}
-                        className="w-full h-auto object-top max-h-[500px] object-cover"
+                        alt="" 
+                        aria-hidden="true" 
+                        className="w-full h-full object-cover scale-150 blur-3xl opacity-[0.55]"
                       />
+                    </div>
+                    <div className="bg-white rounded-2xl border border-slate-300 shadow-lg overflow-hidden relative z-10">
+                      <div className="bg-slate-100 px-4 py-3 flex items-center gap-2 border-b border-slate-200">
+                        <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
+                        <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
+                        <div className="w-3 h-3 rounded-full bg-[#10B981]" />
+                        <div className="ml-4 flex-grow bg-white rounded-md px-3 py-1 text-[11px] font-mono text-slate-500 truncate border border-slate-200">
+                          https://izwan.dev/projects/{project.id}
+                        </div>
+                      </div>
+                      <div className="bg-slate-50 overflow-hidden">
+                        <img 
+                          src={item.src} 
+                          alt={item.caption}
+                          className="w-full h-auto object-top max-h-[500px] object-cover"
+                        />
+                      </div>
                     </div>
                   </div>
                 )}

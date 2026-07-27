@@ -121,50 +121,56 @@ const Projects = () => {
                   to={`/projects/${project.id}`}
                   className="block h-full group bg-white border border-border hover:border-[#06B6D4] rounded-3xl overflow-hidden shadow-xs hover:shadow-card transition-all duration-300 flex flex-col hover:-translate-y-0.5"
                 >
-                  {/* Device-Aware Mockup Header with Super Blurred Screenshot Background */}
-                  <div className="bg-slate-900/10 p-6 sm:p-8 flex justify-center items-center min-h-[250px] relative overflow-hidden border-b border-border/80">
-                    {/* Super Blurred Project Screenshot Background */}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                      <img 
-                        src={project.image} 
-                        alt="" 
-                        aria-hidden="true" 
-                        className="w-full h-full object-cover scale-150 blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"
-                      />
-                      <div className="absolute inset-0 bg-[#0C1A20]/5 mix-blend-multiply" />
-                    </div>
-
+                  {/* Device-Aware Mockup Header */}
+                  <div 
+                    className="p-6 sm:p-8 flex justify-center items-center min-h-[250px] relative overflow-hidden border-b border-border/80"
+                    style={{ backgroundColor: project.imageType === 'phone' ? (project.mobileBgColor || '#5C4634') : undefined }}
+                  >
                     {project.imageType === 'phone' ? (
-                      /* Light Phone Frame Mockup */
-                      <div className="w-[170px] sm:w-[190px] rounded-[28px] bg-slate-900 p-2 border-2 border-slate-700 shadow-xl relative z-10 group-hover:scale-103 transition-transform duration-300">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-3 bg-slate-800 rounded-b-md z-10" />
-                        <div className="rounded-[22px] overflow-hidden aspect-[9/19.5] bg-black">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
-                    ) : (
-                      /* Light macOS Window Mockup */
-                      <div className="w-full max-w-md rounded-xl bg-white border border-slate-300/80 shadow-xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
-                        <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
-                          <div className="ml-2 flex-grow bg-white rounded px-2 py-0.5 text-[10px] font-mono text-slate-500 truncate border border-slate-200">
-                            https://izwan.dev/{project.id}
+                      /* Mobile App UI Brand Background & Phone Mockup */
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                        <div className="w-[170px] sm:w-[190px] rounded-[28px] bg-slate-950 p-2 border-2 border-white/20 shadow-2xl relative z-10 group-hover:scale-103 transition-transform duration-300">
+                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-3 bg-slate-900 rounded-b-md z-10" />
+                          <div className="rounded-[22px] overflow-hidden aspect-[9/19.5] bg-black">
+                            <img 
+                              src={project.image} 
+                              alt={project.title}
+                              className="w-full h-full object-cover"
+                            />
                           </div>
                         </div>
-                        <div className="aspect-[16/10] overflow-hidden bg-slate-50">
+                      </>
+                    ) : (
+                      /* Super Duper Blurred Image Backdrop for Web/Laptop */
+                      <>
+                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
                           <img 
                             src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-cover object-top"
+                            alt="" 
+                            aria-hidden="true" 
+                            className="w-full h-full object-cover scale-150 blur-3xl opacity-[0.55] group-hover:opacity-75 transition-opacity duration-500"
                           />
+                          <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply" />
                         </div>
-                      </div>
+                        <div className="w-full max-w-md rounded-xl bg-white border border-slate-300/80 shadow-2xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
+                          <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
+                            <div className="ml-2 flex-grow bg-white rounded px-2 py-0.5 text-[10px] font-mono text-slate-500 truncate border border-slate-200">
+                              https://izwan.dev/{project.id}
+                            </div>
+                          </div>
+                          <div className="aspect-[16/10] overflow-hidden bg-slate-50">
+                            <img 
+                              src={project.image} 
+                              alt={project.title}
+                              className="w-full h-full object-cover object-top"
+                            />
+                          </div>
+                        </div>
+                      </>
                     )}
                   </div>
 
@@ -342,49 +348,56 @@ const Projects = () => {
                   to={`/projects/${project.id}`}
                   className="bg-white border border-border rounded-2xl p-5 shadow-2xs hover:shadow-card hover:border-[#06B6D4] transition-all duration-300 flex flex-col h-full group hover:-translate-y-0.5"
                 >
-                  {/* Device Mockup Thumbnail with Subtle Blurred Screenshot Background */}
-                  <div className="bg-[#0C1A20]/5 p-5 sm:p-6 flex justify-center items-center h-[240px] sm:h-[260px] relative overflow-hidden rounded-2xl border border-border mb-5">
-                    {/* Soft Blurred Ambient Background */}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                      <img 
-                        src={project.image} 
-                        alt="" 
-                        aria-hidden="true" 
-                        className="w-full h-full object-cover scale-125 blur-3xl opacity-25 group-hover:opacity-40 transition-opacity duration-500"
-                      />
-                    </div>
-
+                  {/* Device Mockup Thumbnail */}
+                  <div 
+                    className="p-5 sm:p-6 flex justify-center items-center h-[240px] sm:h-[260px] relative overflow-hidden rounded-2xl border border-border mb-5"
+                    style={{ backgroundColor: project.imageType === 'phone' ? (project.mobileBgColor || '#5C4634') : undefined }}
+                  >
                     {project.imageType === 'phone' ? (
-                      /* Phone Frame Mockup - Scaled for clarity */
-                      <div className="w-[145px] sm:w-[160px] rounded-[26px] bg-slate-900 p-2 border-2 border-slate-800 shadow-xl relative z-10 group-hover:scale-103 transition-transform duration-300">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-800 rounded-b-md z-10" />
-                        <div className="rounded-[20px] overflow-hidden aspect-[9/19.5] bg-black">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
-                    ) : (
-                      /* macOS Window Mockup - Scaled for clarity */
-                      <div className="w-full rounded-xl bg-white border border-slate-300 shadow-xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
-                        <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
-                          <div className="ml-2 flex-grow bg-white rounded px-2 py-0.5 text-[10px] font-mono text-slate-500 truncate border border-slate-200">
-                            https://izwan.dev/{project.id}
+                      /* Mobile App UI Brand Color Background & Phone Frame */
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                        <div className="w-[145px] sm:w-[160px] rounded-[26px] bg-slate-950 p-2 border-2 border-white/20 shadow-xl relative z-10 group-hover:scale-103 transition-transform duration-300">
+                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-3 bg-slate-900 rounded-b-md z-10" />
+                          <div className="rounded-[20px] overflow-hidden aspect-[9/19.5] bg-black">
+                            <img 
+                              src={project.image} 
+                              alt={project.title}
+                              className="w-full h-full object-cover"
+                            />
                           </div>
                         </div>
-                        <div className="aspect-[16/10] overflow-hidden bg-slate-50">
+                      </>
+                    ) : (
+                      /* Super Duper Blurred Image Backdrop for Web/Laptop */
+                      <>
+                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
                           <img 
                             src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-cover object-top"
+                            alt="" 
+                            aria-hidden="true" 
+                            className="w-full h-full object-cover scale-150 blur-3xl opacity-[0.55] group-hover:opacity-75 transition-opacity duration-500"
                           />
+                          <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply" />
                         </div>
-                      </div>
+                        <div className="w-full rounded-xl bg-white border border-slate-300 shadow-xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
+                          <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
+                            <div className="ml-2 flex-grow bg-white rounded px-2 py-0.5 text-[10px] font-mono text-slate-500 truncate border border-slate-200">
+                              https://izwan.dev/{project.id}
+                            </div>
+                          </div>
+                          <div className="aspect-[16/10] overflow-hidden bg-slate-50">
+                            <img 
+                              src={project.image} 
+                              alt={project.title}
+                              className="w-full h-full object-cover object-top"
+                            />
+                          </div>
+                        </div>
+                      </>
                     )}
                   </div>
 

@@ -81,6 +81,7 @@ export interface Project {
   tags: string[];
   image: string;
   imageType: 'phone' | 'laptop';
+  mobileBgColor?: string;
   year: string;
   awards?: string[];
   impact?: string[];
@@ -113,6 +114,7 @@ export const projects: Project[] = [
     tags: ["React Native", "Node.js", "TensorFlow.js", "Firebase", "xAI Grok 4.1", "RAG"],
     image: '/images/beruang-mobile.jpg',
     imageType: 'phone',
+    mobileBgColor: '#5C4634',
     year: "2026",
     awards: ["Best System Architecture Award", "86.77 SUS Score"],
     impact: ["99.61% accuracy", "55 testers", "86.77 SUS"],
@@ -188,6 +190,7 @@ export const projects: Project[] = [
     tags: ["Java", "Android Studio", "Firebase Auth", "Firestore NoSQL"],
     image: '/images/play2grow-mobile.jpg',
     imageType: 'phone',
+    mobileBgColor: '#0D9488',
     year: "2024",
     github: "https://github.com/izwanGit/Play2GrowGames",
   },
