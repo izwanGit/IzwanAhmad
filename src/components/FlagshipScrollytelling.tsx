@@ -331,44 +331,15 @@ const BeruangShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Header Bar */}
+        {/* Top Simple Brand Header */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#0E7490]/15">
-            <div className="flex items-center gap-3.5">
-              <img
-                src="/images/beruang/logo.png"
-                alt="Beruang iOS Logo"
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl object-cover shadow-md border border-[#0E7490]/30 shrink-0"
-              />
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm sm:text-base font-black text-[#0C1A20]">Beruang AI App</span>
-                  <span className="px-2 py-0.5 rounded-md bg-[#0E7490]/10 text-[#0E7490] text-[10px] font-extrabold uppercase tracking-wider">
-                    iOS & Android
-                  </span>
-                </div>
-                <p className="text-xs font-bold text-[#0E7490]">Best Architecture Award · 86.77 SUS Score</p>
-              </div>
-            </div>
-
-            {/* Rating Stars Bar */}
-            <div className="flex items-center gap-3 sm:gap-6 flex-wrap">
-              <div className="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-xl border border-[#0E7490]/20 shadow-2xs">
-                <span className="text-sm font-black text-[#0C1A20]">99.61%</span>
-                <div className="flex text-amber-400 text-xs">
-                  <Star size={12} fill="currentColor" />
-                  <Star size={12} fill="currentColor" />
-                  <Star size={12} fill="currentColor" />
-                  <Star size={12} fill="currentColor" />
-                  <Star size={12} fill="currentColor" />
-                </div>
-                <span className="text-[11px] font-bold text-[#0E7490]">AI Accuracy</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-xl border border-[#0E7490]/20 shadow-2xs">
-                <span className="text-sm font-black text-[#0C1A20]">220k+</span>
-                <span className="text-[11px] font-bold text-[#0E7490]">Transactions Dataset</span>
-              </div>
-            </div>
+          <div className="flex items-center gap-3 pb-4 border-b border-[#0E7490]/15">
+            <img
+              src="/images/beruang/logo.png"
+              alt="Beruang Logo"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover shadow-xs border border-[#0E7490]/20 shrink-0"
+            />
+            <span className="text-sm sm:text-base font-black text-[#0C1A20] tracking-tight">Beruang AI Financial Platform</span>
           </div>
         </div>
 
