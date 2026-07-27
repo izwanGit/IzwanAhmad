@@ -19,17 +19,29 @@ const Footer = () => {
   return (
     <div className="relative z-10 w-full">
       {/* ============================================================
-          CONTACT SECTION
+          CONTACT & RECRUITER ENGAGEMENT SECTION
       ============================================================ */}
-      <section className="py-24 bg-primary text-white text-center" id="contact">
-        <div className="container mx-auto px-6 max-w-4xl">
+      <section className="py-24 bg-[#0E7490] text-white text-center relative overflow-hidden" id="contact">
+        {/* Ambient Glow */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-black uppercase tracking-wider mb-6 border border-white/20"
+          >
+            <span>Open for Opportunities</span>
+          </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-5"
           >
-            Ready to build something?
+            Let's Build Something Exceptional
           </motion.h2>
           
           <motion.p
@@ -37,9 +49,9 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-white/85 max-w-md mx-auto mb-10"
+            className="text-base md:text-xl text-white/90 max-w-2xl mx-auto mb-10 font-medium leading-relaxed"
           >
-            Tell me about your project. I reply within 24 hours.
+            Available for full-time Software Engineering roles, AI / Full-Stack System Architecture, and high-impact technical collaborations.
           </motion.p>
 
           <motion.div
@@ -47,45 +59,45 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-5 mb-12"
+            className="flex flex-wrap justify-center items-center gap-4 mb-12"
           >
+            <a
+              href="mailto:works.izwan@gmail.com"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-white text-[#0E7490] rounded-xl font-extrabold hover:bg-slate-50 transition-all hover:shadow-lg hover:scale-105 shadow-md"
+            >
+              <Mail size={20} className="text-[#0E7490]" />
+              <span>Send an Email</span>
+            </a>
+
             <a
               href="https://wa.me/60100000000"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-white text-primary rounded-md font-bold hover:bg-slate-50 transition-all hover:shadow-lg hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#0C1A20] text-white rounded-xl font-extrabold hover:bg-black transition-all hover:shadow-lg hover:scale-105 border border-white/10"
             >
               <MessageCircle size={20} className="text-[#25D366]" />
-              WhatsApp me
-            </a>
-
-            <a
-              href="mailto:works.izwan@gmail.com"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-transparent border-2 border-white/40 text-white rounded-md font-bold hover:border-white hover:bg-white/10 transition-all hover:-translate-y-0.5"
-            >
-              <Mail size={20} />
-              Send an email
+              <span>WhatsApp Direct</span>
             </a>
           </motion.div>
 
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-8 pt-4 border-t border-white/15 max-w-md mx-auto">
             <a
               href="https://www.linkedin.com/in/izwanworks/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-white/80 font-semibold hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-white/90 font-bold hover:text-white transition-colors"
             >
               <LinkedInIcon size={18} />
-              LinkedIn
+              <span>LinkedIn</span>
             </a>
             <a
               href="https://github.com/izwanGit"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-white/80 font-semibold hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-white/90 font-bold hover:text-white transition-colors"
             >
               <GithubIcon size={18} />
-              GitHub
+              <span>GitHub</span>
             </a>
           </div>
         </div>
