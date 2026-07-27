@@ -167,6 +167,7 @@ const projects: Project[] = [
     description: "Dual-mode educational Android app preparing children (ages 4-6) for primary school. Features Parent Mode for task assignment/printable reports and Kid Mode for interactive gamified quizzes powered by Firebase Firestore NoSQL.",
     tags: ["Java", "Android Studio", "Firebase Auth", "Firestore NoSQL"],
     image: '/images/play2grow-mobile.jpg',
+    github: "https://github.com/izwanGit/Play2GrowGames",
   },
   {
     id: "uems",
