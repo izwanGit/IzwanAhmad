@@ -251,21 +251,21 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
         opacity,
         borderColor,
       }}
-      className="absolute w-[260px] sm:w-[300px] md:w-[320px] aspect-[9/19.2] rounded-[48px] p-3 bg-[#0C1A20] shadow-[0_30px_70px_rgba(14,116,144,0.3)] border-4 ring-1 ring-white/30 transform-gpu transition-shadow"
+      className="absolute w-[210px] sm:w-[240px] md:w-[260px] aspect-[9/19.2] rounded-[42px] p-2.5 bg-[#0C1A20] shadow-[0_25px_60px_rgba(14,116,144,0.3)] border-[3.5px] ring-1 ring-white/30 transform-gpu transition-shadow"
     >
       {/* Dynamic Island Speaker Notch */}
-      <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-2.5 border border-white/10 shadow-md">
-        <div className="w-2.5 h-2.5 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-40 flex items-center justify-between px-2 border border-white/10 shadow-md">
+        <div className="w-2 h-2 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
           <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="text-[9px] font-bold text-white/80 tracking-tighter">AI</span>
-          <div className="w-2 h-2 rounded-full bg-[#0E7490] animate-pulse" />
+        <div className="flex items-center gap-1">
+          <span className="text-[8px] font-bold text-white/80 tracking-tighter">AI</span>
+          <div className="w-1.5 h-1.5 rounded-full bg-[#0E7490] animate-pulse" />
         </div>
       </div>
 
       {/* Upright Clean Phone Screen */}
-      <div className="relative w-full h-full rounded-[38px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
+      <div className="relative w-full h-full rounded-[34px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
         <img
           src={image}
           alt={alt}
@@ -273,7 +273,7 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/20 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
       </div>
     </motion.div>
   );
@@ -311,7 +311,7 @@ const BeruangShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="Beruang AI Financial Platform Showcase"
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#F5F9FA] flex flex-col justify-between py-6 lg:py-10">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#F5F9FA] flex flex-col justify-between pt-20 pb-4 lg:pt-24 lg:pb-6">
         
         {/* Ambient Glows & Grid */}
         <div
@@ -460,7 +460,7 @@ const RentVerseShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="RentVerse Rental Ecosystem Showcase"
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#F5F9FA] flex flex-col justify-between py-6 lg:py-10">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#F5F9FA] flex flex-col justify-between pt-20 pb-4 lg:pt-24 lg:pb-6">
         
         {/* Ambient Glows */}
         <div
