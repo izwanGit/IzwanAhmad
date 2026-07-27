@@ -1,23 +1,22 @@
 /**
  * FlagshipScrollytelling.tsx
  *
- * UPRIGHT NATURAL DEVICE CASCADE (Zero Lag, 60fps/120fps)
+ * RECRUITER-OPTIMIZED FLAGSHIP SCROLLYTELLING
  *
- * Fixes:
- *   1. UPRIGHT PRESENTATION (NOT SLENTY): Removed awkward CSS 3D skewing/tilting.
- *      Phones and laptops stand pristine, upright, and grounded for 100% readable UI.
- *   2. NATURAL LAYERED STACK: Background device mockups stack neatly to the right
- *      (`x: 0, 75px, 150px`) with scale and opacity falloffs for clean depth.
- *   3. ALL 7 BERUANG UI SCREENSHOTS in exact requested order:
- *      Login -> Home -> Expenses -> Chat 1 -> Chat 2 -> Chat 3 -> Profile.
- *   4. ZERO TEXT OVERLAP: AnimatePresence mode="wait" single active text block.
+ * Architectural & Design Highlights:
+ *   1. RECRUITER TECH BADGES: Prominently showcases core stack (React Native, PyTorch,
+ *      Bi-LSTM Engine, Firebase RAG, Next.js 14, PostgreSQL, DevSecOps, Docker).
+ *   2. FLAGSHIP SIMPLICITY: Clean, balanced layout with zero clutter.
+ *   3. BERUANG IOS LOGO (/images/beruang/logo.png) in high-impact header.
+ *   4. UPRIGHT NATURAL DEVICE PRESENTATION (Not Slenty): Clean, unwarped UI readability.
+ *   5. ZERO TEXT CLASHING: AnimatePresence mode="wait" single active text block.
  *
  * Theme: #F5F9FA (bg) · #0E7490 (primary) · #06B6D4 (accent) · #0C1A20 (text)
  */
 
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence, MotionValue } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Trophy, Cpu, Search, Brain, Lock, Server, CheckCircle2, Star, UserCheck, LayoutDashboard, Wallet, MessageSquareCode, Globe, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Trophy, Cpu, Search, Brain, Lock, Server, CheckCircle2, Star, UserCheck, LayoutDashboard, Wallet, MessageSquareCode, Globe, ShieldCheck, Layers, Code2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ─── Data Structures ──────────────────────────────────────────
@@ -41,7 +40,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Secure Identity Gateway',
     paragraph:
       'Biometric authentication gateway with encrypted JWT session rotation and multi-factor protection.',
-    pill: 'Biometric Auth · Encrypted Session Gateway',
+    pill: 'React Native · Biometric Auth · JWT Session Gateway',
     icon: Lock,
     image: '/images/beruang/login.png',
   },
@@ -52,7 +51,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Real-Time Dashboard',
     paragraph:
       'Consolidated balance tracking, monthly income vs expense analytics, and instant financial health metrics.',
-    pill: 'Instant Balance Tracking · Financial Overview',
+    pill: 'Firebase Firestore · Real-Time Balance Analytics',
     icon: LayoutDashboard,
     image: '/images/beruang/home.png',
   },
@@ -63,7 +62,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Automated Categorization',
     paragraph:
       'Real-time transaction logging with custom 50/30/20 category breakdowns and historical trend analysis.',
-    pill: '50/30/20 Budget Breakdown · Trend Analytics',
+    pill: '50/30/20 Rule Engine · Automated Expense Analytics',
     icon: Wallet,
     image: '/images/beruang/expenses.png',
   },
@@ -74,7 +73,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Instant Natural Language UI',
     paragraph:
       'Converts natural language queries directly into interactive budget donut charts in milliseconds.',
-    pill: 'Dynamic Widget Rendering · Zero-Latency RAG Pipeline',
+    pill: 'MiniLM Transformer · Natural Language Widget RAG',
     icon: Zap,
     image: '/images/beruang/chat-1.png',
   },
@@ -85,7 +84,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Hyper-Localized Advisory',
     paragraph:
       'Routes local food queries to cloud LLMs with smart budget reminders to stop impulse spending.',
-    pill: 'Intelligent Intent Routing · Frictionless Accountability',
+    pill: 'Intent Router · Hyper-Localized Advisory Engine',
     icon: Brain,
     image: '/images/beruang/chat-2.png',
   },
@@ -96,7 +95,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Real-Time Web Retrieval',
     paragraph:
       'Performs live internet retrieval for unindexed locations while calculating travel friction against budget.',
-    pill: 'Live Web Retrieval · Spatial & Financial Guardian',
+    pill: 'xAI Grok · Opportunity Cost Live Web Retrieval',
     icon: Globe,
     image: '/images/beruang/chat-3.png',
   },
@@ -107,7 +106,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     title: 'Profile & Preferences',
     paragraph:
       'Customizable security preferences, financial goal configurations, and personal account management.',
-    pill: 'Custom Preferences · Goal Management',
+    pill: 'NoSQL Encryption · Custom Financial Goal Engine',
     icon: UserCheck,
     image: '/images/beruang/profile.png',
   },
@@ -121,7 +120,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     title: 'Enterprise Rental Ecosystem',
     paragraph:
       'Zero Trust security platform with AI-driven tenant fraud detection and real-time behavioral monitoring.',
-    pill: 'Zero Trust Auth · Real-Time AI Fraud Prevention',
+    pill: 'Next.js 14 · Zero Trust Auth · AI Fraud Prevention',
     icon: ShieldCheck,
     image: '/images/rentverse-laptop.jpg',
   },
@@ -132,13 +131,13 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     title: 'Automated Security Pipeline',
     paragraph:
       'Automated 14-stage DevSecOps CI/CD security pipeline with SonarQube static code analysis and Docker.',
-    pill: '14-Stage CI/CD · SonarQube & Docker Security',
+    pill: 'DevSecOps CI/CD · SonarQube · Docker Containerization',
     icon: Server,
     image: '/images/rentverse-home.jpg',
   },
 ];
 
-// ─── Right Column: Upright Phone Mockup Item ──────────────────
+// ─── Right Column: Dynamic 3D Phone Item ──────────────────────
 
 interface CascadePhoneProps {
   image: string;
@@ -253,7 +252,6 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
       }}
       className="absolute w-[210px] sm:w-[240px] md:w-[260px] aspect-[9/19.2] rounded-[42px] p-2.5 bg-[#0C1A20] shadow-[0_25px_60px_rgba(14,116,144,0.3)] border-[3.5px] ring-1 ring-white/30 transform-gpu transition-shadow"
     >
-      {/* Dynamic Island Speaker Notch */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-40 flex items-center justify-between px-2 border border-white/10 shadow-md">
         <div className="w-2 h-2 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
           <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
@@ -264,7 +262,6 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
         </div>
       </div>
 
-      {/* Upright Clean Phone Screen */}
       <div className="relative w-full h-full rounded-[34px] overflow-hidden bg-slate-950 border border-white/10 shadow-inner">
         <img
           src={image}
@@ -301,7 +298,6 @@ const BeruangShowcaseSection: React.FC = () => {
   });
 
   const currentChapter = BERUANG_CHAPTERS[activeIdx] || BERUANG_CHAPTERS[0];
-  const IconComponent = currentChapter.icon;
   const reversedChapters = [...BERUANG_CHAPTERS].map((chap, idx) => ({ chap, idx })).reverse();
 
   return (
@@ -331,15 +327,36 @@ const BeruangShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Simple Brand Header */}
+        {/* Top Brand Header with Recruiter Tech Badges */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
-          <div className="flex items-center gap-3 pb-4 border-b border-[#0E7490]/15">
-            <img
-              src="/images/beruang/logo.png"
-              alt="Beruang Logo"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover shadow-xs border border-[#0E7490]/20 shrink-0"
-            />
-            <span className="text-sm sm:text-base font-black text-[#0C1A20] tracking-tight">Beruang AI Financial Platform</span>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#0E7490]/15">
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/beruang/logo.png"
+                alt="Beruang Logo"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover shadow-xs border border-[#0E7490]/20 shrink-0"
+              />
+              <div>
+                <span className="text-sm sm:text-base font-black text-[#0C1A20] tracking-tight block leading-none">Beruang AI Platform</span>
+                <span className="text-[11px] font-bold text-[#0E7490] mt-1 block">Best Architecture Award · 99.61% AI Accuracy</span>
+              </div>
+            </div>
+
+            {/* Recruiter Tech Stack Badges */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
+                React Native
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
+                PyTorch
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
+                Bi-LSTM Engine
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-[#0E7490]/10 border border-[#0E7490]/30 text-[#06B6D4] text-[11px] font-black shadow-2xs">
+                Firebase RAG
+              </span>
+            </div>
           </div>
         </div>
 
@@ -369,10 +386,12 @@ const BeruangShowcaseSection: React.FC = () => {
                   {currentChapter.paragraph}
                 </p>
 
-                {/* Feature Pill */}
+                {/* Feature Tech Pill */}
                 <div className="pt-2">
-                  <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#0E7490] border border-[#06B6D4]/30 shadow-md text-xs sm:text-sm font-black text-white">
-                    <CheckCircle2 size={16} className="text-white shrink-0" />
+                  <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border-2 border-[#0E7490]/25 shadow-xs text-xs sm:text-sm font-extrabold text-[#0C1A20]">
+                    <div className="p-1 rounded-lg bg-[#0E7490]/10 text-[#06B6D4]">
+                      <CheckCircle2 size={14} className="shrink-0 text-[#06B6D4]" />
+                    </div>
                     <span>{currentChapter.pill}</span>
                   </div>
                 </div>
@@ -442,7 +461,6 @@ const RentVerseShowcaseSection: React.FC = () => {
   });
 
   const currentChapter = RENTVERSE_CHAPTERS[activeIdx] || RENTVERSE_CHAPTERS[0];
-  const IconComponent = currentChapter.icon;
 
   const l0X = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, -150, -150]);
   const l0Y = useTransform(scrollYProgress, [0, 0.40, 0.60, 1], [0, 0, 80, 80]);
@@ -472,23 +490,32 @@ const RentVerseShowcaseSection: React.FC = () => {
 
         {/* Top Header Bar */}
         <div className="container mx-auto px-6 max-w-7xl relative z-40 shrink-0">
-          <div className="flex items-center justify-between pb-4 border-b border-[#0E7490]/15">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#0E7490]/15">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-xl bg-[#0E7490]/10 text-[#0E7490]">
                 <Trophy size={18} />
               </div>
               <div>
-                <span className="text-base font-black text-[#0C1A20]">RentVerse Rental Platform</span>
-                <p className="text-xs font-bold text-[#0E7490]">Champion — 4 Competition Awards · Next.js 14</p>
+                <span className="text-sm sm:text-base font-black text-[#0C1A20] tracking-tight block leading-none">RentVerse Platform</span>
+                <span className="text-[11px] font-bold text-[#0E7490] mt-1 block">Champion · 4 Competition Awards</span>
               </div>
             </div>
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-[#0E7490]/25 shadow-2xs hover:border-[#06B6D4] text-xs font-bold text-[#0C1A20] transition-all"
-            >
-              <span>View Case Study</span>
-              <ArrowRight size={13} />
-            </Link>
+
+            {/* Recruiter Tech Stack Badges */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
+                Next.js 14
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
+                PostgreSQL
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-white border border-[#0E7490]/20 text-[#0E7490] text-[11px] font-extrabold shadow-2xs">
+                DevSecOps CI/CD
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-[#0E7490]/10 border border-[#0E7490]/30 text-[#06B6D4] text-[11px] font-black shadow-2xs">
+                Docker
+              </span>
+            </div>
           </div>
         </div>
 
@@ -515,8 +542,10 @@ const RentVerseShowcaseSection: React.FC = () => {
                 </p>
 
                 <div className="pt-2">
-                  <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#0E7490] border border-[#06B6D4]/30 shadow-md text-xs sm:text-sm font-black text-white">
-                    <CheckCircle2 size={16} className="text-white shrink-0" />
+                  <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border-2 border-[#0E7490]/25 shadow-xs text-xs sm:text-sm font-extrabold text-[#0C1A20]">
+                    <div className="p-1 rounded-lg bg-[#0E7490]/10 text-[#06B6D4]">
+                      <CheckCircle2 size={14} className="shrink-0 text-[#06B6D4]" />
+                    </div>
                     <span>{currentChapter.pill}</span>
                   </div>
                 </div>
