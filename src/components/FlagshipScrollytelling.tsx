@@ -372,7 +372,7 @@ const BeruangShowcaseSection: React.FC = () => {
                 {/* Feature Pill */}
                 <div className="pt-2">
                   <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#0E7490] border border-[#06B6D4]/30 shadow-md text-xs sm:text-sm font-black text-white">
-                    <CheckCircle2 size={16} className="text-[#06B6D4] shrink-0" />
+                    <CheckCircle2 size={16} className="text-white shrink-0" />
                     <span>{currentChapter.pill}</span>
                   </div>
                 </div>
@@ -516,7 +516,7 @@ const RentVerseShowcaseSection: React.FC = () => {
 
                 <div className="pt-2">
                   <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#0E7490] border border-[#06B6D4]/30 shadow-md text-xs sm:text-sm font-black text-white">
-                    <CheckCircle2 size={16} className="text-[#06B6D4] shrink-0" />
+                    <CheckCircle2 size={16} className="text-white shrink-0" />
                     <span>{currentChapter.pill}</span>
                   </div>
                 </div>
