@@ -275,11 +275,11 @@ const ProjectDetail = () => {
                         <div className="w-8 h-1 bg-black/40 rounded-full" />
                       </div>
                       
-                      <div className="rounded-[32px] overflow-hidden aspect-[9/19.5] bg-black flex items-center justify-center">
+                      <div className="rounded-[32px] overflow-hidden aspect-[9/19.5] bg-black">
                         <img 
                           src={item.src} 
                           alt={item.caption}
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover object-top"
                         />
                       </div>
                     </div>

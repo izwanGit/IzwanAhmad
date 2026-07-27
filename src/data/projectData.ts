@@ -112,7 +112,7 @@ export const projects: Project[] = [
     categories: ['mobile', 'ai'],
     description: "Hybrid multi-model AI personal finance app. Trained a Bi-LSTM model on 220,000+ Malaysian transactions (99.61% accuracy) with MiniLM transformer on-device routing and xAI Grok 4.1 RAG advisor. 86.77 SUS usability score across 55 respondents.",
     tags: ["React Native", "Node.js", "TensorFlow.js", "Firebase", "xAI Grok 4.1", "RAG"],
-    image: '/images/beruang-mobile.jpg',
+    image: '/images/beruang/home.png',
     imageType: 'phone',
     mobileBgColor: '#5C4634',
     year: "2026",
