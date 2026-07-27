@@ -2,20 +2,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   ExternalLink, 
-  Layers, 
-  Sparkles, 
-  Smartphone, 
-  Globe, 
-  Cpu, 
-  Bot, 
-  ArrowRight, 
-  Code, 
-  Database, 
-  Shield, 
-  Layout, 
+  FolderGit2, 
+  Trophy, 
+  TabletSmartphone, 
+  LayoutGrid, 
+  Brain, 
+  BrainCircuit, 
+  Boxes, 
+  Workflow, 
+  Code2, 
+  FileCode2, 
+  BarChart3, 
+  ShieldCheck, 
+  Palette, 
+  AppWindow, 
   Award, 
-  CheckCircle2, 
-  Terminal 
+  Binary 
 } from 'lucide-react';
 
 interface Project {
@@ -206,52 +208,52 @@ const skillCategories = [
   {
     id: "languages",
     title: "Languages & Core Syntax",
-    icon: Code,
+    icon: FileCode2,
     skills: ["TypeScript", "JavaScript (ES6+)", "Python 3.10+", "Java", "PHP", "HTML5", "Vanilla CSS3", "DAX", "SQL", "MATLAB"]
   },
   {
     id: "ai",
     title: "AI & Machine Learning",
-    icon: Cpu,
+    icon: BrainCircuit,
     skills: ["TensorFlow.js", "PyTorch", "Scikit-Learn", "OpenCV", "Vision Transformer (ViT)", "xAI Grok 4.1", "GPT-4o-mini", "Gemini 2.5 Flash", "RAG Pipelines", "Prompt Engineering", "Natural Language Processing (NLP)", "Computer Vision", "gTTS"]
   },
   {
     id: "frameworks",
     title: "Web & Mobile Frameworks",
-    icon: Globe,
+    icon: AppWindow,
     skills: ["React Native", "Next.js", "Node.js", "Express.js", "Flask", "Jakarta Servlets", "JSP", "Tailwind CSS", "Bootstrap 5", "Streamlit"]
   },
   {
     id: "enterprise",
     title: "Enterprise Automation & RPA",
-    icon: Bot,
+    icon: Workflow,
     skills: ["Power Automate", "Playwright RPA", "Office Scripts (TypeScript)", "BMC Helix ITSM", "Oracle HCM Cloud", "SharePoint APIs", "Win32com Outlook Engine", "PyMuPDF", "OpenPyXL"]
   },
   {
     id: "devops",
     title: "Cloud, DevOps & Security",
-    icon: Shield,
+    icon: ShieldCheck,
     skills: ["GitHub Actions CI/CD", "Zero Trust Architecture", "Role-Based Access Control (RBAC)", "CodeQL SAST", "Trivy Scanning", "Gitleaks", "Penetration Testing", "Nmap", "Metasploit", "Rate Limiting & HSTS", "Apache Tomcat"]
   },
   {
     id: "data",
     title: "Data & Analytics Architecture",
-    icon: Database,
+    icon: BarChart3,
     skills: ["Power BI", "Tableau", "Pandas", "PostgreSQL", "MySQL", "SQLite", "Prisma ORM", "Firebase Firestore", "NoSQL Architecture", "Data Visualization", "Data Storytelling"]
   },
   {
     id: "tools",
     title: "Design & Product Management",
-    icon: Layout,
+    icon: Palette,
     skills: ["Figma", "Adobe Photoshop", "Final Cut Pro", "Canva", "CapCut", "Product Photography", "Git / GitHub Version Control", "Microsoft Office 365", "E-Commerce Strategy"]
   }
 ];
 
 const archiveCategories = [
-  { id: 'web', title: 'Web Platforms & Full-Stack Systems', icon: Globe },
-  { id: 'mobile', title: 'Mobile Applications', icon: Smartphone },
-  { id: 'ai', title: 'AI & Deep Learning Models', icon: Cpu },
-  { id: 'enterprise', title: 'Enterprise Automation & Analytics', icon: Bot },
+  { id: 'web', title: 'Web Platforms & Full-Stack Systems', icon: LayoutGrid },
+  { id: 'mobile', title: 'Mobile Applications', icon: TabletSmartphone },
+  { id: 'ai', title: 'AI & Deep Learning Models', icon: Brain },
+  { id: 'enterprise', title: 'Enterprise Automation & Analytics', icon: Boxes },
 ] as const;
 
 const Projects = () => {
@@ -269,7 +271,7 @@ const Projects = () => {
           className="max-w-3xl mb-20"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-border shadow-2xs text-xs font-bold text-[#0E7490] uppercase tracking-widest mb-6">
-            <Layers size={14} className="text-[#06B6D4]" />
+            <FolderGit2 size={14} className="text-[#06B6D4]" />
             <span>Engineering Portfolio</span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#0C1A20] leading-[1.12] mb-6">
@@ -311,7 +313,7 @@ const Projects = () => {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0C1A20]">Featured Flagship Showcases</h2>
             </div>
             <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-border text-xs font-bold text-[#0E7490]">
-              <Sparkles size={13} className="text-[#06B6D4]" />
+              <Trophy size={13} className="text-[#06B6D4]" />
               4 Benchmark Projects
             </span>
           </div>
@@ -361,7 +363,7 @@ const Projects = () => {
                               key={i} 
                               className="px-3 py-1 bg-[#FFFBEB] text-[#B45309] text-xs font-bold rounded-lg border border-[#FCD34D] flex items-center gap-1.5 shadow-2xs"
                             >
-                              <Sparkles size={13} className="text-[#D97706] shrink-0" />
+                              <Award size={13} className="text-[#D97706] shrink-0" />
                               <span>{award}</span>
                             </span>
                           ))}
@@ -401,7 +403,7 @@ const Projects = () => {
                             className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-borderStrong text-[#0C1A20] text-sm font-bold rounded-xl hover:bg-tint hover:border-[#0E7490]/40 transition-all hover:-translate-y-0.5"
                           >
                             <span>GitHub Source</span>
-                            <Code size={15} />
+                            <Code2 size={15} />
                           </a>
                         )}
                       </div>
@@ -425,7 +427,7 @@ const Projects = () => {
             className="max-w-2xl mb-12"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F9FA] border border-border text-xs font-bold text-[#0E7490] uppercase tracking-widest mb-4">
-              <Terminal size={13} className="text-[#06B6D4]" />
+              <Binary size={13} className="text-[#06B6D4]" />
               <span>Verified Capabilities</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0C1A20] mb-3">
@@ -559,7 +561,7 @@ const Projects = () => {
                                 rel="noreferrer"
                                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0C1A20] hover:text-[#0E7490] transition-colors"
                               >
-                                <Code size={14} />
+                                <Code2 size={14} />
                                 <span>Source Code</span>
                               </a>
                             ) : (
