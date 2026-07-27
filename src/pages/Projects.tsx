@@ -123,7 +123,7 @@ const Projects = () => {
                 >
                   {/* Device-Aware Mockup Header — Equal Height for Both Beruang & RentVerse */}
                   <div 
-                    className="p-6 sm:p-8 flex justify-center items-center min-h-[380px] sm:min-h-[410px] relative overflow-hidden border-b border-border/80"
+                    className="p-6 sm:p-8 flex justify-center items-center h-[380px] sm:h-[420px] relative overflow-hidden border-b border-border/80"
                     style={{ backgroundColor: project.imageType === 'phone' ? (project.mobileBgColor || '#5C4634') : undefined }}
                   >
                     {project.imageType === 'phone' ? (
@@ -142,7 +142,7 @@ const Projects = () => {
                         </div>
                       </>
                     ) : (
-                      /* Super Duper Blurred Image Backdrop for Web/Laptop */
+                      /* Super Duper Blurred Image Backdrop for Web/Laptop — Batik Style Full Bleed */
                       <>
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                           <img 
@@ -153,7 +153,7 @@ const Projects = () => {
                           />
                           <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply" />
                         </div>
-                        <div className="w-full max-w-[480px] sm:max-w-[520px] rounded-xl bg-white border border-slate-300/80 shadow-2xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
+                        <div className="w-full max-w-[500px] sm:max-w-[540px] rounded-xl bg-white border border-slate-300/80 shadow-2xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
                           <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
                             <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
                             <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
@@ -162,11 +162,11 @@ const Projects = () => {
                               https://izwan.dev/{project.id}
                             </div>
                           </div>
-                          <div className="aspect-[16/10] overflow-hidden bg-slate-50 flex items-center justify-center p-0.5">
+                          <div className="aspect-[16/10] overflow-hidden bg-slate-50">
                             <img 
                               src={project.image} 
                               alt={project.title}
-                              className="w-full h-full object-contain"
+                              className="w-full h-full object-cover object-top"
                             />
                           </div>
                         </div>
@@ -386,11 +386,11 @@ const Projects = () => {
                               https://izwan.dev/{project.id}
                             </div>
                           </div>
-                          <div className="aspect-[16/10] overflow-hidden bg-slate-50 flex items-center justify-center p-0.5">
+                          <div className="aspect-[16/10] overflow-hidden bg-slate-50">
                             <img 
                               src={project.image} 
                               alt={project.title}
-                              className="w-full h-full object-contain"
+                              className="w-full h-full object-cover object-top"
                             />
                           </div>
                         </div>
