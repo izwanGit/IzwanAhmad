@@ -47,7 +47,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     badge: 'Interactive Financial Mirror',
     title: 'Instant Natural Language UI',
     paragraph:
-      'Converts natural language queries ("Recent expenses?") directly into interactive 50/30/20 budget donut charts in milliseconds. Powered by a real-time RAG pipeline querying Firebase Firestore, it intercepts your exact financial footprint without mental math or text-heavy lists.',
+      'Converts natural language queries directly into interactive budget donut charts in milliseconds.',
     pill: 'Dynamic Widget Rendering · Zero-Latency RAG Pipeline',
     icon: Zap,
     image: '/images/beruang/chat-1.png',
@@ -58,7 +58,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     badge: 'Behavioural Nudging',
     title: 'Hyper-Localized Advisory',
     paragraph:
-      'Intelligent MiniLM sentence transformers route complex local food queries ("makan sedap di pekan tapah") directly to cloud LLMs. It recommends great local dining while attaching a budget reminder ("Wants je ni, RM358 lagi!") to stop impulsive spending before it happens.',
+      'Routes local food queries to cloud LLMs with smart budget reminders to stop impulse spending.',
     pill: 'Intelligent Intent Routing · Frictionless Accountability',
     icon: Brain,
     image: '/images/beruang/chat-2.png',
@@ -69,7 +69,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     badge: 'Opportunity Cost Guardian',
     title: 'Real-Time Web Retrieval',
     paragraph:
-      'Commands like "search rembayung" trigger live internet retrieval for brand-new locations outside static LLM weights. It calculates travel friction (a 2-3 hr drive from Tapah to KL) against your remaining budget so decisions are never made in a vacuum.',
+      'Performs live internet retrieval for unindexed locations while calculating travel friction against budget.',
     pill: 'Live Web Retrieval · Spatial & Financial Guardian',
     icon: Search,
     image: '/images/beruang/chat-3.png',
@@ -80,7 +80,7 @@ const BERUANG_CHAPTERS: Chapter[] = [
     badge: 'Bi-LSTM Neural Engine',
     title: '99.61% AI Accuracy Engine',
     paragraph:
-      'Powered by a custom PyTorch Bi-LSTM neural network trained on 220,000+ Malaysian transaction records for instant expense categorization. Evaluated at an exceptional 86.77 System Usability Scale score, combining enterprise security with frictionless consumer UX.',
+      'Custom PyTorch Bi-LSTM neural model trained on 220,000+ Malaysian records for instant categorization.',
     pill: '99.61% AI Accuracy · 220k+ Malaysian Dataset',
     icon: Cpu,
     image: '/images/beruang/home.png',
@@ -94,7 +94,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     badge: 'Zero Trust Security Platform',
     title: 'Enterprise Rental Ecosystem',
     paragraph:
-      'Strict identity verification, JWT session rotation, and end-to-end encryption across all tenant and landlord workflows. An intelligent AI fraud detection engine analyzes behavioral patterns to block anomalous rental applications and fraudulent property listings in real-time.',
+      'Zero Trust security platform with AI-driven tenant fraud detection and real-time behavioral monitoring.',
     pill: 'Zero Trust Auth · Real-Time AI Fraud Prevention',
     icon: Lock,
     image: '/images/rentverse-laptop.jpg',
@@ -105,7 +105,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     badge: '14-Stage DevSecOps Pipeline',
     title: 'Automated Security Pipeline',
     paragraph:
-      'Fully integrated DevSecOps automation featuring SonarQube static code analysis, Docker containerization, and automated vulnerability scanning. Built on Next.js 14 and PostgreSQL, delivering sub-second search and enterprise-grade transaction reliability.',
+      'Automated 14-stage DevSecOps CI/CD security pipeline with SonarQube static code analysis and Docker.',
     pill: '14-Stage CI/CD · SonarQube & Docker Security',
     icon: Server,
     image: '/images/rentverse-home.jpg',
@@ -139,14 +139,30 @@ const ChapterTextItem: React.FC<ChapterTextProps> = ({
 
   const opacity = useTransform(
     scrollYProgress,
-    [start, fadeIn, fadeOut, end],
-    [index === 0 ? 1 : 0, 1, 1, index === total - 1 ? 1 : 0]
+    index === 0
+      ? [0, fadeOut, end]
+      : index === total - 1
+      ? [start, fadeIn, 1]
+      : [start, fadeIn, fadeOut, end],
+    index === 0
+      ? [1, 1, 0]
+      : index === total - 1
+      ? [0, 1, 1]
+      : [0, 1, 1, 0]
   );
 
   const y = useTransform(
     scrollYProgress,
-    [start, fadeIn, fadeOut, end],
-    [index === 0 ? 0 : 35, 0, 0, index === total - 1 ? 0 : -35]
+    index === 0
+      ? [0, fadeOut, end]
+      : index === total - 1
+      ? [start, fadeIn, 1]
+      : [start, fadeIn, fadeOut, end],
+    index === 0
+      ? [0, 0, -35]
+      : index === total - 1
+      ? [35, 0, 0]
+      : [35, 0, 0, -35]
   );
 
   const pointerEvents = useTransform(scrollYProgress, (v) =>
@@ -662,7 +678,7 @@ const FlagshipScrollytelling: React.FC = () => {
             <div>
               <div className="text-[13px] font-extrabold uppercase tracking-widest text-[#06B6D4] mb-3 flex items-center gap-2">
                 <Sparkles size={14} />
-                <span>FEATURED WORK — INTERACTIVE FEATURE WALKTHROUGH</span>
+                <span>FEATURED WORK</span>
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#0C1A20] tracking-tight leading-[1.05]">
                 Selected Flagship Projects
