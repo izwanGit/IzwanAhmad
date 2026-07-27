@@ -150,7 +150,7 @@ const showcaseItems: ShowcaseItem[] = [
   {
     type: 'phone',
     variant: 'iphone',
-    src: '/images/beruang-mobile.jpg',
+    src: '/images/beruang/home.png',
     title: 'Beruang AI Money App',
     tag: 'Mobile / React Native',
   },

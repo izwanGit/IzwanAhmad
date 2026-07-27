@@ -269,11 +269,48 @@ const ProjectDetail = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
                     <div className="w-full h-full flex items-center justify-center p-2 relative z-10">
-                      <img 
-                        src={item.src} 
-                        alt={item.caption}
-                        className="max-h-[550px] max-w-full object-contain rounded-2xl shadow-2xl"
-                      />
+                      <div className="h-[480px] sm:h-[530px] aspect-[9/19.5] rounded-[38px] bg-[#1A1B22] p-2.5 border-4 border-slate-700/80 shadow-2xl relative flex flex-col items-center justify-center">
+                        {/* Side Buttons */}
+                        {project.id === 'play2grow' ? (
+                          /* Android Side Buttons */
+                          <>
+                            <div className="absolute -right-[3px] top-24 w-[3px] h-8 bg-slate-600 rounded-r" />
+                            <div className="absolute -right-[3px] top-36 w-[3px] h-14 bg-slate-600 rounded-r" />
+                          </>
+                        ) : (
+                          /* iPhone Side Buttons */
+                          <>
+                            <div className="absolute -left-[3px] top-24 w-[3px] h-9 bg-slate-600 rounded-l" />
+                            <div className="absolute -left-[3px] top-36 w-[3px] h-9 bg-slate-600 rounded-l" />
+                            <div className="absolute -right-[3px] top-28 w-[3px] h-14 bg-slate-600 rounded-r" />
+                          </>
+                        )}
+
+                        {/* Top Notch / Camera Punch-hole */}
+                        {project.id === 'play2grow' ? (
+                          /* Android Layout: Top Speaker Slit & Camera Punch-hole */
+                          <>
+                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-[3px] bg-[#09090b] rounded-full z-20" />
+                            <div className="absolute top-5 left-1/2 -translate-x-1/2 w-4 h-4 bg-black border border-slate-800 rounded-full z-20 flex items-center justify-center">
+                              <div className="w-1 h-1 rounded-full bg-[#1e293b]" />
+                            </div>
+                          </>
+                        ) : (
+                          /* iPhone Layout: Dynamic Island Notch */
+                          <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 h-4 bg-black rounded-full z-20 flex items-center justify-end px-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#0E7490]/80 animate-pulse" />
+                          </div>
+                        )}
+
+                        {/* Screen Viewport */}
+                        <div className="w-full h-full rounded-[28px] overflow-hidden bg-black flex items-center justify-center">
+                          <img 
+                            src={item.src} 
+                            alt={item.caption}
+                            className="w-full h-full object-cover object-top"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ) : (

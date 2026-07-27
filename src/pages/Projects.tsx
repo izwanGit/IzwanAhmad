@@ -354,15 +354,50 @@ const Projects = () => {
                     style={{ backgroundColor: project.imageType === 'phone' ? (project.mobileBgColor || '#5C4634') : undefined }}
                   >
                     {project.imageType === 'phone' ? (
-                      /* Mobile App UI Brand Color Background & Phone Frame */
+                      /* Mobile App UI Brand Color Background & Dynamic Phone Layout (iPhone vs Android) */
                       <>
                         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
-                        <div className="w-full h-full flex items-center justify-center p-3 relative z-10 group-hover:scale-103 transition-transform duration-300">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="max-h-full max-w-full object-contain rounded-xl shadow-xl"
-                          />
+                        <div className="h-[200px] sm:h-[220px] aspect-[9/19.5] rounded-[22px] bg-[#1A1B22] p-1.5 border-2 border-slate-700/80 shadow-2xl relative z-10 group-hover:scale-103 transition-transform duration-300 flex flex-col items-center justify-center">
+                          {/* Side Buttons */}
+                          {project.id === 'play2grow' ? (
+                            /* Android Side Buttons */
+                            <>
+                              <div className="absolute -right-[2px] top-10 w-[2px] h-4 bg-slate-600 rounded-r" />
+                              <div className="absolute -right-[2px] top-16 w-[2px] h-8 bg-slate-600 rounded-r" />
+                            </>
+                          ) : (
+                            /* iPhone Side Buttons */
+                            <>
+                              <div className="absolute -left-[2px] top-10 w-[2px] h-5 bg-slate-600 rounded-l" />
+                              <div className="absolute -left-[2px] top-16 w-[2px] h-5 bg-slate-600 rounded-l" />
+                              <div className="absolute -right-[2px] top-12 w-[2px] h-8 bg-slate-600 rounded-r" />
+                            </>
+                          )}
+
+                          {/* Top Notch / Camera Punch-hole */}
+                          {project.id === 'play2grow' ? (
+                            /* Android Layout: Top Speaker Slit & Camera Punch-hole */
+                            <>
+                              <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-[#09090b] rounded-full z-20" />
+                              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-black border border-slate-800 rounded-full z-20 flex items-center justify-center">
+                                <div className="w-0.5 h-0.5 rounded-full bg-[#1e293b]" />
+                              </div>
+                            </>
+                          ) : (
+                            /* iPhone Layout: Dynamic Island Notch */
+                            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-black rounded-full z-20 flex items-center justify-end px-1.5">
+                              <div className="w-1 h-1 rounded-full bg-[#0E7490]/80 animate-pulse" />
+                            </div>
+                          )}
+
+                          {/* Screen Viewport */}
+                          <div className="w-full h-full rounded-[16px] overflow-hidden bg-black flex items-center justify-center">
+                            <img 
+                              src={project.image} 
+                              alt={project.title}
+                              className="w-full h-full object-cover object-top"
+                            />
+                          </div>
                         </div>
                       </>
                     ) : (
