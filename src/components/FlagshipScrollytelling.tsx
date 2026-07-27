@@ -359,7 +359,7 @@ const BeruangShowcaseSection: React.FC = () => {
               >
                 {/* Heading */}
                 <div>
-                  <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0E7490] tracking-tight leading-[1.05]">
+                  <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#06B6D4] tracking-tight leading-[1.05]">
                     {currentChapter.title}
                   </h4>
                 </div>
@@ -506,7 +506,7 @@ const RentVerseShowcaseSection: React.FC = () => {
                 transition={{ duration: 0.2, ease: 'easeOut' }}
                 className="flex flex-col justify-center space-y-6 sm:space-y-7 transform-gpu max-w-xl w-full"
               >
-                <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#0E7490] tracking-tight leading-[1.05]">
+                <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-[#06B6D4] tracking-tight leading-[1.05]">
                   {currentChapter.title}
                 </h4>
 
