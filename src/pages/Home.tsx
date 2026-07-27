@@ -26,7 +26,7 @@ const Home = () => {
               transition={{ duration: 0.7 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border shadow-sm text-sm font-semibold text-primary mb-8">
-                <span className="w-2 h-2 rounded-full bg-statusGreen animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse" />
                 Open to full-time & freelance opportunities
               </div>
 
