@@ -275,11 +275,11 @@ const ProjectDetail = () => {
                         <div className="w-8 h-1 bg-black/40 rounded-full" />
                       </div>
                       
-                      <div className="rounded-[32px] overflow-hidden aspect-[9/19.5] bg-black">
+                      <div className="rounded-[32px] overflow-hidden aspect-[9/19.5] bg-black flex items-center justify-center">
                         <img 
                           src={item.src} 
                           alt={item.caption}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-contain"
                         />
                       </div>
                     </div>
@@ -304,11 +304,11 @@ const ProjectDetail = () => {
                           https://izwan.dev/projects/{project.id}
                         </div>
                       </div>
-                      <div className="bg-slate-50 overflow-hidden">
+                      <div className="bg-slate-50 overflow-hidden flex items-center justify-center p-0.5">
                         <img 
                           src={item.src} 
                           alt={item.caption}
-                          className="w-full h-auto object-top max-h-[500px] object-cover"
+                          className="w-full h-auto max-h-[650px] object-contain"
                         />
                       </div>
                     </div>
