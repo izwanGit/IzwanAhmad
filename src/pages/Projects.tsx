@@ -332,13 +332,40 @@ const Projects = () => {
                   to={`/projects/${project.id}`}
                   className="bg-white border border-border rounded-2xl p-5 shadow-2xs hover:shadow-card hover:border-[#06B6D4] transition-all duration-300 flex flex-col h-full group hover:-translate-y-0.5"
                 >
-                  {/* Thumbnail Mockup */}
-                  <div className="w-full aspect-video rounded-xl overflow-hidden bg-slate-100 border border-border mb-4 relative">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover object-top group-hover:scale-103 transition-transform duration-300"
-                    />
+                  {/* Device Mockup Thumbnail with Light Background */}
+                  <div className="bg-gradient-to-br from-[#E0F2FE]/60 via-[#F0FDFF] to-[#E0F2FE]/40 p-4 sm:p-5 flex justify-center items-center h-[190px] relative overflow-hidden rounded-xl border border-border/80 mb-4">
+                    {project.imageType === 'phone' ? (
+                      /* Phone Frame Mockup */
+                      <div className="w-[110px] sm:w-[125px] rounded-[20px] bg-slate-900 p-1.5 border border-slate-700 shadow-md relative group-hover:scale-103 transition-transform duration-300">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-800 rounded-b-md z-10" />
+                        <div className="rounded-[16px] overflow-hidden aspect-[9/19.5] bg-black">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      /* macOS Window Mockup */
+                      <div className="w-full max-w-xs rounded-lg bg-white border border-slate-300/80 shadow-md overflow-hidden group-hover:scale-102 transition-transform duration-300">
+                        <div className="bg-slate-100 px-2.5 py-1.5 flex items-center gap-1 border-b border-slate-200">
+                          <div className="w-2 h-2 rounded-full bg-[#EF4444]" />
+                          <div className="w-2 h-2 rounded-full bg-[#F59E0B]" />
+                          <div className="w-2 h-2 rounded-full bg-[#10B981]" />
+                          <div className="ml-1.5 flex-grow bg-white rounded px-1.5 py-0.5 text-[9px] font-mono text-slate-400 truncate border border-slate-200">
+                            https://izwan.dev/{project.id}
+                          </div>
+                        </div>
+                        <div className="aspect-[16/10] overflow-hidden bg-slate-50">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-cover object-top"
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex flex-col flex-grow">
