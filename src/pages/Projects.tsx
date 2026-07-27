@@ -19,6 +19,76 @@ import {
   Award, 
   Binary 
 } from 'lucide-react';
+import { 
+  SiTypescript, 
+  SiJavascript, 
+  SiPython, 
+  SiPhp, 
+  SiHtml5, 
+  SiTensorflow, 
+  SiPytorch, 
+  SiScikitlearn, 
+  SiOpencv, 
+  SiGoogle, 
+  SiReact, 
+  SiNextdotjs, 
+  SiNodedotjs, 
+  SiExpress, 
+  SiFlask, 
+  SiApachetomcat, 
+  SiTailwindcss, 
+  SiBootstrap, 
+  SiStreamlit, 
+  SiGithubactions, 
+  SiTrivy, 
+  SiPandas, 
+  SiPostgresql, 
+  SiMysql, 
+  SiSqlite, 
+  SiPrisma, 
+  SiFirebase, 
+  SiFigma, 
+  SiCanvas, 
+  SiGithub 
+} from 'react-icons/si';
+import { 
+  FaJava, 
+  FaChartBar, 
+  FaEye, 
+  FaRobot, 
+  FaCamera, 
+  FaMicrochip, 
+  FaGears, 
+  FaServer, 
+  FaCloud, 
+  FaFolderTree, 
+  FaEnvelope, 
+  FaFilePdf, 
+  FaFileExcel, 
+  FaShieldHalved, 
+  FaLock, 
+  FaCode, 
+  FaUserSecret, 
+  FaBug, 
+  FaNetworkWired, 
+  FaTerminal, 
+  FaMagnifyingGlassChart, 
+  FaDatabase, 
+  FaChartPie, 
+  FaVideo, 
+  FaFileWord, 
+  FaCartShopping 
+} from 'react-icons/fa6';
+import { 
+  TbSql, 
+  TbMath, 
+  TbBrandOpenai, 
+  TbBrain, 
+  TbPrompt, 
+  TbRobot 
+} from 'react-icons/tb';
+import { DiCss3, DiPhotoshop } from 'react-icons/di';
+import { VscOpenai } from 'react-icons/vsc';
 
 interface Project {
   id: string;
@@ -209,43 +279,123 @@ const skillCategories = [
     id: "languages",
     title: "Languages & Core Syntax",
     icon: FileCode2,
-    skills: ["TypeScript", "JavaScript (ES6+)", "Python 3.10+", "Java", "PHP", "HTML5", "Vanilla CSS3", "DAX", "SQL", "MATLAB"]
+    skills: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "JavaScript (ES6+)", icon: SiJavascript },
+      { name: "Python 3.10+", icon: SiPython },
+      { name: "Java", icon: FaJava },
+      { name: "PHP", icon: SiPhp },
+      { name: "HTML5", icon: SiHtml5 },
+      { name: "Vanilla CSS3", icon: DiCss3 },
+      { name: "DAX", icon: FaChartBar },
+      { name: "SQL", icon: TbSql },
+      { name: "MATLAB", icon: TbMath }
+    ]
   },
   {
     id: "ai",
     title: "AI & Machine Learning",
     icon: BrainCircuit,
-    skills: ["TensorFlow.js", "PyTorch", "Scikit-Learn", "OpenCV", "Vision Transformer (ViT)", "xAI Grok 4.1", "GPT-4o-mini", "Gemini 2.5 Flash", "RAG Pipelines", "Prompt Engineering", "Natural Language Processing (NLP)", "Computer Vision", "gTTS"]
+    skills: [
+      { name: "TensorFlow.js", icon: SiTensorflow },
+      { name: "PyTorch", icon: SiPytorch },
+      { name: "Scikit-Learn", icon: SiScikitlearn },
+      { name: "OpenCV", icon: SiOpencv },
+      { name: "Vision Transformer (ViT)", icon: FaEye },
+      { name: "xAI Grok 4.1", icon: TbBrandOpenai },
+      { name: "GPT-4o-mini", icon: VscOpenai },
+      { name: "Gemini 2.5 Flash", icon: SiGoogle },
+      { name: "RAG Pipelines", icon: TbBrain },
+      { name: "Prompt Engineering", icon: TbPrompt },
+      { name: "Natural Language Processing (NLP)", icon: FaRobot },
+      { name: "Computer Vision", icon: FaCamera },
+      { name: "gTTS", icon: FaMicrochip }
+    ]
   },
   {
     id: "frameworks",
     title: "Web & Mobile Frameworks",
     icon: AppWindow,
-    skills: ["React Native", "Next.js", "Node.js", "Express.js", "Flask", "Jakarta Servlets", "JSP", "Tailwind CSS", "Bootstrap 5", "Streamlit"]
+    skills: [
+      { name: "React Native", icon: SiReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "Flask", icon: SiFlask },
+      { name: "Jakarta Servlets", icon: SiApachetomcat },
+      { name: "JSP", icon: FaJava },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Bootstrap 5", icon: SiBootstrap },
+      { name: "Streamlit", icon: SiStreamlit }
+    ]
   },
   {
     id: "enterprise",
     title: "Enterprise Automation & RPA",
     icon: Workflow,
-    skills: ["Power Automate", "Playwright RPA", "Office Scripts (TypeScript)", "BMC Helix ITSM", "Oracle HCM Cloud", "SharePoint APIs", "Win32com Outlook Engine", "PyMuPDF", "OpenPyXL"]
+    skills: [
+      { name: "Power Automate", icon: FaGears },
+      { name: "Playwright RPA", icon: TbRobot },
+      { name: "Office Scripts (TypeScript)", icon: SiTypescript },
+      { name: "BMC Helix ITSM", icon: FaServer },
+      { name: "Oracle HCM Cloud", icon: FaCloud },
+      { name: "SharePoint APIs", icon: FaFolderTree },
+      { name: "Win32com Outlook Engine", icon: FaEnvelope },
+      { name: "PyMuPDF", icon: FaFilePdf },
+      { name: "OpenPyXL", icon: FaFileExcel }
+    ]
   },
   {
     id: "devops",
     title: "Cloud, DevOps & Security",
     icon: ShieldCheck,
-    skills: ["GitHub Actions CI/CD", "Zero Trust Architecture", "Role-Based Access Control (RBAC)", "CodeQL SAST", "Trivy Scanning", "Gitleaks", "Penetration Testing", "Nmap", "Metasploit", "Rate Limiting & HSTS", "Apache Tomcat"]
+    skills: [
+      { name: "GitHub Actions CI/CD", icon: SiGithubactions },
+      { name: "Zero Trust Architecture", icon: FaShieldHalved },
+      { name: "Role-Based Access Control (RBAC)", icon: FaLock },
+      { name: "CodeQL SAST", icon: FaCode },
+      { name: "Trivy Scanning", icon: SiTrivy },
+      { name: "Gitleaks", icon: FaUserSecret },
+      { name: "Penetration Testing", icon: FaBug },
+      { name: "Nmap", icon: FaNetworkWired },
+      { name: "Metasploit", icon: FaTerminal },
+      { name: "Rate Limiting & HSTS", icon: FaShieldHalved },
+      { name: "Apache Tomcat", icon: SiApachetomcat }
+    ]
   },
   {
     id: "data",
     title: "Data & Analytics Architecture",
     icon: BarChart3,
-    skills: ["Power BI", "Tableau", "Pandas", "PostgreSQL", "MySQL", "SQLite", "Prisma ORM", "Firebase Firestore", "NoSQL Architecture", "Data Visualization", "Data Storytelling"]
+    skills: [
+      { name: "Power BI", icon: FaChartBar },
+      { name: "Tableau", icon: FaMagnifyingGlassChart },
+      { name: "Pandas", icon: SiPandas },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "MySQL", icon: SiMysql },
+      { name: "SQLite", icon: SiSqlite },
+      { name: "Prisma ORM", icon: SiPrisma },
+      { name: "Firebase Firestore", icon: SiFirebase },
+      { name: "NoSQL Architecture", icon: FaDatabase },
+      { name: "Data Visualization", icon: FaChartPie },
+      { name: "Data Storytelling", icon: FaChartBar }
+    ]
   },
   {
     id: "tools",
     title: "Design & Product Management",
     icon: Palette,
-    skills: ["Figma", "Adobe Photoshop", "Final Cut Pro", "Canva", "CapCut", "Product Photography", "Git / GitHub Version Control", "Microsoft Office 365", "E-Commerce Strategy"]
+    skills: [
+      { name: "Figma", icon: SiFigma },
+      { name: "Adobe Photoshop", icon: DiPhotoshop },
+      { name: "Final Cut Pro", icon: FaVideo },
+      { name: "Canva", icon: SiCanvas },
+      { name: "CapCut", icon: FaVideo },
+      { name: "Product Photography", icon: FaCamera },
+      { name: "Git / GitHub Version Control", icon: SiGithub },
+      { name: "Microsoft Office 365", icon: FaFileWord },
+      { name: "E-Commerce Strategy", icon: FaCartShopping }
+    ]
   }
 ];
 
@@ -458,14 +608,18 @@ const Projects = () => {
                   </div>
 
                   <div className="flex flex-wrap gap-2">
-                    {cat.skills.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1.5 bg-[#F5F9FA] border border-border hover:border-[#06B6D4]/50 rounded-lg text-xs font-semibold text-[#0C1A20] transition-colors cursor-default"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                    {cat.skills.map((skill, i) => {
+                      const SkillIcon = skill.icon;
+                      return (
+                        <span
+                          key={i}
+                          className="px-3 py-1.5 bg-[#F5F9FA] border border-border hover:border-[#06B6D4]/50 rounded-lg text-xs font-semibold text-[#0C1A20] transition-colors cursor-default flex items-center gap-2 shadow-2xs"
+                        >
+                          <SkillIcon className="text-[#0E7490] shrink-0 text-sm" />
+                          <span>{skill.name}</span>
+                        </span>
+                      );
+                    })}
                   </div>
                 </motion.div>
               );
