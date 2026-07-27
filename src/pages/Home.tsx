@@ -25,8 +25,8 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#06B6D4] border border-cyan-400/40 shadow-sm text-xs sm:text-sm font-bold text-white mb-8">
-                <span className="w-2 h-2 rounded-full bg-white animate-pulse shrink-0" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border shadow-sm text-sm font-semibold text-primary mb-8">
+                <span className="w-2 h-2 rounded-full bg-statusGreen animate-pulse shrink-0" />
                 <span>Open to full-time & freelance opportunities</span>
               </div>
 
