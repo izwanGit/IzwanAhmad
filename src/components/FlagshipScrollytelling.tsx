@@ -77,7 +77,7 @@ interface Chapter {
   pill: string;
   icon: React.ComponentType<any>;
   image: string;
-  device?: 'phone' | 'laptop';
+  device?: 'phone' | 'laptop' | 'raw';
 }
 
 const BERUANG_CHAPTERS: Chapter[] = [
@@ -183,7 +183,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     pill: 'Responsive Web · iOS Safari Optimization',
     icon: Globe,
     image: '/images/rentverse/mobile-web.png',
-    device: 'phone',
+    device: 'raw',
   },
   {
     id: 'android',
@@ -195,7 +195,7 @@ const RENTVERSE_CHAPTERS: Chapter[] = [
     pill: 'Android Client · Geolocation Search',
     icon: UserCheck,
     image: '/images/rentverse/android-mobile.png',
-    device: 'phone',
+    device: 'raw',
   },
   {
     id: 'explore',
@@ -370,6 +370,110 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
         <div className="absolute inset-0 bg-gradient-to-t from-[#0C1A20]/20 via-transparent to-transparent pointer-events-none" />
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-white/70 rounded-full z-40 backdrop-blur-xs" />
       </div>
+    </motion.div>
+  );
+};
+
+// ─── Direct Pre-framed Mobile Item (No Outer Phone Shell) ────
+
+const CascadeRawItem: React.FC<CascadePhoneProps> = ({
+  image,
+  alt,
+  scrollYProgress,
+  index,
+  total,
+}) => {
+  const span = 1 / total;
+
+  const x = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return -150;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return -150 * exitP;
+      }
+      return 0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return (pos - advanceP) * 75;
+    }
+    return pos * 75;
+  });
+
+  const y = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return 80;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 80 * exitP;
+      }
+      return 0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return -20 * (pos - advanceP);
+    }
+    return -20 * pos;
+  });
+
+  const scale = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return 0.88;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 1 - 0.12 * exitP;
+      }
+      return index === total - 1 ? 1.03 : 1.0;
+    }
+    const pos = index - step;
+    if (progressInStep > 0.7) {
+      const advanceP = (progressInStep - 0.7) / 0.3;
+      return Math.max(0.7, 1 - 0.08 * (pos - advanceP));
+    }
+    return Math.max(0.7, 1 - 0.08 * pos);
+  });
+
+  const opacity = useTransform(scrollYProgress, (v) => {
+    const step = Math.min(Math.floor(v * total), total - 1);
+    const progressInStep = (v - step * span) / span;
+
+    if (index < step) return 0;
+    if (index === step) {
+      if (progressInStep > 0.7 && index < total - 1) {
+        const exitP = (progressInStep - 0.7) / 0.3;
+        return 1 - exitP;
+      }
+      return 1;
+    }
+    const pos = index - step;
+    if (pos === 1) return 0.65;
+    if (pos === 2) return 0.35;
+    return 0;
+  });
+
+  return (
+    <motion.div
+      style={{ x, y, scale, opacity }}
+      className="absolute h-[420px] sm:h-[480px] flex items-center justify-center transform-gpu filter drop-shadow-[0_25px_50px_rgba(14,116,144,0.3)]"
+    >
+      <img
+        src={image}
+        alt={alt}
+        className="h-full w-auto max-w-[260px] sm:max-w-[300px] object-contain"
+        loading="lazy"
+      />
     </motion.div>
   );
 };
@@ -803,17 +907,32 @@ const RentVerseShowcaseSection: React.FC = () => {
           <div className="lg:col-span-7 flex items-center justify-center relative min-h-[440px]">
             <div className="relative w-full h-[400px] sm:h-[440px] flex items-center justify-center">
               <div className="relative w-full h-full flex items-center justify-center">
-                {reversedChapters.map(({ chap, idx }) => (
-                  chap.device === 'phone' ? (
-                    <CascadePhoneItem
-                      key={chap.id}
-                      image={chap.image}
-                      alt={chap.title}
-                      scrollYProgress={scrollYProgress}
-                      index={idx}
-                      total={total}
-                    />
-                  ) : (
+                {reversedChapters.map(({ chap, idx }) => {
+                  if (chap.device === 'raw') {
+                    return (
+                      <CascadeRawItem
+                        key={chap.id}
+                        image={chap.image}
+                        alt={chap.title}
+                        scrollYProgress={scrollYProgress}
+                        index={idx}
+                        total={total}
+                      />
+                    );
+                  }
+                  if (chap.device === 'phone') {
+                    return (
+                      <CascadePhoneItem
+                        key={chap.id}
+                        image={chap.image}
+                        alt={chap.title}
+                        scrollYProgress={scrollYProgress}
+                        index={idx}
+                        total={total}
+                      />
+                    );
+                  }
+                  return (
                     <CascadeLaptopItem
                       key={chap.id}
                       image={chap.image}
@@ -822,8 +941,8 @@ const RentVerseShowcaseSection: React.FC = () => {
                       index={idx}
                       total={total}
                     />
-                  )
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
