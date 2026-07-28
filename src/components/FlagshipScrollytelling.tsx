@@ -796,17 +796,6 @@ const RentVerseShowcaseSection: React.FC = () => {
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#F5F9FA] flex flex-col justify-between pt-20 pb-4 lg:pt-24 lg:pb-6 transition-colors duration-1000">
         
-        {/* Dynamic Blurred Image Background — 10% Blur */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <img 
-            key={currentChapter.image}
-            src={currentChapter.image} 
-            alt=""
-            className="w-full h-full object-cover scale-105 blur-[6px] opacity-90 transition-opacity duration-1000"
-          />
-          <div className="absolute inset-0 bg-black/15" />
-        </div>
-
         {/* Ambient Glows */}
         <div
           className="absolute top-1/2 left-10 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
