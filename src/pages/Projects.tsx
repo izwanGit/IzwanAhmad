@@ -41,6 +41,23 @@ const Projects = () => {
     ? allSkills 
     : allSkills.filter(s => s.categoryId === activeSkillCategory);
 
+  // Interleave skills so huge, medium, and small circles mix in 2D space without horizontal lines
+  const scatteredSkills = React.useMemo(() => {
+    const level3 = filteredSkills.filter(s => (s.level || 1) === 3);
+    const level2 = filteredSkills.filter(s => (s.level || 1) === 2);
+    const level1 = filteredSkills.filter(s => (s.level || 1) === 1);
+    
+    const result: typeof filteredSkills = [];
+    let i3 = 0, i2 = 0, i1 = 0;
+    while (i3 < level3.length || i2 < level2.length || i1 < level1.length) {
+      if (i3 < level3.length) result.push(level3[i3++]);
+      if (i1 < level1.length) result.push(level1[i1++]);
+      if (i2 < level2.length) result.push(level2[i2++]);
+      if (i1 < level1.length) result.push(level1[i1++]);
+    }
+    return result;
+  }, [filteredSkills]);
+
   return (
     <div className="w-full pt-28 pb-28 bg-[#F5F9FA] min-h-screen">
       <div className="container mx-auto px-6 max-w-7xl">
@@ -299,9 +316,9 @@ const Projects = () => {
               className="absolute bottom-12 right-24 w-7 h-7 rounded-full bg-[#8B5CF6]/60 shadow-[0_4px_12px_rgba(139,92,246,0.4)] pointer-events-none" 
             />
 
-            <div className="flex flex-wrap items-center justify-center -space-x-3 sm:-space-x-6 -space-y-4 sm:-space-y-6 max-w-5xl relative z-10 py-8 px-2">
+            <div className="flex flex-wrap items-center justify-center -space-x-3 sm:-space-x-6 -space-y-4 sm:-space-y-6 max-w-5xl relative z-10 py-12 px-2">
               <AnimatePresence>
-                {filteredSkills.map((skill, idx) => {
+                {scatteredSkills.map((skill, idx) => {
                   const SkillIcon = skill.icon;
                   
                   // Use exact original brand color for each skill logo
@@ -316,18 +333,19 @@ const Projects = () => {
                   const lvl = skill.level || 1;
                   const sizeClass = 
                     lvl === 3
-                      ? 'w-32 h-32 sm:w-40 sm:h-40 text-xs sm:text-base font-black p-3'
+                      ? 'w-28 h-28 sm:w-36 sm:h-36 text-xs sm:text-sm font-black p-3'
                       : lvl === 2
-                      ? 'w-20 h-20 sm:w-26 sm:h-26 text-[11px] sm:text-xs font-bold p-2'
-                      : 'w-14 h-14 sm:w-18 sm:h-18 text-[9px] sm:text-[10px] font-semibold p-1';
+                      ? 'w-18 h-18 sm:w-24 sm:h-24 text-[11px] sm:text-xs font-bold p-2'
+                      : 'w-12 h-12 sm:w-16 sm:h-16 text-[9px] sm:text-[10px] font-semibold p-1';
 
-                  // Staggered negative nesting margins so bubbles tuck into each other
+                  // Multi-axis staggered offsets breaking straight horizontal lines completely
                   const staggerMargin = 
-                    idx % 6 === 0 ? '-mt-6 sm:-mt-10 -ml-3' :
-                    idx % 5 === 0 ? 'mt-6 sm:mt-8 -ml-4' :
-                    idx % 4 === 0 ? '-mt-4 sm:-mt-7 ml-3' :
-                    idx % 3 === 0 ? 'mt-4 sm:mt-6 -mr-3' :
-                    idx % 2 === 0 ? '-mt-6 sm:-mt-8 ml-2' : 'mt-2 -ml-2';
+                    idx % 7 === 0 ? '-mt-8 sm:-mt-14 -ml-4 sm:-ml-6' :
+                    idx % 6 === 0 ? 'mt-8 sm:mt-12 -ml-3 sm:-ml-5' :
+                    idx % 5 === 0 ? '-mt-5 sm:-mt-9 ml-4 sm:ml-6' :
+                    idx % 4 === 0 ? 'mt-5 sm:mt-7 -mr-3 sm:-mr-5' :
+                    idx % 3 === 0 ? '-mt-7 sm:-mt-11 ml-3 sm:ml-5' :
+                    idx % 2 === 0 ? 'mt-3 sm:mt-5 -ml-2' : '-mt-2 ml-1';
 
                   const floatDuration = 3.5 + (idx % 5) * 0.4;
                   const floatY = idx % 2 === 0 ? [-5, 5, -5] : [5, -5, 5];
