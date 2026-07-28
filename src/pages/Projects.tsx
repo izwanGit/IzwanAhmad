@@ -273,33 +273,33 @@ const Projects = () => {
           </div>
 
           {/* Authentic Circle Bubble Cloud (Organically Scattered Packed Chart) */}
-          <div className="relative p-6 sm:p-12 rounded-3xl bg-[#F5F9FA]/80 border border-border overflow-hidden min-h-[460px] flex items-center justify-center">
+          <div className="relative p-6 sm:p-12 rounded-3xl bg-[#F5F9FA]/80 border border-border overflow-hidden min-h-[520px] flex items-center justify-center">
             {/* Ambient Background Radial Glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.1)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
 
-            {/* Floating Decorative Accent Bubbles in Gaps */}
+            {/* Floating Decorative Accent Micro-Bubbles in Gaps */}
             <motion.div 
               animate={{ y: [-8, 8, -8], x: [-5, 5, -5] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-12 left-16 w-6 h-6 rounded-full bg-[#F43F5E]/40 blur-[1px] pointer-events-none" 
+              className="absolute top-12 left-16 w-8 h-8 rounded-full bg-[#F43F5E]/60 shadow-[0_4px_12px_rgba(244,63,94,0.4)] pointer-events-none" 
             />
             <motion.div 
               animate={{ y: [6, -6, 6], x: [4, -4, 4] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-14 left-24 w-8 h-8 rounded-full bg-[#10B981]/40 blur-[1px] pointer-events-none" 
+              className="absolute bottom-14 left-20 w-10 h-10 rounded-full bg-[#10B981]/60 shadow-[0_4px_12px_rgba(16,185,129,0.4)] pointer-events-none" 
             />
             <motion.div 
               animate={{ y: [-6, 10, -6], x: [-6, 4, -6] }}
               transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-16 right-20 w-7 h-7 rounded-full bg-[#3B82F6]/40 blur-[1px] pointer-events-none" 
+              className="absolute top-16 right-20 w-9 h-9 rounded-full bg-[#3B82F6]/60 shadow-[0_4px_12px_rgba(59,130,246,0.4)] pointer-events-none" 
             />
             <motion.div 
               animate={{ y: [8, -8, 8], x: [5, -5, 5] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-12 right-28 w-5 h-5 rounded-full bg-[#8B5CF6]/40 blur-[1px] pointer-events-none" 
+              className="absolute bottom-12 right-24 w-7 h-7 rounded-full bg-[#8B5CF6]/60 shadow-[0_4px_12px_rgba(139,92,246,0.4)] pointer-events-none" 
             />
 
-            <div className="flex flex-wrap items-center justify-center -space-x-1 sm:-space-x-2 -space-y-1.5 sm:-space-y-2.5 max-w-5xl relative z-10 py-6 px-2">
+            <div className="flex flex-wrap items-center justify-center -space-x-3 sm:-space-x-6 -space-y-4 sm:-space-y-6 max-w-5xl relative z-10 py-8 px-2">
               <AnimatePresence>
                 {filteredSkills.map((skill, idx) => {
                   const SkillIcon = skill.icon;
@@ -312,21 +312,22 @@ const Projects = () => {
                   const bubbleBg = isWhite ? '#0C1A20' : rawColor;
                   const textColor = isYellow ? '#0C1A20' : '#FFFFFF';
 
-                  // Proficiency-driven bubble sizes (Level 3 = Flagship Largest, Level 2 = Core Medium, Level 1 = Supporting Compact)
+                  // Proficiency-driven bubble sizes matching D3 circle packing reference
                   const lvl = skill.level || 1;
                   const sizeClass = 
                     lvl === 3
-                      ? 'w-28 h-28 sm:w-32 sm:h-32 text-xs sm:text-sm font-black'
+                      ? 'w-32 h-32 sm:w-40 sm:h-40 text-xs sm:text-base font-black p-3'
                       : lvl === 2
-                      ? 'w-20 h-20 sm:w-22 sm:h-22 text-[11px] font-bold'
-                      : 'w-14 h-14 sm:w-16 sm:h-16 text-[9px] sm:text-[10px] font-semibold';
+                      ? 'w-20 h-20 sm:w-26 sm:h-26 text-[11px] sm:text-xs font-bold p-2'
+                      : 'w-14 h-14 sm:w-18 sm:h-18 text-[9px] sm:text-[10px] font-semibold p-1';
 
-                  // Staggered scattered offsets
+                  // Staggered negative nesting margins so bubbles tuck into each other
                   const staggerMargin = 
-                    idx % 5 === 0 ? 'mt-4 -ml-2' :
-                    idx % 4 === 0 ? '-mt-3 ml-2' :
-                    idx % 3 === 0 ? 'mt-3 -mr-1' :
-                    idx % 2 === 0 ? '-mt-4 ml-1' : 'mt-1 -ml-1';
+                    idx % 6 === 0 ? '-mt-6 sm:-mt-10 -ml-3' :
+                    idx % 5 === 0 ? 'mt-6 sm:mt-8 -ml-4' :
+                    idx % 4 === 0 ? '-mt-4 sm:-mt-7 ml-3' :
+                    idx % 3 === 0 ? 'mt-4 sm:mt-6 -mr-3' :
+                    idx % 2 === 0 ? '-mt-6 sm:-mt-8 ml-2' : 'mt-2 -ml-2';
 
                   const floatDuration = 3.5 + (idx % 5) * 0.4;
                   const floatY = idx % 2 === 0 ? [-5, 5, -5] : [5, -5, 5];
@@ -354,15 +355,17 @@ const Projects = () => {
                       style={{ 
                         backgroundColor: bubbleBg,
                         color: textColor,
-                        boxShadow: `0 8px 24px -4px ${isWhite ? 'rgba(12,26,32,0.4)' : rawColor + '77'}`,
+                        boxShadow: `0 10px 28px -4px ${isWhite ? 'rgba(12,26,32,0.45)' : rawColor + '88'}`,
                       }}
-                      className={`${sizeClass} ${staggerMargin} rounded-full font-bold transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-center p-2 hover:scale-130 hover:z-50 border-2 border-white/35 group relative ring-1 ring-black/10`}
+                      className={`${sizeClass} ${staggerMargin} rounded-full transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-center hover:scale-125 hover:z-50 border-2 sm:border-4 border-white/35 group relative ring-1 ring-black/10`}
                     >
                       <SkillIcon 
-                        className="shrink-0 text-base sm:text-xl mb-1 group-hover:scale-125 transition-transform" 
+                        className={`shrink-0 mb-1 group-hover:scale-125 transition-transform ${
+                          lvl === 3 ? 'text-2xl sm:text-3xl' : lvl === 2 ? 'text-lg sm:text-xl' : 'text-sm sm:text-base'
+                        }`}
                         style={{ color: textColor }}
                       />
-                      <span className="leading-none tracking-tight font-extrabold px-1 truncate max-w-full">
+                      <span className="leading-tight tracking-tight font-extrabold px-1 truncate max-w-full">
                         {skill.name}
                       </span>
                     </motion.div>
