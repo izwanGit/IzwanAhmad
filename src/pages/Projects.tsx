@@ -243,14 +243,14 @@ const Projects = () => {
               </h2>
             </div>
             
-            {/* Compact Category Pills */}
-            <div className="flex flex-wrap gap-1.5">
+            {/* Bubble Category Pills */}
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setActiveSkillCategory('all')}
-                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   activeSkillCategory === 'all'
-                    ? 'bg-[#0E7490] text-white shadow-2xs'
-                    : 'bg-[#F5F9FA] text-muted-foreground hover:text-[#0C1A20] border border-border'
+                    ? 'bg-[#0E7490] text-white shadow-xs scale-102'
+                    : 'bg-white text-muted-foreground hover:text-[#0C1A20] border border-border shadow-2xs hover:border-[#06B6D4]'
                 }`}
               >
                 All ({allSkills.length})
@@ -259,10 +259,10 @@ const Projects = () => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveSkillCategory(cat.id)}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                     activeSkillCategory === cat.id
-                      ? 'bg-[#0E7490] text-white shadow-2xs'
-                      : 'bg-[#F5F9FA] text-muted-foreground hover:text-[#0C1A20] border border-border'
+                      ? 'bg-[#0E7490] text-white shadow-xs scale-102'
+                      : 'bg-white text-muted-foreground hover:text-[#0C1A20] border border-border shadow-2xs hover:border-[#06B6D4]'
                   }`}
                 >
                   {cat.title}
@@ -271,22 +271,24 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Compact Skill Chips Grid with Real Colors */}
-          <div className="flex flex-wrap gap-2 pt-2">
+          {/* Bubble Skill Chips Grid with Real Colors */}
+          <div className="flex flex-wrap gap-2.5 pt-2">
             <AnimatePresence>
               {filteredSkills.map((skill) => {
                 const SkillIcon = skill.icon;
                 return (
                   <motion.div
                     layout
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.2 }}
                     key={`${skill.categoryId}-${skill.name}`}
-                    className="px-3 py-1.5 bg-[#F5F9FA] border border-border hover:border-[#06B6D4] hover:bg-white rounded-lg text-xs font-semibold text-[#0C1A20] transition-all cursor-default flex items-center gap-2 shadow-2xs"
+                    className="px-3.5 py-1.5 bg-white border border-slate-200/90 hover:border-[#06B6D4] rounded-full text-xs font-bold text-[#0C1A20] transition-all cursor-default flex items-center gap-2.5 shadow-2xs hover:shadow-[0_4px_16px_rgba(6,182,212,0.2)] hover:-translate-y-0.5 group"
                   >
-                    <SkillIcon className="shrink-0 text-sm" style={{ color: skill.color }} />
+                    <div className="w-5 h-5 rounded-full bg-slate-100/90 group-hover:bg-[#06B6D4]/10 flex items-center justify-center transition-colors">
+                      <SkillIcon className="shrink-0 text-xs transition-transform group-hover:scale-110" style={{ color: skill.color }} />
+                    </div>
                     <span>{skill.name}</span>
                   </motion.div>
                 );
@@ -464,7 +466,7 @@ const Projects = () => {
                       {project.tags.slice(0, 3).map((tag, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 bg-[#F5F9FA] text-[#0C1A20] text-[10px] font-semibold rounded border border-borderStrong"
+                          className="px-2.5 py-0.5 bg-[#F5F9FA] text-[#0C1A20] text-[10px] font-bold rounded-full border border-borderStrong"
                         >
                           {tag}
                         </span>
