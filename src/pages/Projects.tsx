@@ -312,13 +312,14 @@ const Projects = () => {
                   const bubbleBg = isWhite ? '#0C1A20' : rawColor;
                   const textColor = isYellow ? '#0C1A20' : '#FFFFFF';
 
-                  // Multi-tier sizes (Large, Medium, Compact)
+                  // Proficiency-driven bubble sizes (Level 3 = Flagship Largest, Level 2 = Core Medium, Level 1 = Supporting Compact)
+                  const lvl = skill.level || 1;
                   const sizeClass = 
-                    idx % 7 === 0
-                      ? 'w-24 h-24 sm:w-28 sm:h-28 text-xs'
-                      : idx % 3 === 0
-                      ? 'w-20 h-20 sm:w-22 sm:h-22 text-[11px]'
-                      : 'w-16 h-16 sm:w-18 sm:h-18 text-[10px]';
+                    lvl === 3
+                      ? 'w-28 h-28 sm:w-32 sm:h-32 text-xs sm:text-sm font-black'
+                      : lvl === 2
+                      ? 'w-20 h-20 sm:w-22 sm:h-22 text-[11px] font-bold'
+                      : 'w-14 h-14 sm:w-16 sm:h-16 text-[9px] sm:text-[10px] font-semibold';
 
                   // Staggered scattered offsets
                   const staggerMargin = 
