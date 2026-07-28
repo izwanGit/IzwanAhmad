@@ -10,7 +10,7 @@ const petronasProjects = [
       { name: 'Streamlit', icon: '/images/tools/streamlit.svg' },
       { name: 'Playwright', icon: '/images/tools/playwright.svg' },
     ],
-    solidColor: '#7B8B18', // Solid Lime Green
+    solidColor: '#00A39E', // Solid PETRONAS Teal
     desc: 'Unified internal platform automating 3 ITSM workflows. Cut weekly report prep from 3–4 hrs to under 2 min, monthly from 1–2 hrs to under 3 min, and pre-deployment from 30 min to under 1 min.',
     slides: [
       { src: '/images/petronas-hub-main.jpg', title: 'Main Operations Hub UI' },
@@ -29,7 +29,7 @@ const petronasProjects = [
       { name: 'SharePoint', icon: '/images/tools/microsoft-sharepoint.svg' },
       { name: 'Excel', icon: '/images/tools/microsoft-excel.svg' },
     ],
-    solidColor: '#B37E0E', // Solid Amber
+    solidColor: '#00A39E', // Solid PETRONAS Teal
     desc: 'Zero-touch pipeline running every Monday 7 AM. Ingests 4 Excel files with 6 TypeScript Office Scripts, builds PETRONAS-branded HTML emails, and sends Teams reminders with @mentions.',
     slides: [
       { src: '/images/petronas-weekly-email.jpg', title: 'Automated Outlook HTML Email' },
@@ -44,7 +44,7 @@ const petronasProjects = [
       { name: 'Power Automate', icon: '/images/tools/Microsoft_Power_Automate.svg' },
       { name: 'SharePoint', icon: '/images/tools/microsoft-sharepoint.svg' },
     ],
-    solidColor: '#6B308C', // Solid PETRONAS Purple
+    solidColor: '#00A39E', // Solid PETRONAS Teal
     desc: 'Runs on the 1st of every month with zero human touch. Redesigned Power BI template uses DAX to generate executive summaries, then Power Automate exports to PPTX and emails leadership.',
     slides: [
       { src: '/images/petronas-monthly-cover.jpg', title: '16:9 Power BI Executive Template' },
@@ -61,7 +61,7 @@ const petronasProjects = [
       { name: 'Playwright', icon: '/images/tools/playwright.svg' },
       { name: 'Word', icon: '/images/tools/microsoft-word.svg' },
     ],
-    solidColor: '#162E70', // Solid PETRONAS Deep Blue
+    solidColor: '#00A39E', // Solid PETRONAS Teal
     desc: 'Triggered automatically by UAT endorsement emails. Generates PETRONAS-branded OAT Word documents and posts interactive Teams cards with a 1-click Streamlit RPA launcher.',
     slides: [
       { src: '/images/petronas-predeploy-card.jpg', title: 'Teams Adaptive Card Handoff' },
@@ -78,7 +78,7 @@ const petronasProjects = [
       { name: 'Office 365', icon: '/images/tools/Microsoft_365_(2022).svg' },
       { name: 'Excel', icon: '/images/tools/microsoft-excel.svg' },
     ],
-    solidColor: '#00605B', // Solid Emerald Dark
+    solidColor: '#00A39E', // Solid PETRONAS Teal
     desc: '24/7 Teams chat listener intercepting urgent ticket mentions (REQ / ICT_WO). Auto-logs placeholders in SharePoint, enriches details via Office Scripts, and posts weekly reminders.',
     slides: [
       { src: '/images/petronas-priority-notif.jpg', title: '24/7 Real-Time Teams Chat Listener' },
@@ -93,7 +93,7 @@ const petronasProjects = [
       { name: 'Power BI', icon: '/images/tools/microsoft-power-bi.svg' },
       { name: 'SharePoint', icon: '/images/tools/microsoft-sharepoint.svg' },
     ],
-    solidColor: '#026597', // Solid Sky Blue
+    solidColor: '#00A39E', // Solid PETRONAS Teal
     desc: 'Maintained production Power BI monitoring dashboard for 50,000+ employee myCareerX operations. Refined data models, corrected legacy filters, and added new DAX metrics.',
     slides: [
       { src: '/images/petronas-dashboard-page.jpg', title: 'Production Executive Monitoring Dashboard' },

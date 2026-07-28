@@ -124,7 +124,7 @@ const Projects = () => {
                   {/* Device-Aware Mockup Header — Equal Height for Both Beruang & RentVerse */}
                   <div 
                     className="p-5 sm:p-6 flex justify-center items-center h-[300px] sm:h-[330px] relative overflow-hidden border-b border-border/80"
-                    style={{ backgroundColor: project.imageType === 'phone' ? (project.mobileBgColor || '#5C4634') : undefined }}
+                    style={{ backgroundColor: (project.imageType === 'phone' || project.mobileBgColor) ? (project.mobileBgColor || '#5C4634') : undefined }}
                   >
                     {project.imageType === 'phone' ? (
                       /* Mobile App UI Brand Background & Phone Mockup */
@@ -142,17 +142,21 @@ const Projects = () => {
                         </div>
                       </>
                     ) : (
-                      /* Vibrant Blurred Image Backdrop for Web/Laptop — 10% Blur */
+                      /* Brand Color Background OR Vibrant Blurred Image Backdrop */
                       <>
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                          <img 
-                            src={project.image} 
-                            alt="" 
-                            aria-hidden="true" 
-                            className="w-full h-full object-cover scale-105 blur-[6px] opacity-90 group-hover:scale-110 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors duration-500" />
-                        </div>
+                        {project.mobileBgColor ? (
+                          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                        ) : (
+                          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                            <img 
+                              src={project.image} 
+                              alt="" 
+                              aria-hidden="true" 
+                              className="w-full h-full object-cover scale-105 blur-[6px] opacity-90 group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors duration-500" />
+                          </div>
+                        )}
                         <div className="w-full max-w-[400px] sm:max-w-[440px] rounded-xl bg-white border border-slate-300/80 shadow-2xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
                           <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
                             <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
@@ -351,7 +355,7 @@ const Projects = () => {
                   {/* Device Mockup Thumbnail */}
                   <div 
                     className="p-5 sm:p-6 flex justify-center items-center h-[240px] sm:h-[260px] relative overflow-hidden rounded-2xl border border-border mb-5"
-                    style={{ backgroundColor: project.imageType === 'phone' ? (project.mobileBgColor || '#5C4634') : undefined }}
+                    style={{ backgroundColor: (project.imageType === 'phone' || project.mobileBgColor) ? (project.mobileBgColor || '#5C4634') : undefined }}
                   >
                     {project.imageType === 'phone' ? (
                       /* Mobile App UI Brand Color Background & Dynamic Phone Layout (iPhone vs Android) */
@@ -401,17 +405,21 @@ const Projects = () => {
                         </div>
                       </>
                     ) : (
-                      /* Vibrant Blurred Image Backdrop for Web/Laptop — 10% Blur */
+                      /* Brand Color Background OR Vibrant Blurred Image Backdrop */
                       <>
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                          <img 
-                            src={project.image} 
-                            alt="" 
-                            aria-hidden="true" 
-                            className="w-full h-full object-cover scale-105 blur-[6px] opacity-90 group-hover:scale-110 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors duration-500" />
-                        </div>
+                        {project.mobileBgColor ? (
+                          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                        ) : (
+                          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                            <img 
+                              src={project.image} 
+                              alt="" 
+                              aria-hidden="true" 
+                              className="w-full h-full object-cover scale-105 blur-[6px] opacity-90 group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors duration-500" />
+                          </div>
+                        )}
                         <div className="w-full rounded-xl bg-white border border-slate-300 shadow-xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
                           <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
                             <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />

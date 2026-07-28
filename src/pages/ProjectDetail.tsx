@@ -315,17 +315,24 @@ const ProjectDetail = () => {
                   </div>
                 ) : (
                   /* Super Duper Blurred Image Backdrop for Web/Laptop */
-                  <div className="p-6 sm:p-8 rounded-3xl border border-border shadow-md relative overflow-hidden bg-slate-900">
-                    {/* Dynamic Blurred Image Background — 10% Blur */}
-                    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                      <img 
-                        src={item.src} 
-                        alt="" 
-                        aria-hidden="true" 
-                        className="w-full h-full object-cover scale-105 blur-[6px] opacity-90"
-                      />
-                      <div className="absolute inset-0 bg-black/15" />
-                    </div>
+                  <div 
+                    className="p-6 sm:p-8 rounded-3xl border border-border shadow-md relative overflow-hidden bg-slate-900"
+                    style={{ backgroundColor: project.mobileBgColor || undefined }}
+                  >
+                    {/* Dynamic Background: Solid Brand Color or Blurred Image Backdrop */}
+                    {project.mobileBgColor ? (
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                    ) : (
+                      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                        <img 
+                          src={item.src} 
+                          alt="" 
+                          aria-hidden="true" 
+                          className="w-full h-full object-cover scale-105 blur-[6px] opacity-90"
+                        />
+                        <div className="absolute inset-0 bg-black/15" />
+                      </div>
+                    )}
                     
                     {/* Laptop Frame */}
                     <div className="bg-white rounded-2xl border border-slate-300 shadow-xl overflow-hidden relative z-10">
