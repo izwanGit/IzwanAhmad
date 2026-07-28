@@ -802,9 +802,9 @@ const RentVerseShowcaseSection: React.FC = () => {
             key={currentChapter.image}
             src={currentChapter.image} 
             alt=""
-            className="w-full h-full object-cover scale-125 blur-[100px] opacity-50 transition-opacity duration-1000"
+            className="w-full h-full object-cover scale-110 blur-md opacity-90 transition-opacity duration-1000"
           />
-          <div className="absolute inset-0 bg-[#F5F9FA]/70 backdrop-blur-3xl" />
+          <div className="absolute inset-0 bg-[#F5F9FA]/60" />
         </div>
 
         {/* Ambient Glows */}
