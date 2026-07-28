@@ -282,23 +282,13 @@ const Projects = () => {
                 {filteredSkills.map((skill, idx) => {
                   const SkillIcon = skill.icon;
                   
-                  // Category Color Theme matching reference image
-                  let bgStyle = 'bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8]';
-                  let shadowStyle = 'shadow-[0_8px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_14px_30px_rgba(59,130,246,0.5)]';
+                  // Use exact original brand color for each skill logo
+                  const rawColor = skill.color || '#06B6D4';
+                  const isWhite = rawColor.toUpperCase() === '#FFFFFF' || rawColor.toUpperCase() === '#FFF';
+                  const isYellow = rawColor.toUpperCase() === '#F7DF1E' || rawColor.toUpperCase() === '#E6AD00';
 
-                  if (skill.categoryId === 'ai') {
-                    bgStyle = 'bg-gradient-to-br from-[#F43F5E] to-[#BE185D]';
-                    shadowStyle = 'shadow-[0_8px_20px_rgba(244,63,94,0.3)] hover:shadow-[0_14px_30px_rgba(244,63,94,0.5)]';
-                  } else if (skill.categoryId === 'languages') {
-                    bgStyle = 'bg-gradient-to-br from-[#10B981] to-[#047857]';
-                    shadowStyle = 'shadow-[0_8px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_14px_30px_rgba(16,185,129,0.5)]';
-                  } else if (skill.categoryId === 'web' || skill.categoryId === 'mobile') {
-                    bgStyle = 'bg-gradient-to-br from-[#06B6D4] to-[#0E7490]';
-                    shadowStyle = 'shadow-[0_8px_20px_rgba(6,182,212,0.3)] hover:shadow-[0_14px_30px_rgba(6,182,212,0.5)]';
-                  } else if (skill.categoryId === 'automation' || skill.categoryId === 'security') {
-                    bgStyle = 'bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9]';
-                    shadowStyle = 'shadow-[0_8px_20px_rgba(139,92,246,0.3)] hover:shadow-[0_14px_30px_rgba(139,92,246,0.5)]';
-                  }
+                  const bubbleBg = isWhite ? '#0C1A20' : rawColor;
+                  const textColor = isYellow ? '#0C1A20' : '#FFFFFF';
 
                   // Vary bubble sizes organically (Large, Medium, Compact)
                   const sizeClass = 
@@ -328,9 +318,17 @@ const Projects = () => {
                         y: { duration: floatDuration, repeat: Infinity, ease: 'easeInOut' } 
                       }}
                       key={`${skill.categoryId}-${skill.name}`}
-                      className={`${sizeClass} ${bgStyle} ${shadowStyle} rounded-full text-white font-bold transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-center p-2 hover:scale-125 hover:z-40 border-2 border-white/30 group relative ring-1 ring-black/10`}
+                      style={{ 
+                        backgroundColor: bubbleBg,
+                        color: textColor,
+                        boxShadow: `0 8px 24px -4px ${isWhite ? 'rgba(12,26,32,0.4)' : rawColor + '77'}`,
+                      }}
+                      className={`${sizeClass} rounded-full font-bold transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-center p-2 hover:scale-125 hover:z-40 border-2 border-white/30 group relative ring-1 ring-black/10`}
                     >
-                      <SkillIcon className="shrink-0 text-base sm:text-xl mb-1 group-hover:scale-125 transition-transform" />
+                      <SkillIcon 
+                        className="shrink-0 text-base sm:text-xl mb-1 group-hover:scale-125 transition-transform" 
+                        style={{ color: textColor }}
+                      />
                       <span className="leading-none tracking-tight font-extrabold px-1 truncate max-w-full">
                         {skill.name}
                       </span>
