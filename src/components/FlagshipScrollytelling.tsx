@@ -568,12 +568,12 @@ const CascadeLaptopItem: React.FC<CascadeLaptopProps> = ({
       style={{ x, y, scale, opacity }}
       className="absolute w-full max-w-[540px] lg:max-w-[600px] transform-gpu"
     >
-      <div className="w-full aspect-[16/10] rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/50 shadow-[0_30px_70px_rgba(14,116,144,0.25)] relative ring-1 ring-white/15">
+      <div className="w-full rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/50 shadow-[0_30px_70px_rgba(14,116,144,0.25)] relative ring-1 ring-white/15">
         <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
           <div className="w-1 h-1 rounded-full bg-[#06B6D4]" />
         </div>
-        <div className="relative w-full h-full rounded-xl overflow-hidden bg-white border border-white/10 shadow-inner">
-          <img src={image} alt={alt} className="w-full h-full object-cover object-top" loading="lazy" />
+        <div className="relative w-full rounded-xl overflow-hidden bg-white border border-white/10 shadow-inner">
+          <img src={image} alt={alt} className="w-full h-auto block" loading="lazy" />
         </div>
       </div>
       <div className="w-[108%] -ml-[4%] h-5 rounded-b-2xl bg-gradient-to-b from-[#1E293B] to-[#0C1A20] border-t border-[#0E7490]/40 shadow-2xl flex justify-center items-start">

@@ -162,11 +162,11 @@ const Projects = () => {
                               https://izwan.dev/{project.id}
                             </div>
                           </div>
-                          <div className="aspect-[16/10] overflow-hidden bg-slate-50">
+                          <div className="w-full overflow-hidden bg-white">
                             <img 
                               src={project.image} 
                               alt={project.title}
-                              className="w-full h-full object-cover object-top"
+                              className="w-full h-auto block"
                             />
                           </div>
                         </div>
@@ -421,11 +421,11 @@ const Projects = () => {
                               https://izwan.dev/{project.id}
                             </div>
                           </div>
-                          <div className="aspect-[16/10] overflow-hidden bg-slate-50">
+                          <div className="w-full overflow-hidden bg-white max-h-[190px] sm:max-h-[210px] flex items-start justify-center">
                             <img 
                               src={project.image} 
                               alt={project.title}
-                              className="w-full h-full object-cover object-top"
+                              className="w-full h-auto block"
                             />
                           </div>
                         </div>

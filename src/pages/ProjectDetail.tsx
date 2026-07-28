@@ -337,11 +337,11 @@ const ProjectDetail = () => {
                           https://izwan.dev/projects/{project.id}
                         </div>
                       </div>
-                      <div className="aspect-[16/10] overflow-hidden bg-white">
+                      <div className="w-full overflow-hidden bg-white">
                         <img 
                           src={item.src} 
                           alt={item.caption}
-                          className="w-full h-full object-cover object-top"
+                          className="w-full h-auto block"
                         />
                       </div>
                     </div>
