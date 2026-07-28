@@ -18,6 +18,7 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'web' | 'mobile' | 'ai' | 'enterprise'>('all');
   const [activeSkillCategory, setActiveSkillCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [skillViewMode, setSkillViewMode] = useState<'bubble' | 'chips'>('bubble');
 
   // Filter projects by category and search term
   const filteredProjects = projects.filter(p => {
@@ -271,29 +272,73 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Bubble Skill Chips Grid with Real Colors */}
-          <div className="flex flex-wrap gap-2.5 pt-2">
-            <AnimatePresence>
-              {filteredSkills.map((skill) => {
-                const SkillIcon = skill.icon;
-                return (
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.2 }}
-                    key={`${skill.categoryId}-${skill.name}`}
-                    className="px-3.5 py-1.5 bg-white border border-slate-200/90 hover:border-[#06B6D4] rounded-full text-xs font-bold text-[#0C1A20] transition-all cursor-default flex items-center gap-2.5 shadow-2xs hover:shadow-[0_4px_16px_rgba(6,182,212,0.2)] hover:-translate-y-0.5 group"
-                  >
-                    <div className="w-5 h-5 rounded-full bg-slate-100/90 group-hover:bg-[#06B6D4]/10 flex items-center justify-center transition-colors">
-                      <SkillIcon className="shrink-0 text-xs transition-transform group-hover:scale-110" style={{ color: skill.color }} />
-                    </div>
-                    <span>{skill.name}</span>
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
+          {/* Authentic Circle Bubble Cloud (Packed Bubble Chart) */}
+          <div className="relative p-6 sm:p-10 rounded-3xl bg-[#F5F9FA]/80 border border-border overflow-hidden min-h-[420px] flex items-center justify-center">
+            {/* Ambient Background Radial Glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.08)_0%,transparent_70%)] pointer-events-none" />
+
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-5xl relative z-10 py-4">
+              <AnimatePresence>
+                {filteredSkills.map((skill, idx) => {
+                  const SkillIcon = skill.icon;
+                  
+                  // Category Color Theme matching reference image
+                  let bgStyle = 'bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8]';
+                  let shadowStyle = 'shadow-[0_8px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_14px_30px_rgba(59,130,246,0.5)]';
+
+                  if (skill.categoryId === 'ai') {
+                    bgStyle = 'bg-gradient-to-br from-[#F43F5E] to-[#BE185D]';
+                    shadowStyle = 'shadow-[0_8px_20px_rgba(244,63,94,0.3)] hover:shadow-[0_14px_30px_rgba(244,63,94,0.5)]';
+                  } else if (skill.categoryId === 'languages') {
+                    bgStyle = 'bg-gradient-to-br from-[#10B981] to-[#047857]';
+                    shadowStyle = 'shadow-[0_8px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_14px_30px_rgba(16,185,129,0.5)]';
+                  } else if (skill.categoryId === 'web' || skill.categoryId === 'mobile') {
+                    bgStyle = 'bg-gradient-to-br from-[#06B6D4] to-[#0E7490]';
+                    shadowStyle = 'shadow-[0_8px_20px_rgba(6,182,212,0.3)] hover:shadow-[0_14px_30px_rgba(6,182,212,0.5)]';
+                  } else if (skill.categoryId === 'automation' || skill.categoryId === 'security') {
+                    bgStyle = 'bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9]';
+                    shadowStyle = 'shadow-[0_8px_20px_rgba(139,92,246,0.3)] hover:shadow-[0_14px_30px_rgba(139,92,246,0.5)]';
+                  }
+
+                  // Vary bubble sizes organically (Large, Medium, Compact)
+                  const sizeClass = 
+                    idx % 7 === 0
+                      ? 'w-24 h-24 sm:w-28 sm:h-28 text-xs'
+                      : idx % 3 === 0
+                      ? 'w-20 h-20 sm:w-22 sm:h-22 text-[11px]'
+                      : 'w-16 h-16 sm:w-18 sm:h-18 text-[10px]';
+
+                  const floatDuration = 3 + (idx % 4) * 0.5;
+                  const floatY = idx % 2 === 0 ? [-3, 3, -3] : [3, -3, 3];
+
+                  return (
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ 
+                        opacity: 1, 
+                        scale: 1,
+                        y: floatY,
+                      }}
+                      exit={{ opacity: 0, scale: 0.5 }}
+                      transition={{ 
+                        layout: { duration: 0.3 },
+                        opacity: { duration: 0.2 },
+                        scale: { duration: 0.2 },
+                        y: { duration: floatDuration, repeat: Infinity, ease: 'easeInOut' } 
+                      }}
+                      key={`${skill.categoryId}-${skill.name}`}
+                      className={`${sizeClass} ${bgStyle} ${shadowStyle} rounded-full text-white font-bold transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-center p-2 hover:scale-125 hover:z-40 border-2 border-white/30 group relative ring-1 ring-black/10`}
+                    >
+                      <SkillIcon className="shrink-0 text-base sm:text-xl mb-1 group-hover:scale-125 transition-transform" />
+                      <span className="leading-none tracking-tight font-extrabold px-1 truncate max-w-full">
+                        {skill.name}
+                      </span>
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 
