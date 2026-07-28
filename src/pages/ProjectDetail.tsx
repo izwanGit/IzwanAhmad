@@ -315,16 +315,20 @@ const ProjectDetail = () => {
                   </div>
                 ) : (
                   /* Super Duper Blurred Image Backdrop for Web/Laptop */
-                  <div className="p-6 sm:p-8 rounded-3xl border border-border shadow-md relative overflow-hidden bg-slate-900/10">
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <div className="p-6 sm:p-8 rounded-3xl border border-border shadow-md relative overflow-hidden bg-[#F5F9FA]">
+                    {/* Dynamic Blurred Image Background */}
+                    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                       <img 
                         src={item.src} 
                         alt="" 
                         aria-hidden="true" 
-                        className="w-full h-full object-cover scale-150 blur-3xl opacity-[0.55]"
+                        className="w-full h-full object-cover scale-110 blur-md opacity-90"
                       />
+                      <div className="absolute inset-0 bg-[#F5F9FA]/60" />
                     </div>
-                    <div className="bg-white rounded-2xl border border-slate-300 shadow-lg overflow-hidden relative z-10">
+                    
+                    {/* Laptop Frame */}
+                    <div className="bg-white rounded-2xl border border-slate-300 shadow-xl overflow-hidden relative z-10">
                       <div className="bg-slate-100 px-4 py-3 flex items-center gap-2 border-b border-slate-200">
                         <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
                         <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
@@ -333,11 +337,11 @@ const ProjectDetail = () => {
                           https://izwan.dev/projects/{project.id}
                         </div>
                       </div>
-                      <div className="bg-slate-50 overflow-hidden flex items-center justify-center p-0.5">
+                      <div className="aspect-[16/10] overflow-hidden bg-white">
                         <img 
                           src={item.src} 
                           alt={item.caption}
-                          className="w-full h-auto max-h-[650px] object-contain"
+                          className="w-full h-full object-cover object-top"
                         />
                       </div>
                     </div>
