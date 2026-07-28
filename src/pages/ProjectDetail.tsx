@@ -315,16 +315,16 @@ const ProjectDetail = () => {
                   </div>
                 ) : (
                   /* Super Duper Blurred Image Backdrop for Web/Laptop */
-                  <div className="p-6 sm:p-8 rounded-3xl border border-border shadow-md relative overflow-hidden bg-[#F5F9FA]">
-                    {/* Dynamic Blurred Image Background */}
+                  <div className="p-6 sm:p-8 rounded-3xl border border-border shadow-md relative overflow-hidden bg-slate-900">
+                    {/* Dynamic Blurred Image Background — 10% Blur */}
                     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                       <img 
                         src={item.src} 
                         alt="" 
                         aria-hidden="true" 
-                        className="w-full h-full object-cover scale-110 blur-md opacity-90"
+                        className="w-full h-full object-cover scale-105 blur-[6px] opacity-90"
                       />
-                      <div className="absolute inset-0 bg-[#F5F9FA]/60" />
+                      <div className="absolute inset-0 bg-black/15" />
                     </div>
                     
                     {/* Laptop Frame */}

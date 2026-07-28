@@ -142,16 +142,16 @@ const Projects = () => {
                         </div>
                       </>
                     ) : (
-                      /* Super Duper Blurred Image Backdrop for Web/Laptop — Batik Style Full Bleed */
+                      /* Vibrant Blurred Image Backdrop for Web/Laptop — 10% Blur */
                       <>
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                           <img 
                             src={project.image} 
                             alt="" 
                             aria-hidden="true" 
-                            className="w-full h-full object-cover scale-150 blur-3xl opacity-[0.55] group-hover:opacity-75 transition-opacity duration-500"
+                            className="w-full h-full object-cover scale-105 blur-[6px] opacity-90 group-hover:scale-110 transition-transform duration-500"
                           />
-                          <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply" />
+                          <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors duration-500" />
                         </div>
                         <div className="w-full max-w-[400px] sm:max-w-[440px] rounded-xl bg-white border border-slate-300/80 shadow-2xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
                           <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
@@ -401,16 +401,16 @@ const Projects = () => {
                         </div>
                       </>
                     ) : (
-                      /* Super Duper Blurred Image Backdrop for Web/Laptop */
+                      /* Vibrant Blurred Image Backdrop for Web/Laptop — 10% Blur */
                       <>
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                           <img 
                             src={project.image} 
                             alt="" 
                             aria-hidden="true" 
-                            className="w-full h-full object-cover scale-150 blur-3xl opacity-[0.55] group-hover:opacity-75 transition-opacity duration-500"
+                            className="w-full h-full object-cover scale-105 blur-[6px] opacity-90 group-hover:scale-110 transition-transform duration-500"
                           />
-                          <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply" />
+                          <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors duration-500" />
                         </div>
                         <div className="w-full rounded-xl bg-white border border-slate-300 shadow-xl overflow-hidden relative z-10 group-hover:scale-102 transition-transform duration-300">
                           <div className="bg-slate-100 px-3 py-2 flex items-center gap-1.5 border-b border-slate-200">
