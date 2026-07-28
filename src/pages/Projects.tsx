@@ -272,12 +272,34 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Authentic Circle Bubble Cloud (Packed Bubble Chart) */}
-          <div className="relative p-6 sm:p-10 rounded-3xl bg-[#F5F9FA]/80 border border-border overflow-hidden min-h-[420px] flex items-center justify-center">
+          {/* Authentic Circle Bubble Cloud (Organically Scattered Packed Chart) */}
+          <div className="relative p-6 sm:p-12 rounded-3xl bg-[#F5F9FA]/80 border border-border overflow-hidden min-h-[460px] flex items-center justify-center">
             {/* Ambient Background Radial Glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.08)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.1)_0%,transparent_70%)] pointer-events-none" />
 
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-5xl relative z-10 py-4">
+            {/* Floating Decorative Accent Bubbles in Gaps */}
+            <motion.div 
+              animate={{ y: [-8, 8, -8], x: [-5, 5, -5] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-12 left-16 w-6 h-6 rounded-full bg-[#F43F5E]/40 blur-[1px] pointer-events-none" 
+            />
+            <motion.div 
+              animate={{ y: [6, -6, 6], x: [4, -4, 4] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-14 left-24 w-8 h-8 rounded-full bg-[#10B981]/40 blur-[1px] pointer-events-none" 
+            />
+            <motion.div 
+              animate={{ y: [-6, 10, -6], x: [-6, 4, -6] }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-16 right-20 w-7 h-7 rounded-full bg-[#3B82F6]/40 blur-[1px] pointer-events-none" 
+            />
+            <motion.div 
+              animate={{ y: [8, -8, 8], x: [5, -5, 5] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-12 right-28 w-5 h-5 rounded-full bg-[#8B5CF6]/40 blur-[1px] pointer-events-none" 
+            />
+
+            <div className="flex flex-wrap items-center justify-center -space-x-1 sm:-space-x-2 -space-y-1.5 sm:-space-y-2.5 max-w-5xl relative z-10 py-6 px-2">
               <AnimatePresence>
                 {filteredSkills.map((skill, idx) => {
                   const SkillIcon = skill.icon;
@@ -290,7 +312,7 @@ const Projects = () => {
                   const bubbleBg = isWhite ? '#0C1A20' : rawColor;
                   const textColor = isYellow ? '#0C1A20' : '#FFFFFF';
 
-                  // Vary bubble sizes organically (Large, Medium, Compact)
+                  // Multi-tier sizes (Large, Medium, Compact)
                   const sizeClass = 
                     idx % 7 === 0
                       ? 'w-24 h-24 sm:w-28 sm:h-28 text-xs'
@@ -298,24 +320,34 @@ const Projects = () => {
                       ? 'w-20 h-20 sm:w-22 sm:h-22 text-[11px]'
                       : 'w-16 h-16 sm:w-18 sm:h-18 text-[10px]';
 
-                  const floatDuration = 3 + (idx % 4) * 0.5;
-                  const floatY = idx % 2 === 0 ? [-3, 3, -3] : [3, -3, 3];
+                  // Staggered scattered offsets
+                  const staggerMargin = 
+                    idx % 5 === 0 ? 'mt-4 -ml-2' :
+                    idx % 4 === 0 ? '-mt-3 ml-2' :
+                    idx % 3 === 0 ? 'mt-3 -mr-1' :
+                    idx % 2 === 0 ? '-mt-4 ml-1' : 'mt-1 -ml-1';
+
+                  const floatDuration = 3.5 + (idx % 5) * 0.4;
+                  const floatY = idx % 2 === 0 ? [-5, 5, -5] : [5, -5, 5];
+                  const floatX = idx % 3 === 0 ? [-3, 3, -3] : [3, -3, 3];
 
                   return (
                     <motion.div
                       layout
-                      initial={{ opacity: 0, scale: 0.5 }}
+                      initial={{ opacity: 0, scale: 0.4 }}
                       animate={{ 
                         opacity: 1, 
                         scale: 1,
                         y: floatY,
+                        x: floatX,
                       }}
-                      exit={{ opacity: 0, scale: 0.5 }}
+                      exit={{ opacity: 0, scale: 0.4 }}
                       transition={{ 
                         layout: { duration: 0.3 },
-                        opacity: { duration: 0.2 },
-                        scale: { duration: 0.2 },
-                        y: { duration: floatDuration, repeat: Infinity, ease: 'easeInOut' } 
+                        opacity: { duration: 0.25 },
+                        scale: { duration: 0.25 },
+                        y: { duration: floatDuration, repeat: Infinity, ease: 'easeInOut' },
+                        x: { duration: floatDuration * 1.2, repeat: Infinity, ease: 'easeInOut' }
                       }}
                       key={`${skill.categoryId}-${skill.name}`}
                       style={{ 
@@ -323,7 +355,7 @@ const Projects = () => {
                         color: textColor,
                         boxShadow: `0 8px 24px -4px ${isWhite ? 'rgba(12,26,32,0.4)' : rawColor + '77'}`,
                       }}
-                      className={`${sizeClass} rounded-full font-bold transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-center p-2 hover:scale-125 hover:z-40 border-2 border-white/30 group relative ring-1 ring-black/10`}
+                      className={`${sizeClass} ${staggerMargin} rounded-full font-bold transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-center p-2 hover:scale-130 hover:z-50 border-2 border-white/35 group relative ring-1 ring-black/10`}
                     >
                       <SkillIcon 
                         className="shrink-0 text-base sm:text-xl mb-1 group-hover:scale-125 transition-transform" 
