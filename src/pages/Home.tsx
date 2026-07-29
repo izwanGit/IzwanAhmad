@@ -13,75 +13,101 @@ const Home = () => {
     <div className="w-full">
 
       {/* ============================================================
-          HERO SECTION
+          HERO SECTION — Flagship Centered Master Layout (No Generic 2-Column Split)
       ============================================================ */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-20">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-28 pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-[#F5F9FA] to-[#F5F9FA]">
+        
+        {/* Subtle Ambient Background Lighting */}
+        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
+        
+        <div className="container mx-auto px-6 max-w-5xl relative z-10 text-center flex flex-col items-center">
+          
+          {/* Shimmer Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 border border-slate-200/90 shadow-xs text-xs font-bold text-[#0E7490] mb-8 backdrop-blur-md"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse shrink-0" />
+            <span>Open to Full-Time & Freelance Opportunities</span>
+            <span className="text-slate-300">|</span>
+            <span className="text-[#06B6D4] font-extrabold">3.9+ CGPA</span>
+          </motion.div>
 
-            {/* Left — Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+          {/* Headline — Centered High-Impact Typography */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-[#0C1A20] leading-[1.1] mb-6 max-w-4xl"
+          >
+            Building High-Performance <span className="bg-gradient-to-r from-[#0E7490] via-[#06B6D4] to-[#0284C7] bg-clip-text text-transparent">Web Apps,</span> AI & Automation.
+          </motion.h1>
+
+          {/* Subtitle Bio */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-8 font-medium"
+          >
+            Hi, I'm <strong className="text-[#0C1A20] font-bold">Izwan Ahmad</strong> — Computer Science graduate (Dean's List, 3.9+ CGPA) & ex-PETRONAS Digital engineer. Building enterprise web platforms, AI vision systems, and workflow automation.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex flex-wrap items-center justify-center gap-4 mb-14"
+          >
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#0E7490] text-white rounded-xl font-bold hover:bg-[#06B6D4] transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(14,116,144,0.3)] hover:shadow-[0_15px_30px_rgba(6,182,212,0.4)] hover:-translate-y-0.5 text-sm"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border shadow-sm text-sm font-semibold text-primary mb-8">
-                <span className="w-2 h-2 rounded-full bg-statusGreen animate-pulse shrink-0" />
-                <span>Open to full-time & freelance opportunities</span>
-              </div>
-
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.15] mb-6">
-                Building web apps,<br className="hidden sm:inline" />
-                <span className="text-primary">AI & automation.</span>
-              </h1>
-
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
-                Hi, I'm <strong className="text-foreground font-semibold">Izwan Ahmad</strong> — a Computer Science graduate (3.9+ CGPA) and ex-PETRONAS Digital engineer. I build high-performance web applications, AI systems, and workflow automation.
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-md font-bold hover:bg-primary-hover transition-all hover:shadow-hover hover:-translate-y-0.5"
-                >
-                  View My Work
-                  <ArrowRight size={18} />
-                </Link>
-                <Link
-                  to="/freelance"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white border border-borderStrong text-foreground rounded-md font-bold hover:bg-tint transition-all hover:shadow-card hover:-translate-y-0.5"
-                >
-                  Freelance Services
-                </Link>
-              </div>
-
-              {/* Quick stats */}
-              <div className="flex flex-wrap gap-6 mt-10 pt-10 border-t border-border">
-                <div>
-                  <div className="text-2xl font-black text-foreground">3.9+</div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">CGPA (Dean's List)</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-black text-foreground">10+</div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Production Systems</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-black text-foreground">11+</div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Awards & Recognitions</div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right — Interactive Device Showcase (Laptop, Phone, Polaroid) */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="hidden lg:flex justify-center"
+              <span>View My Work</span>
+              <ArrowRight size={18} />
+            </Link>
+            <Link
+              to="/freelance"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-white border border-slate-300 text-[#0C1A20] rounded-xl font-bold hover:bg-slate-50 transition-all duration-300 shadow-xs hover:border-[#06B6D4] hover:-translate-y-0.5 text-sm"
             >
-              <HeroShowcase />
-            </motion.div>
-          </div>
+              <span>Freelance Services</span>
+            </Link>
+          </motion.div>
+
+          {/* Centered Device Showcase Deck */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="w-full max-w-4xl relative z-10 flex flex-col items-center"
+          >
+            <HeroShowcase />
+          </motion.div>
+
+          {/* Centered Key Stats Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="grid grid-cols-3 gap-4 sm:gap-8 mt-14 w-full max-w-3xl border-t border-slate-200/80 pt-8"
+          >
+            <div className="flex flex-col items-center text-center">
+              <div className="text-2xl sm:text-3xl font-black text-[#0C1A20]">3.9+</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">CGPA (Dean's List)</div>
+            </div>
+            <div className="flex flex-col items-center text-center border-x border-slate-200/80 px-2 sm:px-4">
+              <div className="text-2xl sm:text-3xl font-black text-[#0E7490]">10+</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Production Systems</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="text-2xl sm:text-3xl font-black text-[#06B6D4]">11+</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Awards & Recognitions</div>
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
