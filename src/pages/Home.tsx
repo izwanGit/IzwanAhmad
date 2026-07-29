@@ -13,17 +13,17 @@ const Home = () => {
     <div className="w-full">
 
       {/* ============================================================
-          HERO SECTION — Bespoke Logo Pattern Background (#F5F9FA + izwan-pattern-bg)
+          HERO SECTION — PETRONAS Generative Dot Wave System (#F5F9FA + petronas-dot-wave)
       ============================================================ */}
       <section className="relative min-h-[88vh] flex items-center pt-28 pb-16 overflow-hidden bg-[#F5F9FA]">
         
-        {/* Bespoke Generated Pattern Background Layer */}
+        {/* PETRONAS Generative Halftone Dot Wave Overlay Layer */}
         <div 
-          className="absolute inset-0 bg-[url('/images/izwan-pattern-bg.png')] bg-repeat bg-[size:360px_360px] opacity-[0.35] pointer-events-none" 
+          className="absolute right-0 top-0 w-full lg:w-[65%] h-full bg-[url('/images/petronas-dot-wave.png')] bg-cover bg-right-top opacity-[0.38] mix-blend-multiply pointer-events-none" 
         />
 
-        {/* Soft Ambient Radial Lighting & Edge Vignette */}
-        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.14)_0%,transparent_70%)] pointer-events-none" />
+        {/* Soft Ambient Radial Lighting & Gradient Mask */}
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
         
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -35,12 +35,12 @@ const Home = () => {
               transition={{ duration: 0.7 }}
               className="lg:col-span-7 flex flex-col items-start"
             >
-              {/* Logo Story Double-Dot Status Capsule */}
+              {/* Logo Story & PETRONAS Double-Dot Status Capsule */}
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/95 border border-slate-200/90 shadow-xs text-xs font-semibold text-[#0C1A20] mb-6 backdrop-blur-md">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#06B6D4] animate-pulse shrink-0" />
-                <span className="font-mono text-[#0E7490] font-extrabold tracking-wide">● curiosity → impact ●</span>
+                <span className="font-mono text-[#0E7490] font-extrabold tracking-wide">● ex-PETRONAS Digital · Generative Dot System ●</span>
                 <span className="text-slate-300">|</span>
-                <span className="text-slate-600 font-medium">Open for Opportunities (3.9+ CGPA)</span>
+                <span className="text-slate-600 font-medium">3.9+ CGPA</span>
               </div>
 
               {/* Headline */}
