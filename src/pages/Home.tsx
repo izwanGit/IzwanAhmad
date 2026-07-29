@@ -8,19 +8,19 @@ import PetronasShowcase from '../components/PetronasShowcase';
 import FlagshipScrollytelling from '../components/FlagshipScrollytelling';
 
 
-const Home = () => {
+import { FluidDotSystem } from '../components/ui/FluidDotSystem';
+
+const Home: React.FC = () => {
   return (
     <div className="w-full">
 
       {/* ============================================================
-          HERO SECTION — PETRONAS Generative Flowing Ribbons System (#F5F9FA)
+          HERO SECTION — PETRONAS Generative Fluid Dot System (#F5F9FA)
       ============================================================ */}
       <section className="relative min-h-[88vh] flex items-center pt-28 pb-16 overflow-hidden bg-[#F5F9FA]">
         
-        {/* Full-bleed Generative Halftone Ribbons Backdrop */}
-        <div 
-          className="absolute inset-0 w-full h-full bg-[url('/images/izwan-generative-ribbons.svg')] bg-no-repeat bg-cover bg-center opacity-[0.75] pointer-events-none z-0" 
-        />
+        {/* Generative Fluid Canvas Dot System */}
+        <FluidDotSystem />
 
         {/* Soft Ambient Radial Lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
