@@ -17,14 +17,14 @@ const Home = () => {
       ============================================================ */}
       <section className="relative min-h-[88vh] flex items-center pt-28 pb-16 overflow-hidden bg-[#F5F9FA]">
         
-        {/* Dot Wave Layer 1 — Top-right diagonal sweep (teal → cyan) */}
+        {/* Dot Wave Layer 1 — Top-right node network (teal → cyan) */}
         <div 
-          className="absolute right-0 top-0 w-[70%] h-[70%] bg-[url('/images/izwan-dot-wave-top.png')] bg-no-repeat bg-contain bg-right-top opacity-[0.22] pointer-events-none" 
+          className="absolute right-0 top-0 w-[70%] h-[70%] bg-[url('/images/izwan-node-network.png')] bg-no-repeat bg-contain bg-right-top opacity-[0.4] pointer-events-none" 
         />
 
-        {/* Dot Wave Layer 2 — Bottom-left arc (teal → cyan) */}
+        {/* Dot Wave Layer 2 — Bottom-left large dot wave (teal → cyan) */}
         <div 
-          className="absolute left-0 bottom-0 w-[55%] h-[55%] bg-[url('/images/izwan-dot-wave-bottom.png')] bg-no-repeat bg-contain bg-left-bottom opacity-[0.18] pointer-events-none" 
+          className="absolute left-0 bottom-0 w-[55%] h-[55%] bg-[url('/images/izwan-wave-large-dots.png')] bg-no-repeat bg-contain bg-left-bottom opacity-[0.35] pointer-events-none" 
         />
 
         {/* Soft Ambient Radial Lighting */}
