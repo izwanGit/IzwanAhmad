@@ -13,12 +13,12 @@ const Home = () => {
     <div className="w-full">
 
       {/* ============================================================
-          HERO SECTION — Flagship Asymmetrical Command Center
+          HERO SECTION — Flagship Dark Navy Command Center (#0C1A20)
       ============================================================ */}
-      <section className="relative min-h-[88vh] flex items-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-slate-50 via-[#F5F9FA] to-[#F5F9FA]">
+      <section className="relative min-h-[90vh] flex flex-col justify-center pt-28 pb-16 overflow-hidden bg-[#0C1A20]">
         
-        {/* Subtle Ambient Background Radial Glow */}
-        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.1)_0%,transparent_70%)] pointer-events-none" />
+        {/* Static GPU Ambient Glow */}
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.14)_0%,transparent_65%)] pointer-events-none" />
         
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -31,72 +31,72 @@ const Home = () => {
               className="lg:col-span-7 flex flex-col items-start"
             >
               {/* Shimmer Status Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-xs text-xs font-bold text-[#0E7490] mb-6 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/8 border border-white/15 text-xs font-bold text-[#06B6D4] mb-6 backdrop-blur-md">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse shrink-0" />
                 <span>Open to Full-Time & Freelance Opportunities</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-[#06B6D4] font-extrabold">3.9+ CGPA</span>
+                <span className="text-white/20">|</span>
+                <span className="text-white font-extrabold">3.9+ CGPA</span>
               </div>
 
               {/* Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0C1A20] leading-[1.1] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
                 Building High-Performance <br className="hidden sm:inline" />
-                <span className="bg-gradient-to-r from-[#0E7490] via-[#06B6D4] to-[#0284C7] bg-clip-text text-transparent">Web Systems, AI</span> & Automation.
+                <span className="bg-gradient-to-r from-[#06B6D4] via-[#38BDF8] to-[#60A5FA] bg-clip-text text-transparent">Web Systems, AI</span> & Automation.
               </h1>
 
               {/* Capability Pillar Badges */}
               <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-white border border-slate-200/90 rounded-full text-xs font-bold text-[#0C1A20] flex items-center gap-1.5 shadow-2xs">
-                  <span>⚡</span> Web Engineering
+                <span className="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-slate-200 flex items-center gap-1.5 backdrop-blur-md">
+                  <span className="text-[#06B6D4]">⚡</span> Web Engineering
                 </span>
-                <span className="px-3 py-1 bg-white border border-slate-200/90 rounded-full text-xs font-bold text-[#0C1A20] flex items-center gap-1.5 shadow-2xs">
-                  <span>🤖</span> AI & Computer Vision
+                <span className="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-slate-200 flex items-center gap-1.5 backdrop-blur-md">
+                  <span className="text-[#06B6D4]">🤖</span> AI & Computer Vision
                 </span>
-                <span className="px-3 py-1 bg-white border border-slate-200/90 rounded-full text-xs font-bold text-[#0C1A20] flex items-center gap-1.5 shadow-2xs">
-                  <span>⚙️</span> Enterprise Automation
+                <span className="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-slate-200 flex items-center gap-1.5 backdrop-blur-md">
+                  <span className="text-[#06B6D4]">⚙️</span> Enterprise Automation
                 </span>
               </div>
 
               {/* Subtitle Bio */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-8 font-medium">
-                Hi, I'm <strong className="text-[#0C1A20] font-bold">Izwan Ahmad</strong> — Computer Science graduate (Dean's List, 3.9+ CGPA) & ex-PETRONAS Digital engineer. Architecting production web apps, ViT computer vision models, and zero-touch RPA pipelines.
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mb-8 font-medium">
+                Hi, I'm <strong className="text-white font-bold">Izwan Ahmad</strong> — Computer Science graduate (Dean's List, 3.9+ CGPA) & ex-PETRONAS Digital engineer. Architecting production web apps, ViT computer vision models, and zero-touch RPA pipelines.
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 mb-10">
                 <Link
                   to="/projects"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#0E7490] text-white rounded-xl font-bold hover:bg-[#06B6D4] transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(14,116,144,0.3)] hover:shadow-[0_15px_30px_rgba(6,182,212,0.4)] hover:-translate-y-0.5 text-sm"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#06B6D4] text-[#0C1A20] rounded-xl font-extrabold hover:bg-[#38BDF8] transition-all duration-300 shadow-[0_0_30px_rgba(6,182,212,0.35)] hover:shadow-[0_0_40px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 text-sm"
                 >
                   <span>Explore Flagship Works</span>
                   <ArrowRight size={18} />
                 </Link>
                 <Link
                   to="/freelance"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-white border border-slate-300 text-[#0C1A20] rounded-xl font-bold hover:bg-slate-50 transition-all duration-300 shadow-xs hover:border-[#06B6D4] hover:-translate-y-0.5 text-sm"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/8 border border-white/15 text-white rounded-xl font-bold hover:bg-white/15 transition-all duration-300 shadow-xs hover:border-[#06B6D4]/50 hover:-translate-y-0.5 text-sm"
                 >
                   <span>Freelance Services</span>
                 </Link>
               </div>
 
               {/* High-Trust Key Metrics Row */}
-              <div className="grid grid-cols-3 gap-6 w-full pt-6 border-t border-slate-200/80">
+              <div className="grid grid-cols-3 gap-6 w-full pt-6 border-t border-white/10">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#0C1A20]">3.9+</div>
-                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">CGPA (Dean's List)</div>
+                  <div className="text-2xl sm:text-3xl font-black text-white">3.9+</div>
+                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">CGPA (Dean's List)</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#0E7490]">10+</div>
-                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Production Systems</div>
+                  <div className="text-2xl sm:text-3xl font-black text-[#06B6D4]">10+</div>
+                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">Production Systems</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#06B6D4]">11+</div>
-                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Awards & Recognitions</div>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-200">11+</div>
+                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">Awards & Recognitions</div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Column (5 cols) — 3D Layered Device Showcase */}
+            {/* Right Column (5 cols) — Restored Upright Laptop/Phone Showcase */}
             <motion.div
               initial={{ opacity: 0, x: 25 }}
               animate={{ opacity: 1, x: 0 }}
@@ -108,6 +108,9 @@ const Home = () => {
 
           </div>
         </div>
+
+        {/* Smooth Transition Gradient to light #F5F9FA background */}
+        <div className="w-full h-16 bg-gradient-to-b from-[#0C1A20] to-[#F5F9FA] mt-12" />
       </section>
 
       {/* ============================================================
