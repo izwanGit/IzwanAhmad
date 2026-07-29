@@ -48,18 +48,18 @@ export const showcaseProjects: ShowcaseProject[] = [
   },
 ];
 
-// Pristine Upright Laptop Frame
+// Upright Laptop Frame with Calm Shadow & Crisp Screen
 const LaptopFrame = ({ src, title }: { src: string; title: string }) => {
   return (
     <div className="w-[320px] sm:w-[420px] lg:w-[480px] flex flex-col items-center select-none">
       {/* Laptop Lid / Screen */}
-      <div className="w-full bg-[#1E1E24] rounded-t-2xl p-2.5 pt-3 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.7)] relative border border-slate-700/80 ring-1 ring-[#06B6D4]/20">
+      <div className="w-full bg-[#1E1E24] rounded-t-2xl p-2.5 pt-3 shadow-[0_25px_60px_-15px_rgba(14,116,144,0.18)] relative border border-slate-700/60">
         {/* Camera Dot */}
         <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center">
           <div className="w-0.5 h-0.5 rounded-full bg-[#06B6D4]" />
         </div>
         {/* Screen Content */}
-        <div className="w-full aspect-[16/10] bg-slate-950 rounded-lg overflow-hidden relative group">
+        <div className="w-full aspect-[16/10] bg-slate-900 rounded-lg overflow-hidden relative group">
           <img
             src={src}
             alt={title}
@@ -68,7 +68,7 @@ const LaptopFrame = ({ src, title }: { src: string; title: string }) => {
         </div>
       </div>
       {/* Laptop Base / Keyboard Lip */}
-      <div className="w-[108%] h-4 bg-gradient-to-b from-[#2C2D35] to-[#1A1B22] rounded-b-xl shadow-2xl relative border-t border-slate-600/40 flex justify-center items-start">
+      <div className="w-[108%] h-4 bg-gradient-to-b from-[#2C2D35] to-[#1A1B22] rounded-b-xl shadow-xl relative border-t border-slate-600/40 flex justify-center items-start">
         {/* Thumb Opening Notch */}
         <div className="w-16 h-1.5 bg-[#14151B] rounded-b-md border-x border-b border-slate-700/50" />
       </div>
@@ -76,12 +76,12 @@ const LaptopFrame = ({ src, title }: { src: string; title: string }) => {
   );
 };
 
-// Pristine Upright Phone Frame
+// Upright Phone Frame
 const PhoneFrame = ({ src, title }: { src: string; title: string }) => {
   return (
     <div className="w-[200px] sm:w-[230px] flex flex-col items-center select-none py-4">
-      <div className="w-full bg-[#1A1B22] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.7)] border-2 border-slate-700/90 rounded-[38px] p-3 relative ring-1 ring-[#06B6D4]/20">
-        {/* iPhone Buttons */}
+      <div className="w-full bg-[#1A1B22] shadow-[0_25px_60px_-15px_rgba(14,116,144,0.18)] border-2 border-slate-700/80 rounded-[38px] p-3 relative">
+        {/* Buttons */}
         <div className="absolute -left-[3px] top-20 w-[3px] h-8 bg-slate-600 rounded-l" />
         <div className="absolute -left-[3px] top-32 w-[3px] h-8 bg-slate-600 rounded-l" />
         <div className="absolute -right-[3px] top-24 w-[3px] h-12 bg-slate-600 rounded-r" />
@@ -119,22 +119,22 @@ const HeroShowcase = () => {
   return (
     <div className="relative w-full max-w-[520px] mx-auto flex flex-col items-center select-none">
       
-      {/* Static GPU Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[320px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
+      {/* Calm Soft Halo Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[320px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.1)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Frame Container */}
       <div className="relative w-full min-h-[340px] sm:min-h-[380px] flex items-center justify-center">
         
-        {/* Floating Award Badge */}
+        {/* Floating Glass Award Badge */}
         <motion.div
           key={`badge-${active.id}`}
           initial={{ opacity: 0, y: -10, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="absolute -top-3 left-2 sm:left-4 z-30 bg-[#0C1A20]/95 backdrop-blur-md border border-[#06B6D4]/30 px-3.5 py-1.5 rounded-full shadow-[0_8px_24px_rgba(6,182,212,0.25)] flex items-center gap-2"
+          className="absolute -top-3 left-2 sm:left-4 z-30 bg-white/95 backdrop-blur-md border border-slate-200/90 px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-2"
         >
-          <Trophy size={13} className="text-[#06B6D4]" />
-          <span className="text-[11px] font-extrabold text-white tracking-wide">{active.badge}</span>
+          <Trophy size={13} className="text-[#0E7490]" />
+          <span className="text-[11px] font-extrabold text-[#0C1A20] tracking-wide">{active.badge}</span>
         </motion.div>
 
         {/* Animated Frame Display */}
@@ -157,16 +157,16 @@ const HeroShowcase = () => {
 
       </div>
 
-      {/* Dark Glass Project Switcher Pills */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5 mt-6 z-20 bg-white/5 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
+      {/* Calm Light Project Switcher Pills */}
+      <div className="flex flex-wrap items-center justify-center gap-1.5 mt-6 z-20 bg-white/90 p-1.5 rounded-full border border-slate-200/90 shadow-xs backdrop-blur-md">
         {showcaseProjects.map((p, idx) => (
           <button
             key={p.id}
             onClick={() => setActiveIdx(idx)}
             className={`px-3 py-1 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${
               idx === activeIdx
-                ? 'bg-[#06B6D4] text-[#0C1A20] shadow-[0_0_15px_rgba(6,182,212,0.4)] scale-105'
-                : 'text-slate-400 hover:text-white hover:bg-white/10'
+                ? 'bg-[#0E7490] text-white shadow-xs scale-105'
+                : 'text-slate-600 hover:text-[#0C1A20] hover:bg-slate-100'
             }`}
           >
             {p.title.split(' ')[0]}
