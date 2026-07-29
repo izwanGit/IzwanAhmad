@@ -17,18 +17,13 @@ const Home = () => {
       ============================================================ */}
       <section className="relative min-h-[88vh] flex items-center pt-28 pb-16 overflow-hidden bg-[#F5F9FA]">
         
-        {/* Dot Wave Layer 1 — Top-right node network (teal → cyan) */}
+        {/* Pure SVG Transparent Dot Wave Layer */}
         <div 
-          className="absolute right-0 top-0 w-[70%] h-[70%] bg-[url('/images/izwan-node-network.png')] bg-no-repeat bg-contain bg-right-top opacity-[0.4] pointer-events-none" 
-        />
-
-        {/* Dot Wave Layer 2 — Bottom-left large dot wave (teal → cyan) */}
-        <div 
-          className="absolute left-0 bottom-0 w-[55%] h-[55%] bg-[url('/images/izwan-wave-large-dots.png')] bg-no-repeat bg-contain bg-left-bottom opacity-[0.35] pointer-events-none" 
+          className="absolute inset-0 w-full h-full bg-[url('/images/izwan-wave-code.svg')] bg-no-repeat bg-cover bg-center opacity-[0.8] mix-blend-multiply pointer-events-none" 
         />
 
         {/* Soft Ambient Radial Lighting */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.09)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
         
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
