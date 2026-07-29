@@ -11,12 +11,12 @@ export const FluidDotSystem: React.FC = () => {
 
     let animationFrameId: number;
 
-    // Slightly wider spacing = less visual noise
-    const spacing = 30;
-    const minRadius = 1.0;
-    const maxRadius = 4.5;
+    // TIGHT grid so big dots overlap and merge like the PETRONAS ref
+    const spacing = 20;
+    const minRadius = 1.5;
+    const maxRadius = 13.0;
 
-    // STRICT brand palette — Cyan → Teal ONLY
+    // Your brand palette only
     const colorCyan = { r: 6, g: 182, b: 212 };   // #06B6D4
     const colorTeal = { r: 14, g: 116, b: 144 };  // #0E7490
 
@@ -62,53 +62,57 @@ export const FluidDotSystem: React.FC = () => {
         for (let y = 0; y < height + spacing; y += spacing) {
           // 0 = top-left, 1 = bottom-right
           const diagonalPos = (x / width + y / height) / 2;
-          const curvePos = Math.pow(diagonalPos, 0.85);
+          // Aggressive curve: dots stay small longer then explode
+          const curvePos = Math.pow(diagonalPos, 0.7);
 
           let radius = minRadius + curvePos * (maxRadius - minRadius);
 
-          // Fluid mouse interaction (subtle repel)
+          // Fluid mouse interaction
           const dx = mouse.x - x;
           const dy = mouse.y - y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const repelForce = Math.max(0, 1 - dist / 200);
+          const repelForce = Math.max(0, 1 - dist / 220);
 
-          const displaceX = dx * repelForce * 0.1;
-          const displaceY = dy * repelForce * 0.1;
+          const displaceX = dx * repelForce * 0.12;
+          const displaceY = dy * repelForce * 0.12;
           const finalX = x - displaceX;
           const finalY = y - displaceY;
 
-          radius += repelForce * 1.2;
+          // Swell near mouse
+          radius += repelForce * 3.5;
 
-          // Color: Cyan → Teal across the diagonal
+          // Color: Cyan → Teal
           const r = Math.round(lerp(colorCyan.r, colorTeal.r, diagonalPos));
           const g = Math.round(lerp(colorCyan.g, colorTeal.g, diagonalPos));
           const b = Math.round(lerp(colorCyan.b, colorTeal.b, diagonalPos));
 
-          // ---- OPACITY: whisper-quiet base ----
-          let opacity = 0.05 + curvePos * 0.12; // 0.05 → 0.17 max
+          // ---- BOLDER opacity ----
+          // Strong enough to see the halftone pattern, but not muddy
+          let opacity = 0.12 + curvePos * 0.35; // 0.12 → 0.47
 
-          // ---- TEXT SAFE-ZONE: aggressive fade behind all copy ----
-          // Headline + bio lives roughly in left 60% and top 50% of viewport
-          const textFadeX = Math.max(0, 1 - x / (width * 0.6));
-          const textFadeY = Math.max(0, 1 - y / (height * 0.5));
-          const textFade = textFadeX * textFadeY;
-          opacity *= (1 - textFade * 0.95); // up to 95% see-through
+          // ---- SMART TEXT SAFE-ZONE ----
+          // Fades dots behind the LEFT text column only.
+          // The right side (laptop showcase) stays fully visible.
+          const textZoneLeft = Math.max(0, 1 - x / (width * 0.58));
+          const textZoneTop = Math.max(0, 1 - y / (height * 0.55));
+          const textFade = textZoneLeft * textZoneTop;
+          opacity *= (1 - textFade * 0.88); // 88% reduction in text area
 
-          // Secondary fade for buttons / metrics row
-          const lowerFadeX = Math.max(0, 1 - x / (width * 0.65));
-          const lowerFadeY = Math.max(0, 1 - Math.abs(y - height * 0.72) / (height * 0.2));
-          const lowerFade = lowerFadeX * lowerFadeY;
-          opacity *= (1 - lowerFade * 0.8);
+          // Also fade behind the metrics row at the bottom-left
+          const metricsFadeX = Math.max(0, 1 - x / (width * 0.65));
+          const metricsFadeY = Math.max(0, 1 - Math.abs(y - height * 0.82) / (height * 0.15));
+          const metricsFade = metricsFadeX * metricsFadeY;
+          opacity *= (1 - metricsFade * 0.75);
 
-          // Seamless edge fade on all 4 sides
-          const fadeDist = 60;
+          // Edge fade for seamless blending
+          const fadeDist = 50;
           const fadeLeft = Math.min(x / fadeDist, 1);
           const fadeTop = Math.min(y / fadeDist, 1);
           const fadeRight = Math.min((width - x) / fadeDist, 1);
           const fadeBottom = Math.min((height - y) / fadeDist, 1);
           opacity *= fadeLeft * fadeTop * fadeRight * fadeBottom;
 
-          if (opacity < 0.003) continue;
+          if (opacity < 0.005) continue;
 
           ctx.beginPath();
           ctx.arc(finalX, finalY, Math.max(0.5, radius), 0, Math.PI * 2);
