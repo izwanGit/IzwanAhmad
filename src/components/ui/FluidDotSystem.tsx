@@ -10,26 +10,31 @@ export const FluidDotSystem: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let time = 0;
-    
-    // Denser, smoother grid
-    const spacing = 16;
-    const minRadius = 0.8;
-    const maxRadius = 6.5;
-    
+
+    // Grid settings — tighter spacing for a denser, more seamless pattern
+    const spacing = 22;
+    const minRadius = 0.3;
+    const maxRadius = 12.0;
+
+    // Three-stop palette matching the reference image
+    const colorCyan = { r: 6, g: 182, b: 212 };    // #06B6D4  → bottom-left
+    const colorTeal = { r: 14, g: 116, b: 144 };   // #0E7490  → middle
+    const colorPurple = { r: 124, g: 58, b: 237 }; // #7C3AED  → top-right
+
     const handleResize = () => {
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
-      ctx.scale(dpr, dpr);
+      // setTransform prevents scale-compounding on repeated resizes
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     window.addEventListener('resize', handleResize);
     handleResize();
 
-    // Mouse tracking for fluid touch (only swelling, no pushing)
+    // Mouse tracking for the fluid touch
     let mouse = { x: -1000, y: -1000 };
     let targetMouse = { x: -1000, y: -1000 };
 
@@ -37,7 +42,7 @@ export const FluidDotSystem: React.FC = () => {
       targetMouse.x = e.clientX;
       targetMouse.y = e.clientY;
     };
-    
+
     const handleMouseLeave = () => {
       targetMouse.x = -1000;
       targetMouse.y = -1000;
@@ -47,76 +52,70 @@ export const FluidDotSystem: React.FC = () => {
     window.addEventListener('mouseleave', handleMouseLeave);
 
     const draw = () => {
-      mouse.x += (targetMouse.x - mouse.x) * 0.1;
-      mouse.y += (targetMouse.y - mouse.y) * 0.1;
+      mouse.x += (targetMouse.x - mouse.x) * 0.08;
+      mouse.y += (targetMouse.y - mouse.y) * 0.08;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      // invisible wave centers
-      const c1 = { x: width * 0.18, y: height * 0.28 };
-      const c2 = { x: width * 0.82, y: height * 0.18 };
-      const c3 = { x: width * 0.68, y: height * 0.82 };
+      ctx.clearRect(0, 0, width, height);
 
       for (let x = 0; x < width + spacing; x += spacing) {
         for (let y = 0; y < height + spacing; y += spacing) {
-          
-          const d1 = Math.hypot(x - c1.x, y - c1.y);
-          const d2 = Math.hypot(x - c2.x, y - c2.y);
-          const d3 = Math.hypot(x - c3.x, y - c3.y);
+          // Diagonal position: 0 at bottom-left, 1 at top-right
+          const diagonalPos = (x / width + y / height) / 2;
 
-          // Smooth radial interference waves with slow animation over time
-          const wave =
-            Math.sin(d1 * 0.018 - time) * 0.55 +
-            Math.sin(d2 * 0.016 - time * 0.8) * 0.35 +
-            Math.sin(d3 * 0.020 - time * 1.2) * 0.40;
+          // Non-linear curve so the growth accelerates toward the purple corner
+          const curvePos = Math.pow(diagonalPos, 0.8);
+          let radius = minRadius + curvePos * (maxRadius - minRadius);
 
-          // normalize
-          const t = (wave + 1.3) / 2.6;
-
-          let radius = minRadius + t * (maxRadius - minRadius);
-
-          // Mouse interaction (only swell dots)
+          // Fluid mouse interaction (repel & swell)
           const dx = mouse.x - x;
           const dy = mouse.y - y;
-          const dist = Math.hypot(dx, dy);
-          const influence = Math.max(0, 1 - dist / 180);
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const repelForce = Math.max(0, 1 - dist / 200);
 
-          radius += influence * 3;
+          const displaceX = dx * repelForce * 0.15;
+          const displaceY = dy * repelForce * 0.15;
 
-          // Base opacity tied to dot size (halftone effect)
-          let opacity = 0.15 + t * 0.65;
-          
-          // READABILITY FIX: Fade out heavily in the top-left quadrant where the text sits
-          const textZoneX = Math.max(0, 1 - (x / (width * 0.6))); 
-          const textZoneY = Math.max(0, 1 - Math.abs(y - height * 0.4) / (height * 0.5));
-          
-          const readabilityReduction = textZoneX * textZoneY * 0.85;
-          opacity -= readabilityReduction;
-          
-          // Edge fading
-          const fadeLeft = Math.min(x / 100, 1);
-          const fadeTop = Math.min(y / 100, 1);
-          opacity *= fadeLeft * fadeTop;
+          const finalX = x + displaceX;
+          const finalY = y + displaceY;
 
-          // Color with subtle hue shift based on wave field
-          const hue = 185 + t * 15;
+          // Swell dot size near cursor
+          radius += repelForce * 2.5;
+
+          // Three-color interpolation
+          let r: number, g: number, b: number;
+          if (diagonalPos < 0.5) {
+            const t = diagonalPos * 2; // 0 → 1
+            r = Math.round(colorCyan.r * (1 - t) + colorTeal.r * t);
+            g = Math.round(colorCyan.g * (1 - t) + colorTeal.g * t);
+            b = Math.round(colorCyan.b * (1 - t) + colorTeal.b * t);
+          } else {
+            const t = (diagonalPos - 0.5) * 2; // 0 → 1
+            r = Math.round(colorTeal.r * (1 - t) + colorPurple.r * t);
+            g = Math.round(colorTeal.g * (1 - t) + colorPurple.g * t);
+            b = Math.round(colorTeal.b * (1 - t) + colorPurple.b * t);
+          }
+
+          // Opacity rises with dot size for a richer halftone feel
+          let opacity = 0.25 + curvePos * 0.55;
+
+          // Seamless edge fading on all four sides
+          const fadeDist = 60;
+          const fadeLeft = Math.min(x / fadeDist, 1);
+          const fadeTop = Math.min(y / fadeDist, 1);
+          const fadeRight = Math.min((width - x) / fadeDist, 1);
+          const fadeBottom = Math.min((height - y) / fadeDist, 1);
+          opacity *= fadeLeft * fadeTop * fadeRight * fadeBottom;
 
           ctx.beginPath();
-          ctx.arc(x, y, Math.max(0.1, radius), 0, Math.PI * 2);
-          
-          // Add tiny blur for soft dots
-          ctx.shadowBlur = 2;
-          ctx.shadowColor = "rgba(0,180,200,0.25)";
-          
-          ctx.fillStyle = `hsla(${hue}, 85%, 45%, ${Math.max(0, opacity)})`;
+          ctx.arc(finalX, finalY, Math.max(0.1, radius), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
           ctx.fill();
         }
       }
 
-      time += 0.012;
       animationFrameId = requestAnimationFrame(draw);
     };
 
@@ -131,11 +130,17 @@ export const FluidDotSystem: React.FC = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 z-0 pointer-events-none"
-      style={{ mixBlendMode: 'multiply' }}
-    />
+    <div
+      className="relative w-full h-full overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #06B6D4 0%, #0E7490 35%, #7C3AED 100%)',
+      }}
+    >
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{ mixBlendMode: 'multiply' }}
+      />
+    </div>
   );
 };
-
