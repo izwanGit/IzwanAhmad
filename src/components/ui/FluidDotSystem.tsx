@@ -10,28 +10,41 @@ export const FluidDotSystem: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
+    let isVisible = true;
 
-    // TIGHT grid so big dots overlap and merge like the PETRONAS ref
+    // Grid & Halftone Settings
     const spacing = 20;
     const minRadius = 1.5;
-    const maxRadius = 13.0;
+    const defaultMaxRadius = 13.0;
 
-    // Your brand palette only
+    // Brand Palette — Strictly Cyan to Teal
     const colorCyan = { r: 6, g: 182, b: 212 };   // #06B6D4
     const colorTeal = { r: 14, g: 116, b: 144 };  // #0E7490
 
+    // Handle DPR and Resizing
     const handleResize = () => {
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
+      // setTransform prevents scale-compounding on repeated resizes
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     window.addEventListener('resize', handleResize);
     handleResize();
 
+    // IntersectionObserver to pause rendering when scrolled out of view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(canvas);
+
+    // Mouse Tracking with smooth Lerp
     let mouse = { x: -1000, y: -1000 };
     let targetMouse = { x: -1000, y: -1000 };
 
@@ -39,6 +52,7 @@ export const FluidDotSystem: React.FC = () => {
       targetMouse.x = e.clientX;
       targetMouse.y = e.clientY;
     };
+
     const handleMouseLeave = () => {
       targetMouse.x = -1000;
       targetMouse.y = -1000;
@@ -49,12 +63,67 @@ export const FluidDotSystem: React.FC = () => {
 
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
+    // Multi-Zone Opacity Mask Function
+    const computeOpacityMask = (x: number, y: number, w: number, h: number): number => {
+      // Responsive sanctuary boundary
+      let sanctuaryRatio = 0.62;
+      if (w < 768) {
+        sanctuaryRatio = 0.90;
+      } else if (w < 1024) {
+        sanctuaryRatio = 0.75;
+      }
+
+      // Zone A: Text Sanctuary
+      const sanctuaryRight = w * sanctuaryRatio;
+      const sanctuaryFadeWidth = 60; // px
+      let sanctuaryMask = 1.0;
+
+      if (x < sanctuaryRight - sanctuaryFadeWidth) {
+        sanctuaryMask = 0.03; // Ghost level for max readability
+      } else if (x < sanctuaryRight) {
+        const fadeT = (x - (sanctuaryRight - sanctuaryFadeWidth)) / sanctuaryFadeWidth;
+        sanctuaryMask = 0.03 + fadeT * 0.97; // Smooth ease to full
+      }
+
+      // Zone D: Metrics Row Elevation
+      const metricsY = h * 0.82;
+      const metricsHeight = h * 0.12;
+      const metricsFade = 40;
+      let metricsBoost = 0;
+
+      if (y > metricsY - metricsFade && y < metricsY + metricsHeight + metricsFade) {
+        const distFromCenter = Math.abs(y - (metricsY + metricsHeight / 2));
+        const metricsT = Math.max(0, 1 - distFromCenter / (metricsHeight / 2 + metricsFade));
+        metricsBoost = metricsT * 0.08; // Up to +0.08 opacity for metrics
+      }
+
+      // Edge Fade on all four borders
+      const edgeDist = 40;
+      const edgeLeft = Math.min(x / edgeDist, 1);
+      const edgeTop = Math.min(y / edgeDist, 1);
+      const edgeRight = Math.min((w - x) / edgeDist, 1);
+      const edgeBottom = Math.min((h - y) / edgeDist, 1);
+      const edgeMask = edgeLeft * edgeTop * edgeRight * edgeBottom;
+
+      return Math.min(1.0, sanctuaryMask + metricsBoost) * edgeMask;
+    };
+
+    // Main Animation Draw Loop
     const draw = () => {
+      if (!isVisible) {
+        animationFrameId = requestAnimationFrame(draw);
+        return;
+      }
+
+      // Mouse Lerp
       mouse.x = lerp(mouse.x, targetMouse.x, 0.08);
       mouse.y = lerp(mouse.y, targetMouse.y, 0.08);
 
       const width = window.innerWidth;
       const height = window.innerHeight;
+
+      // Adjust max radius for short viewports
+      const maxRadius = height < 600 ? 10.0 : defaultMaxRadius;
 
       ctx.clearRect(0, 0, width, height);
 
@@ -62,12 +131,11 @@ export const FluidDotSystem: React.FC = () => {
         for (let y = 0; y < height + spacing; y += spacing) {
           // 0 = top-left, 1 = bottom-right
           const diagonalPos = (x / width + y / height) / 2;
-          // Aggressive curve: dots stay small longer then explode
           const curvePos = Math.pow(diagonalPos, 0.7);
 
           let radius = minRadius + curvePos * (maxRadius - minRadius);
 
-          // Fluid mouse interaction
+          // Liquid Mouse Interaction (repel & swell)
           const dx = mouse.x - x;
           const dy = mouse.y - y;
           const dist = Math.sqrt(dx * dx + dy * dy);
@@ -78,41 +146,21 @@ export const FluidDotSystem: React.FC = () => {
           const finalX = x - displaceX;
           const finalY = y - displaceY;
 
-          // Swell near mouse
           radius += repelForce * 3.5;
 
-          // Color: Cyan → Teal
+          // Color Interpolation: Cyan → Teal
           const r = Math.round(lerp(colorCyan.r, colorTeal.r, diagonalPos));
           const g = Math.round(lerp(colorCyan.g, colorTeal.g, diagonalPos));
           const b = Math.round(lerp(colorCyan.b, colorTeal.b, diagonalPos));
 
-          // ---- BOLDER opacity ----
-          // Strong enough to see the halftone pattern, but not muddy
-          let opacity = 0.12 + curvePos * 0.35; // 0.12 → 0.47
+          // Base Halftone Opacity Gradient
+          const baseOpacity = 0.12 + curvePos * 0.35; // 0.12 → 0.47
 
-          // ---- SMART TEXT SAFE-ZONE ----
-          // Fades dots behind the LEFT text column only.
-          // The right side (laptop showcase) stays fully visible.
-          const textZoneLeft = Math.max(0, 1 - x / (width * 0.58));
-          const textZoneTop = Math.max(0, 1 - y / (height * 0.55));
-          const textFade = textZoneLeft * textZoneTop;
-          opacity *= (1 - textFade * 0.88); // 88% reduction in text area
+          // Compute Layered Multi-Zone Opacity Mask
+          const mask = computeOpacityMask(x, y, width, height);
+          const opacity = baseOpacity * mask;
 
-          // Also fade behind the metrics row at the bottom-left
-          const metricsFadeX = Math.max(0, 1 - x / (width * 0.65));
-          const metricsFadeY = Math.max(0, 1 - Math.abs(y - height * 0.82) / (height * 0.15));
-          const metricsFade = metricsFadeX * metricsFadeY;
-          opacity *= (1 - metricsFade * 0.75);
-
-          // Edge fade for seamless blending
-          const fadeDist = 50;
-          const fadeLeft = Math.min(x / fadeDist, 1);
-          const fadeTop = Math.min(y / fadeDist, 1);
-          const fadeRight = Math.min((width - x) / fadeDist, 1);
-          const fadeBottom = Math.min((height - y) / fadeDist, 1);
-          opacity *= fadeLeft * fadeTop * fadeRight * fadeBottom;
-
-          if (opacity < 0.005) continue;
+          if (opacity < 0.003) continue;
 
           ctx.beginPath();
           ctx.arc(finalX, finalY, Math.max(0.5, radius), 0, Math.PI * 2);
@@ -128,6 +176,7 @@ export const FluidDotSystem: React.FC = () => {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
@@ -138,6 +187,7 @@ export const FluidDotSystem: React.FC = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 z-0 pointer-events-none"
+      aria-hidden="true"
     />
   );
 };
