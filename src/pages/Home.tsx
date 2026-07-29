@@ -13,17 +13,18 @@ const Home = () => {
     <div className="w-full">
 
       {/* ============================================================
-          HERO SECTION — Izwan Generative Dot Wave System (#F5F9FA + Theme #0E7490/#06B6D4)
+          HERO SECTION — PETRONAS Generative Halftone Dot Halo (#F5F9FA)
       ============================================================ */}
       <section className="relative min-h-[88vh] flex items-center pt-28 pb-16 overflow-hidden bg-[#F5F9FA]">
         
-        {/* Pure SVG Transparent Dot Wave Layer */}
+        {/* PETRONAS Halftone Dot Ring Halo Backdrop (positioned behind right column showcase) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-[url('/images/izwan-wave-code.svg')] bg-no-repeat bg-cover bg-center opacity-[0.8] mix-blend-multiply pointer-events-none" 
+          className="absolute right-[-100px] lg:right-[5%] top-1/2 -translate-y-1/2 w-[650px] lg:w-[750px] h-[650px] lg:h-[750px] bg-[url('/images/izwan-petronas-ring.svg')] bg-no-repeat bg-contain bg-center opacity-[0.85] pointer-events-none z-0 animate-pulse"
+          style={{ animationDuration: '8s' }}
         />
 
-        {/* Soft Ambient Radial Lighting */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
+        {/* Soft Ambient Radial Cyan Lighting */}
+        <div className="absolute right-[10%] top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.15)_0%,transparent_70%)] pointer-events-none" />
         
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
