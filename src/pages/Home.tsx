@@ -40,12 +40,10 @@ const Home: React.FC = () => {
               transition={{ duration: 0.7 }}
               className="lg:col-span-7 flex flex-col items-start"
             >
-              {/* Logo Story Double-Dot Status Capsule */}
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/95 border border-slate-200/90 shadow-xs text-xs font-semibold text-[#0C1A20] mb-6 backdrop-blur-md">
+              {/* Status Capsule */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 border border-slate-200/90 shadow-xs text-xs font-semibold text-[#0C1A20] mb-6 backdrop-blur-md">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#06B6D4] animate-pulse shrink-0" />
-                <span className="font-mono text-[#0E7490] font-extrabold tracking-wide">● curiosity → impact ●</span>
-                <span className="text-slate-300">|</span>
-                <span className="text-slate-600 font-medium">Open for Opportunities · 3.9+ CGPA</span>
+                <span className="text-slate-700 font-medium">Open for Opportunities</span>
               </div>
 
               {/* Headline */}
@@ -69,7 +67,7 @@ const Home: React.FC = () => {
 
               {/* Subtitle Bio */}
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-8 font-medium">
-                Hi, I'm <strong className="text-[#0C1A20] font-bold">Izwan Ahmad</strong> — Computer Science graduate (Dean's List, 3.9+ CGPA) & ex-PETRONAS Digital engineer. Architecting production web apps, ViT computer vision models, and zero-touch RPA pipelines.
+                Hi, I'm <strong className="text-[#0C1A20] font-bold">Izwan Ahmad</strong> — Computer Science graduate & ex-PETRONAS Digital engineer. Architecting production web apps, ViT computer vision models, and zero-touch RPA pipelines.
               </p>
 
               {/* Action Buttons */}
