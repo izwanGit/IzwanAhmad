@@ -12,14 +12,14 @@ export const FluidDotSystem: React.FC = () => {
     let animationFrameId: number;
     let isVisible = true;
 
-    // Grid & Halftone Settings
-    const spacing = 20;
-    const minRadius = 1.5;
-    const defaultMaxRadius = 13.0;
+    // Grid & Halftone Settings — Slightly larger dots for rich halftone texture
+    const spacing = 21;
+    const minRadius = 2.0;
+    const defaultMaxRadius = 10.5;
 
-    // Brand Palette — Brightened Electric Cyan to Vibrant Deep Teal
-    const colorCyan = { r: 0, g: 200, b: 235 };   // Vibrant Electric Cyan (#00C8EB)
-    const colorTeal = { r: 12, g: 140, b: 170 };  // Rich Vivid Teal (#0C8CAA)
+    // Brand Palette — Electric Vivid Cyan to Deep PETRONAS Teal
+    const colorCyan = { r: 0, g: 220, b: 255 };    // Ultra Electric Cyan (#00DCF0)
+    const colorTeal = { r: 14, g: 130, b: 160 };   // Deep Rich Teal (#0E82A0)
 
     // Handle DPR and Resizing
     const handleResize = () => {
@@ -69,8 +69,8 @@ export const FluidDotSystem: React.FC = () => {
       const cy = h * 0.45;
 
       // Balanced arc radius framing the laptop showcase
-      const rx = w * 0.42;
-      const ry = h * 0.55;
+      const rx = w * 0.44;
+      const ry = h * 0.58;
 
       // Normalized distance from showcase center
       const dx = (x - cx) / rx;
@@ -81,8 +81,8 @@ export const FluidDotSystem: React.FC = () => {
       let arcMask = 1.0;
       if (dist > 1.10) {
         arcMask = 0.02; // Ghost level behind headline
-      } else if (dist > 0.70) {
-        const fadeT = 1.0 - (dist - 0.70) / 0.40;
+      } else if (dist > 0.65) {
+        const fadeT = 1.0 - (dist - 0.65) / 0.45;
         const smoothT = fadeT * fadeT * (3 - 2 * fadeT);
         arcMask = 0.02 + smoothT * 0.98;
       }
@@ -96,7 +96,7 @@ export const FluidDotSystem: React.FC = () => {
       if (y > metricsY - metricsFade && y < metricsY + metricsHeight + metricsFade) {
         const distFromCenter = Math.abs(y - (metricsY + metricsHeight / 2));
         const metricsT = Math.max(0, 1 - distFromCenter / (metricsHeight / 2 + metricsFade));
-        metricsBoost = metricsT * 0.05;
+        metricsBoost = metricsT * 0.06;
       }
 
       // Edge Fade on all four borders
@@ -125,27 +125,31 @@ export const FluidDotSystem: React.FC = () => {
       const height = window.innerHeight;
 
       // Scaled max radius for short viewports
-      const maxRadius = height < 600 ? 7.0 : 8.5;
+      const maxRadius = height < 600 ? 8.5 : defaultMaxRadius;
 
       ctx.clearRect(0, 0, width, height);
 
       // ── LAYER 1: Vivid ambient glow behind showcase ──
       const glowGrad = ctx.createRadialGradient(
         width * 0.85, height * 0.35, 0,
-        width * 0.85, height * 0.35, width * 0.42
+        width * 0.85, height * 0.35, width * 0.45
       );
-      glowGrad.addColorStop(0, 'rgba(0, 200, 235, 0.12)');
-      glowGrad.addColorStop(0.6, 'rgba(12, 140, 170, 0.05)');
-      glowGrad.addColorStop(1, 'rgba(0, 200, 235, 0)');
+      glowGrad.addColorStop(0, 'rgba(0, 220, 255, 0.16)');
+      glowGrad.addColorStop(0.6, 'rgba(14, 130, 160, 0.07)');
+      glowGrad.addColorStop(1, 'rgba(0, 220, 255, 0)');
       ctx.fillStyle = glowGrad;
       ctx.fillRect(0, 0, width, height);
+
+      // Configure soft cyan glow blur on the dots
+      ctx.shadowBlur = 4;
+      ctx.shadowColor = 'rgba(0, 220, 255, 0.35)';
 
       // ── LAYER 2: The halftone dot field ──
       for (let x = 0; x < width + spacing; x += spacing) {
         for (let y = 0; y < height + spacing; y += spacing) {
           // 0 = top-left, 1 = bottom-right
           const diagonalPos = (x / width + y / height) / 2;
-          const curvePos = Math.pow(diagonalPos, 0.8);
+          const curvePos = Math.pow(diagonalPos, 0.75);
 
           let radius = minRadius + curvePos * (maxRadius - minRadius);
 
@@ -153,22 +157,22 @@ export const FluidDotSystem: React.FC = () => {
           const dx = mouse.x - x;
           const dy = mouse.y - y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const repelForce = Math.max(0, 1 - dist / 200);
+          const repelForce = Math.max(0, 1 - dist / 210);
 
           const displaceX = dx * repelForce * 0.10;
           const displaceY = dy * repelForce * 0.10;
           const finalX = x - displaceX;
           const finalY = y - displaceY;
 
-          radius += repelForce * 2.0;
+          radius += repelForce * 2.5;
 
-          // Color Interpolation: Electric Cyan → Vivid Teal
+          // Color Interpolation: Ultra Electric Cyan → Deep Teal
           const r = Math.round(lerp(colorCyan.r, colorTeal.r, diagonalPos));
           const g = Math.round(lerp(colorCyan.g, colorTeal.g, diagonalPos));
           const b = Math.round(lerp(colorCyan.b, colorTeal.b, diagonalPos));
 
-          // Brighter, pop opacity scale (0.10 → 0.42 max)
-          const baseOpacity = 0.10 + curvePos * 0.32;
+          // Brighter, rich opacity scale (0.18 → 0.65 max)
+          const baseOpacity = 0.18 + curvePos * 0.47;
 
           // Compute Layered Arc Opacity Mask
           const mask = computeOpacityMask(x, y, width, height);
