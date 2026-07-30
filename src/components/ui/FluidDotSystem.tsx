@@ -171,8 +171,8 @@ export const FluidDotSystem: React.FC = () => {
           const g = Math.round(lerp(colorCyan.g, colorTeal.g, diagonalPos));
           const b = Math.round(lerp(colorCyan.b, colorTeal.b, diagonalPos));
 
-          // Brighter, pop opacity scale (0.22 → 0.75 max)
-          const baseOpacity = 0.22 + curvePos * 0.53;
+          // Balanced, rich opacity scale (0.16 → 0.60 max)
+          const baseOpacity = 0.16 + curvePos * 0.44;
 
           // Compute Layered Arc Opacity Mask
           const mask = computeOpacityMask(x, y, width, height);
