@@ -17,9 +17,9 @@ export const FluidDotSystem: React.FC = () => {
     const minRadius = 1.5;
     const defaultMaxRadius = 13.0;
 
-    // Brand Palette — Strictly Cyan to Teal
-    const colorCyan = { r: 6, g: 182, b: 212 };   // #06B6D4
-    const colorTeal = { r: 14, g: 116, b: 144 };  // #0E7490
+    // Brand Palette — Brightened Electric Cyan to Vibrant Deep Teal
+    const colorCyan = { r: 0, g: 200, b: 235 };   // Vibrant Electric Cyan (#00C8EB)
+    const colorTeal = { r: 12, g: 140, b: 170 };  // Rich Vivid Teal (#0C8CAA)
 
     // Handle DPR and Resizing
     const handleResize = () => {
@@ -129,13 +129,14 @@ export const FluidDotSystem: React.FC = () => {
 
       ctx.clearRect(0, 0, width, height);
 
-      // ── LAYER 1: Subtle ambient glow behind showcase ──
+      // ── LAYER 1: Vivid ambient glow behind showcase ──
       const glowGrad = ctx.createRadialGradient(
         width * 0.85, height * 0.35, 0,
-        width * 0.85, height * 0.35, width * 0.40
+        width * 0.85, height * 0.35, width * 0.42
       );
-      glowGrad.addColorStop(0, 'rgba(6, 182, 212, 0.06)');
-      glowGrad.addColorStop(1, 'rgba(6, 182, 212, 0)');
+      glowGrad.addColorStop(0, 'rgba(0, 200, 235, 0.12)');
+      glowGrad.addColorStop(0.6, 'rgba(12, 140, 170, 0.05)');
+      glowGrad.addColorStop(1, 'rgba(0, 200, 235, 0)');
       ctx.fillStyle = glowGrad;
       ctx.fillRect(0, 0, width, height);
 
@@ -161,13 +162,13 @@ export const FluidDotSystem: React.FC = () => {
 
           radius += repelForce * 2.0;
 
-          // Color Interpolation: Cyan → Teal
+          // Color Interpolation: Electric Cyan → Vivid Teal
           const r = Math.round(lerp(colorCyan.r, colorTeal.r, diagonalPos));
           const g = Math.round(lerp(colorCyan.g, colorTeal.g, diagonalPos));
           const b = Math.round(lerp(colorCyan.b, colorTeal.b, diagonalPos));
 
-          // Calm, subtle opacity scale (0.06 → 0.22 max)
-          const baseOpacity = 0.06 + curvePos * 0.16;
+          // Brighter, pop opacity scale (0.10 → 0.42 max)
+          const baseOpacity = 0.10 + curvePos * 0.32;
 
           // Compute Layered Arc Opacity Mask
           const mask = computeOpacityMask(x, y, width, height);
