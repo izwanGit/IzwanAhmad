@@ -95,10 +95,10 @@ export const FluidDotSystem: React.FC = () => {
         metricsBoost = metricsT * 0.06;
       }
 
-      // Edge Fade on all four borders
+      // Edge Fade & Top Navbar Sanctuary (ZERO dots touching the top navbar links)
       const edgeDist = 40;
       const edgeLeft = Math.min(x / edgeDist, 1);
-      const edgeTop = Math.min(y / edgeDist, 1);
+      const edgeTop = Math.min(Math.max(0, y - 85) / 35, 1); // 0 dots above y = 85px
       const edgeRight = Math.min((w - x) / edgeDist, 1);
       const edgeBottom = Math.min((h - y) / edgeDist, 1);
 
