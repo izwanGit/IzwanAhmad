@@ -22,8 +22,13 @@ const Home: React.FC = () => {
         {/* Generative Fluid Canvas Dot System */}
         <FluidDotSystem />
 
-        {/* Soft Ambient Radial Lighting */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
+        {/* Multi-Layer Ambient Glow Stack — adds premium depth behind the dot field */}
+        {/* Primary: Soft cyan ellipse behind the showcase column */}
+        <div className="absolute top-[30%] right-[5%] w-[600px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.10)_0%,transparent_70%)] pointer-events-none z-[1]" />
+        {/* Secondary: Deeper teal wash at bottom-right corner */}
+        <div className="absolute bottom-[5%] right-[10%] w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(14,116,144,0.07)_0%,transparent_65%)] pointer-events-none z-[1]" />
+        {/* Tertiary: Very subtle center glow for overall warmth */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[700px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.05)_0%,transparent_70%)] pointer-events-none z-[1]" />
         
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">

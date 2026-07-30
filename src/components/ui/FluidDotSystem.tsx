@@ -28,7 +28,6 @@ export const FluidDotSystem: React.FC = () => {
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
-      // setTransform prevents scale-compounding on repeated resizes
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
@@ -75,14 +74,16 @@ export const FluidDotSystem: React.FC = () => {
 
       // Zone A: Text Sanctuary
       const sanctuaryRight = w * sanctuaryRatio;
-      const sanctuaryFadeWidth = 60; // px
+      const sanctuaryFadeWidth = 60;
       let sanctuaryMask = 1.0;
 
       if (x < sanctuaryRight - sanctuaryFadeWidth) {
-        sanctuaryMask = 0.03; // Ghost level for max readability
+        sanctuaryMask = 0.03;
       } else if (x < sanctuaryRight) {
         const fadeT = (x - (sanctuaryRight - sanctuaryFadeWidth)) / sanctuaryFadeWidth;
-        sanctuaryMask = 0.03 + fadeT * 0.97; // Smooth ease to full
+        // Smooth ease-in-out instead of linear for a more organic transition
+        const smoothT = fadeT * fadeT * (3 - 2 * fadeT);
+        sanctuaryMask = 0.03 + smoothT * 0.97;
       }
 
       // Zone D: Metrics Row Elevation
@@ -94,7 +95,7 @@ export const FluidDotSystem: React.FC = () => {
       if (y > metricsY - metricsFade && y < metricsY + metricsHeight + metricsFade) {
         const distFromCenter = Math.abs(y - (metricsY + metricsHeight / 2));
         const metricsT = Math.max(0, 1 - distFromCenter / (metricsHeight / 2 + metricsFade));
-        metricsBoost = metricsT * 0.08; // Up to +0.08 opacity for metrics
+        metricsBoost = metricsT * 0.08;
       }
 
       // Edge Fade on all four borders
@@ -127,6 +128,30 @@ export const FluidDotSystem: React.FC = () => {
 
       ctx.clearRect(0, 0, width, height);
 
+      // ── LAYER 1: Ambient glow halos behind the dense corner ──
+      // Creates a soft "light source" effect behind the halftone,
+      // inspired by MagicUI's glow variant
+      const glowGrad = ctx.createRadialGradient(
+        width * 0.85, height * 0.3, 0,
+        width * 0.85, height * 0.3, width * 0.45
+      );
+      glowGrad.addColorStop(0, 'rgba(6, 182, 212, 0.08)');
+      glowGrad.addColorStop(0.5, 'rgba(14, 116, 144, 0.04)');
+      glowGrad.addColorStop(1, 'rgba(6, 182, 212, 0)');
+      ctx.fillStyle = glowGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      // Second glow at bottom-right for depth
+      const glowGrad2 = ctx.createRadialGradient(
+        width * 0.95, height * 0.85, 0,
+        width * 0.95, height * 0.85, width * 0.35
+      );
+      glowGrad2.addColorStop(0, 'rgba(14, 116, 144, 0.06)');
+      glowGrad2.addColorStop(1, 'rgba(14, 116, 144, 0)');
+      ctx.fillStyle = glowGrad2;
+      ctx.fillRect(0, 0, width, height);
+
+      // ── LAYER 2: The halftone dot field ──
       for (let x = 0; x < width + spacing; x += spacing) {
         for (let y = 0; y < height + spacing; y += spacing) {
           // 0 = top-left, 1 = bottom-right
@@ -154,7 +179,7 @@ export const FluidDotSystem: React.FC = () => {
           const b = Math.round(lerp(colorCyan.b, colorTeal.b, diagonalPos));
 
           // Base Halftone Opacity Gradient
-          const baseOpacity = 0.12 + curvePos * 0.35; // 0.12 → 0.47
+          const baseOpacity = 0.12 + curvePos * 0.35;
 
           // Compute Layered Multi-Zone Opacity Mask
           const mask = computeOpacityMask(x, y, width, height);
@@ -188,6 +213,43 @@ export const FluidDotSystem: React.FC = () => {
       ref={canvasRef}
       className="absolute inset-0 z-0 pointer-events-none"
       aria-hidden="true"
+      style={{
+        /* MagicUI-inspired CSS mask: creates an organic radial fade
+           so the dot field emerges beautifully from the right side
+           instead of having hard rectangular sanctuary edges */
+        maskImage: `
+          linear-gradient(to right,
+            transparent 0%,
+            rgba(0,0,0,0.02) 15%,
+            rgba(0,0,0,0.08) 45%,
+            rgba(0,0,0,0.6) 65%,
+            black 80%
+          ),
+          radial-gradient(
+            ellipse 70% 80% at 85% 40%,
+            black 0%,
+            rgba(0,0,0,0.7) 40%,
+            transparent 100%
+          )
+        `,
+        maskComposite: 'intersect',
+        WebkitMaskImage: `
+          linear-gradient(to right,
+            transparent 0%,
+            rgba(0,0,0,0.02) 15%,
+            rgba(0,0,0,0.08) 45%,
+            rgba(0,0,0,0.6) 65%,
+            black 80%
+          ),
+          radial-gradient(
+            ellipse 70% 80% at 85% 40%,
+            black 0%,
+            rgba(0,0,0,0.7) 40%,
+            transparent 100%
+          )
+        `,
+        WebkitMaskComposite: 'source-in',
+      }}
     />
   );
 };
