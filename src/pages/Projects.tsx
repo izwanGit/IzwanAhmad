@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -14,11 +14,89 @@ import {
 } from 'lucide-react';
 import { projects, featuredProjectIds, skillCategories, type Project } from '../data/projectData';
 
+type PackableSkill = {
+  name: string;
+  level?: number;
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+  color?: string;
+  categoryId: string;
+};
+
+// Organic bubble cloud packing — Archimedean-spiral word-cloud layout.
+// Big bubbles claim the centre first; smaller bubbles spiral outward and
+// settle into the gaps, producing a naturally scattered (never row-aligned) chart.
+function packBubbles(items: PackableSkill[], w: number, h: number) {
+  let seed = 1337;
+  const rand = () => {
+    seed = (seed * 1103515245 + 12345) % 2147483648;
+    return seed / 2147483648;
+  };
+
+  const radiusFor = (name: string, level: number) => {
+    const base = level === 3 ? 52 : level === 2 ? 38 : 27;
+    const lenBoost = Math.min(10, Math.max(0, (name.length - 5) * 1.4));
+    return base + lenBoost;
+  };
+
+  const ordered = items
+    .map(it => ({ it, r: radiusFor(it.name, it.level || 1) }))
+    .sort((a, b) => b.r - a.r);
+
+  const cx = w / 2;
+  const cy = h / 2;
+  const maxR = Math.hypot(w, h) / 2;
+  const placed: { it: PackableSkill; r: number; x: number; y: number }[] = [];
+
+  for (const { it, r } of ordered) {
+    const startAngle = rand() * Math.PI * 2;
+    let pos: { x: number; y: number } | null = null;
+
+    for (let step = 0; step < 5000 && !pos; step++) {
+      const t = step / 5000;
+      const dist = maxR * Math.sqrt(t);
+      const angle = startAngle + t * 5 * Math.PI * 2;
+      const x = cx + Math.cos(angle) * dist + (rand() - 0.5) * 14;
+      const y = cy + Math.sin(angle) * dist + (rand() - 0.5) * 14;
+
+      if (x < r || x > w - r || y < r || y > h - r) continue;
+
+      let ok = true;
+      for (const p of placed) {
+        const dx = x - p.x;
+        const dy = y - p.y;
+        const min = r + p.r;
+        if (dx * dx + dy * dy < min * min - 2) {
+          ok = false;
+          break;
+        }
+      }
+      if (ok) pos = { x, y };
+    }
+
+    placed.push({ it, r, ...(pos ?? { x: cx + (rand() - 0.5) * 30, y: cy + (rand() - 0.5) * 30 }) });
+  }
+
+  return placed;
+}
+
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'web' | 'mobile' | 'ai' | 'enterprise'>('all');
   const [activeSkillCategory, setActiveSkillCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [skillViewMode, setSkillViewMode] = useState<'bubble' | 'chips'>('bubble');
+  const bubbleAreaRef = useRef<HTMLDivElement>(null);
+  const [bubbleAreaSize, setBubbleAreaSize] = useState({ w: 0, h: 0 });
+
+  useEffect(() => {
+    const el = bubbleAreaRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => {
+      setBubbleAreaSize({ w: el.clientWidth, h: el.clientHeight });
+    });
+    ro.observe(el);
+    setBubbleAreaSize({ w: el.clientWidth, h: el.clientHeight });
+    return () => ro.disconnect();
+  }, []);
 
   // Filter projects by category and search term
   const filteredProjects = projects.filter(p => {
@@ -57,6 +135,12 @@ const Projects = () => {
     }
     return result;
   }, [filteredSkills]);
+
+  // Organic packed positions computed once per filter + container size
+  const packedBubbles = React.useMemo(() => {
+    if (bubbleAreaSize.w === 0 || bubbleAreaSize.h === 0) return [];
+    return packBubbles(scatteredSkills, bubbleAreaSize.w, bubbleAreaSize.h);
+  }, [scatteredSkills, bubbleAreaSize]);
 
   return (
     <div className="w-full pt-28 pb-28 bg-[#F5F9FA] min-h-screen">
@@ -289,8 +373,8 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Authentic Circle Bubble Cloud (Organically Scattered Packed Chart) */}
-          <div className="relative p-6 sm:p-12 rounded-3xl bg-[#F5F9FA]/80 border border-border overflow-hidden min-h-[520px] flex items-center justify-center">
+          {/* Authentic Circle Bubble Cloud (Organically Packed Scatter Chart) */}
+          <div className="relative p-6 sm:p-12 rounded-3xl bg-[#F5F9FA]/80 border border-border overflow-hidden">
             {/* Ambient Background Radial Glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)] pointer-events-none" />
 
@@ -316,12 +400,12 @@ const Projects = () => {
               className="absolute bottom-12 right-24 w-7 h-7 rounded-full bg-[#8B5CF6]/60 shadow-[0_4px_12px_rgba(139,92,246,0.4)] pointer-events-none" 
             />
 
-            <div className="flex flex-wrap items-center justify-center -space-x-3 sm:-space-x-6 -space-y-4 sm:-space-y-6 max-w-5xl relative z-10 py-12 px-2">
+            {/* Measured layout viewport — packed bubbles are positioned in px here */}
+            <div ref={bubbleAreaRef} className="relative w-full h-[560px] sm:h-[620px]">
               <AnimatePresence>
-                {scatteredSkills.map((skill, idx) => {
+                {packedBubbles.map(({ it: skill, x, y, r }, idx) => {
                   const SkillIcon = skill.icon;
-                  
-                  // Use exact original brand color for each skill logo
+
                   const rawColor = skill.color || '#06B6D4';
                   const isWhite = rawColor.toUpperCase() === '#FFFFFF' || rawColor.toUpperCase() === '#FFF';
                   const isYellow = rawColor.toUpperCase() === '#F7DF1E' || rawColor.toUpperCase() === '#E6AD00';
@@ -329,63 +413,49 @@ const Projects = () => {
                   const bubbleBg = isWhite ? '#0C1A20' : rawColor;
                   const textColor = isYellow ? '#0C1A20' : '#FFFFFF';
 
-                  // Proficiency-driven bubble sizes matching D3 circle packing reference
-                  const lvl = skill.level || 1;
-                  const sizeClass = 
-                    lvl === 3
-                      ? 'w-28 h-28 sm:w-36 sm:h-36 text-xs sm:text-sm font-black p-3'
-                      : lvl === 2
-                      ? 'w-18 h-18 sm:w-24 sm:h-24 text-[11px] sm:text-xs font-bold p-2'
-                      : 'w-12 h-12 sm:w-16 sm:h-16 text-[9px] sm:text-[10px] font-semibold p-1';
-
-                  // Multi-axis staggered offsets breaking straight horizontal lines completely
-                  const staggerMargin = 
-                    idx % 7 === 0 ? '-mt-8 sm:-mt-14 -ml-4 sm:-ml-6' :
-                    idx % 6 === 0 ? 'mt-8 sm:mt-12 -ml-3 sm:-ml-5' :
-                    idx % 5 === 0 ? '-mt-5 sm:-mt-9 ml-4 sm:ml-6' :
-                    idx % 4 === 0 ? 'mt-5 sm:mt-7 -mr-3 sm:-mr-5' :
-                    idx % 3 === 0 ? '-mt-7 sm:-mt-11 ml-3 sm:ml-5' :
-                    idx % 2 === 0 ? 'mt-3 sm:mt-5 -ml-2' : '-mt-2 ml-1';
+                  const d = r * 2;
+                  const isLg = r >= 44;
+                  const isMd = r >= 32;
+                  const textSize = isLg ? 'text-xs sm:text-sm' : isMd ? 'text-[11px] sm:text-xs' : 'text-[9px] sm:text-[10px]';
+                  const iconSize = isLg ? 'text-2xl sm:text-3xl' : isMd ? 'text-lg sm:text-xl' : 'text-sm sm:text-base';
 
                   const floatDuration = 3.5 + (idx % 5) * 0.4;
-                  const floatY = idx % 2 === 0 ? [-5, 5, -5] : [5, -5, 5];
-                  const floatX = idx % 3 === 0 ? [-3, 3, -3] : [3, -3, 3];
+                  const floatY = idx % 2 === 0 ? [-4, 4, -4] : [4, -4, 4];
+                  const floatX = idx % 3 === 0 ? [-2, 2, -2] : [2, -2, 2];
 
                   return (
                     <motion.div
-                      layout
-                      initial={{ opacity: 0, scale: 0.4 }}
-                      animate={{ 
-                        opacity: 1, 
-                        scale: 1,
-                        y: floatY,
-                        x: floatX,
-                      }}
-                      exit={{ opacity: 0, scale: 0.4 }}
-                      transition={{ 
-                        layout: { duration: 0.3 },
-                        opacity: { duration: 0.25 },
-                        scale: { duration: 0.25 },
-                        y: { duration: floatDuration, repeat: Infinity, ease: 'easeInOut' },
-                        x: { duration: floatDuration * 1.2, repeat: Infinity, ease: 'easeInOut' }
-                      }}
                       key={`${skill.categoryId}-${skill.name}`}
-                      style={{ 
-                        backgroundColor: bubbleBg,
-                        color: textColor,
-                        boxShadow: `0 10px 28px -4px ${isWhite ? 'rgba(12,26,32,0.45)' : rawColor + '88'}`,
+                      className="absolute"
+                      style={{ width: d, height: d, left: 0, top: 0, zIndex: Math.round(r) }}
+                      initial={{ opacity: 0, scale: 0.3, x: x - d / 2, y: y - d / 2 }}
+                      animate={{ opacity: 1, scale: 1, x: x - d / 2, y: y - d / 2 }}
+                      exit={{ opacity: 0, scale: 0.3 }}
+                      transition={{
+                        opacity: { duration: 0.25 },
+                        scale: { duration: 0.25, delay: idx * 0.012 },
+                        x: { type: 'spring', stiffness: 220, damping: 26 },
+                        y: { type: 'spring', stiffness: 220, damping: 26 },
                       }}
-                      className={`${sizeClass} ${staggerMargin} rounded-full transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-center hover:scale-125 hover:z-50 border-2 sm:border-4 border-white/35 group relative ring-1 ring-black/10`}
                     >
-                      <SkillIcon 
-                        className={`shrink-0 mb-1 group-hover:scale-125 transition-transform ${
-                          lvl === 3 ? 'text-2xl sm:text-3xl' : lvl === 2 ? 'text-lg sm:text-xl' : 'text-sm sm:text-base'
-                        }`}
-                        style={{ color: textColor }}
-                      />
-                      <span className="leading-tight tracking-tight font-extrabold px-1 truncate max-w-full">
-                        {skill.name}
-                      </span>
+                      <motion.div
+                        animate={{ y: floatY, x: floatX }}
+                        transition={{ duration: floatDuration, repeat: Infinity, ease: 'easeInOut' }}
+                        style={{ 
+                          backgroundColor: bubbleBg,
+                          color: textColor,
+                          boxShadow: `0 10px 28px -4px ${isWhite ? 'rgba(12,26,32,0.45)' : rawColor + '88'}`,
+                        }}
+                        className="w-full h-full rounded-full cursor-pointer flex flex-col items-center justify-center text-center hover:scale-110 hover:z-50 border-2 sm:border-4 border-white/35 group relative ring-1 ring-black/10 transition-transform duration-200"
+                      >
+                        <SkillIcon 
+                          className={`shrink-0 mb-1 group-hover:scale-125 transition-transform ${iconSize}`}
+                          style={{ color: textColor }}
+                        />
+                        <span className={`leading-tight tracking-tight font-extrabold px-1 truncate max-w-[92%] ${textSize}`}>
+                          {skill.name}
+                        </span>
+                      </motion.div>
                     </motion.div>
                   );
                 })}
