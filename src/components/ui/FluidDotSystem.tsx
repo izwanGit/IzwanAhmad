@@ -12,14 +12,15 @@ export const FluidDotSystem: React.FC = () => {
     let animationFrameId: number;
     let isVisible = true;
 
-    // Grid & Halftone Settings — Bold, dramatic scaling for PETRONAS-style impact
-    const spacing = 24;
-    const minRadius = 2.0;
-    const defaultMaxRadius = 15.5;
+    // 45-Degree Staggered Diamond Lattice Halftone Engine
+    const stepX = 22;
+    const stepY = 19; // Equilateral hexagonal/diamond spacing (sqrt(3)/2 * stepX)
+    const minRadius = 1.5;
+    const defaultMaxRadius = 15.0;
 
-    // Brand Palette — Electric Vivid Cyan to Deep PETRONAS Teal
-    const colorCyan = { r: 0, g: 220, b: 255 };    // Ultra Electric Cyan (#00DCF0)
-    const colorTeal = { r: 14, g: 130, b: 160 };   // Deep Rich Teal (#0E82A0)
+    // Signature Brand Palette — Ultra Electric Cyan to Deep PETRONAS Teal
+    const colorCyan = { r: 0, g: 220, b: 255 };    // #00DCF0 (Electric Cyan)
+    const colorTeal = { r: 14, g: 130, b: 160 };   // #0E82A0 (Deep PETRONAS Teal)
 
     // Handle DPR and Resizing efficiently
     const handleResize = () => {
@@ -62,10 +63,13 @@ export const FluidDotSystem: React.FC = () => {
 
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-    // Multi-Zone Opacity Mask Function using fast squared distance
+    // Multi-Zone Opacity Mask Function using fast squared distance & curved arc boundary
     const computeOpacityMask = (x: number, y: number, w: number, h: number): number => {
+      // Showcase focal center (right side)
       const cx = w * 0.84;
       const cy = h * 0.45;
+
+      // Elliptical arc radius framing the laptop showcase
       const rx = w * 0.44;
       const ry = h * 0.58;
 
@@ -73,6 +77,7 @@ export const FluidDotSystem: React.FC = () => {
       const dy = (y - cy) / ry;
       const distSq = dx * dx + dy * dy;
 
+      // Curved Arc boundary transition
       let arcMask = 1.0;
       if (distSq > 1.21) { // 1.10^2
         arcMask = 0.02; // Ghost level behind headline
@@ -92,10 +97,10 @@ export const FluidDotSystem: React.FC = () => {
       if (y > metricsY - metricsFade && y < metricsY + metricsHeight + metricsFade) {
         const distFromCenter = Math.abs(y - (metricsY + metricsHeight / 2));
         const metricsT = Math.max(0, 1 - distFromCenter / (metricsHeight / 2 + metricsFade));
-        metricsBoost = metricsT * 0.06;
+        metricsBoost = metricsT * 0.05;
       }
 
-      // Edge Fade & Top Navbar Sanctuary (ZERO dots touching the top navbar links)
+      // Edge Fade & Top Navbar Sanctuary (ZERO dots touching top navbar links above y=85px)
       const edgeDist = 40;
       const edgeLeft = Math.min(x / edgeDist, 1);
       const edgeTop = Math.min(Math.max(0, y - 85) / 35, 1); // 0 dots above y = 85px
@@ -118,7 +123,7 @@ export const FluidDotSystem: React.FC = () => {
 
       const width = window.innerWidth;
       const height = window.innerHeight;
-      const maxRadius = height < 600 ? 11.0 : defaultMaxRadius;
+      const maxRadius = height < 600 ? 10.0 : defaultMaxRadius;
 
       ctx.clearRect(0, 0, width, height);
 
@@ -133,17 +138,22 @@ export const FluidDotSystem: React.FC = () => {
       ctx.fillStyle = glowGrad;
       ctx.fillRect(0, 0, width, height);
 
-      // Explicitly disable shadowBlur inside loop for zero-lag performance
+      // Explicitly disable shadowBlur inside loop for zero-lag 60fps performance
       ctx.shadowBlur = 0;
 
       // Mouse interaction radius squared (210^2 = 44100)
       const mouseRepelRadiusSq = 44100;
 
-      // ── LAYER 2: The halftone dot field ──
-      for (let x = 0; x < width + spacing; x += spacing) {
-        for (let y = 0; y < height + spacing; y += spacing) {
+      // ── LAYER 2: 45-Degree Staggered Diamond Halftone Field ──
+      let rowIndex = 0;
+
+      for (let y = -stepY; y < height + stepY * 2; y += stepY) {
+        // Offset alternating rows by half-spacing to form a 45° diamond screen lattice
+        const offsetX = (rowIndex % 2 === 0) ? 0 : stepX / 2;
+
+        for (let x = -stepX + offsetX; x < width + stepX * 2; x += stepX) {
           const diagonalPos = (x / width + y / height) / 2;
-          const curvePos = Math.pow(diagonalPos, 0.75);
+          const curvePos = Math.pow(diagonalPos, 0.72);
 
           let radius = minRadius + curvePos * (maxRadius - minRadius);
 
@@ -170,7 +180,7 @@ export const FluidDotSystem: React.FC = () => {
 
           if (opacity < 0.003) continue;
 
-          // Color Interpolation: Ultra Electric Cyan → Deep Teal
+          // Color Interpolation: Electric Cyan → Deep Teal
           const r = Math.round(lerp(colorCyan.r, colorTeal.r, diagonalPos));
           const g = Math.round(lerp(colorCyan.g, colorTeal.g, diagonalPos));
           const b = Math.round(lerp(colorCyan.b, colorTeal.b, diagonalPos));
@@ -180,6 +190,8 @@ export const FluidDotSystem: React.FC = () => {
           ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
           ctx.fill();
         }
+
+        rowIndex++;
       }
 
       animationFrameId = requestAnimationFrame(draw);
