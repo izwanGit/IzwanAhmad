@@ -253,69 +253,148 @@ const ProjectDetail = () => {
               <span className="text-xs font-bold text-[#0E7490] uppercase tracking-wider">{gallery.length} Display Views</span>
             </div>
 
-            {gallery.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="space-y-3"
-              >
-                {project.imageType === 'phone' ? (
-                  /* Mobile App UI Brand Color Background & Phone Frame */
-                  <div 
-                    className="p-8 sm:p-12 rounded-3xl border border-border shadow-md flex justify-center items-center relative overflow-hidden"
-                    style={{ backgroundColor: project.mobileBgColor || '#5C4634' }}
+            {project.imageType === 'phone' ? (
+              /* ── Mobile App Showcase: Hero Phone + Compact Grid ─────────── */
+              <>
+                {gallery.slice(0, 1).map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4 }}
+                    className="space-y-3"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
-                    <div className="w-full h-full flex items-center justify-center p-2 relative z-10">
-                      <div className="h-[480px] sm:h-[530px] aspect-[9/19.5] rounded-[38px] bg-[#1A1B22] p-2.5 border-4 border-slate-700/80 shadow-2xl relative flex flex-col items-center justify-center">
-                        {/* Side Buttons */}
-                        {project.id === 'play2grow' ? (
-                          /* Android Side Buttons */
-                          <>
-                            <div className="absolute -right-[3px] top-24 w-[3px] h-8 bg-slate-600 rounded-r" />
-                            <div className="absolute -right-[3px] top-36 w-[3px] h-14 bg-slate-600 rounded-r" />
-                          </>
-                        ) : (
-                          /* iPhone Side Buttons */
-                          <>
-                            <div className="absolute -left-[3px] top-24 w-[3px] h-9 bg-slate-600 rounded-l" />
-                            <div className="absolute -left-[3px] top-36 w-[3px] h-9 bg-slate-600 rounded-l" />
-                            <div className="absolute -right-[3px] top-28 w-[3px] h-14 bg-slate-600 rounded-r" />
-                          </>
-                        )}
+                    <div 
+                      className="p-8 sm:p-12 rounded-3xl border border-border shadow-md flex justify-center items-center relative overflow-hidden"
+                      style={{ backgroundColor: project.mobileBgColor || '#5C4634' }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                      <div className="w-full h-full flex items-center justify-center p-2 relative z-10">
+                        <div className="h-[480px] sm:h-[530px] aspect-[9/19.5] rounded-[38px] bg-[#1A1B22] p-2.5 border-4 border-slate-700/80 shadow-2xl relative flex flex-col items-center justify-center">
+                          {project.id === 'play2grow' ? (
+                            <>
+                              <div className="absolute -right-[3px] top-24 w-[3px] h-8 bg-slate-600 rounded-r" />
+                              <div className="absolute -right-[3px] top-36 w-[3px] h-14 bg-slate-600 rounded-r" />
+                            </>
+                          ) : (
+                            <>
+                              <div className="absolute -left-[3px] top-24 w-[3px] h-9 bg-slate-600 rounded-l" />
+                              <div className="absolute -left-[3px] top-36 w-[3px] h-9 bg-slate-600 rounded-l" />
+                              <div className="absolute -right-[3px] top-28 w-[3px] h-14 bg-slate-600 rounded-r" />
+                            </>
+                          )}
 
-                        {/* Top Notch / Camera Punch-hole */}
-                        {project.id === 'play2grow' ? (
-                          /* Android Layout: Top Speaker Slit & Camera Punch-hole */
-                          <>
-                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-[3px] bg-[#09090b] rounded-full z-20" />
-                            <div className="absolute top-5 left-1/2 -translate-x-1/2 w-4 h-4 bg-black border border-slate-800 rounded-full z-20 flex items-center justify-center">
-                              <div className="w-1 h-1 rounded-full bg-[#1e293b]" />
+                          {project.id === 'play2grow' ? (
+                            <>
+                              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-[3px] bg-[#09090b] rounded-full z-20" />
+                              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-4 h-4 bg-black border border-slate-800 rounded-full z-20 flex items-center justify-center">
+                                <div className="w-1 h-1 rounded-full bg-[#1e293b]" />
+                              </div>
+                            </>
+                          ) : (
+                            <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 h-4 bg-black rounded-full z-20 flex items-center justify-end px-2">
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#0E7490]/80 animate-pulse" />
                             </div>
-                          </>
-                        ) : (
-                          /* iPhone Layout: Dynamic Island Notch */
-                          <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 h-4 bg-black rounded-full z-20 flex items-center justify-end px-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#0E7490]/80 animate-pulse" />
-                          </div>
-                        )}
+                          )}
 
-                        {/* Screen Viewport */}
-                        <div className="w-full h-full rounded-[28px] overflow-hidden bg-black flex items-center justify-center">
-                          <img 
-                            src={item.src} 
-                            alt={item.caption}
-                            className="w-full h-full object-cover object-top"
-                          />
+                          <div className="w-full h-full rounded-[28px] overflow-hidden bg-black flex items-center justify-center">
+                            <img 
+                              src={item.src} 
+                              alt={item.caption}
+                              className="w-full h-full object-cover object-top"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  /* Super Duper Blurred Image Backdrop for Web/Laptop */
+
+                    <div className="text-center text-xs font-semibold text-muted-foreground italic">
+                      Figure 1: {item.caption}
+                    </div>
+                  </motion.div>
+                ))}
+
+                {gallery.length > 1 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.08 }}
+                  >
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                      {gallery.slice(1).map((item, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, y: 15 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: idx * 0.06 }}
+                          className="space-y-3"
+                        >
+                          <div 
+                            className="p-4 sm:p-6 rounded-2xl border border-border shadow-sm flex justify-center items-center relative overflow-hidden"
+                            style={{ backgroundColor: project.mobileBgColor || '#5C4634' }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                            <div className="w-full flex items-center justify-center relative z-10">
+                              <div className="h-[280px] sm:h-[320px] aspect-[9/19.5] rounded-[26px] bg-[#1A1B22] p-2 border-2 border-slate-700/80 shadow-xl relative flex flex-col items-center justify-center">
+                                {project.id === 'play2grow' ? (
+                                  <>
+                                    <div className="absolute -right-[2px] top-14 w-[2px] h-4 bg-slate-600 rounded-r" />
+                                    <div className="absolute -right-[2px] top-22 w-[2px] h-8 bg-slate-600 rounded-r" />
+                                  </>
+                                ) : (
+                                  <>
+                                    <div className="absolute -left-[2px] top-14 w-[2px] h-5 bg-slate-600 rounded-l" />
+                                    <div className="absolute -left-[2px] top-22 w-[2px] h-5 bg-slate-600 rounded-l" />
+                                    <div className="absolute -right-[2px] top-16 w-[2px] h-8 bg-slate-600 rounded-r" />
+                                  </>
+                                )}
+
+                                {project.id === 'play2grow' ? (
+                                  <>
+                                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-10 h-[2px] bg-[#09090b] rounded-full z-20" />
+                                    <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-black border border-slate-800 rounded-full z-20 flex items-center justify-center">
+                                      <div className="w-0.5 h-0.5 rounded-full bg-[#1e293b]" />
+                                    </div>
+                                  </>
+                                ) : (
+                                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-black rounded-full z-20 flex items-center justify-end px-1.5">
+                                    <div className="w-1 h-1 rounded-full bg-[#0E7490]/80 animate-pulse" />
+                                  </div>
+                                )}
+
+                                <div className="w-full h-full rounded-[18px] overflow-hidden bg-black flex items-center justify-center">
+                                  <img 
+                                    src={item.src} 
+                                    alt={item.caption}
+                                    className="w-full h-full object-cover object-top"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="text-center text-[11px] font-semibold text-muted-foreground italic">
+                            Figure {idx + 2}: {item.caption}
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </>
+            ) : (
+              gallery.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="space-y-3"
+                >
                   <div 
                     className="p-6 sm:p-8 rounded-3xl border border-border shadow-md relative overflow-hidden bg-slate-900"
                     style={{ backgroundColor: project.mobileBgColor || undefined }}
@@ -360,13 +439,8 @@ const ProjectDetail = () => {
                       </div>
                     </div>
                   </div>
-                )}
-                
-                <div className="text-center text-xs font-semibold text-muted-foreground italic">
-                  Figure {idx + 1}: {item.caption}
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              )))}
           </div>
 
         </div>
