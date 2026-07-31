@@ -12,6 +12,7 @@ import {
   ArrowRight 
 } from 'lucide-react';
 import { projects, type Project } from '../data/projectData';
+import PentestTerminal from '../components/PentestTerminal';
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -345,11 +346,17 @@ const ProjectDetail = () => {
                         </div>
                       </div>
                       <div className="w-full overflow-hidden bg-white">
-                        <img 
-                          src={item.src} 
-                          alt={item.caption}
-                          className="w-full h-auto block"
-                        />
+                        {project.id === 'network-sec' ? (
+                          <div className="min-h-[420px] sm:min-h-[520px]">
+                            <PentestTerminal />
+                          </div>
+                        ) : (
+                          <img 
+                            src={item.src} 
+                            alt={item.caption}
+                            className="w-full h-auto block"
+                          />
+                        )}
                       </div>
                     </div>
                   </div>

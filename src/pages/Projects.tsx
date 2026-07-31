@@ -13,6 +13,7 @@ import {
   Layers
 } from 'lucide-react';
 import { projects, featuredProjectIds, skillCategories, type Project } from '../data/projectData';
+import PentestTerminal from '../components/PentestTerminal';
 
 type PackableSkill = {
   name: string;
@@ -269,11 +270,19 @@ const Projects = () => {
                             </div>
                           </div>
                           <div className="w-full overflow-hidden bg-white">
-                            <img 
-                              src={project.image} 
-                              alt={project.title}
-                              className="w-full h-auto block"
-                            />
+                            {project.id === 'network-sec' ? (
+                              <div className="h-[180px] sm:h-[210px] overflow-hidden pointer-events-none">
+                                <div className="scale-[0.42] sm:scale-[0.48] origin-top-left w-[238%] sm:w-[208%]">
+                                  <PentestTerminal />
+                                </div>
+                              </div>
+                            ) : (
+                              <img 
+                                src={project.image} 
+                                alt={project.title}
+                                className="w-full h-auto block"
+                              />
+                            )}
                           </div>
                         </div>
                       </>
