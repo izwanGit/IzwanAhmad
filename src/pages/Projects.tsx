@@ -608,11 +608,19 @@ const Projects = () => {
                             </div>
                           </div>
                           <div className="w-full overflow-hidden bg-white max-h-[190px] sm:max-h-[210px] flex items-start justify-center">
-                            <img 
-                              src={project.image} 
-                              alt={project.title}
-                              className="w-full h-auto block"
-                            />
+                            {project.id === 'network-sec' ? (
+                              <div className="h-[180px] sm:h-[200px] overflow-hidden pointer-events-none">
+                                <div className="scale-[0.38] sm:scale-[0.42] origin-top-left w-[263%] sm:w-[238%]">
+                                  <PentestTerminal />
+                                </div>
+                              </div>
+                            ) : (
+                              <img 
+                                src={project.image} 
+                                alt={project.title}
+                                className="w-full h-auto block"
+                              />
+                            )}
                           </div>
                         </div>
                       </>
