@@ -17,39 +17,6 @@ export const FluidDotSystem: React.FC = () => {
     const minRadius = 2.0;
     const defaultMaxRadius = 15.5;
 
-    // Seeded PRNG (mulberry32) — stable organic scatter, no flicker between frames
-    const mulberry32 = (a: number) => () => {
-      a |= 0;
-      a = (a + 0x6D2B79F5) | 0;
-      let t = Math.imul(a ^ (a >>> 15), 1 | a);
-      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-
-    // Precomputed per-cell scatter offsets so the field never looks row-aligned.
-    // Rebuilt on resize. Grid cells keep even coverage, but dots sit organically.
-    let scatter = new Map<number, { jx: number; jy: number; rScale: number; rShift: number }>();
-    let scatterCols = 0;
-    let scatterRows = 0;
-
-    const rebuildScatter = (w: number, h: number) => {
-      scatterCols = Math.ceil((w + spacing) / spacing);
-      scatterRows = Math.ceil((h + spacing) / spacing);
-      const rng = mulberry32(0xB0B1E5); // fixed seed → deterministic, stable pattern
-      scatter.clear();
-      for (let i = 0; i < scatterCols; i++) {
-        for (let j = 0; j < scatterRows; j++) {
-          scatter.set(i * scatterRows + j, {
-            jx: (rng() - 0.5) * spacing * 0.9,
-            jy: (rng() - 0.5) * spacing * 0.9,
-            rScale: 0.72 + rng() * 0.56,
-            rShift: rng() * 4 - 2,
-          });
-        }
-      }
-    };
-
-
     // Brand Palette — Electric Vivid Cyan to Deep PETRONAS Teal
     const colorCyan = { r: 0, g: 220, b: 255 };    // Ultra Electric Cyan (#00DCF0)
     const colorTeal = { r: 14, g: 130, b: 160 };   // Deep Rich Teal (#0E82A0)
@@ -62,7 +29,6 @@ export const FluidDotSystem: React.FC = () => {
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      rebuildScatter(window.innerWidth, window.innerHeight);
     };
 
     window.addEventListener('resize', handleResize);
@@ -174,39 +140,31 @@ export const FluidDotSystem: React.FC = () => {
       const mouseRepelRadiusSq = 44100;
 
       // ── LAYER 2: The halftone dot field ──
-      for (let i = 0; i < scatterCols; i++) {
-        for (let j = 0; j < scatterRows; j++) {
-          const x = i * spacing;
-          const y = j * spacing;
-          const cell = scatter.get(i * scatterRows + j) || { jx: 0, jy: 0, rScale: 1, rShift: 0 };
-
-          // Organic scatter — break the row/column alignment
-          const ox = x + cell.jx;
-          const oy = y + cell.jy;
-
+      for (let x = 0; x < width + spacing; x += spacing) {
+        for (let y = 0; y < height + spacing; y += spacing) {
           const diagonalPos = (x / width + y / height) / 2;
           const curvePos = Math.pow(diagonalPos, 0.75);
 
-          let radius = Math.max(0.6, (minRadius + curvePos * (maxRadius - minRadius)) * cell.rScale + cell.rShift);
+          let radius = minRadius + curvePos * (maxRadius - minRadius);
 
           // Fast Mouse Interaction Check (skips Math.sqrt when out of mouse range)
-          const dx = mouse.x - ox;
-          const dy = mouse.y - oy;
+          const dx = mouse.x - x;
+          const dy = mouse.y - y;
           const distSq = dx * dx + dy * dy;
 
-          let finalX = ox;
-          let finalY = oy;
+          let finalX = x;
+          let finalY = y;
 
           if (distSq < mouseRepelRadiusSq) {
             const dist = Math.sqrt(distSq);
             const repelForce = 1 - dist / 210;
-            finalX = ox - dx * repelForce * 0.10;
-            finalY = oy - dy * repelForce * 0.10;
+            finalX = x - dx * repelForce * 0.10;
+            finalY = y - dy * repelForce * 0.10;
             radius += repelForce * 2.5;
           }
 
-          // Compute Layered Arc Opacity Mask (evaluated at the scattered position)
-          const mask = computeOpacityMask(ox, oy, width, height);
+          // Compute Layered Arc Opacity Mask
+          const mask = computeOpacityMask(x, y, width, height);
           const baseOpacity = 0.10 + curvePos * 0.32;
           const opacity = baseOpacity * mask;
 
