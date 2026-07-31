@@ -303,7 +303,7 @@ export const projects: Project[] = [
     categories: ['enterprise'],
     description: "Executed full-chain penetration testing demonstration: SMB reconnaissance via enum4linux to exfiltrate private SSH keys, non-standard Telnet reverse shell execution for root privilege escalation, and FTP dictionary brute-forcing.",
     tags: ["Penetration Testing", "Nmap", "Metasploit", "SMB / Telnet / FTP", "Hydra"],
-    image: '/images/rentverse/admin.jpg',
+    image: '/images/network-sec.png',
     imageType: 'laptop',
     year: "2024",
   },
