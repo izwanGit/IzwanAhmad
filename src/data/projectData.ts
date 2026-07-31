@@ -115,7 +115,7 @@ export const projects: Project[] = [
     tags: ["React Native", "Node.js", "TensorFlow.js", "Firebase", "xAI Grok 4.1", "RAG"],
     image: '/images/beruang/home.png',
     imageType: 'phone',
-    mobileBgColor: '#0C1A20',
+    mobileBgColor: '#7C624D',
     year: "2026",
     awards: ["Best System Architecture Award", "86.77 SUS Score"],
     impact: ["99.61% accuracy", "55 testers", "86.77 SUS"],

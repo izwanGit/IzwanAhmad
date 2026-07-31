@@ -269,9 +269,10 @@ const ProjectDetail = () => {
                     className="space-y-3"
                   >
                     <div 
-                      className="p-8 sm:p-12 rounded-3xl border border-[#0E7490]/25 shadow-xl flex justify-center items-center relative overflow-hidden bg-gradient-to-br from-[#0C1A20] via-[#0E7490]/20 to-[#0C1A20]"
+                      className="p-8 sm:p-12 rounded-3xl border border-white/20 shadow-xl flex justify-center items-center relative overflow-hidden"
+                      style={{ backgroundColor: project.mobileBgColor || '#7C624D' }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/25 pointer-events-none" />
                       <div className="w-full h-full flex items-center justify-center p-2 relative z-10">
                         <div className="h-[480px] sm:h-[530px] aspect-[9/19.5] rounded-[38px] bg-[#1A1B22] p-2.5 border-4 border-slate-700/80 shadow-2xl relative flex flex-col items-center justify-center">
                           {project.id === 'play2grow' ? (
@@ -335,8 +336,10 @@ const ProjectDetail = () => {
                           className="space-y-3"
                         >
                           <div 
-                            className="p-4 sm:p-6 rounded-2xl border border-[#0E7490]/25 shadow-md flex justify-center items-center relative overflow-hidden bg-gradient-to-br from-[#0C1A20] via-[#0E7490]/20 to-[#0C1A20]"
+                            className="p-4 sm:p-6 rounded-2xl border border-white/20 shadow-md flex justify-center items-center relative overflow-hidden"
+                            style={{ backgroundColor: project.mobileBgColor || '#7C624D' }}
                           >
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/25 pointer-events-none" />
                             <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
                             <div className="w-full flex items-center justify-center relative z-10">
                               <div className="h-[280px] sm:h-[320px] aspect-[9/19.5] rounded-[26px] bg-[#1A1B22] p-2 border-2 border-slate-700/80 shadow-xl relative flex flex-col items-center justify-center">

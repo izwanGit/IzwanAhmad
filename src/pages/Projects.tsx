@@ -227,7 +227,7 @@ const Projects = () => {
                   {/* Device-Aware Mockup Header — Equal Height for Both Beruang & RentVerse */}
                   <div 
                     className="p-5 sm:p-6 flex justify-center items-center h-[300px] sm:h-[330px] relative overflow-hidden border-b border-border/80"
-                    style={{ backgroundColor: (project.imageType === 'phone' || project.mobileBgColor) ? (project.mobileBgColor || '#0C1A20') : undefined }}
+                    style={{ backgroundColor: (project.imageType === 'phone' || project.mobileBgColor) ? (project.mobileBgColor || '#7C624D') : undefined }}
                   >
                     {project.imageType === 'phone' ? (
                       /* Mobile App UI Brand Background & Phone Mockup */
@@ -533,7 +533,7 @@ const Projects = () => {
                   {/* Device Mockup Thumbnail */}
                   <div 
                     className="p-5 sm:p-6 flex justify-center items-center h-[240px] sm:h-[260px] relative overflow-hidden rounded-2xl border border-border mb-5"
-                    style={{ backgroundColor: (project.imageType === 'phone' || project.mobileBgColor) ? (project.mobileBgColor || '#0C1A20') : undefined }}
+                    style={{ backgroundColor: (project.imageType === 'phone' || project.mobileBgColor) ? (project.mobileBgColor || '#7C624D') : undefined }}
                   >
                     {project.imageType === 'phone' ? (
                       /* Mobile App UI Brand Color Background & Dynamic Phone Layout (iPhone vs Android) */
