@@ -51,10 +51,13 @@ const ProjectDetail = () => {
   const getGalleryImages = (p: Project) => {
     if (p.id === 'beruang') {
       return [
-        { src: '/images/beruang-mobile.jpg', caption: 'Mobile App Interface & Budget Tracker' },
-        { src: '/images/beruang-chatbot.jpg', caption: 'AI Personal Advisor Chatbot (Grok 4.1)' },
-        { src: '/images/beruang-dashboard.jpg', caption: 'Visual Analytics & 50/30/20 Breakdown' },
-        { src: '/images/beruang-receipt.jpeg', caption: 'Smart OCR Receipt Scanner' }
+        { src: '/images/beruang/home.png', caption: 'Real-Time Financial Dashboard & Health Tracker' },
+        { src: '/images/beruang/expenses.png', caption: '50/30/20 Budget Breakdown & Transaction Logging' },
+        { src: '/images/beruang/chat-1.png', caption: 'Instant Natural Language UI Generation' },
+        { src: '/images/beruang/chat-2.png', caption: 'Hyper-Localized Financial Advisory Engine' },
+        { src: '/images/beruang/chat-3.png', caption: 'Opportunity Cost & Spatial Web Guardian' },
+        { src: '/images/beruang/login.png', caption: 'Biometric Auth & Session Security Gateway' },
+        { src: '/images/beruang/profile.png', caption: 'Encrypted User Profile & Financial Goals' }
       ];
     }
     if (p.id === 'petronas-hub') {
@@ -266,8 +269,7 @@ const ProjectDetail = () => {
                     className="space-y-3"
                   >
                     <div 
-                      className="p-8 sm:p-12 rounded-3xl border border-border shadow-md flex justify-center items-center relative overflow-hidden"
-                      style={{ backgroundColor: project.mobileBgColor || '#5C4634' }}
+                      className="p-8 sm:p-12 rounded-3xl border border-[#0E7490]/25 shadow-xl flex justify-center items-center relative overflow-hidden bg-gradient-to-br from-[#0C1A20] via-[#0E7490]/20 to-[#0C1A20]"
                     >
                       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
                       <div className="w-full h-full flex items-center justify-center p-2 relative z-10">
@@ -333,8 +335,7 @@ const ProjectDetail = () => {
                           className="space-y-3"
                         >
                           <div 
-                            className="p-4 sm:p-6 rounded-2xl border border-border shadow-sm flex justify-center items-center relative overflow-hidden"
-                            style={{ backgroundColor: project.mobileBgColor || '#5C4634' }}
+                            className="p-4 sm:p-6 rounded-2xl border border-[#0E7490]/25 shadow-md flex justify-center items-center relative overflow-hidden bg-gradient-to-br from-[#0C1A20] via-[#0E7490]/20 to-[#0C1A20]"
                           >
                             <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
                             <div className="w-full flex items-center justify-center relative z-10">
