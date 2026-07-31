@@ -12,10 +12,10 @@ export const FluidDotSystem: React.FC = () => {
     let animationFrameId: number;
     let isVisible = true;
 
-    // Grid & Halftone Settings — Optimized spacing for locked 60fps/120fps
+    // Grid & Halftone Settings — Bold, dramatic scaling for PETRONAS-style impact
     const spacing = 24;
-    const minRadius = 1.8;
-    const defaultMaxRadius = 10.0;
+    const minRadius = 2.0;
+    const defaultMaxRadius = 15.5;
 
     // Brand Palette — Electric Vivid Cyan to Deep PETRONAS Teal
     const colorCyan = { r: 0, g: 220, b: 255 };    // Ultra Electric Cyan (#00DCF0)
@@ -118,7 +118,7 @@ export const FluidDotSystem: React.FC = () => {
 
       const width = window.innerWidth;
       const height = window.innerHeight;
-      const maxRadius = height < 600 ? 8.0 : defaultMaxRadius;
+      const maxRadius = height < 600 ? 11.0 : defaultMaxRadius;
 
       ctx.clearRect(0, 0, width, height);
 
