@@ -194,7 +194,6 @@ export const projects: Project[] = [
     imageType: 'phone',
     mobileBgColor: '#0D9488',
     year: "2024",
-    github: "https://github.com/izwanGit/Play2GrowGames",
   },
   {
     id: "uems",
@@ -217,7 +216,7 @@ export const projects: Project[] = [
     categories: ['ai'],
     description: "Led AI architecture for a MATLAB-based system recognizing Malaysian hawker food and estimating calorie content. Fine-tuned SqueezeNet CNN (83% accuracy) with 3-stage Gray World CLAHE image preprocessing and MyFCD nutrition mapping.",
     tags: ["MATLAB", "SqueezeNet CNN", "SVM Classifier", "Computer Vision", "MyFCD"],
-    image: '/images/food-placeholder.jpg',
+    image: '/images/hawker-food-predictions.png',
     imageType: 'laptop',
     year: "2025",
     impact: ["83% accuracy", "3-stage preprocessing"],
@@ -291,7 +290,7 @@ export const projects: Project[] = [
     categories: ['enterprise'],
     description: "Served as Head of Data Science investigating socioeconomic correlations with Malaysian crime patterns using 2022 Open DOSM datasets. Conducted Python/Pandas normalization in Colab and engineered an interactive Tableau dashboard.",
     tags: ["Python", "Pandas", "Scikit-Learn", "Tableau", "Data Storytelling"],
-    image: '/images/petronas-dashboard.jpg',
+    image: '/images/crime-analytics-dashboard.png',
     imageType: 'laptop',
     year: "2024",
     github: "https://github.com/izwanGit/EconomicPressureAndSocialPatterns_DataProcessing"
@@ -320,7 +319,7 @@ export const projects: Project[] = [
     imageType: 'laptop',
     year: "2024",
     github: "https://github.com/izwanGit/LaoshiYu-Chatbot",
-    demo: "https://yulaoshi.onrender.com/"
+    demo: "https://izwan.pythonanywhere.com/"
   },
   {
     id: "kuehlicious",
