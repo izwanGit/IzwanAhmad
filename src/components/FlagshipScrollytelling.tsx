@@ -17,7 +17,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence, MotionValue } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Trophy, Brain, Lock, Server, CheckCircle2, UserCheck, LayoutDashboard, Wallet, Globe, ShieldCheck, ExternalLink } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Brain, Lock, Server, CheckCircle2, UserCheck, LayoutDashboard, Wallet, Globe, ShieldCheck, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ─── Real Official Tech SVG Icons ─────────────────────────────

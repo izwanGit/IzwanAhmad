@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -15,6 +15,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,10 +36,14 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         {/* Logo — use real logo image */}
-        <Link to="/" className="relative z-10 flex items-center gap-3 group">
+        <Link
+          to="/"
+          aria-label="izwan. home"
+          className="group relative z-10 flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        >
           <img
             src="/images/izwanlogoheader.png"
-            alt="Izwan Ahmad Logo"
+            alt=""
             className="h-10 w-auto object-contain"
           />
         </Link>
@@ -50,7 +55,7 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-sm font-semibold transition-colors',
+                'rounded-sm text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
                 location.pathname === link.path
                   ? 'text-primary'
                   : 'text-muted-foreground hover:text-foreground'
@@ -61,7 +66,7 @@ const Navbar = () => {
           ))}
           <a
             href="mailto:works.izwan@gmail.com"
-            className="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-md hover:bg-primary-hover transition-all hover:shadow-hover hover:-translate-y-0.5"
+            className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-white transition duration-150 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none"
           >
             Let's Talk
           </a>
@@ -69,7 +74,11 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden relative z-50 p-2 -mr-2 text-foreground"
+          type="button"
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
+          className="relative z-50 -mr-2 min-h-11 min-w-11 rounded-md p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -79,19 +88,21 @@ const Navbar = () => {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              id="mobile-navigation"
+              initial={shouldReduceMotion ? false : { opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              className="fixed inset-0 bg-white/97 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+              exit={shouldReduceMotion ? undefined : { opacity: 0, x: 20 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.24, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-white/95 backdrop-blur-md md:hidden"
             >
-              <img src="/images/izwanlogoheader.png" alt="Izwan Ahmad Logo" className="h-10 mb-4" />
+              <img src="/images/izwanlogoheader.png" alt="izwan." className="mb-4 h-10" />
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    'text-2xl font-bold tracking-tight transition-colors',
+                    'rounded-md text-2xl font-bold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
                     location.pathname === link.path ? 'text-primary' : 'text-foreground hover:text-primary'
                   )}
                 >
@@ -101,7 +112,7 @@ const Navbar = () => {
               <a
                 href="mailto:works.izwan@gmail.com"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 px-8 py-4 bg-primary text-white text-lg font-bold rounded-lg shadow-card"
+                className="mt-4 rounded-lg bg-primary px-8 py-4 text-lg font-bold text-white shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 Let's Talk
               </a>

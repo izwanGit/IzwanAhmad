@@ -4,11 +4,10 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646CFF.svg?logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com/)
-[![Three.js](https://img.shields.io/badge/Three.js-0.185-black.svg?logo=three.js)](https://threejs.org/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.4-0055FF.svg?logo=framer)](https://www.framer.com/motion/)
 [![Oxlint](https://img.shields.io/badge/Linted_with-Oxlint-orange.svg)](https://oxc.rs/)
 
-Welcome to the official repository of **Izwan Ahmad's Developer & AI Engineer Portfolio**. This web application is engineered for maximum performance and visual impact, featuring Apple-style 3D scrollytelling, dynamic particle backgrounds, responsive interactive cards, and comprehensive project showcases.
+Welcome to the official repository of **Izwan Ahmad's Developer & AI Engineer Portfolio**. This web application is engineered for maximum performance and visual impact, featuring brand-led scrollytelling, a signature two-dot journey, responsive interactive cards, and comprehensive project showcases.
 
 ---
 
@@ -16,7 +15,7 @@ Welcome to the official repository of **Izwan Ahmad's Developer & AI Engineer Po
 
 - **🎨 Apple-Style 3D Scrollytelling**: Parallax scroll-driven transformations, 3D object zooming, and depth separation powered by Framer Motion.
 - **⚡ Next-Gen Performance**: Vite 8 build toolchain combined with React 19 for blazing fast HMR and sub-second cold starts.
-- **🌌 Interactive Particle Visualizations**: Canvas-based interactive ambient particles with responsive particle density and cursor interaction.
+- **🔵 Signature Two-Dot Journey**: A lightweight, brand-led visual system connecting ideas to measurable product impact.
 - **💼 Comprehensive Project & Career Showcase**: Dedicated pages for flagship Enterprise software (PETRONAS digital solutions), AI/ML tools, Freelance work, and Career milestones.
 - **📱 Fully Responsive Design System**: Modern, accessible UI tailored with custom cyan/teal color tokens, smooth dark-mode accents, and subtle typography scales.
 - **🛡️ Type-Safe & Linted Codebase**: Written in strict TypeScript with high-performance linting via Oxlint.
@@ -31,8 +30,7 @@ Welcome to the official repository of **Izwan Ahmad's Developer & AI Engineer Po
 - **[TypeScript](https://www.typescriptlang.org/)** — Static Type Checking
 
 ### Graphics & Motion
-- **[Framer Motion 12](https://www.framer.com/motion/)** — Complex 3D Parallax & Scroll-driven Animations
-- **[Three.js](https://threejs.org/)** / **[@react-three/fiber](https://github.com/pmndrs/react-three-fiber)** / **[@react-three/drei](https://github.com/pmndrs/drei)** — 3D WebGL Rendering
+- **[Framer Motion 12](https://www.framer.com/motion/)** — Accessible, compositor-friendly UI motion
 - **[Lucide React](https://lucide.dev/)** — Modern SVG Icons
 
 ### Styling & Design System
@@ -57,7 +55,7 @@ IzwanPortfolio/
 │   │   ├── layout/        # Navbar, Footer, and layout structures
 │   │   ├── FlagshipScrollytelling.tsx # Apple-style scrollytelling card
 │   │   ├── HeroShowcase.tsx           # Hero section visual component
-│   │   ├── ParticleBackground.tsx     # Canvas ambient particles
+│   │   ├── ui/TwoDotJourney.tsx       # Signature brand journey field
 │   │   └── PetronasShowcase.tsx       # Enterprise showcase section
 │   ├── lib/               # Utility functions (cn helper, formatters)
 │   ├── pages/             # Main Application Views

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, MessageCircle } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 const LinkedInIcon = ({ size = 18 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -69,15 +69,6 @@ const Footer = () => {
               <span>Send an Email</span>
             </a>
 
-            <a
-              href="https://wa.me/60100000000"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#0C1A20] text-white rounded-xl font-extrabold hover:bg-black transition-all hover:shadow-lg hover:scale-105 border border-white/10"
-            >
-              <MessageCircle size={20} className="text-[#25D366]" />
-              <span>WhatsApp Direct</span>
-            </a>
           </motion.div>
 
           <div className="flex flex-wrap justify-center items-center gap-8 pt-4 border-t border-white/15 max-w-md mx-auto">
@@ -140,16 +131,6 @@ const Footer = () => {
             >
               <GithubIcon size={15} />
               GitHub
-            </a>
-            <a
-              href="https://wa.me/60100000000"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 hover:text-accent transition-colors"
-              style={{ color: '#F5F9FA' }}
-            >
-              <MessageCircle size={15} />
-              WhatsApp
             </a>
           </div>
         </div>

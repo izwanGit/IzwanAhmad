@@ -6,13 +6,10 @@ import {
   Trophy, 
   ArrowRight, 
   Award, 
-  Sparkles, 
   Search,
-  CheckCircle2,
-  Terminal,
-  Layers
+  Terminal
 } from 'lucide-react';
-import { projects, featuredProjectIds, skillCategories, type Project } from '../data/projectData';
+import { projects, featuredProjectIds, skillCategories } from '../data/projectData';
 import PentestTerminal from '../components/PentestTerminal';
 
 type PackableSkill = {
@@ -84,7 +81,6 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'web' | 'mobile' | 'ai' | 'enterprise'>('all');
   const [activeSkillCategory, setActiveSkillCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [skillViewMode, setSkillViewMode] = useState<'bubble' | 'chips'>('bubble');
   const bubbleAreaRef = useRef<HTMLDivElement>(null);
   const [bubbleAreaSize, setBubbleAreaSize] = useState({ w: 0, h: 0 });
 

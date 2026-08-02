@@ -1,18 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
-// Pages
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import ProjectDetail from './pages/ProjectDetail';
-import Experience from './pages/Experience';
-import Freelance from './pages/Freelance';
+const Home = lazy(() => import('./pages/Home'));
+const Projects = lazy(() => import('./pages/Projects'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
+const Experience = lazy(() => import('./pages/Experience'));
+const Freelance = lazy(() => import('./pages/Freelance'));
 
 // Components
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import ParticleBackground from './components/ParticleBackground';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -27,18 +24,25 @@ const App = () => {
     <Router>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-background font-sans text-foreground selection:bg-primary selection:text-white">
-        <ParticleBackground />
-        
         <Navbar />
         
-        <main className="flex-grow z-10 relative">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:id" element={<ProjectDetail />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/freelance" element={<Freelance />} />
-          </Routes>
+        <main className="relative z-10 flex-grow">
+          <Suspense
+            fallback={
+              <div className="flex min-h-screen items-center justify-center bg-background" role="status" aria-live="polite">
+                <span className="h-3 w-3 rounded-full bg-accent shadow-journey-dot" />
+                <span className="sr-only">Loading page</span>
+              </div>
+            }
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:id" element={<ProjectDetail />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/freelance" element={<Freelance />} />
+            </Routes>
+          </Suspense>
         </main>
         
         <Footer />

@@ -1,119 +1,97 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Building, Trophy, GraduationCap, MapPin, Briefcase } from 'lucide-react';
+import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRight, Building, Trophy, GraduationCap, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import HeroShowcase from '../components/HeroShowcase';
-import PetronasShowcase from '../components/PetronasShowcase';
 import FlagshipScrollytelling from '../components/FlagshipScrollytelling';
 
-
-import { FluidDotSystem } from '../components/ui/FluidDotSystem';
-
 const Home: React.FC = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="w-full">
 
       {/* ============================================================
-          HERO SECTION — PETRONAS Generative Fluid Dot System (#F5F9FA)
+          HERO SECTION — SIGNATURE TWO-DOT JOURNEY
       ============================================================ */}
-      <section className="relative min-h-[88vh] flex items-center pt-28 pb-16 overflow-hidden bg-[#F5F9FA]">
-        
-        {/* Generative Fluid Canvas Dot System */}
-        <FluidDotSystem />
+      <section
+        aria-labelledby="hero-title"
+        className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28 lg:flex lg:min-h-screen lg:items-center"
+      >
+        <div className="absolute inset-0 bg-hero-wash pointer-events-none" aria-hidden="true" />
 
-        {/* Multi-Layer Ambient Glow Stack — adds premium depth behind the dot field */}
-        {/* Primary: Soft cyan ellipse behind the showcase column */}
-        <div className="absolute top-[30%] right-[5%] w-[600px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.10)_0%,transparent_70%)] pointer-events-none z-[1]" />
-        {/* Secondary: Deeper teal wash at bottom-right corner */}
-        <div className="absolute bottom-[5%] right-[10%] w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(14,116,144,0.07)_0%,transparent_65%)] pointer-events-none z-[1]" />
-        {/* Tertiary: Very subtle center glow for overall warmth */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[700px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.05)_0%,transparent_70%)] pointer-events-none z-[1]" />
-        
-        <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-
-            {/* Left Column (7 cols) — Calm Authoritative Copywriting */}
+        <div className="container relative z-10 mx-auto max-w-7xl px-6">
+          <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="lg:col-span-7 flex flex-col items-start"
+              transition={{ duration: shouldReduceMotion ? 0 : 0.38, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-start lg:col-span-5"
             >
-              {/* Status Capsule */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 border border-slate-200/90 shadow-xs text-xs font-semibold text-[#0C1A20] mb-6 backdrop-blur-md">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#06B6D4] animate-pulse shrink-0" />
-                <span className="text-slate-700 font-medium">Open for Opportunities</span>
+              <div className="mb-6 inline-flex min-h-10 items-center gap-3 rounded-full border border-primary/15 bg-white/90 px-4 py-2 text-xs font-semibold text-foreground shadow-card backdrop-blur-md">
+                <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent shadow-journey-dot" />
+                <span>Open to Software Engineering Roles · Malaysia / Remote</span>
               </div>
 
-              {/* Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0C1A20] leading-[1.1] mb-6">
-                Building High-Performance <br className="hidden sm:inline" />
-                <span className="bg-gradient-to-r from-[#0E7490] via-[#06B6D4] to-[#0284C7] bg-clip-text text-transparent">Web Systems, AI</span> & Automation.
+              <h1 id="hero-title" className="mb-6 text-3xl font-extrabold leading-tight tracking-tight text-foreground xs:text-4xl sm:text-5xl xl:text-6xl">
+                Engineering <span className="text-primary">ideas</span> into production <span className="text-accent">impact.</span>
               </h1>
 
-              {/* Capability Pillar Badges */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3.5 py-1.5 bg-white/90 border border-slate-200/90 rounded-full text-xs font-bold text-[#0C1A20] flex items-center gap-2 shadow-2xs backdrop-blur-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#06B6D4]" /> Web Engineering
-                </span>
-                <span className="px-3.5 py-1.5 bg-white/90 border border-slate-200/90 rounded-full text-xs font-bold text-[#0C1A20] flex items-center gap-2 shadow-2xs backdrop-blur-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#06B6D4]" /> AI & Computer Vision
-                </span>
-                <span className="px-3.5 py-1.5 bg-white/90 border border-slate-200/90 rounded-full text-xs font-bold text-[#0C1A20] flex items-center gap-2 shadow-2xs backdrop-blur-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#06B6D4]" /> Enterprise Automation
-                </span>
-              </div>
-
-              {/* Subtitle Bio */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-8 font-medium">
-                Hi, I'm <strong className="text-[#0C1A20] font-bold">Izwan Ahmad</strong> — Computer Science graduate & ex-PETRONAS Digital engineer. Architecting production web apps, ViT computer vision models, and zero-touch RPA pipelines.
+              <p className="mb-6 max-w-xl text-base font-medium leading-relaxed text-muted-foreground sm:text-lg">
+                I’m <strong className="font-bold text-foreground">Izwan Ahmad</strong>, a product-minded software engineer who shipped 10+ production systems at PETRONAS Digital and builds award-winning AI products.
               </p>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 mb-10">
+              <ul className="mb-8 hidden flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-wider text-muted-foreground sm:flex" aria-label="Core capabilities">
+                {['Software Engineering', 'Applied AI', 'Automation'].map((capability) => (
+                  <li key={capability} className="flex items-center gap-3">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                    {capability}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mb-8 flex flex-wrap items-center gap-3 lg:mb-10">
                 <Link
                   to="/projects"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#0E7490] text-white rounded-xl font-bold hover:bg-[#06B6D4] transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(14,116,144,0.3)] hover:shadow-[0_15px_30px_rgba(6,182,212,0.4)] hover:-translate-y-0.5 text-sm"
+                  className="inline-flex min-h-12 items-center gap-3 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-hero-cta transition duration-150 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none"
                 >
-                  <span>Explore Flagship Works</span>
-                  <ArrowRight size={18} />
+                  <span>Explore Flagship Work</span>
+                  <ArrowRight size={18} aria-hidden="true" />
                 </Link>
                 <Link
-                  to="/freelance"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/90 border border-slate-300 text-[#0C1A20] rounded-xl font-bold hover:bg-slate-50 transition-all duration-300 shadow-xs hover:border-[#06B6D4] hover:-translate-y-0.5 text-sm"
+                  to="/experience"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-xl px-3 py-3 text-sm font-bold text-foreground transition duration-150 hover:-translate-y-0.5 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none"
                 >
-                  <span>Freelance Services</span>
+                  <span>View PETRONAS Impact</span>
+                  <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
 
-              {/* High-Trust Key Metrics Row */}
-              <div className="grid grid-cols-3 gap-6 w-full pt-6 border-t border-slate-200/90">
+              <div className="hidden w-full grid-cols-3 gap-6 border-t border-border pt-6 lg:grid">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#0C1A20]">3.9+</div>
-                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">CGPA (Dean's List)</div>
+                  <div className="text-2xl font-black text-foreground">10+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Production systems</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#0E7490]">10+</div>
-                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Production Systems</div>
+                  <div className="text-2xl font-black text-primary">95%</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Workflow reduction</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#06B6D4]">11+</div>
-                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Awards & Recognitions</div>
+                  <div className="text-2xl font-black text-accent">11+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Recognitions</div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Column (5 cols) — Upright Laptop/Phone Showcase */}
             <motion.div
-              initial={{ opacity: 0, x: 25 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="lg:col-span-5 flex justify-center w-full"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.38, ease: [0.16, 1, 0.3, 1], delay: shouldReduceMotion ? 0 : 0.06 }}
+              className="flex w-full justify-center lg:col-span-7"
             >
               <HeroShowcase />
             </motion.div>
-
           </div>
         </div>
       </section>

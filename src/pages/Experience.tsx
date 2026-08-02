@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Trophy, Award, Building, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Briefcase, GraduationCap, Trophy, Building, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PetronasShowcase from '../components/PetronasShowcase';
 
