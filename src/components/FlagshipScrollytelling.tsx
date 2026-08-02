@@ -336,7 +336,7 @@ const CascadePhoneItem: React.FC<CascadePhoneProps> = ({
         opacity,
         borderColor,
       }}
-      className="absolute aspect-[9/19.2] w-[150px] rounded-[30px] border-[3px] bg-[#0C1A20] p-1.5 shadow-[0_25px_60px_rgba(14,116,144,0.3)] ring-1 ring-white/30 transform-gpu transition-shadow sm:w-[240px] sm:rounded-[42px] sm:border-[3.5px] sm:p-2.5 md:w-[260px]"
+      className="absolute aspect-[9/19.2] w-[130px] rounded-[26px] border-[2.5px] bg-[#0C1A20] p-1 shadow-[0_20px_50px_rgba(14,116,144,0.25)] ring-1 ring-white/30 transform-gpu transition-shadow sm:w-[190px] sm:rounded-[36px] sm:border-[3px] sm:p-2 md:w-[210px] lg:w-[220px]"
     >
       <div className="absolute left-1/2 top-2.5 z-40 flex h-4 w-16 -translate-x-1/2 items-center justify-between rounded-full border border-white/10 bg-black px-1.5 shadow-md sm:top-4 sm:h-5 sm:w-24 sm:px-2">
         <div className="w-2 h-2 rounded-full bg-slate-900 ring-1 ring-white/20 flex items-center justify-center">
@@ -566,7 +566,7 @@ const CascadeLaptopItem: React.FC<CascadeLaptopProps> = ({
   return (
     <motion.div
       style={{ x, y, scale, opacity }}
-      className="absolute w-full max-w-[330px] transform-gpu sm:max-w-[540px] lg:max-w-[600px]"
+      className="absolute w-full max-w-[280px] transform-gpu sm:max-w-[420px] md:max-w-[460px] lg:max-w-[480px]"
     >
       <div className="w-full rounded-t-3xl p-3 bg-[#0C1A20] border-2 border-[#0E7490]/50 shadow-[0_30px_70px_rgba(14,116,144,0.25)] relative ring-1 ring-white/15">
         <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center z-40">
@@ -614,7 +614,7 @@ const BeruangShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="Beruang AI Financial Platform Showcase"
     >
-      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-3 pt-20 lg:pb-6 lg:pt-24">
+      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-2 pt-14 sm:pb-3 sm:pt-16 lg:pb-3 lg:pt-16">
         
         {/* Shared two-dot atmosphere */}
         <div
@@ -633,45 +633,45 @@ const BeruangShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Brand Header — Logo-First, No Card */}
-        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-4 sm:px-6 sm:pb-6">
+        {/* Top Brand Header — Logo-First, Ultra Compact */}
+        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1.5 sm:px-6 sm:pb-2 lg:pb-3">
           <div className="flex flex-col items-center text-center">
             
-            {/* Big Logo */}
-            <div className="mb-2 h-14 w-14 sm:mb-3 sm:h-20 sm:w-20 lg:h-24 lg:w-24">
+            {/* Compact Logo */}
+            <div className="mb-1 h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14">
               <img
                 src="/images/beruang/logo.png"
                 alt="Beruang AI Logo"
-                className="h-full w-full object-contain drop-shadow-lg"
+                className="h-full w-full object-contain drop-shadow-md"
               />
             </div>
 
             {/* Title + Badge */}
             <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              <h3 className="text-base font-black tracking-tight text-[#0C1A20] sm:text-xl lg:text-2xl">
+              <h3 className="text-sm font-black tracking-tight text-[#0C1A20] sm:text-base lg:text-lg">
                 Beruang: AI Hybrid Powered Finance Application
               </h3>
-              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-3 sm:text-xs">
+              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-2.5 sm:text-[10px]">
                 5 GitHub Repos
               </span>
             </div>
 
             {/* Description */}
-            <p className="mt-1 text-[10px] font-bold text-[#0E7490] sm:mt-1.5 sm:text-sm">
+            <p className="mt-0.5 text-[10px] font-bold text-[#0E7490] sm:text-xs">
               Mobile App · AI Microservices · Express Server · RAG Engine · 99.61% Accuracy
             </p>
 
-            {/* Tech Badges & Live Demo — hidden on small phones */}
-            <div className="mt-2 hidden flex-wrap items-center justify-center gap-2 sm:flex sm:mt-3 sm:gap-2.5">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-xs font-extrabold text-[#0C1A20] shadow-sm backdrop-blur-sm">
+            {/* Tech Badges & Live Demo */}
+            <div className="mt-1.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
                 <ReactIcon />
                 <span>React Native</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-xs font-extrabold text-[#0C1A20] shadow-sm backdrop-blur-sm">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
                 <PyTorchIcon />
                 <span>PyTorch</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-xs font-extrabold text-[#0C1A20] shadow-sm backdrop-blur-sm">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
                 <FirebaseIcon />
                 <span>Firebase RAG</span>
               </span>
@@ -679,10 +679,10 @@ const BeruangShowcaseSection: React.FC = () => {
                 href="https://beruang-landing.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 rounded-full bg-[#0E7490] px-4 py-1 text-xs font-black text-white shadow-[0_6px_18px_rgba(14,116,144,0.2)] transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4]"
+                className="group inline-flex items-center gap-1 rounded-full bg-[#0E7490] px-3 py-0.5 text-[10px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:text-[11px]"
               >
                 <span>Live Demo</span>
-                <ExternalLink size={13} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
 
@@ -727,8 +727,8 @@ const BeruangShowcaseSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: Upright Pristine Phone Stage */}
-          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[420px] lg:col-span-7 lg:min-h-[520px]">
-            <div className="relative flex h-[310px] w-full items-center justify-center sm:h-[520px]">
+          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[340px] lg:col-span-7 lg:min-h-[380px]">
+            <div className="relative flex h-[260px] w-full items-center justify-center sm:h-[360px] lg:h-[380px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => (
                   <CascadePhoneItem
@@ -797,7 +797,7 @@ const RentVerseShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="RentVerse Rental Ecosystem Showcase"
     >
-      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-3 pt-20 lg:pb-6 lg:pt-24">
+      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-2 pt-14 sm:pb-3 sm:pt-16 lg:pb-3 lg:pt-16">
         
         {/* Shared two-dot atmosphere */}
         <div
@@ -816,41 +816,41 @@ const RentVerseShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Header — Logo-First, No Card */}
-        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-4 sm:px-6 sm:pb-6">
+        {/* Top Header — Logo-First, Ultra Compact */}
+        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1.5 sm:px-6 sm:pb-2 lg:pb-3">
           <div className="flex flex-col items-center text-center">
             
-            {/* Big Logo */}
-            <div className="mb-2 h-14 w-14 sm:mb-3 sm:h-20 sm:w-20 lg:h-24 lg:w-24">
+            {/* Compact Logo */}
+            <div className="mb-1 h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14">
               <img
                 src="/images/rentverse/logo.png"
                 alt="RentVerse Logo"
-                className="h-full w-full object-contain drop-shadow-lg"
+                className="h-full w-full object-contain drop-shadow-md"
               />
             </div>
 
             {/* Title + Badge */}
             <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              <h3 className="text-base font-black tracking-tight text-[#0C1A20] sm:text-xl lg:text-2xl">
+              <h3 className="text-sm font-black tracking-tight text-[#0C1A20] sm:text-base lg:text-lg">
                 RentVerse: DevSecOps Enterprise Rental Ecosystem
               </h3>
-              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-3 sm:text-xs">
+              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-2.5 sm:text-[10px]">
                 DevSecOps Winner
               </span>
             </div>
 
             {/* Description */}
-            <p className="mt-1 text-[10px] font-bold text-[#0E7490] sm:mt-1.5 sm:text-sm">
+            <p className="mt-0.5 text-[10px] font-bold text-[#0E7490] sm:text-xs">
               14-Stage CI/CD Security Pipeline · Zero Trust Authentication · Docker
             </p>
 
-            {/* Tech Badges & Links — hidden on small phones */}
-            <div className="mt-2 hidden flex-wrap items-center justify-center gap-2 sm:flex sm:mt-3 sm:gap-2.5">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-xs font-extrabold text-[#0C1A20] shadow-sm backdrop-blur-sm">
+            {/* Tech Badges & Links */}
+            <div className="mt-1.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
                 <NextjsIcon />
                 <span>Next.js 14</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-xs font-extrabold text-[#0C1A20] shadow-sm backdrop-blur-sm">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
                 <DockerIcon />
                 <span>Docker CI/CD</span>
               </span>
@@ -858,19 +858,19 @@ const RentVerseShowcaseSection: React.FC = () => {
                 href="https://uitm-devops-challenge-team-one.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 rounded-full bg-[#0E7490] px-4 py-1 text-xs font-black text-white shadow-[0_6px_18px_rgba(14,116,144,0.2)] transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4]"
+                className="group inline-flex items-center gap-1 rounded-full bg-[#0E7490] px-3 py-0.5 text-[10px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:text-[11px]"
               >
                 <span>Live Website</span>
-                <ExternalLink size={13} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
                 href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/20 bg-white/90 px-4 py-1 text-xs font-black text-[#0C1A20] shadow-sm transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490]"
+                className="group inline-flex items-center gap-1 rounded-full border border-[#0E7490]/20 bg-white/90 px-3 py-0.5 text-[10px] font-black text-[#0C1A20] shadow-xs transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490] sm:text-[11px]"
               >
                 <span>View Repo</span>
-                <ExternalLink size={13} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
 
@@ -910,8 +910,8 @@ const RentVerseShowcaseSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: Upright Pristine Laptop Cascade */}
-          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[380px] lg:col-span-7 lg:min-h-[440px]">
-            <div className="relative flex h-[260px] w-full items-center justify-center sm:h-[440px]">
+          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[300px] lg:col-span-7 lg:min-h-[340px]">
+            <div className="relative flex h-[220px] w-full items-center justify-center sm:h-[320px] lg:h-[340px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => {
                   if (chap.device === 'raw') {
