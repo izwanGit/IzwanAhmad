@@ -83,16 +83,16 @@ const Home: React.FC = () => {
 
               <div className="hidden w-full grid-cols-3 gap-6 border-t border-border pt-6 lg:grid">
                 <div>
-                  <div className="text-2xl font-black text-foreground">10+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Production systems</div>
+                  <div className="text-2xl font-black text-foreground">16+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Projects built</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-primary">95%</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Workflow reduction</div>
+                  <div className="text-2xl font-black text-primary">11+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Awards &amp; recognitions</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-accent">11+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Recognitions</div>
+                  <div className="text-2xl font-black text-accent">3.93</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">CGPA · Dean&apos;s List</div>
                 </div>
               </div>
             </motion.div>
