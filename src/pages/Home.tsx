@@ -4,7 +4,7 @@ import { ArrowRight, Building, Trophy, GraduationCap, MapPin } from 'lucide-reac
 import { Link } from 'react-router-dom';
 
 import HeroShowcase from '../components/HeroShowcase';
-import FlagshipScrollytelling from '../components/FlagshipScrollytelling';
+import FeaturedWorkGallery from '../components/FeaturedWorkGallery';
 
 const Home: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -174,7 +174,7 @@ const Home: React.FC = () => {
       {/* ============================================================
           ACHIEVEMENTS / AWARDS
       ============================================================ */}
-      <section className="py-24 bg-background">
+      <section className="bg-background py-16 sm:py-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -186,13 +186,13 @@ const Home: React.FC = () => {
               <Trophy size={14} />
               Recognitions
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Awards & Achievements</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">Awards & Achievements</h2>
           </motion.div>
 
           <div className="relative w-full overflow-hidden flex -mx-6 px-6 py-4">
             {/* Left & Right gradient masks for smooth fade effect */}
-            <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 z-10 h-full w-12 bg-gradient-to-r from-background to-transparent pointer-events-none sm:w-24" />
+            <div className="absolute right-0 top-0 z-10 h-full w-12 bg-gradient-to-l from-background to-transparent pointer-events-none sm:w-24" />
             
             <div className="flex animate-marquee gap-6 w-max hover:pause">
               {[
@@ -216,9 +216,9 @@ const Home: React.FC = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="w-[320px] bg-white border border-border rounded-xl flex-shrink-0 shadow-sm transition-shadow hover:shadow-md cursor-default overflow-hidden group"
+                  className="group w-[248px] flex-shrink-0 overflow-hidden rounded-xl border border-border bg-white shadow-sm transition-shadow hover:shadow-md sm:w-[320px]"
                 >
-                  <div className="w-full aspect-[4/3] bg-tint overflow-hidden border-b border-border">
+                  <div className="aspect-[16/10] w-full overflow-hidden border-b border-border bg-tint sm:aspect-[4/3]">
                     <img 
                       src={item.img} 
                       alt={item.title} 
@@ -227,10 +227,10 @@ const Home: React.FC = () => {
                       }`} 
                     />
                   </div>
-                  <div className="p-5">
-                    <div className="text-xs font-bold uppercase tracking-widest text-accent mb-2">{item.type}</div>
-                    <div className="font-bold text-foreground mb-1 text-[15px]">{item.title}</div>
-                    <div className="text-[13px] text-muted-foreground leading-relaxed">{item.sub}</div>
+                  <div className="p-4 sm:p-5">
+                    <div className="mb-1.5 text-[10px] font-bold uppercase tracking-widest text-accent sm:mb-2 sm:text-xs">{item.type}</div>
+                    <div className="mb-1 text-sm font-bold text-foreground sm:text-[15px]">{item.title}</div>
+                    <div className="text-xs leading-relaxed text-muted-foreground sm:text-[13px]">{item.sub}</div>
                   </div>
                 </div>
               ))}
@@ -450,7 +450,7 @@ const Home: React.FC = () => {
       {/* ============================================================
           FEATURED PROJECTS — True Sticky Scrollytelling (Dolly Zoom)
       ============================================================ */}
-      <FlagshipScrollytelling />
+      <FeaturedWorkGallery />
 
       {/* ============================================================
           FREELANCE CTA BANNER
