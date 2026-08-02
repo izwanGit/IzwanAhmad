@@ -11,6 +11,11 @@ interface HeroProject {
   metric: string;
   image: string;
   imageAlt: string;
+  deviceType: 'laptop' | 'phone';
+  phoneScreens?: Array<{
+    image: string;
+    alt: string;
+  }>;
   destination: string;
   icon: typeof Building2;
 }
@@ -24,6 +29,7 @@ const heroProjects: HeroProject[] = [
     metric: '14-stage CI/CD · Zero Trust security',
     image: '/images/rentverse-home.jpg',
     imageAlt: 'RentVerse secure property rental platform landing page',
+    deviceType: 'laptop',
     destination: '/projects/rentverse',
     icon: ShieldCheck,
   },
@@ -33,8 +39,23 @@ const heroProjects: HeroProject[] = [
     title: 'Beruang AI Money Management',
     badge: 'Best System Architecture',
     metric: '99.61% AI accuracy · 86.77 usability score',
-    image: '/images/beruang-dashboard.jpg',
-    imageAlt: 'Beruang AI money management application screens showing login, dashboard, and savings progress',
+    image: '/images/beruang/hero-home.webp',
+    imageAlt: 'Beruang AI money management mobile application home screen',
+    deviceType: 'phone',
+    phoneScreens: [
+      {
+        image: '/images/beruang/hero-expenses.webp',
+        alt: 'Beruang mobile expenses analytics screen',
+      },
+      {
+        image: '/images/beruang/hero-home.webp',
+        alt: 'Beruang mobile money management home screen',
+      },
+      {
+        image: '/images/beruang/hero-chat.webp',
+        alt: 'Beruang AI financial advisor mobile chat screen',
+      },
+    ],
     destination: '/projects/beruang',
     icon: Sparkles,
   },
@@ -46,17 +67,19 @@ const heroProjects: HeroProject[] = [
     metric: '94.2% ViT accuracy · Real-time inference',
     image: '/images/batik-main.jpeg',
     imageAlt: 'Batik AI recognition and classification interface',
+    deviceType: 'laptop',
     destination: '/projects/batik',
     icon: Bot,
   },
   {
     id: 'petronas',
-    shortTitle: 'Enterprise',
+    shortTitle: 'Systems',
     title: 'HCSM Operations Hub',
     badge: 'Production Enterprise Automation',
     metric: '10+ systems · Workflows cut to minutes',
     image: '/images/petronas-hub-main.jpg',
     imageAlt: 'HCSM Operations Hub production automation dashboard',
+    deviceType: 'laptop',
     destination: '/projects/petronas-hub',
     icon: Building2,
   },
@@ -176,6 +199,49 @@ const LaptopFrame = ({ activeProject, showIntro, shouldReduceMotion }: LaptopFra
   </div>
 );
 
+interface PhoneFrameProps {
+  image: string;
+  alt: string;
+  featured?: boolean;
+}
+
+const PhoneFrame = ({ image, alt, featured = false }: PhoneFrameProps) => (
+  <div className={featured ? 'w-40 shrink-0 sm:w-44 lg:w-48' : 'hidden w-36 shrink-0 sm:block lg:w-40'}>
+    <div className="relative rounded-3xl border-2 border-device-edge bg-device-surface p-1.5 shadow-device">
+      <div className="relative aspect-phone overflow-hidden rounded-3xl border border-device-edge bg-device-inset">
+        <div className="absolute left-1/2 top-2 z-10 flex h-4 w-14 -translate-x-1/2 items-center justify-end rounded-full bg-device-inset px-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+        </div>
+        <img
+          src={image}
+          alt={alt}
+          className="h-full w-full object-cover object-top"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
+);
+
+const PhoneGallery = ({ project }: { project: HeroProject }) => {
+  const screens = project.phoneScreens ?? [{ image: project.image, alt: project.imageAlt }];
+  const featuredIndex = Math.floor(screens.length / 2);
+
+  return (
+    <div className="flex w-full items-center justify-center gap-3 sm:gap-4" aria-label="Beruang mobile application screens">
+      {screens.map((screen, index) => (
+        <PhoneFrame
+          key={screen.image}
+          image={screen.image}
+          alt={screen.alt}
+          featured={index === featuredIndex}
+        />
+      ))}
+    </div>
+  );
+};
+
 const HeroShowcase = () => {
   const shouldReduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -190,6 +256,10 @@ const HeroShowcase = () => {
     heroProjects.forEach((project) => {
       const image = new Image();
       image.src = project.image;
+      project.phoneScreens?.forEach((screen) => {
+        const phoneImage = new Image();
+        phoneImage.src = screen.image;
+      });
     });
   }, []);
 
@@ -260,16 +330,16 @@ const HeroShowcase = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={shouldReduceMotion ? undefined : { opacity: 0, y: 6, scale: 0.98 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.26, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-3 flex max-w-[92%] items-center gap-3 rounded-full border border-primary/20 bg-white/95 px-3.5 py-2 shadow-card backdrop-blur-md sm:mb-4 sm:px-4"
+            className="mb-3 flex max-w-full items-center gap-3 rounded-2xl border border-primary/20 bg-white px-4 py-2 shadow-card sm:mb-4 sm:rounded-full"
           >
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tint text-primary">
               {showIntro ? <Sparkles size={16} aria-hidden="true" /> : <ActiveIcon size={16} aria-hidden="true" />}
             </span>
             <span className="min-w-0">
-              <span className="block truncate text-[11px] font-bold text-foreground sm:text-xs">
+              <span className="block text-xs font-bold text-foreground sm:text-sm">
                 {showIntro ? 'From the first dot to the final dot' : activeProject.badge}
               </span>
-              <span className="block truncate text-[10px] font-medium text-muted-foreground sm:text-xs">
+              <span className="block text-xs font-medium leading-snug text-muted-foreground">
                 {showIntro ? 'Understand · Design · Build · Refine · Deliver' : activeProject.metric}
               </span>
             </span>
@@ -277,11 +347,26 @@ const HeroShowcase = () => {
         </AnimatePresence>
 
         <div className="flex min-h-device-stage w-full items-center justify-center">
-          <LaptopFrame
-            activeProject={activeProject}
-            showIntro={showIntro}
-            shouldReduceMotion={Boolean(shouldReduceMotion)}
-          />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={showIntro ? 'journey-device' : activeProject.id}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 8, scale: 0.99 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={shouldReduceMotion ? undefined : { opacity: 0, y: -6, scale: 0.99 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.26, ease: [0.16, 1, 0.3, 1] }}
+              className="flex w-full transform-gpu items-center justify-center"
+            >
+              {!showIntro && activeProject.deviceType === 'phone' ? (
+                <PhoneGallery project={activeProject} />
+              ) : (
+                <LaptopFrame
+                  activeProject={activeProject}
+                  showIntro={showIntro}
+                  shouldReduceMotion={Boolean(shouldReduceMotion)}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
@@ -289,7 +374,7 @@ const HeroShowcase = () => {
         <div
           role="tablist"
           aria-label="Featured project reel"
-          className="grid min-w-0 flex-1 grid-cols-4 gap-1 rounded-full border border-primary/15 bg-white/95 p-1 shadow-card backdrop-blur-md"
+          className="grid min-w-0 flex-1 grid-cols-4 gap-1 rounded-full border border-primary/20 bg-white p-1 shadow-card"
         >
           {heroProjects.map((project, index) => (
             <button
@@ -305,7 +390,7 @@ const HeroShowcase = () => {
               tabIndex={index === activeIndex ? 0 : -1}
               onClick={() => selectProject(index)}
               onKeyDown={(event) => handleTabKeyDown(event, index)}
-              className={`min-h-11 truncate rounded-full px-2 text-[10px] font-bold transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none sm:px-3 sm:text-xs ${
+              className={`min-h-11 truncate rounded-full px-1 text-xs font-bold transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none sm:px-3 ${
                 !showIntro && index === activeIndex
                   ? 'bg-primary text-white shadow-sm'
                   : 'text-muted-foreground hover:-translate-y-0.5 hover:bg-tint hover:text-foreground'
@@ -326,13 +411,13 @@ const HeroShowcase = () => {
           }}
           disabled={Boolean(shouldReduceMotion)}
           aria-label={isAutoplaying ? 'Pause featured project reel' : 'Play featured project reel'}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/15 bg-white/95 text-primary shadow-card transition duration-150 hover:-translate-y-0.5 hover:bg-tint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-white text-primary shadow-card transition duration-150 hover:-translate-y-0.5 hover:bg-tint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none"
         >
           {isAutoplaying ? <CirclePause size={20} aria-hidden="true" /> : <CirclePlay size={20} aria-hidden="true" />}
         </button>
       </div>
 
-      <div className="relative z-10 mt-2 flex min-h-11 items-center justify-center gap-2 text-center text-xs font-semibold text-muted-foreground">
+      <div className="relative z-10 mt-2 flex min-h-11 max-w-full items-center justify-center gap-2 rounded-full border border-primary/20 bg-white px-4 text-center text-xs font-semibold text-muted-foreground shadow-card">
         {showIntro ? (
           <span className="inline-flex min-h-11 items-center px-2">Your idea, transformed with intention.</span>
         ) : (

@@ -17,13 +17,20 @@ const Home: React.FC = () => {
       ============================================================ */}
       <section
         aria-labelledby="hero-title"
-        className="relative overflow-hidden bg-background pb-10 pt-20 sm:pb-14 sm:pt-24 lg:flex lg:min-h-screen lg:items-center lg:pb-16 lg:pt-28"
+        className="relative overflow-hidden bg-hero-wash pb-10 pt-20 sm:pb-14 sm:pt-24 lg:flex lg:min-h-screen lg:items-center lg:pb-16 lg:pt-28"
       >
         <div
-          className="pointer-events-none absolute inset-0 bg-hero-dot-journey bg-hero-mobile bg-no-repeat bg-hero-focus opacity-80 lg:bg-hero-cover lg:bg-hero-center lg:opacity-100"
+          className="hero-dot-field-desktop pointer-events-none absolute inset-0 hidden bg-hero-showcase-stage bg-cover bg-center lg:block"
           aria-hidden="true"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-hero-veil" aria-hidden="true" />
+        >
+          <span className="absolute inset-0 bg-hero-stage-halo" />
+        </div>
+        <div
+          className="hero-dot-field-mobile pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-hero-showcase-stage bg-cover bg-right lg:hidden"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-hero-stage-halo" />
+        </div>
 
         <div className="container relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">
@@ -76,16 +83,16 @@ const Home: React.FC = () => {
 
               <div className="hidden w-full grid-cols-3 gap-6 border-t border-border pt-6 lg:grid">
                 <div>
-                  <div className="text-2xl font-black text-foreground">16+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Projects built</div>
+                  <div className="text-2xl font-black text-foreground">10+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Production systems</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-primary">11+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Awards & recognitions</div>
+                  <div className="text-2xl font-black text-primary">95%</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Workflow reduction</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-accent">3.93</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">CGPA · Dean's List</div>
+                  <div className="text-2xl font-black text-accent">11+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Recognitions</div>
                 </div>
               </div>
             </motion.div>
