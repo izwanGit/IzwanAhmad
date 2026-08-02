@@ -59,6 +59,16 @@ export default {
       backgroundImage: {
         'hero-wash': 'radial-gradient(circle at 78% 38%, rgba(6, 182, 212, 0.09) 0%, transparent 38%), linear-gradient(180deg, #F5F9FA 0%, #F8FBFC 100%)',
         'hero-journey-halo': 'radial-gradient(ellipse at center, rgba(6, 182, 212, 0.13) 0%, rgba(14, 116, 144, 0.05) 42%, transparent 72%)',
+        'hero-dot-journey': "url('/images/hero-dot-journey-ai.webp')",
+        'hero-veil': 'linear-gradient(90deg, rgba(245, 249, 250, 0.98) 0%, rgba(245, 249, 250, 0.86) 38%, rgba(245, 249, 250, 0.20) 66%, rgba(245, 249, 250, 0.04) 100%)',
+      },
+      backgroundSize: {
+        'hero-mobile': 'auto 62%',
+        'hero-cover': 'cover',
+      },
+      backgroundPosition: {
+        'hero-focus': '72% 88%',
+        'hero-center': 'center',
       },
       aspectRatio: {
         phone: '9 / 19.5',

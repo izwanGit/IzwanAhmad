@@ -17,33 +17,38 @@ const Home: React.FC = () => {
       ============================================================ */}
       <section
         aria-labelledby="hero-title"
-        className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28 lg:flex lg:min-h-screen lg:items-center"
+        className="relative overflow-hidden bg-background pb-10 pt-20 sm:pb-14 sm:pt-24 lg:flex lg:min-h-screen lg:items-center lg:pb-16 lg:pt-28"
       >
-        <div className="absolute inset-0 bg-hero-wash pointer-events-none" aria-hidden="true" />
+        <div
+          className="pointer-events-none absolute inset-0 bg-hero-dot-journey bg-hero-mobile bg-no-repeat bg-hero-focus opacity-80 lg:bg-hero-cover lg:bg-hero-center lg:opacity-100"
+          aria-hidden="true"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-hero-veil" aria-hidden="true" />
 
         <div className="container relative z-10 mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="grid items-center gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">
             <motion.div
               initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.38, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-start lg:col-span-5"
             >
-              <div className="mb-6 inline-flex min-h-10 items-center gap-3 rounded-full border border-primary/15 bg-white/90 px-4 py-2 text-xs font-semibold text-foreground shadow-card backdrop-blur-md">
+              <div className="mb-5 inline-flex min-h-10 items-center gap-3 rounded-full border border-primary/15 bg-white/95 px-4 py-2 text-[11px] font-semibold text-foreground shadow-card backdrop-blur-md sm:mb-6 sm:text-xs">
                 <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent shadow-journey-dot" />
-                <span>Open to Software Engineering Roles · Malaysia / Remote</span>
+                <span className="sm:hidden">Open to roles + freelance projects</span>
+                <span className="hidden sm:inline">Open to software roles + selected freelance projects</span>
               </div>
 
-              <h1 id="hero-title" className="mb-6 text-3xl font-extrabold leading-tight tracking-tight text-foreground xs:text-4xl sm:text-5xl xl:text-6xl">
+              <h1 id="hero-title" className="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-foreground xs:text-4xl sm:mb-6 sm:text-5xl xl:text-6xl">
                 Engineering <span className="text-primary">ideas</span> into production <span className="text-accent">impact.</span>
               </h1>
 
-              <p className="mb-6 max-w-xl text-base font-medium leading-relaxed text-muted-foreground sm:text-lg">
-                I’m <strong className="font-bold text-foreground">Izwan Ahmad</strong>, a product-minded software engineer who shipped 10+ production systems at PETRONAS Digital and builds award-winning AI products.
+              <p className="mb-5 max-w-xl text-sm font-medium leading-relaxed text-muted-foreground sm:mb-6 sm:text-lg">
+                I’m <strong className="font-bold text-foreground">Izwan Ahmad</strong> — a product-minded software engineer turning ambitious ideas into production software, award-winning AI, and digital products people trust.
               </p>
 
               <ul className="mb-8 hidden flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-wider text-muted-foreground sm:flex" aria-label="Core capabilities">
-                {['Software Engineering', 'Applied AI', 'Automation'].map((capability) => (
+                {['Web & Mobile Products', 'Applied AI', 'Automation & Data'].map((capability) => (
                   <li key={capability} className="flex items-center gap-3">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
                     {capability}
@@ -51,35 +56,36 @@ const Home: React.FC = () => {
                 ))}
               </ul>
 
-              <div className="mb-8 flex flex-wrap items-center gap-3 lg:mb-10">
+              <div className="mb-7 flex w-full items-center gap-2 sm:w-auto sm:gap-3 lg:mb-10">
                 <Link
                   to="/projects"
-                  className="inline-flex min-h-12 items-center gap-3 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-hero-cta transition duration-150 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none"
+                  className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-xs font-bold text-white shadow-hero-cta transition duration-150 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none sm:flex-none sm:gap-3 sm:px-6 sm:text-sm"
                 >
-                  <span>Explore Flagship Work</span>
+                  <span className="sm:hidden">Explore Work</span>
+                  <span className="hidden sm:inline">Explore Flagship Work</span>
                   <ArrowRight size={18} aria-hidden="true" />
                 </Link>
                 <Link
-                  to="/experience"
-                  className="inline-flex min-h-12 items-center gap-2 rounded-xl px-3 py-3 text-sm font-bold text-foreground transition duration-150 hover:-translate-y-0.5 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none"
+                  to="/freelance"
+                  className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-primary/20 bg-white/95 px-4 py-3 text-xs font-bold text-foreground shadow-card backdrop-blur-md transition duration-150 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none sm:flex-none sm:px-5 sm:text-sm"
                 >
-                  <span>View PETRONAS Impact</span>
+                  <span>Work With Me</span>
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
 
               <div className="hidden w-full grid-cols-3 gap-6 border-t border-border pt-6 lg:grid">
                 <div>
-                  <div className="text-2xl font-black text-foreground">10+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Production systems</div>
+                  <div className="text-2xl font-black text-foreground">16+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Projects built</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-primary">95%</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Workflow reduction</div>
+                  <div className="text-2xl font-black text-primary">11+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Awards & recognitions</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-accent">11+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Recognitions</div>
+                  <div className="text-2xl font-black text-accent">3.93</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">CGPA · Dean's List</div>
                 </div>
               </div>
             </motion.div>
