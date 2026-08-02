@@ -91,8 +91,8 @@ const Home: React.FC = () => {
                   <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Awards &amp; recognitions</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-accent">3.93</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">CGPA · Dean&apos;s List</div>
+                  <div className="text-2xl font-black text-accent">5+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Years coding</div>
                 </div>
               </div>
             </motion.div>
