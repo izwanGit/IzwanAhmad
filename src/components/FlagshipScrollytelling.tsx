@@ -816,37 +816,41 @@ const RentVerseShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Header Bar: DevSecOps Ecosystem with RentVerse Logo */}
-        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 sm:px-6">
-          <div className="flex items-center justify-between gap-2 border-b border-[#0E7490]/15 pb-2 sm:gap-4 sm:rounded-2xl sm:border sm:bg-white/80 sm:px-5 sm:py-3 sm:shadow-[0_14px_42px_rgba(14,116,144,0.08)] sm:backdrop-blur-md">
+        {/* Top Header — Centered Logo-First Header */}
+        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1.5 sm:px-6 sm:pb-2 lg:pb-3">
+          <div className="flex flex-col items-center text-center">
             
-            <div className="flex items-center gap-3.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#0E7490]/20 bg-white/90 p-1.5 shadow-sm backdrop-blur-md sm:h-12 sm:w-12">
-                <img
-                  src="/images/rentverse/logo.png"
-                  alt="RentVerse Logo"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-base sm:text-lg font-black text-[#0C1A20] tracking-tight">RentVerse Ecosystem</span>
-                  <span className="hidden rounded-full border border-[#06B6D4]/20 bg-[#06B6D4]/10 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.12em] text-[#0E7490] sm:inline-flex">
-                    DevSecOps Winner
-                  </span>
-                </div>
-                <p className="mt-0.5 hidden text-xs font-bold text-[#0E7490] sm:block">
-                  14-Stage CI/CD Security Pipeline · Zero Trust Authentication · Docker
-                </p>
-              </div>
+            {/* Logo */}
+            <div className="mb-1 h-14 w-14 sm:mb-1.5 sm:h-16 sm:w-16 lg:h-20 lg:w-20">
+              <img
+                src="/images/rentverse/logo.png"
+                alt="RentVerse Logo"
+                className="h-full w-full object-contain filter drop-shadow-lg"
+              />
             </div>
 
-            <div className="hidden flex-wrap items-center gap-2 sm:flex">
-              <span className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-4 text-xs font-extrabold text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)]">
+            {/* Title + Badge */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+              <h3 className="text-sm font-black tracking-tight text-[#0C1A20] sm:text-base lg:text-lg">
+                RentVerse: DevSecOps Enterprise Rental Ecosystem
+              </h3>
+              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-2.5 sm:text-[10px]">
+                DevSecOps Winner
+              </span>
+            </div>
+
+            {/* Description */}
+            <p className="mt-0.5 text-[10px] font-bold text-[#0E7490] sm:text-xs">
+              14-Stage CI/CD Security Pipeline · Zero Trust Authentication · Docker
+            </p>
+
+            {/* Tech Badges & Links */}
+            <div className="mt-1.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
                 <NextjsIcon />
                 <span>Next.js 14</span>
               </span>
-              <span className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-4 text-xs font-extrabold text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)]">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
                 <DockerIcon />
                 <span>Docker CI/CD</span>
               </span>
@@ -854,19 +858,19 @@ const RentVerseShowcaseSection: React.FC = () => {
                 href="https://uitm-devops-challenge-team-one.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full bg-[#0E7490] px-4 text-xs font-black text-white shadow-[0_7px_20px_rgba(14,116,144,0.18)] transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4]"
+                className="group inline-flex items-center gap-1 rounded-full bg-[#0E7490] px-3 py-0.5 text-[10px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:text-[11px]"
               >
                 <span>Live Website</span>
-                <ExternalLink size={13} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
                 href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full border border-[#0E7490]/20 bg-white/90 px-4 text-xs font-black text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)] transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490]"
+                className="group inline-flex items-center gap-1 rounded-full border border-[#0E7490]/20 bg-white/90 px-3 py-0.5 text-[10px] font-black text-[#0C1A20] shadow-xs transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490] sm:text-[11px]"
               >
                 <span>View Repo</span>
-                <ExternalLink size={13} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
 
