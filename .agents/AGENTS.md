@@ -25,6 +25,9 @@ Whenever creating, editing, or refactoring UI components or pages in this codeba
 7. **`zero-lag-motion-optimizer`**:
    - Guarantee 60fps/120fps hardware-accelerated performance by eliminating live CSS `filter: blur()` animations, keeping background texture grids static, enforcing static GPU radial gradients, and applying `transform-gpu` (`translateZ(0)`) compositing.
 
+8. **`relentless-10x-doer`**:
+   - Anti-laziness, anti-hallucination operating doctrine. Never shortcut, finish thoroughly with 3 passes (works → polished → proactive edge cases), verify against reality with real tool output, and stay 10 steps ahead by shipping tested, pushed code.
+
 ## Code Execution Standard
-- Every UI component built must be self-audited against these 7 skills before finishing a turn.
+- Every UI component built must be self-audited against these 8 skills before finishing a turn.
 - Always aim for premium, state-of-the-art aesthetics that wow the user at first glance while guaranteeing zero-lag performance.

@@ -81,18 +81,18 @@ const Home: React.FC = () => {
                 </Link>
               </div>
 
-              <div className="hidden w-full grid-cols-3 gap-6 border-t border-border pt-6 lg:grid">
+              <div className="grid w-full grid-cols-3 gap-4 border-t border-border pt-6 sm:gap-6">
                 <div>
-                  <div className="text-2xl font-black text-foreground">16+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Projects built</div>
+                  <div className="text-2xl font-black text-foreground sm:text-3xl">16+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Projects</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-primary">11+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Awards &amp; recognitions</div>
+                  <div className="text-2xl font-black text-primary sm:text-3xl">11+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Awards</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-accent">5+</div>
-                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Years coding</div>
+                  <div className="text-2xl font-black text-accent sm:text-3xl">5+</div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">Years Coding</div>
                 </div>
               </div>
             </motion.div>
