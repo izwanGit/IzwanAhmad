@@ -638,11 +638,11 @@ const BeruangShowcaseSection: React.FC = () => {
           <div className="flex flex-col items-center text-center">
             
             {/* Logo */}
-            <div className="mb-1 h-12 w-12 sm:mb-1.5 sm:h-14 sm:w-14 lg:h-16 lg:w-16">
+            <div className="mb-1 h-16 w-16 sm:mb-1.5 sm:h-20 sm:w-20 lg:h-24 lg:w-24">
               <img
                 src="/images/beruang/logo.png"
                 alt="Beruang AI Logo"
-                className="h-full w-full object-contain drop-shadow-md"
+                className="h-full w-full object-contain filter drop-shadow-lg scale-110"
               />
             </div>
 
@@ -727,8 +727,8 @@ const BeruangShowcaseSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: Upright Pristine Phone Stage */}
-          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[340px] lg:col-span-7 lg:min-h-[380px]">
-            <div className="relative flex h-[260px] w-full items-center justify-center sm:h-[360px] lg:h-[380px]">
+          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[320px] lg:col-span-7 lg:min-h-[360px]">
+            <div className="relative flex h-[240px] w-full items-center justify-center sm:h-[340px] lg:h-[360px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => (
                   <CascadePhoneItem
@@ -797,7 +797,7 @@ const RentVerseShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="RentVerse Rental Ecosystem Showcase"
     >
-      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-2 pt-14 sm:pb-3 sm:pt-16 lg:pb-3 lg:pt-16">
+      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-2 pt-12 sm:pb-3 sm:pt-14 lg:pb-3 lg:pt-14">
         
         {/* Shared two-dot atmosphere */}
         <div
@@ -816,31 +816,31 @@ const RentVerseShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Header — Logo-First, Ultra Compact */}
-        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1.5 sm:px-6 sm:pb-2 lg:pb-3">
+        {/* Top Header — Prominent Logo Header */}
+        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1 sm:px-6 sm:pb-2">
           <div className="flex flex-col items-center text-center">
             
-            {/* Logo */}
-            <div className="mb-1 h-12 w-12 sm:mb-1.5 sm:h-14 sm:w-14 lg:h-16 lg:w-16">
+            {/* Prominent Hero Logo */}
+            <div className="mb-1.5 h-20 w-20 sm:mb-2 sm:h-24 sm:w-24 lg:h-28 lg:w-28">
               <img
                 src="/images/rentverse/logo.png"
                 alt="RentVerse Logo"
-                className="h-full w-full object-contain drop-shadow-md"
+                className="h-full w-full object-contain filter drop-shadow-xl"
               />
             </div>
 
             {/* Title + Badge */}
             <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              <h3 className="text-sm font-black tracking-tight text-[#0C1A20] sm:text-base lg:text-lg">
+              <h3 className="text-base font-black tracking-tight text-[#0C1A20] sm:text-xl lg:text-2xl">
                 RentVerse: DevSecOps Enterprise Rental Ecosystem
               </h3>
-              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-2.5 sm:text-[10px]">
+              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-3 sm:text-xs">
                 DevSecOps Winner
               </span>
             </div>
 
             {/* Description */}
-            <p className="mt-0.5 text-[10px] font-bold text-[#0E7490] sm:text-xs">
+            <p className="mt-0.5 text-[11px] font-bold text-[#0E7490] sm:text-xs lg:text-sm">
               14-Stage CI/CD Security Pipeline · Zero Trust Authentication · Docker
             </p>
 
@@ -858,7 +858,7 @@ const RentVerseShowcaseSection: React.FC = () => {
                 href="https://uitm-devops-challenge-team-one.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 rounded-full bg-[#0E7490] px-3 py-0.5 text-[10px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:text-[11px]"
+                className="group inline-flex items-center gap-1 rounded-full bg-[#0E7490] px-3.5 py-0.5 text-[10px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:text-[11px]"
               >
                 <span>Live Website</span>
                 <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -867,7 +867,7 @@ const RentVerseShowcaseSection: React.FC = () => {
                 href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 rounded-full border border-[#0E7490]/20 bg-white/90 px-3 py-0.5 text-[10px] font-black text-[#0C1A20] shadow-xs transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490] sm:text-[11px]"
+                className="group inline-flex items-center gap-1 rounded-full border border-[#0E7490]/20 bg-white/90 px-3.5 py-0.5 text-[10px] font-black text-[#0C1A20] shadow-xs transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490] sm:text-[11px]"
               >
                 <span>View Repo</span>
                 <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -910,8 +910,8 @@ const RentVerseShowcaseSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: Upright Pristine Laptop Cascade */}
-          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[300px] lg:col-span-7 lg:min-h-[340px]">
-            <div className="relative flex h-[220px] w-full items-center justify-center sm:h-[320px] lg:h-[340px]">
+          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[280px] lg:col-span-7 lg:min-h-[320px]">
+            <div className="relative flex h-[200px] w-full items-center justify-center sm:h-[300px] lg:h-[320px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => {
                   if (chap.device === 'raw') {
