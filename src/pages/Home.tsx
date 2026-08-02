@@ -4,7 +4,7 @@ import { ArrowRight, Building, Trophy, GraduationCap, MapPin } from 'lucide-reac
 import { Link } from 'react-router-dom';
 
 import HeroShowcase from '../components/HeroShowcase';
-import FeaturedWorkGallery from '../components/FeaturedWorkGallery';
+import FlagshipScrollytelling from '../components/FlagshipScrollytelling';
 
 const Home: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -194,7 +194,7 @@ const Home: React.FC = () => {
             <div className="absolute left-0 top-0 z-10 h-full w-12 bg-gradient-to-r from-background to-transparent pointer-events-none sm:w-24" />
             <div className="absolute right-0 top-0 z-10 h-full w-12 bg-gradient-to-l from-background to-transparent pointer-events-none sm:w-24" />
             
-            <div className="flex animate-marquee gap-6 w-max hover:pause">
+            <div className="flex w-max animate-marquee gap-3 hover:pause sm:gap-6">
               {[
                 { img: '/images/awards/Champion National Cybersecurity Competition.jpeg', title: 'Champion + 4 Awards', sub: 'National Mobile SecOps Challenge', type: 'Award' },
                 { img: '/images/awards/Gemini Certificate.jpeg', title: 'Gemini Certified University Student', sub: 'Google (Dec 2025 - Dec 2028)', type: 'Certificate' },
@@ -216,9 +216,9 @@ const Home: React.FC = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="group w-[248px] flex-shrink-0 overflow-hidden rounded-xl border border-border bg-white shadow-sm transition-shadow hover:shadow-md sm:w-[320px]"
+                  className="group w-[150px] flex-shrink-0 overflow-hidden rounded-lg border border-border bg-white shadow-sm transition-shadow hover:shadow-md sm:w-[320px] sm:rounded-xl"
                 >
-                  <div className="aspect-[16/10] w-full overflow-hidden border-b border-border bg-tint sm:aspect-[4/3]">
+                  <div className="aspect-[4/3] w-full overflow-hidden border-b border-border bg-tint">
                     <img 
                       src={item.img} 
                       alt={item.title} 
@@ -227,10 +227,10 @@ const Home: React.FC = () => {
                       }`} 
                     />
                   </div>
-                  <div className="p-4 sm:p-5">
-                    <div className="mb-1.5 text-[10px] font-bold uppercase tracking-widest text-accent sm:mb-2 sm:text-xs">{item.type}</div>
-                    <div className="mb-1 text-sm font-bold text-foreground sm:text-[15px]">{item.title}</div>
-                    <div className="text-xs leading-relaxed text-muted-foreground sm:text-[13px]">{item.sub}</div>
+                  <div className="p-3 sm:p-5">
+                    <div className="mb-1 text-[9px] font-bold uppercase tracking-widest text-accent sm:mb-2 sm:text-xs">{item.type}</div>
+                    <div className="mb-1 text-[11px] font-bold leading-tight text-foreground sm:text-[15px] sm:leading-normal">{item.title}</div>
+                    <div className="line-clamp-2 text-[10px] leading-snug text-muted-foreground sm:text-[13px] sm:leading-relaxed">{item.sub}</div>
                   </div>
                 </div>
               ))}
@@ -450,7 +450,7 @@ const Home: React.FC = () => {
       {/* ============================================================
           FEATURED PROJECTS — True Sticky Scrollytelling (Dolly Zoom)
       ============================================================ */}
-      <FeaturedWorkGallery />
+      <FlagshipScrollytelling />
 
       {/* ============================================================
           FREELANCE CTA BANNER
