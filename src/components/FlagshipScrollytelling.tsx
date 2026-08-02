@@ -616,27 +616,26 @@ const BeruangShowcaseSection: React.FC = () => {
     >
       <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-3 pt-20 lg:pb-6 lg:pt-24">
         
-        {/* Ambient Glows & Grid */}
+        {/* Shared two-dot atmosphere */}
         <div
-          className="absolute top-1/2 right-10 -translate-y-1/2 w-[650px] h-[650px] rounded-full pointer-events-none"
+          className="pointer-events-none absolute inset-0"
           style={{
-            background: 'radial-gradient(circle, rgba(6,182,212,0.18) 0%, rgba(14,116,144,0.06) 40%, transparent 70%)',
+            background:
+              'radial-gradient(circle at 14% 16%, rgba(6,182,212,0.12), transparent 28%), radial-gradient(circle at 84% 48%, rgba(14,116,144,0.12), transparent 34%)',
           }}
         />
         <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
+          className="pointer-events-none absolute inset-0 opacity-35"
           style={{
-            backgroundImage: `
-              linear-gradient(rgba(14,116,144,0.2) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(14,116,144,0.2) 1px, transparent 1px)
-            `,
-            backgroundSize: '70px 70px',
+            backgroundImage: 'radial-gradient(circle, rgba(14,116,144,0.22) 1px, transparent 1.5px)',
+            backgroundSize: '22px 22px',
+            maskImage: 'linear-gradient(to bottom, black, transparent 82%)',
           }}
         />
 
         {/* Top Brand Header: Multi-Repo Ecosystem Architecture */}
         <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 sm:px-6">
-          <div className="flex items-center justify-between gap-2 border-b border-[#0E7490]/15 pb-2 sm:gap-4 sm:pb-4">
+          <div className="flex items-center justify-between gap-2 border-b border-[#0E7490]/15 pb-2 sm:gap-4 sm:rounded-2xl sm:border sm:bg-white/80 sm:px-4 sm:py-3 sm:shadow-[0_14px_42px_rgba(14,116,144,0.08)] sm:backdrop-blur-md">
             
             {/* Left: Brand Identity & Multi-Repo Scope */}
             <div className="flex items-center gap-3.5">
@@ -650,7 +649,7 @@ const BeruangShowcaseSection: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-base sm:text-lg font-black text-[#0C1A20] tracking-tight">Beruang AI Platform</span>
-                  <span className="hidden rounded-full border border-[#0E7490]/20 bg-[#0E7490]/10 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#0E7490] sm:inline-flex">
+                  <span className="hidden rounded-full border border-[#06B6D4]/20 bg-[#06B6D4]/10 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.12em] text-[#0E7490] sm:inline-flex">
                     5 GitHub Repos
                   </span>
                 </div>
@@ -662,15 +661,15 @@ const BeruangShowcaseSection: React.FC = () => {
 
             {/* Right: Official Tech Logos Grid & Live App Button */}
             <div className="hidden flex-wrap items-center gap-2 sm:flex">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
+              <span className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-4 text-xs font-extrabold text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)]">
                 <ReactIcon />
                 <span>React Native</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
+              <span className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-4 text-xs font-extrabold text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)]">
                 <PyTorchIcon />
                 <span>PyTorch</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
+              <span className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-4 text-xs font-extrabold text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)]">
                 <FirebaseIcon />
                 <span>Firebase RAG</span>
               </span>
@@ -678,7 +677,7 @@ const BeruangShowcaseSection: React.FC = () => {
                 href="https://beruang-landing.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0E7490] hover:bg-[#06B6D4] text-white text-xs font-black shadow-2xs transition-all hover:scale-105 group shrink-0"
+                className="group inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full bg-[#0E7490] px-4 text-xs font-black text-white shadow-[0_7px_20px_rgba(14,116,144,0.18)] transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4]"
               >
                 <span>Live Demo</span>
                 <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -798,17 +797,26 @@ const RentVerseShowcaseSection: React.FC = () => {
     >
       <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-3 pt-20 lg:pb-6 lg:pt-24">
         
-        {/* Ambient Glows */}
+        {/* Shared two-dot atmosphere */}
         <div
-          className="absolute top-1/2 left-10 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+          className="pointer-events-none absolute inset-0"
           style={{
-            background: 'radial-gradient(circle, rgba(14,116,144,0.15) 0%, transparent 70%)',
+            background:
+              'radial-gradient(circle at 14% 16%, rgba(6,182,212,0.12), transparent 28%), radial-gradient(circle at 84% 48%, rgba(14,116,144,0.12), transparent 34%)',
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-35"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(14,116,144,0.22) 1px, transparent 1.5px)',
+            backgroundSize: '22px 22px',
+            maskImage: 'linear-gradient(to bottom, black, transparent 82%)',
           }}
         />
 
         {/* Top Header Bar: DevSecOps Ecosystem with RentVerse Logo */}
         <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 sm:px-6">
-          <div className="flex items-center justify-between gap-2 border-b border-[#0E7490]/15 pb-2 sm:gap-4 sm:pb-4">
+          <div className="flex items-center justify-between gap-2 border-b border-[#0E7490]/15 pb-2 sm:gap-4 sm:rounded-2xl sm:border sm:bg-white/80 sm:px-4 sm:py-3 sm:shadow-[0_14px_42px_rgba(14,116,144,0.08)] sm:backdrop-blur-md">
             
             <div className="flex items-center gap-3.5">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#0E7490]/20 bg-white/90 p-1.5 shadow-sm backdrop-blur-md sm:h-12 sm:w-12">
@@ -821,7 +829,7 @@ const RentVerseShowcaseSection: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-base sm:text-lg font-black text-[#0C1A20] tracking-tight">RentVerse Ecosystem</span>
-                  <span className="hidden rounded-full border border-[#0E7490]/20 bg-[#0E7490]/10 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#0E7490] sm:inline-flex">
+                  <span className="hidden rounded-full border border-[#06B6D4]/20 bg-[#06B6D4]/10 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.12em] text-[#0E7490] sm:inline-flex">
                     DevSecOps Winner
                   </span>
                 </div>
@@ -832,11 +840,11 @@ const RentVerseShowcaseSection: React.FC = () => {
             </div>
 
             <div className="hidden flex-wrap items-center gap-2 sm:flex">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
+              <span className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-4 text-xs font-extrabold text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)]">
                 <NextjsIcon />
                 <span>Next.js 14</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#0E7490]/20 text-[#0C1A20] text-xs font-extrabold shadow-2xs">
+              <span className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-4 text-xs font-extrabold text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)]">
                 <DockerIcon />
                 <span>Docker CI/CD</span>
               </span>
@@ -844,7 +852,7 @@ const RentVerseShowcaseSection: React.FC = () => {
                 href="https://uitm-devops-challenge-team-one.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0E7490] hover:bg-[#06B6D4] text-white text-xs font-black shadow-2xs transition-all hover:scale-105 group shrink-0"
+                className="group inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full bg-[#0E7490] px-4 text-xs font-black text-white shadow-[0_7px_20px_rgba(14,116,144,0.18)] transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4]"
               >
                 <span>Live Website</span>
                 <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -853,7 +861,7 @@ const RentVerseShowcaseSection: React.FC = () => {
                 href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-[#0E7490]/30 hover:border-[#06B6D4] text-[#0C1A20] text-xs font-black shadow-2xs transition-all hover:scale-105 group shrink-0"
+                className="group inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full border border-[#0E7490]/20 bg-white/90 px-4 text-xs font-black text-[#0C1A20] shadow-[0_5px_16px_rgba(14,116,144,0.06)] transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490]"
               >
                 <span>View Repo</span>
                 <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
