@@ -637,8 +637,8 @@ const BeruangShowcaseSection: React.FC = () => {
         <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1.5 sm:px-6 sm:pb-2 lg:pb-3">
           <div className="flex flex-col items-center text-center">
             
-            {/* Compact Logo */}
-            <div className="mb-1 h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14">
+            {/* Logo */}
+            <div className="mb-1 h-12 w-12 sm:mb-1.5 sm:h-14 sm:w-14 lg:h-16 lg:w-16">
               <img
                 src="/images/beruang/logo.png"
                 alt="Beruang AI Logo"
@@ -820,8 +820,8 @@ const RentVerseShowcaseSection: React.FC = () => {
         <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1.5 sm:px-6 sm:pb-2 lg:pb-3">
           <div className="flex flex-col items-center text-center">
             
-            {/* Compact Logo */}
-            <div className="mb-1 h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14">
+            {/* Logo */}
+            <div className="mb-1 h-12 w-12 sm:mb-1.5 sm:h-14 sm:w-14 lg:h-16 lg:w-16">
               <img
                 src="/images/rentverse/logo.png"
                 alt="RentVerse Logo"
