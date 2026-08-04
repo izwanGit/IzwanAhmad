@@ -583,6 +583,78 @@ const CascadeLaptopItem: React.FC<CascadeLaptopProps> = ({
   );
 };
 
+// ─── Beruang Project Header (Normal Document Flow) ─────────────
+
+const BeruangProjectHeader: React.FC = () => {
+  return (
+    <div className="relative w-full border-t border-[#0E7490]/15 bg-gradient-to-b from-[#F5F9FA] via-white/80 to-[#F5F9FA] py-10 sm:py-14">
+      <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+          
+          {/* Logo with Ambient Cyan Aura */}
+          <div className="mb-3 relative flex items-center justify-center sm:mb-4">
+            <div className="absolute inset-0 rounded-full bg-[#06B6D4]/20 blur-xl scale-125 pointer-events-none" />
+            <div className="relative h-16 w-16 sm:h-20 sm:w-20 p-2 rounded-2xl bg-white/90 border border-[#0E7490]/25 shadow-md backdrop-blur-sm">
+              <img
+                src="/images/beruang/logo.png"
+                alt="Beruang AI Logo"
+                className="h-full w-full object-contain filter drop-shadow-md"
+              />
+            </div>
+          </div>
+
+          {/* Title + Badge */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
+            <h3 className="text-lg font-black tracking-tight text-[#0C1A20] sm:text-2xl lg:text-3xl">
+              Beruang: AI Hybrid Powered Finance Application
+            </h3>
+            <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-3 sm:py-1 sm:text-xs">
+              5 GitHub Repos
+            </span>
+          </div>
+
+          {/* Subtitle */}
+          <p className="text-xs font-bold text-[#0E7490] sm:text-sm md:text-base max-w-2xl mb-4 sm:mb-5">
+            Mobile App · AI Microservices · Express Server · RAG Engine · 99.61% Accuracy
+          </p>
+
+          {/* Tech Pills & Live Demo */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
+              <ReactIcon />
+              <span>React Native</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
+              <PyTorchIcon />
+              <span>PyTorch</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
+              <FirebaseIcon />
+              <span>Firebase RAG</span>
+            </span>
+            <a
+              href="https://beruang-landing.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 rounded-full bg-[#0E7490] px-4 py-1 text-[11px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:px-4 sm:py-1.5 sm:text-xs"
+            >
+              <span>Live Demo</span>
+              <ExternalLink size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
+
+          {/* Subtle Hint */}
+          <div className="mt-5 flex items-center gap-2 text-[10px] font-bold text-[#0E7490]/70 uppercase tracking-widest sm:mt-6 sm:text-[11px]">
+            <span>Scroll to explore architecture chapters</span>
+            <span className="animate-bounce">↓</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ─── Beruang Showcase Section (Upright Cascade) ────────────────
 
 const BeruangShowcaseSection: React.FC = () => {
@@ -614,9 +686,9 @@ const BeruangShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="Beruang AI Financial Platform Showcase"
     >
-      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-2 pt-14 sm:pb-3 sm:pt-16 lg:pb-3 lg:pt-16">
+      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] px-4 pb-3 pt-14 sm:px-6 sm:pb-4 sm:pt-16 lg:px-8 lg:pb-4 lg:pt-16">
         
-        {/* Shared two-dot atmosphere */}
+        {/* Shared background atmosphere */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -633,92 +705,56 @@ const BeruangShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Brand Header — Logo-First, Ultra Compact */}
-        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1.5 sm:px-6 sm:pb-2 lg:pb-3">
-          <div className="flex flex-col items-center text-center">
-            
-            {/* Logo */}
-            <div className="mb-1 h-16 w-16 sm:mb-1.5 sm:h-20 sm:w-20 lg:h-24 lg:w-24">
-              <img
-                src="/images/beruang/logo.png"
-                alt="Beruang AI Logo"
-                className="h-full w-full object-contain filter drop-shadow-lg scale-110"
-              />
+        {/* Top Header inside Sticky Stage — Clean Chapter Header Bar */}
+        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 pb-1 border-b border-[#0E7490]/10 sm:pb-2">
+          <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-[#0E7490] sm:text-xs">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#06B6D4] animate-pulse" />
+              <span className="hidden xs:inline">Beruang AI Architecture</span>
+              <span className="xs:hidden">Beruang AI</span>
             </div>
-
-            {/* Title + Badge */}
-            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              <h3 className="text-sm font-black tracking-tight text-[#0C1A20] sm:text-base lg:text-lg">
-                Beruang: AI Hybrid Powered Finance Application
-              </h3>
-              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-2.5 sm:text-[10px]">
-                5 GitHub Repos
-              </span>
+            <div className="rounded-full bg-[#0E7490]/10 px-2.5 py-0.5 text-[10px] font-black text-[#0E7490] sm:text-xs">
+              Chapter 0{activeIdx + 1} / 0{total}
             </div>
-
-            {/* Description */}
-            <p className="mt-0.5 text-[10px] font-bold text-[#0E7490] sm:text-xs">
-              Mobile App · AI Microservices · Express Server · RAG Engine · 99.61% Accuracy
-            </p>
-
-            {/* Tech Badges & Live Demo */}
-            <div className="mt-1.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
-                <ReactIcon />
-                <span>React Native</span>
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
-                <PyTorchIcon />
-                <span>PyTorch</span>
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
-                <FirebaseIcon />
-                <span>Firebase RAG</span>
-              </span>
-              <a
-                href="https://beruang-landing.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 rounded-full bg-[#0E7490] px-3 py-0.5 text-[10px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:text-[11px]"
-              >
-                <span>Live Demo</span>
-                <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-            </div>
-
           </div>
         </div>
 
-        {/* Main 2-Column Showcase Grid */}
-        <div className="container relative z-30 mx-auto grid h-full min-h-0 max-w-7xl grid-rows-[auto_minmax(0,1fr)] items-center gap-3 px-4 py-2 sm:gap-8 sm:px-6 lg:grid-cols-12 lg:grid-rows-1 lg:gap-12">
+        {/* Main Showcase Grid */}
+        <div className="container relative z-30 mx-auto flex h-full min-h-0 max-w-7xl flex-col justify-evenly gap-3 py-2 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-12">
           
-          {/* LEFT COLUMN: Single Active Text Block */}
-          <div className="relative flex min-h-0 items-center sm:min-h-[300px] lg:col-span-5 lg:min-h-[420px]">
+          {/* LEFT / TOP: Active Text Block */}
+          <div className="relative flex min-h-0 shrink-0 flex-col items-center text-center lg:items-start lg:text-left lg:col-span-5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentChapter.id}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
+                exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2, ease: 'easeOut' }}
-                className="flex w-full max-w-xl flex-col justify-center space-y-3 transform-gpu sm:space-y-6 lg:space-y-7"
+                className="flex w-full max-w-xl flex-col items-center text-center lg:items-start lg:text-left space-y-1.5 xs:space-y-2 sm:space-y-4 lg:space-y-6 transform-gpu"
               >
-                {/* Heading */}
+                {/* Badge */}
                 <div>
-                  <h4 className="text-2xl font-black leading-[1.05] tracking-tight text-[#06B6D4] sm:text-4xl md:text-5xl lg:text-[52px]">
-                    {currentChapter.title}
-                  </h4>
+                  <span className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-[#0E7490] sm:text-xs">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
+                    {currentChapter.badge}
+                  </span>
                 </div>
 
-                {/* Crisp Paragraph */}
-                <p className="text-sm font-medium leading-relaxed text-[#0C1A20]/85 sm:text-lg md:text-xl">
+                {/* Title */}
+                <h4 className="text-xl font-black leading-tight tracking-tight text-[#06B6D4] xs:text-2xl sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-[1.08]">
+                  {currentChapter.title}
+                </h4>
+
+                {/* Paragraph */}
+                <p className="text-xs font-medium leading-relaxed text-[#0C1A20]/85 sm:text-base md:text-lg max-w-md lg:max-w-none">
                   {currentChapter.paragraph}
                 </p>
 
-                {/* Original Feature Pill Restored */}
-                <div className="pt-0 sm:pt-2">
-                  <div className="inline-flex items-center gap-2 rounded-xl border border-[#06B6D4]/30 bg-[#0E7490] px-3 py-2 text-[11px] font-black text-white shadow-md sm:gap-2.5 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-sm">
-                    <CheckCircle2 size={16} className="text-white shrink-0" />
+                {/* Feature Pill */}
+                <div className="pt-0.5 sm:pt-2">
+                  <div className="inline-flex items-center gap-1.5 rounded-xl border border-[#06B6D4]/30 bg-[#0E7490] px-3 py-1.5 text-[10px] font-black text-white shadow-md sm:gap-2.5 sm:rounded-2xl sm:px-4 sm:py-2.5 sm:text-xs md:text-sm">
+                    <CheckCircle2 size={14} className="text-white shrink-0 sm:size-[16px]" />
                     <span>{currentChapter.pill}</span>
                   </div>
                 </div>
@@ -726,9 +762,9 @@ const BeruangShowcaseSection: React.FC = () => {
             </AnimatePresence>
           </div>
 
-          {/* RIGHT COLUMN: Upright Pristine Phone Stage */}
-          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[320px] lg:col-span-7 lg:min-h-[360px]">
-            <div className="relative flex h-[240px] w-full items-center justify-center sm:h-[340px] lg:h-[360px]">
+          {/* RIGHT / BOTTOM: Upright Phone Stage */}
+          <div className="relative flex min-h-0 flex-1 items-center justify-center lg:col-span-7">
+            <div className="relative flex h-[270px] xs:h-[300px] w-full items-center justify-center sm:h-[360px] md:h-[400px] lg:h-[420px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => (
                   <CascadePhoneItem
@@ -747,13 +783,13 @@ const BeruangShowcaseSection: React.FC = () => {
         </div>
 
         {/* Bottom Section Footer */}
-        <div className="container relative z-40 mx-auto flex max-w-7xl shrink-0 items-center justify-between border-t border-[#0E7490]/15 px-4 pt-2 sm:px-6">
+        <div className="container relative z-40 mx-auto flex max-w-7xl shrink-0 items-center justify-between border-t border-[#0E7490]/15 pt-2 sm:pt-3">
           <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-[#0C1A20]/60 sm:gap-2 sm:text-xs sm:tracking-widest">
             <span>Beruang AI Platform</span>
             <span>•</span>
             <span className="text-[#0E7490]">System Architecture</span>
           </div>
-          <div className="w-36 sm:w-56 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
+          <div className="w-28 xs:w-36 sm:w-56 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
             <motion.div
               className="h-full rounded-full bg-[#06B6D4] transform-gpu"
               style={{ width: barWidth }}
@@ -763,6 +799,83 @@ const BeruangShowcaseSection: React.FC = () => {
 
       </div>
     </section>
+  );
+};
+
+// ─── RentVerse Project Header (Normal Document Flow) ───────────
+
+const RentVerseProjectHeader: React.FC = () => {
+  return (
+    <div className="relative w-full border-t border-[#0E7490]/15 bg-gradient-to-b from-[#F5F9FA] via-white/80 to-[#F5F9FA] py-10 sm:py-14">
+      <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+          
+          {/* Logo with Ambient Cyan Aura */}
+          <div className="mb-3 relative flex items-center justify-center sm:mb-4">
+            <div className="absolute inset-0 rounded-full bg-[#06B6D4]/20 blur-xl scale-125 pointer-events-none" />
+            <div className="relative h-14 w-14 sm:h-18 sm:w-18 p-2 rounded-2xl bg-white/90 border border-[#0E7490]/25 shadow-md backdrop-blur-sm">
+              <img
+                src="/images/rentverse/logo.png"
+                alt="RentVerse Logo"
+                className="h-full w-full object-contain filter drop-shadow-md"
+              />
+            </div>
+          </div>
+
+          {/* Title + Badge */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
+            <h3 className="text-lg font-black tracking-tight text-[#0C1A20] sm:text-2xl lg:text-3xl">
+              RentVerse: DevSecOps Enterprise Rental Ecosystem
+            </h3>
+            <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-3 sm:py-1 sm:text-xs">
+              DevSecOps Winner
+            </span>
+          </div>
+
+          {/* Subtitle */}
+          <p className="text-xs font-bold text-[#0E7490] sm:text-sm md:text-base max-w-2xl mb-4 sm:mb-5">
+            14-Stage CI/CD Security Pipeline · Zero Trust Authentication · Docker
+          </p>
+
+          {/* Tech Pills & Live Website / Repo */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
+              <NextjsIcon />
+              <span>Next.js 14</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
+              <DockerIcon />
+              <span>Docker CI/CD</span>
+            </span>
+            <a
+              href="https://uitm-devops-challenge-team-one.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 rounded-full bg-[#0E7490] px-4 py-1 text-[11px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:px-4 sm:py-1.5 sm:text-xs"
+            >
+              <span>Live Website</span>
+              <ExternalLink size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/20 bg-white/90 px-4 py-1 text-[11px] font-black text-[#0C1A20] shadow-xs transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490] sm:px-4 sm:py-1.5 sm:text-xs"
+            >
+              <span>View Repo</span>
+              <ExternalLink size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
+
+          {/* Subtle Hint */}
+          <div className="mt-5 flex items-center gap-2 text-[10px] font-bold text-[#0E7490]/70 uppercase tracking-widest sm:mt-6 sm:text-[11px]">
+            <span>Scroll to explore architecture chapters</span>
+            <span className="animate-bounce">↓</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -797,9 +910,9 @@ const RentVerseShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="RentVerse Rental Ecosystem Showcase"
     >
-      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] pb-2 pt-12 sm:pb-3 sm:pt-14 lg:pb-3 lg:pt-14">
+      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] px-4 pb-3 pt-14 sm:px-6 sm:pb-4 sm:pt-16 lg:px-8 lg:pb-4 lg:pt-16">
         
-        {/* Shared two-dot atmosphere */}
+        {/* Shared background atmosphere */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -816,92 +929,56 @@ const RentVerseShowcaseSection: React.FC = () => {
           }}
         />
 
-        {/* Top Header — Centered Logo-First Header */}
-        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 px-4 pb-1.5 sm:px-6 sm:pb-2 lg:pb-3">
-          <div className="flex flex-col items-center text-center">
-            
-            {/* Logo */}
-            <div className="mb-1 h-14 w-14 sm:mb-1.5 sm:h-16 sm:w-16 lg:h-20 lg:w-20">
-              <img
-                src="/images/rentverse/logo.png"
-                alt="RentVerse Logo"
-                className="h-full w-full object-contain filter drop-shadow-lg"
-              />
+        {/* Top Header inside Sticky Stage — Clean Chapter Header Bar */}
+        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 pb-1 border-b border-[#0E7490]/10 sm:pb-2">
+          <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-[#0E7490] sm:text-xs">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#06B6D4] animate-pulse" />
+              <span className="hidden xs:inline">RentVerse Ecosystem Architecture</span>
+              <span className="xs:hidden">RentVerse</span>
             </div>
-
-            {/* Title + Badge */}
-            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              <h3 className="text-sm font-black tracking-tight text-[#0C1A20] sm:text-base lg:text-lg">
-                RentVerse: DevSecOps Enterprise Rental Ecosystem
-              </h3>
-              <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-2.5 sm:text-[10px]">
-                DevSecOps Winner
-              </span>
+            <div className="rounded-full bg-[#0E7490]/10 px-2.5 py-0.5 text-[10px] font-black text-[#0E7490] sm:text-xs">
+              Chapter 0{activeIdx + 1} / 0{total}
             </div>
-
-            {/* Description */}
-            <p className="mt-0.5 text-[10px] font-bold text-[#0E7490] sm:text-xs">
-              14-Stage CI/CD Security Pipeline · Zero Trust Authentication · Docker
-            </p>
-
-            {/* Tech Badges & Links */}
-            <div className="mt-1.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
-                <NextjsIcon />
-                <span>Next.js 14</span>
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#0E7490]/15 bg-white/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:text-[11px]">
-                <DockerIcon />
-                <span>Docker CI/CD</span>
-              </span>
-              <a
-                href="https://uitm-devops-challenge-team-one.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 rounded-full bg-[#0E7490] px-3 py-0.5 text-[10px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:text-[11px]"
-              >
-                <span>Live Website</span>
-                <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 rounded-full border border-[#0E7490]/20 bg-white/90 px-3 py-0.5 text-[10px] font-black text-[#0C1A20] shadow-xs transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490] sm:text-[11px]"
-              >
-                <span>View Repo</span>
-                <ExternalLink size={11} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-            </div>
-
           </div>
         </div>
 
         {/* Main Grid */}
-        <div className="container relative z-30 mx-auto grid h-full min-h-0 max-w-7xl grid-rows-[auto_minmax(0,1fr)] items-center gap-3 px-4 py-2 sm:gap-8 sm:px-6 lg:grid-cols-12 lg:grid-rows-1 lg:gap-12">
+        <div className="container relative z-30 mx-auto flex h-full min-h-0 max-w-7xl flex-col justify-evenly gap-3 py-2 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-12">
           
-          {/* LEFT COLUMN */}
-          <div className="relative flex min-h-0 items-center sm:min-h-[300px] lg:col-span-5 lg:min-h-[380px]">
+          {/* LEFT / TOP: Active Text Block */}
+          <div className="relative flex min-h-0 shrink-0 flex-col items-center text-center lg:items-start lg:text-left lg:col-span-5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentChapter.id}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
+                exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2, ease: 'easeOut' }}
-                className="flex w-full max-w-xl flex-col justify-center space-y-3 transform-gpu sm:space-y-6 lg:space-y-7"
+                className="flex w-full max-w-xl flex-col items-center text-center lg:items-start lg:text-left space-y-1.5 xs:space-y-2 sm:space-y-4 lg:space-y-6 transform-gpu"
               >
-                <h4 className="text-2xl font-black leading-[1.05] tracking-tight text-[#06B6D4] sm:text-4xl md:text-5xl lg:text-[52px]">
+                {/* Badge */}
+                <div>
+                  <span className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-[#0E7490] sm:text-xs">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4]" />
+                    {currentChapter.badge}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h4 className="text-xl font-black leading-tight tracking-tight text-[#06B6D4] xs:text-2xl sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-[1.08]">
                   {currentChapter.title}
                 </h4>
 
-                <p className="text-sm font-medium leading-relaxed text-[#0C1A20]/85 sm:text-lg md:text-xl">
+                {/* Paragraph */}
+                <p className="text-xs font-medium leading-relaxed text-[#0C1A20]/85 sm:text-base md:text-lg max-w-md lg:max-w-none">
                   {currentChapter.paragraph}
                 </p>
 
-                <div className="pt-0 sm:pt-2">
-                  <div className="inline-flex items-center gap-2 rounded-xl border border-[#06B6D4]/30 bg-[#0E7490] px-3 py-2 text-[11px] font-black text-white shadow-md sm:gap-2.5 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-sm">
-                    <CheckCircle2 size={16} className="text-white shrink-0" />
+                {/* Feature Pill */}
+                <div className="pt-0.5 sm:pt-2">
+                  <div className="inline-flex items-center gap-1.5 rounded-xl border border-[#06B6D4]/30 bg-[#0E7490] px-3 py-1.5 text-[10px] font-black text-white shadow-md sm:gap-2.5 sm:rounded-2xl sm:px-4 sm:py-2.5 sm:text-xs md:text-sm">
+                    <CheckCircle2 size={14} className="text-white shrink-0 sm:size-[16px]" />
                     <span>{currentChapter.pill}</span>
                   </div>
                 </div>
@@ -909,9 +986,9 @@ const RentVerseShowcaseSection: React.FC = () => {
             </AnimatePresence>
           </div>
 
-          {/* RIGHT COLUMN: Upright Pristine Laptop Cascade */}
-          <div className="relative flex min-h-0 items-center justify-center sm:min-h-[280px] lg:col-span-7 lg:min-h-[320px]">
-            <div className="relative flex h-[200px] w-full items-center justify-center sm:h-[300px] lg:h-[320px]">
+          {/* RIGHT / BOTTOM: Upright Laptop Stage */}
+          <div className="relative flex min-h-0 flex-1 items-center justify-center lg:col-span-7">
+            <div className="relative flex h-[230px] xs:h-[260px] w-full items-center justify-center sm:h-[320px] lg:h-[340px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => {
                   if (chap.device === 'raw') {
@@ -956,13 +1033,13 @@ const RentVerseShowcaseSection: React.FC = () => {
         </div>
 
         {/* Bottom Section Footer */}
-        <div className="container relative z-40 mx-auto flex max-w-7xl shrink-0 items-center justify-between border-t border-[#0E7490]/15 px-4 pt-2 sm:px-6">
+        <div className="container relative z-40 mx-auto flex max-w-7xl shrink-0 items-center justify-between border-t border-[#0E7490]/15 pt-2 sm:pt-3">
           <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-[#0C1A20]/60 sm:gap-2 sm:text-xs sm:tracking-widest">
             <span>RentVerse Platform</span>
             <span>•</span>
             <span className="text-[#0E7490]">DevSecOps Architecture</span>
           </div>
-          <div className="w-36 sm:w-56 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
+          <div className="w-28 xs:w-36 sm:w-56 h-1 rounded-full bg-[#0E7490]/20 overflow-hidden">
             <motion.div
               className="h-full rounded-full bg-[#0E7490] transform-gpu"
               style={{ width: barWidth }}
@@ -982,24 +1059,24 @@ const FlagshipScrollytelling: React.FC = () => {
     <div className="w-full bg-[#F5F9FA]">
       
       {/* ── Section Intro Header (Static Document Flow) ──────── */}
-      <div className="pt-24 pb-16 relative overflow-hidden">
+      <div className="pt-20 pb-10 sm:pt-24 sm:pb-16 relative overflow-hidden">
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8">
             <div>
-              <div className="text-[13px] font-extrabold uppercase tracking-widest text-[#06B6D4] mb-3 flex items-center gap-2">
+              <div className="text-[12px] sm:text-[13px] font-extrabold uppercase tracking-widest text-[#06B6D4] mb-2 sm:mb-3 flex items-center gap-2">
                 <Sparkles size={14} />
                 <span>FEATURED WORK</span>
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#0C1A20] tracking-tight leading-[1.05]">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#0C1A20] tracking-tight leading-[1.05]">
                 Selected Flagship Projects
               </h2>
-              <p className="text-[#0C1A20]/75 text-sm sm:text-base md:text-lg mt-3 max-w-2xl font-normal leading-relaxed">
+              <p className="text-[#0C1A20]/75 text-xs sm:text-base md:text-lg mt-2 sm:mt-3 max-w-2xl font-normal leading-relaxed">
                 High-impact software solutions engineered with robust architecture, AI integration, and enterprise DevSecOps standards.
               </p>
             </div>
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-[#0E7490]/25 shadow-xs hover:shadow-md hover:border-[#06B6D4] text-xs font-bold text-[#0C1A20] hover:text-[#0E7490] transition-all group shrink-0"
+              className="inline-flex items-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full bg-white border border-[#0E7490]/25 shadow-xs hover:shadow-md hover:border-[#06B6D4] text-xs font-bold text-[#0C1A20] hover:text-[#0E7490] transition-all group shrink-0 self-start md:self-auto"
             >
               <span>View All Projects</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -1008,10 +1085,16 @@ const FlagshipScrollytelling: React.FC = () => {
         </div>
       </div>
 
-      {/* ── Beruang AI Centerpiece (Upright Natural Cascade) ── */}
+      {/* ── Beruang AI Project Header (Document Flow) ── */}
+      <BeruangProjectHeader />
+
+      {/* ── Beruang AI Showcase Stage ── */}
       <BeruangShowcaseSection />
 
-      {/* ── RentVerse Secondary Showcase ── */}
+      {/* ── RentVerse DevSecOps Project Header (Document Flow) ── */}
+      <RentVerseProjectHeader />
+
+      {/* ── RentVerse Secondary Showcase Stage ── */}
       <RentVerseShowcaseSection />
 
     </div>
