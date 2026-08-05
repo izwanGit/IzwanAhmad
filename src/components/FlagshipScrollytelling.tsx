@@ -686,7 +686,7 @@ const BeruangShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="Beruang AI Financial Platform Showcase"
     >
-      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] px-4 pb-3 pt-14 sm:px-6 sm:pb-4 sm:pt-16 lg:px-8 lg:pb-4 lg:pt-16">
+      <div className="sticky top-0 flex h-[100svh] w-full flex-col overflow-hidden bg-[#F5F9FA] px-4 pb-2 pt-14 sm:px-6 sm:pb-3 sm:pt-16 lg:px-8 lg:pb-4 lg:pt-16">
         
         {/* Shared background atmosphere */}
         <div
@@ -706,7 +706,7 @@ const BeruangShowcaseSection: React.FC = () => {
         />
 
         {/* Top Header inside Sticky Stage — Clean Chapter Header Bar */}
-        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 pb-1 border-b border-[#0E7490]/10 sm:pb-2">
+        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 mb-2 pb-1.5 border-b border-[#0E7490]/10 sm:mb-3 sm:pb-2">
           <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-[#0E7490] sm:text-xs">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="h-2 w-2 rounded-full bg-[#06B6D4] animate-pulse" />
@@ -720,10 +720,10 @@ const BeruangShowcaseSection: React.FC = () => {
         </div>
 
         {/* Main Showcase Grid */}
-        <div className="container relative z-30 mx-auto flex h-full min-h-0 max-w-7xl flex-col justify-evenly gap-3 py-2 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-12">
+        <div className="container relative z-30 mx-auto flex min-h-0 max-w-7xl flex-1 flex-col gap-2 sm:gap-4 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-12">
           
           {/* LEFT / TOP: Active Text Block */}
-          <div className="relative flex min-h-0 shrink-0 flex-col items-center text-center lg:items-start lg:text-left lg:col-span-5">
+          <div className="relative flex shrink-0 flex-col items-center text-center lg:items-start lg:text-left lg:col-span-5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentChapter.id}
@@ -731,7 +731,7 @@ const BeruangShowcaseSection: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2, ease: 'easeOut' }}
-                className="flex w-full max-w-xl flex-col items-center text-center lg:items-start lg:text-left space-y-1.5 xs:space-y-2 sm:space-y-4 lg:space-y-6 transform-gpu"
+                className="flex w-full max-w-xl flex-col items-center text-center lg:items-start lg:text-left space-y-1 sm:space-y-3 lg:space-y-5 transform-gpu"
               >
                 {/* Badge */}
                 <div>
@@ -742,17 +742,17 @@ const BeruangShowcaseSection: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h4 className="text-xl font-black leading-tight tracking-tight text-[#06B6D4] xs:text-2xl sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-[1.08]">
+                <h4 className="text-xl font-black leading-tight tracking-tight text-[#06B6D4] sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-[1.08]">
                   {currentChapter.title}
                 </h4>
 
                 {/* Paragraph */}
-                <p className="text-xs font-medium leading-relaxed text-[#0C1A20]/85 sm:text-base md:text-lg max-w-md lg:max-w-none">
+                <p className="text-xs font-medium leading-relaxed text-[#0C1A20]/80 sm:text-base md:text-lg max-w-md lg:max-w-none">
                   {currentChapter.paragraph}
                 </p>
 
                 {/* Feature Pill */}
-                <div className="pt-0.5 sm:pt-2">
+                <div>
                   <div className="inline-flex items-center gap-1.5 rounded-xl border border-[#06B6D4]/30 bg-[#0E7490] px-3 py-1.5 text-[10px] font-black text-white shadow-md sm:gap-2.5 sm:rounded-2xl sm:px-4 sm:py-2.5 sm:text-xs md:text-sm">
                     <CheckCircle2 size={14} className="text-white shrink-0 sm:size-[16px]" />
                     <span>{currentChapter.pill}</span>
@@ -764,7 +764,7 @@ const BeruangShowcaseSection: React.FC = () => {
 
           {/* RIGHT / BOTTOM: Upright Phone Stage */}
           <div className="relative flex min-h-0 flex-1 items-center justify-center lg:col-span-7">
-            <div className="relative flex h-[270px] xs:h-[300px] w-full items-center justify-center sm:h-[360px] md:h-[400px] lg:h-[420px]">
+            <div className="relative flex h-full w-full items-center justify-center sm:h-[360px] md:h-[400px] lg:h-[420px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => (
                   <CascadePhoneItem
@@ -783,7 +783,7 @@ const BeruangShowcaseSection: React.FC = () => {
         </div>
 
         {/* Bottom Section Footer */}
-        <div className="container relative z-40 mx-auto flex max-w-7xl shrink-0 items-center justify-between border-t border-[#0E7490]/15 pt-2 sm:pt-3">
+        <div className="container relative z-40 mx-auto mt-auto flex max-w-7xl shrink-0 items-center justify-between border-t border-[#0E7490]/15 pt-1.5 sm:pt-2">
           <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-[#0C1A20]/60 sm:gap-2 sm:text-xs sm:tracking-widest">
             <span>Beruang AI Platform</span>
             <span>•</span>
@@ -910,7 +910,7 @@ const RentVerseShowcaseSection: React.FC = () => {
       className="relative w-full border-t border-[#0E7490]/20"
       aria-label="RentVerse Rental Ecosystem Showcase"
     >
-      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#F5F9FA] px-4 pb-3 pt-14 sm:px-6 sm:pb-4 sm:pt-16 lg:px-8 lg:pb-4 lg:pt-16">
+      <div className="sticky top-0 flex h-[100svh] w-full flex-col overflow-hidden bg-[#F5F9FA] px-4 pb-2 pt-14 sm:px-6 sm:pb-3 sm:pt-16 lg:px-8 lg:pb-4 lg:pt-16">
         
         {/* Shared background atmosphere */}
         <div
@@ -930,7 +930,7 @@ const RentVerseShowcaseSection: React.FC = () => {
         />
 
         {/* Top Header inside Sticky Stage — Clean Chapter Header Bar */}
-        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 pb-1 border-b border-[#0E7490]/10 sm:pb-2">
+        <div className="container relative z-40 mx-auto max-w-7xl shrink-0 mb-2 pb-1.5 border-b border-[#0E7490]/10 sm:mb-3 sm:pb-2">
           <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-[#0E7490] sm:text-xs">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="h-2 w-2 rounded-full bg-[#06B6D4] animate-pulse" />
@@ -944,10 +944,10 @@ const RentVerseShowcaseSection: React.FC = () => {
         </div>
 
         {/* Main Grid */}
-        <div className="container relative z-30 mx-auto flex h-full min-h-0 max-w-7xl flex-col justify-evenly gap-3 py-2 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-12">
+        <div className="container relative z-30 mx-auto flex min-h-0 max-w-7xl flex-1 flex-col gap-2 sm:gap-4 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-12">
           
           {/* LEFT / TOP: Active Text Block */}
-          <div className="relative flex min-h-0 shrink-0 flex-col items-center text-center lg:items-start lg:text-left lg:col-span-5">
+          <div className="relative flex shrink-0 flex-col items-center text-center lg:items-start lg:text-left lg:col-span-5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentChapter.id}
@@ -955,7 +955,7 @@ const RentVerseShowcaseSection: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2, ease: 'easeOut' }}
-                className="flex w-full max-w-xl flex-col items-center text-center lg:items-start lg:text-left space-y-1.5 xs:space-y-2 sm:space-y-4 lg:space-y-6 transform-gpu"
+                className="flex w-full max-w-xl flex-col items-center text-center lg:items-start lg:text-left space-y-1 sm:space-y-3 lg:space-y-5 transform-gpu"
               >
                 {/* Badge */}
                 <div>
@@ -966,17 +966,17 @@ const RentVerseShowcaseSection: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h4 className="text-xl font-black leading-tight tracking-tight text-[#06B6D4] xs:text-2xl sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-[1.08]">
+                <h4 className="text-xl font-black leading-tight tracking-tight text-[#06B6D4] sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-[1.08]">
                   {currentChapter.title}
                 </h4>
 
                 {/* Paragraph */}
-                <p className="text-xs font-medium leading-relaxed text-[#0C1A20]/85 sm:text-base md:text-lg max-w-md lg:max-w-none">
+                <p className="text-xs font-medium leading-relaxed text-[#0C1A20]/80 sm:text-base md:text-lg max-w-md lg:max-w-none">
                   {currentChapter.paragraph}
                 </p>
 
                 {/* Feature Pill */}
-                <div className="pt-0.5 sm:pt-2">
+                <div>
                   <div className="inline-flex items-center gap-1.5 rounded-xl border border-[#06B6D4]/30 bg-[#0E7490] px-3 py-1.5 text-[10px] font-black text-white shadow-md sm:gap-2.5 sm:rounded-2xl sm:px-4 sm:py-2.5 sm:text-xs md:text-sm">
                     <CheckCircle2 size={14} className="text-white shrink-0 sm:size-[16px]" />
                     <span>{currentChapter.pill}</span>
@@ -988,7 +988,7 @@ const RentVerseShowcaseSection: React.FC = () => {
 
           {/* RIGHT / BOTTOM: Upright Laptop Stage */}
           <div className="relative flex min-h-0 flex-1 items-center justify-center lg:col-span-7">
-            <div className="relative flex h-[230px] xs:h-[260px] w-full items-center justify-center sm:h-[320px] lg:h-[340px]">
+            <div className="relative flex h-full w-full items-center justify-center sm:h-[320px] lg:h-[340px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 {reversedChapters.map(({ chap, idx }) => {
                   if (chap.device === 'raw') {
@@ -1033,7 +1033,7 @@ const RentVerseShowcaseSection: React.FC = () => {
         </div>
 
         {/* Bottom Section Footer */}
-        <div className="container relative z-40 mx-auto flex max-w-7xl shrink-0 items-center justify-between border-t border-[#0E7490]/15 pt-2 sm:pt-3">
+        <div className="container relative z-40 mx-auto mt-auto flex max-w-7xl shrink-0 items-center justify-between border-t border-[#0E7490]/15 pt-1.5 sm:pt-2">
           <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-[#0C1A20]/60 sm:gap-2 sm:text-xs sm:tracking-widest">
             <span>RentVerse Platform</span>
             <span>•</span>
