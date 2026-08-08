@@ -20,52 +20,6 @@ import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence, 
 import { ArrowRight, Sparkles, Zap, Brain, Lock, Server, CheckCircle2, UserCheck, LayoutDashboard, Wallet, Globe, ShieldCheck, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// ─── Real Official Tech SVG Icons ─────────────────────────────
-
-const ReactIcon = () => (
-  <svg className="w-3.5 h-3.5 shrink-0" viewBox="-11.5 -10.23174 23 20.46348" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
-    <g stroke="#61DAFB" strokeWidth="1" fill="none">
-      <ellipse rx="11" ry="4.2" />
-      <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-      <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-    </g>
-  </svg>
-);
-
-const FirebaseIcon = () => (
-  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3.89 15.672L6.16 3.424c.068-.363.547-.456.748-.154l2.585 3.916 4.394-8.324a.428.428 0 01.768.012l5.632 16.8-20.287-15.672z" fill="#FFCA28" />
-    <path d="M13.887 7.162l-4.394 8.324-2.585-3.916L3.89 15.672 12 21.9l8.287-6.228-6.4-8.51z" fill="#FFA000" />
-    <path d="M12 21.9L3.89 15.672l2.27-12.248c.068-.363.547-.456.748-.154l2.585 3.916L12 21.9z" fill="#F57C00" />
-  </svg>
-);
-
-const PyTorchIcon = () => (
-  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="#EE4C2C" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 0L9.5 2.5l3.5 3.5H7.5C3.36 6 0 9.36 0 13.5S3.36 21 7.5 21H18v-3H7.5C5.01 18 3 15.99 3 13.5S5.01 9 7.5 9H13l-3.5 3.5L12 15l7.5-7.5L12 0z" />
-  </svg>
-);
-
-const NextjsIcon = () => (
-  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <mask id="nextjs-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180">
-      <circle cx="90" cy="90" r="90" fill="black" />
-    </mask>
-    <g mask="url(#nextjs-mask)">
-      <circle cx="90" cy="90" r="90" fill="#0C1A20" />
-      <path d="M149.508 157.52L69.142 54H54V126H67.08V69.756L136.908 160.056C141.48 159.48 145.644 158.616 149.508 157.52Z" fill="white" />
-      <path d="M115.2 54H128.28V126H115.2V54Z" fill="white" />
-    </g>
-  </svg>
-);
-
-const DockerIcon = () => (
-  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="#06B6D4" xmlns="http://www.w3.org/2000/svg">
-    <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm-2.954-5.43h2.118a.185.185 0 00.186-.186V3.575a.185.185 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .103.083.186.185.186zm0 5.43h2.118a.185.185 0 00.186-.185V9.006a.185.185 0 00-.186-.186h-2.118a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm-2.955 0h2.119a.186.186 0 00.185-.185V9.006a.185.185 0 00-.185-.186H8.074a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm0-2.715h2.119a.186.186 0 00.185-.186V6.291a.186.186 0 00-.185-.186H8.074a.185.185 0 00-.185.186v1.887c0 .102.083.186.185.186zm-2.955 2.715h2.119a.186.186 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.119a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm0-2.715h2.119a.186.186 0 00.185-.186V6.291a.186.186 0 00-.185-.186H5.119a.185.185 0 00-.185.186v1.887c0 .102.083.186.185.186zm-2.955 2.715h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H2.164a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm-2.955 0h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186H-.791a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185z" />
-  </svg>
-);
-
 // ─── Data Structures ──────────────────────────────────────────
 
 interface Chapter {
@@ -583,77 +537,164 @@ const CascadeLaptopItem: React.FC<CascadeLaptopProps> = ({
   );
 };
 
-// ─── Beruang Project Header (Normal Document Flow) ─────────────
+// ─── Project Introductions (Normal Document Flow) ──────────────
 
-const BeruangProjectHeader: React.FC = () => {
-  return (
-    <div className="relative w-full border-t border-[#0E7490]/15 bg-gradient-to-b from-[#F5F9FA] via-white/80 to-[#F5F9FA] py-10 sm:py-14">
-      <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          
-          {/* Logo with Ambient Cyan Aura */}
-          <div className="mb-3 relative flex items-center justify-center sm:mb-4">
-            <div className="absolute inset-0 rounded-full bg-[#06B6D4]/20 blur-xl scale-125 pointer-events-none" />
-            <div className="relative h-16 w-16 sm:h-20 sm:w-20 p-2 rounded-2xl bg-white/90 border border-[#0E7490]/25 shadow-md backdrop-blur-sm">
-              <img
-                src="/images/beruang/logo.png"
-                alt="Beruang AI Logo"
-                className="h-full w-full object-contain filter drop-shadow-md"
-              />
+interface ProjectIntroProof {
+  value: string;
+  label: string;
+}
+
+interface ProjectIntroAction {
+  label: string;
+  href: string;
+  primary?: boolean;
+}
+
+interface ProjectIntroProps {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  logo: string;
+  logoAlt: string;
+  awardImage: string;
+  proofIcon: React.ElementType;
+  proofs: [ProjectIntroProof, ProjectIntroProof];
+  stack: string;
+  actions: ProjectIntroAction[];
+}
+
+const ProjectIntro: React.FC<ProjectIntroProps> = ({
+  id,
+  eyebrow,
+  title,
+  description,
+  logo,
+  logoAlt,
+  awardImage,
+  proofIcon: ProofIcon,
+  proofs,
+  stack,
+  actions,
+}) => (
+  <section
+    aria-labelledby={`${id}-title`}
+    className="relative overflow-hidden border-t border-border bg-background"
+  >
+    <div className="pointer-events-none absolute inset-0 bg-hero-wash opacity-80" aria-hidden="true" />
+
+    <div className="container relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-12 lg:gap-12 lg:py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        className="relative flex min-h-52 items-center justify-center transform-gpu sm:min-h-64 lg:col-span-4 lg:min-h-72"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-hero-journey-halo" aria-hidden="true" />
+        <div className="relative h-52 w-full max-w-sm sm:h-64 lg:h-72">
+          <img
+            src={awardImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute bottom-0 right-2 h-40 w-40 object-contain sm:right-4 sm:h-52 sm:w-52 lg:right-0 lg:h-60 lg:w-60"
+          />
+          <img
+            src={logo}
+            alt={logoAlt}
+            className="absolute bottom-6 left-4 z-10 h-28 w-28 object-contain drop-shadow-xl sm:bottom-8 sm:left-6 sm:h-36 sm:w-36 lg:left-0 lg:h-40 lg:w-40"
+          />
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.32, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+        className="transform-gpu lg:col-span-8"
+      >
+        <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary">
+          <ProofIcon className="h-4 w-4 text-accent" aria-hidden="true" />
+          <span>{eyebrow}</span>
+        </div>
+
+        <h3
+          id={`${id}-title`}
+          className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+        >
+          {title}
+        </h3>
+
+        <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-muted-foreground sm:text-base lg:text-lg">
+          {description}
+        </p>
+
+        <dl className="mt-6 grid grid-cols-2 border-y border-border sm:mt-8">
+          {proofs.map((proof, index) => (
+            <div
+              key={proof.label}
+              className={`min-w-0 py-4 ${index === 0 ? 'border-r border-border pr-4' : 'pl-4 sm:pl-6'}`}
+            >
+              <dt className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                {proof.label}
+              </dt>
+              <dd className="mt-1 text-lg font-black leading-snug tracking-tight text-foreground sm:text-2xl">
+                {proof.value}
+              </dd>
             </div>
-          </div>
+          ))}
+        </dl>
 
-          {/* Title + Badge */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
-            <h3 className="text-lg font-black tracking-tight text-[#0C1A20] sm:text-2xl lg:text-3xl">
-              Beruang: AI Hybrid Powered Finance Application
-            </h3>
-            <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-3 sm:py-1 sm:text-xs">
-              5 GitHub Repos
-            </span>
-          </div>
-
-          {/* Subtitle */}
-          <p className="text-xs font-bold text-[#0E7490] sm:text-sm md:text-base max-w-2xl mb-4 sm:mb-5">
-            Mobile App · AI Microservices · Express Server · RAG Engine · 99.61% Accuracy
+        <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs font-extrabold uppercase tracking-wider text-primary sm:text-sm">
+            {stack}
           </p>
 
-          {/* Tech Pills & Live Demo */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
-              <ReactIcon />
-              <span>React Native</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
-              <PyTorchIcon />
-              <span>PyTorch</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
-              <FirebaseIcon />
-              <span>Firebase RAG</span>
-            </span>
-            <a
-              href="https://beruang-landing.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 rounded-full bg-[#0E7490] px-4 py-1 text-[11px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:px-4 sm:py-1.5 sm:text-xs"
-            >
-              <span>Live Demo</span>
-              <ExternalLink size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
+          <div className="flex gap-2">
+            {actions.map((action) => (
+              <a
+                key={action.label}
+                href={action.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full px-4 text-xs font-black transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:flex-none sm:text-sm ${
+                  action.primary
+                    ? 'bg-primary text-primary-foreground shadow-hero-cta hover:-translate-y-0.5 hover:bg-primary-hover'
+                    : 'border border-borderStrong bg-card text-foreground hover:-translate-y-0.5 hover:border-primary hover:text-primary'
+                }`}
+              >
+                <span>{action.label}</span>
+                <ExternalLink className="h-4 w-4 transition-transform duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+              </a>
+            ))}
           </div>
-
-          {/* Subtle Hint */}
-          <div className="mt-5 flex items-center gap-2 text-[10px] font-bold text-[#0E7490]/70 uppercase tracking-widest sm:mt-6 sm:text-[11px]">
-            <span>Scroll to explore architecture chapters</span>
-            <span className="animate-bounce">↓</span>
-          </div>
-
         </div>
-      </div>
+      </motion.div>
     </div>
-  );
-};
+  </section>
+);
+
+const BeruangProjectHeader: React.FC = () => (
+  <ProjectIntro
+    id="beruang-project"
+    eyebrow="Beruang · Award-winning AI finance"
+    title="Financial intelligence, built to feel human."
+    description="A mobile finance ecosystem that turns everyday spending data into clear, personal guidance through secure AI services and retrieval-augmented advice."
+    logo="/images/beruang/logo.png"
+    logoAlt="Beruang AI"
+    awardImage="/images/showcase-awards/beruang-award.webp"
+    proofIcon={Sparkles}
+    proofs={[
+      { value: '99.61%', label: 'AI accuracy' },
+      { value: 'Best System Architecture', label: 'Award recognition' },
+    ]}
+    stack="React Native · PyTorch · Firebase RAG"
+    actions={[
+      { label: 'Explore live demo', href: 'https://beruang-landing.vercel.app/', primary: true },
+    ]}
+  />
+);
 
 // ─── Beruang Showcase Section (Upright Cascade) ────────────────
 
@@ -804,80 +845,27 @@ const BeruangShowcaseSection: React.FC = () => {
 
 // ─── RentVerse Project Header (Normal Document Flow) ───────────
 
-const RentVerseProjectHeader: React.FC = () => {
-  return (
-    <div className="relative w-full border-t border-[#0E7490]/15 bg-gradient-to-b from-[#F5F9FA] via-white/80 to-[#F5F9FA] py-10 sm:py-14">
-      <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          
-          {/* Logo with Ambient Cyan Aura */}
-          <div className="mb-3 relative flex items-center justify-center sm:mb-4">
-            <div className="absolute inset-0 rounded-full bg-[#06B6D4]/20 blur-xl scale-125 pointer-events-none" />
-            <div className="relative h-14 w-14 sm:h-18 sm:w-18 p-2 rounded-2xl bg-white/90 border border-[#0E7490]/25 shadow-md backdrop-blur-sm">
-              <img
-                src="/images/rentverse/logo.png"
-                alt="RentVerse Logo"
-                className="h-full w-full object-contain filter drop-shadow-md"
-              />
-            </div>
-          </div>
-
-          {/* Title + Badge */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
-            <h3 className="text-lg font-black tracking-tight text-[#0C1A20] sm:text-2xl lg:text-3xl">
-              RentVerse: DevSecOps Enterprise Rental Ecosystem
-            </h3>
-            <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.14em] text-[#0E7490] sm:px-3 sm:py-1 sm:text-xs">
-              DevSecOps Winner
-            </span>
-          </div>
-
-          {/* Subtitle */}
-          <p className="text-xs font-bold text-[#0E7490] sm:text-sm md:text-base max-w-2xl mb-4 sm:mb-5">
-            14-Stage CI/CD Security Pipeline · Zero Trust Authentication · Docker
-          </p>
-
-          {/* Tech Pills & Live Website / Repo */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
-              <NextjsIcon />
-              <span>Next.js 14</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/15 bg-white/90 px-3 py-1 text-[11px] font-extrabold text-[#0C1A20] shadow-xs backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs">
-              <DockerIcon />
-              <span>Docker CI/CD</span>
-            </span>
-            <a
-              href="https://uitm-devops-challenge-team-one.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 rounded-full bg-[#0E7490] px-4 py-1 text-[11px] font-black text-white shadow-xs transition duration-150 hover:-translate-y-0.5 hover:bg-[#06B6D4] sm:px-4 sm:py-1.5 sm:text-xs"
-            >
-              <span>Live Website</span>
-              <ExternalLink size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href="https://github.com/izwanGit/uitm-devops-challenge_TeamOne"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 rounded-full border border-[#0E7490]/20 bg-white/90 px-4 py-1 text-[11px] font-black text-[#0C1A20] shadow-xs transition duration-150 hover:-translate-y-0.5 hover:border-[#06B6D4] hover:text-[#0E7490] sm:px-4 sm:py-1.5 sm:text-xs"
-            >
-              <span>View Repo</span>
-              <ExternalLink size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-          </div>
-
-          {/* Subtle Hint */}
-          <div className="mt-5 flex items-center gap-2 text-[10px] font-bold text-[#0E7490]/70 uppercase tracking-widest sm:mt-6 sm:text-[11px]">
-            <span>Scroll to explore architecture chapters</span>
-            <span className="animate-bounce">↓</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  );
-};
+const RentVerseProjectHeader: React.FC = () => (
+  <ProjectIntro
+    id="rentverse-project"
+    eyebrow="RentVerse · National champion platform"
+    title="Secure renting, engineered end to end."
+    description="A full-stack rental ecosystem where calm product design meets zero-trust authentication, automated delivery, and production-grade security."
+    logo="/images/rentverse/logo.png"
+    logoAlt="RentVerse"
+    awardImage="/images/showcase-awards/rentverse-award.webp"
+    proofIcon={ShieldCheck}
+    proofs={[
+      { value: '4 awards', label: 'National champion' },
+      { value: '14 stages', label: 'Secure CI/CD pipeline' },
+    ]}
+    stack="Next.js 14 · Docker · Zero Trust"
+    actions={[
+      { label: 'Visit live website', href: 'https://uitm-devops-challenge-team-one.vercel.app/', primary: true },
+      { label: 'View source', href: 'https://github.com/izwanGit/uitm-devops-challenge_TeamOne' },
+    ]}
+  />
+);
 
 // ─── RentVerse Secondary Showcase Section ─────────────────────
 
